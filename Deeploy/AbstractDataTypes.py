@@ -209,6 +209,10 @@ class IntegerImmediate(Immediate[Union[int, Iterable[int]], _ImmediateType]):
         else:
             return 0
 
+    @_classproperty
+    def nLevels(cls) -> int:
+        return cls.typeMax - cls.typeMin + 1
+
     @classmethod
     def partialOrderUpcast(cls, otherCls: Type[Immediate]) -> bool:
         if issubclass(otherCls, IntegerImmediate):
@@ -233,6 +237,10 @@ class IntegerImmediate(Immediate[Union[int, Iterable[int]], _ImmediateType]):
         if _min < cls.typeMin:
             return False
         return True
+
+    @classmethod
+    def checkNumLevels(cls, nLevels: int, signed: bool) -> bool:
+        return nLevels <= (cls.typeMax - cls.typeMin + 1)
 
 
 class FloatImmediate(Immediate[Union[float, Iterable[float]], _ImmediateType]):
@@ -352,6 +360,10 @@ class Pointer(BaseType[Optional[str], _PointerType]):
         else:
             value = _value
         return cls.checkValue(value, ctxt)
+
+    @classmethod
+    def checkNumLevels(cls, nLevels: int, signed: bool) -> bool:
+        return cls.referencedType.checkNumLevels(nLevels, signed)
 
     def __init__(self, _value: Union[Optional[str], Pointer], ctxt: Optional[_NetworkContext] = None):
         """Initializes a pointer to a registered object in the NetworkContext
