@@ -68,9 +68,11 @@ class ChimeraStructBuffer(StructBuffer):
     deallocTemplate = NodeTemplate("")
 
 
-ChimeraOptimizer = TopologyOptimizer([
-    # JUNGVI: Nothing for now
-])
+ChimeraOptimizer = TopologyOptimizer(
+    [
+        # JUNGVI: Nothing for now
+    ],
+    name = "ChimeraOptimizer")
 
 _includeList = [
     "uart.h",

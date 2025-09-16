@@ -160,7 +160,8 @@ SnitchOptimizer = TopologyOptimizer([
     MergeConstAddAndRequantPass(),
     AddRequantMergePass(),
     GEMMRequantMergePass(),
-])
+],
+                                    name = "SnitchOptimizer")
 
 _includeList = [
     "snrt.h",
