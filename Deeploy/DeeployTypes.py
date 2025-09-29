@@ -280,7 +280,12 @@ class VariableBuffer():
         self.alias_of: List[str] = alias_of if alias_of is not None else []
 
     def _bufferRepresentation(self) -> Dict:
-        return {"type": self._instance, "name": self.name, "size": int(np.prod(self.shape))}
+        # Safely compute number of elements even if shape contains symbolic/non-int dims
+        try:
+            numel = int(np.prod([int(d) if isinstance(d, (int, np.integer)) else 1 for d in self.shape]))
+        except Exception:
+            numel = 1
+        return {"type": self._instance, "name": self.name, "size": numel}
 
     def init(self) -> str:
         """Return a string representation of the C code to declare this memory buffer
@@ -2949,7 +2954,11 @@ class NetworkContainer():
                     node.name = self.ctxt._mangle(node.name)
                     callStack += "extern " + node.init()
                     # SCHEREMO: Borderline hacky, but on the okay side of things, I think
-                    callStack += "static const uint32_t " + node.name + "_len" + " = " + str(np.prod(node.shape)) + ";"
+                    try:
+                        _numel = int(np.prod([int(d) if isinstance(d, (int, np.integer)) else 1 for d in node.shape]))
+                    except Exception:
+                        _numel = 1
+                    callStack += "static const uint32_t " + node.name + "_len" + " = " + str(_numel) + ";"
                     node.name = name
 
         callStack += "static const uint32_t " + self.ctxt._mangle("num_inputs") + f" = {len(inputs)};"
@@ -2962,7 +2971,11 @@ class NetworkContainer():
 
         numBytes = []
         for node in inputs:
-            numBytes.append(str(np.prod(node.shape) * node._type.referencedType.typeWidth // 8))
+            try:
+                _numel = int(np.prod([int(d) if isinstance(d, (int, np.integer)) else 1 for d in node.shape]))
+            except Exception:
+                _numel = 1
+            numBytes.append(str(_numel * node._type.referencedType.typeWidth // 8))
         callStack += ", ".join(numBytes)
 
         callStack += "};"
@@ -2971,7 +2984,11 @@ class NetworkContainer():
 
         numBytes = []
         for node in outputs:
-            numBytes.append(str(np.prod(node.shape) * node._type.referencedType.typeWidth // 8))
+            try:
+                _numel = int(np.prod([int(d) if isinstance(d, (int, np.integer)) else 1 for d in node.shape]))
+            except Exception:
+                _numel = 1
+            numBytes.append(str(_numel * node._type.referencedType.typeWidth // 8))
         callStack += ", ".join(numBytes)
 
         callStack += "};"

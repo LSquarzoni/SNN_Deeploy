@@ -39,15 +39,16 @@ from Deeploy.Targets.Generic.Templates import AddTemplate, ConcatTemplate, ConvT
     DequantTemplate, DummyTemplate, DWConvTemplate, FloatAddTemplate, FloatConvTemplate, FloatDivTemplate, \
     FloatDWConvTemplate, FloatGELUTemplate, FloatGemmTemplate, FloatLayernormTemplate, FloatMatMulTemplate, \
     FloatMaxPoolTemplate, FloatMulTemplate, FloatPadTemplate, FloatReduceMeanTemplate, FloatReluTemplate, \
-    FloatSoftmaxTemplate, GatherTemplate, GemmTemplate, IntegerDivTemplate, ITAMaxTemplate, ITAPartialMaxTemplate, \
-    MatMulTemplate, MaxPoolTemplate, MulTemplate, PadTemplate, QuantTemplate, ReduceMeanTemplate, ReduceSumTemplate, \
-    RequantShiftTemplate, ReshapeTemplate, RQIntegerDivTemplate, RQSiGELUTemplate, SliceTemplate, TransposeTemplate, \
-    iGELUTemplate, iLayernormTemplate, iRMSNormTemplate, iSoftmaxTemplate
+    FloatSoftmaxTemplate, FloatLIFTemplate, GatherTemplate, GemmTemplate, IntegerDivTemplate, ITAMaxTemplate, \
+    ITAPartialMaxTemplate, MatMulTemplate, MaxPoolTemplate, MulTemplate, PadTemplate, QuantTemplate, \
+    ReduceMeanTemplate, ReduceSumTemplate, RequantShiftTemplate, ReshapeTemplate, RQIntegerDivTemplate, \
+    RQSiGELUTemplate, SliceTemplate, TransposeTemplate, iGELUTemplate, iLayernormTemplate, iRMSNormTemplate, \
+    iSoftmaxTemplate
 from Deeploy.Targets.Generic.TypeCheckers import AddChecker, ConcatChecker, ConvChecker, DebugPrintChecker, \
     DequantChecker, DivChecker, DummyChecker, GatherChecker, GELUChecker, GEMMChecker, LayerNormChecker, \
     MatMulChecker, MaxPoolChecker, MulChecker, PadChecker, QuantChecker, ReduceMeanChecker, ReduceSumChecker, \
     ReluChecker, RequantShiftChecker, ReshapeChecker, RQIntegerDivChecker, SliceChecker, SoftmaxChecker, \
-    TransposeChecker
+    TransposeChecker, LIFChecker
 
 BasicTransformer = CodeTransformation([ArgumentStructGeneration(), MemoryManagementGeneration(), FutureGeneration()])
 
@@ -219,6 +220,23 @@ BasicReduceSumBindings = [
 
 BasicReluBinding = NodeBinding(ReluChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
                                FloatReluTemplate.referenceTemplate, BasicTransformer)
+
+# LIF: inputs (input, mem_in, beta, threshold) -> outputs (spike_out, mem_out)
+BasicLIFBindings = [
+    NodeBinding(
+        LIFChecker([
+            PointerClass(float32_t),  # input
+            PointerClass(float32_t),  # mem_in
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(float32_t),  # spike_out
+            PointerClass(float32_t)   # mem_out
+        ]),
+        FloatLIFTemplate.referenceTemplate,
+        BasicTransformer
+    )
+]
 
 BasicReshapeBindings = [
     NodeBinding(ReshapeChecker([PointerClass(type), PointerClass(int32_t)], [PointerClass(type)]),

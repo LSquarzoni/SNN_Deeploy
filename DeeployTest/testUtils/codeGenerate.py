@@ -101,6 +101,9 @@ def generateTestInputsHeader(deployer: NetworkDeployer, test_inputs: List) -> st
 def generateTestOutputsHeader(deployer: NetworkDeployer, test_outputs: List[np.ndarray]) -> str:
     retStr = ""
     for index, values in enumerate(test_outputs):
+        # Concretize output buffer shape from provided expected outputs
+        if deployer.ctxt.is_buffer(f'output_{index}'):
+            deployer.ctxt.lookup(f'output_{index}').shape = list(values.shape)
         typeName = deployer.ctxt.lookup(f'output_{index}')._type.referencedType.typeName
         typeWidth = deployer.ctxt.lookup(f'output_{index}')._type.referencedType.typeWidth
 

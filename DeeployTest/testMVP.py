@@ -27,7 +27,7 @@ import argparse
 import os
 import sys
 from collections import OrderedDict
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 import numpy as np
 import onnx
@@ -38,8 +38,10 @@ from testUtils.graphDebug import generateDebugConfig
 from testUtils.platformMapping import mapDeployer, mapPlatform, setupMemoryPlatform
 from testUtils.testRunner import TestGeneratorArgumentParser
 from testUtils.tilingUtils import DBOnlyL3Tiler, DBTiler, SBTiler
-from testUtils.typeMapping import inferTypeAndOffset
+from testUtils.typeMapping import inferTypeAndOffset, parseDataType
 
+from Deeploy.AbstractDataTypes import PointerClass
+from Deeploy.CommonExtensions.DataTypes import IntegerDataTypes
 from Deeploy.DeeployTypes import CodeGenVerbosity, NetworkDeployer, ONNXLayer
 from Deeploy.EngineExtension.NetworkDeployers.EngineColoringDeployer import EngineColoringDeployerWrapper
 from Deeploy.Logging import DEFAULT_LOGGER as log
@@ -76,19 +78,22 @@ def _filterSchedule(schedule: List[List[gs.Node]], layerBinding: 'OrderedDict[st
 
 
 def setupDeployer(graph: gs.Graph, memoryHierarchy: MemoryHierarchy, defaultTargetMemoryLevel: MemoryLevel,
-                  defaultIoMemoryLevel: MemoryLevel, verbose: CodeGenVerbosity,
-                  args: argparse.Namespace) -> Tuple[NetworkDeployer, bool]:
+                  defaultIoMemoryLevel: MemoryLevel, verbose: CodeGenVerbosity, args: argparse.Namespace,
+                  input_names: List[str], test_inputs: List[np.ndarray], manual_types: Dict[str, any],
+                  manual_offsets: Dict[str, int]) -> Tuple[NetworkDeployer, bool, Dict[str, int]]:
+    """Create and wrap a deployer, honoring manual input type/offset overrides.
 
-    inputTypes = {}
-    inputOffsets = {}
+    Parameters
+    ----------
+    input_names : list of str
+        Names of the model inputs (taken from the NPZ file order).
+    test_inputs : list of np.ndarray
+        Flattened input arrays (float64 for inference of quant types).
+    manual_types / manual_offsets : dict
+        Optional override maps (NAME -> DataType / offset) matching generateNetwork.py semantics.
+    """
 
     _DEEPLOYSTATEDIR = os.path.join(args.dumpdir, "deeployStates")
-
-    inputs = np.load(f'{args.dir}/inputs.npz')
-    tensors = graph.tensors()
-
-    # Load as int64 and infer types later
-    test_inputs = [inputs[x].reshape(-1).astype(np.float64) for x in inputs.files]
 
     platform, signProp = mapPlatform(args.platform)
 
@@ -97,8 +102,35 @@ def setupDeployer(graph: gs.Graph, memoryHierarchy: MemoryHierarchy, defaultTarg
     if args.enableStrides:
         platform.engines[0].enableStrides = True
 
-    for index, num in enumerate(test_inputs):
-        _type, offset = inferTypeAndOffset(num, signProp)
+    # Build input type/offset dicts with manual override logic identical to generateNetwork.py
+    inputTypes: Dict[str, PointerClass] = {}
+    inputOffsets: Dict[str, int] = {}
+
+    manual_keys = set(manual_types)
+    if manual_keys:
+        # Basic sanity (already checked in main, but keep defensive)
+        assert manual_keys == set(manual_offsets)
+    for index, (name, values) in enumerate(zip(input_names, test_inputs)):
+        if np.prod(values.shape) == 0:
+            continue
+        if name in manual_keys:
+            _type = manual_types[name]
+            offset = manual_offsets[name]
+            vals = values.astype(np.int64) - offset
+            if not _type.checkPromotion(vals):
+                lo, hi = _type.typeMin, _type.typeMax
+                raise RuntimeError(f"Provided type '{_type.typeName}' with offset {offset} "
+                                   f"does not match input values in range [{vals.min()}, {vals.max()}] "
+                                   f"(expected range [{lo}, {hi}])")
+            fitting_types = [t for t in sorted(IntegerDataTypes, key = lambda x: x.typeWidth) if t.checkPromotion(vals)]
+            if fitting_types and fitting_types[0] is not _type:
+                log.warning(f"Data spans [{int(vals.min())}, {int(vals.max())}], "
+                            f"which would fit in '{fitting_types[0].typeName}', "
+                            f"but user forced '{_type.typeName}'.")
+            _type = PointerClass(_type)
+        else:
+            _type, offset = inferTypeAndOffset(values, signProp)
+
         inputTypes[f"input_{index}"] = _type
         inputOffsets[f"input_{index}"] = offset
 
@@ -120,7 +152,6 @@ def setupDeployer(graph: gs.Graph, memoryHierarchy: MemoryHierarchy, defaultTarg
         AnnotateIOMemoryLevel(defaultIoMemoryLevel.name),
         AnnotateDefaultMemoryLevel(memoryHierarchy)
     ]
-
     if args.neureka_wmem:
         weightMemoryLevel = memoryHierarchy.memoryLevels["WeightMemory_SRAM"]
         memoryLevelAnnotationPasses.append(
@@ -144,7 +175,7 @@ def setupDeployer(graph: gs.Graph, memoryHierarchy: MemoryHierarchy, defaultTarg
     deployer.tiler.memoryAllocStrategy = args.memAllocStrategy
     deployer.tiler.searchStrategy = args.searchStrategy
 
-    return deployer, signProp
+    return deployer, signProp, inputOffsets
 
 
 if __name__ == '__main__':
@@ -216,6 +247,21 @@ if __name__ == '__main__':
     parser.add_argument('--plotMemAlloc',
                         action = 'store_true',
                         help = 'Turn on plotting of the memory allocation and save it in the deeployState folder\n')
+    # New arguments for manual input type/offset
+    parser.add_argument('--input-type-map',
+                        nargs = '*',
+                        default = [],
+                        type = str,
+                        help = '(Optional) mapping of input names to data types. '
+                        'If not specified, types are inferred from the input data. '
+                        'Example: --input-type-map input_0=int8_t input_1=float32_t ...')
+    parser.add_argument('--input-offset-map',
+                        nargs = '*',
+                        default = [],
+                        type = str,
+                        help = '(Optional) mapping of input names to offsets. '
+                        'If not specified, offsets are set to 0. '
+                        'Example: --input-offset-map input_0=0 input_1=128 ...')
 
     parser.set_defaults(shouldFail = False)
     args = parser.parse_args()
@@ -230,9 +276,6 @@ if __name__ == '__main__':
     onnx_graph = onnx.load_model(f'{args.dir}/network.onnx')
     graph = gs.import_onnx(onnx_graph)
 
-    inputTypes = {}
-    inputOffsets = {}
-
     inputs = np.load(f'{args.dir}/inputs.npz')
     outputs = np.load(f'{args.dir}/outputs.npz')
     if os.path.isfile(f'{args.dir}/activations.npz'):
@@ -240,12 +283,45 @@ if __name__ == '__main__':
     else:
         activations = None
 
+    # build {name, type} and {name, offset} maps
+    manual_types = {}
+    manual_offsets = {}
+    for kv in args.input_type_map:
+        try:
+            name, tstr = kv.split('=', 1)
+        except ValueError as exc:
+            raise ValueError(f"Invalid --input-type-map entry '{kv}'. Expected NAME=TYPE.") from exc
+        name, tstr = name.strip(), tstr.strip()
+        try:
+            manual_types[name] = parseDataType(tstr)
+        except ValueError as exc:
+            raise ValueError(f"Invalid --input-type-map entry '{kv}': {exc}") from exc
+    for kv in args.input_offset_map:
+        try:
+            name, ostr = kv.split('=', 1)
+        except ValueError as exc:
+            raise ValueError(f"Invalid --input-offset-map entry '{kv}'. Expected NAME=OFFSET.") from exc
+        name, ostr = name.strip(), ostr.strip()
+        try:
+            manual_offsets[name] = int(ostr)
+        except ValueError as exc:
+            raise ValueError(f"Invalid --input-offset-map entry '{kv}': OFFSET must be an integer.") from exc
+
+    # Sanity check for unknown input names
+    manual_keys = set(manual_types)
+    assert manual_keys == set(
+        manual_offsets
+    ), f"Override inputs should have both type and offset specified. Inputs without both specified: {manual_keys ^ set(manual_types)}"
+    assert manual_keys <= set(
+        inputs.files
+    ), f"Unknown input names in overrides: {manual_keys - set(inputs.files)} (Valid names are: {set(inputs.files)})"
+
     tensors = graph.tensors()
 
     if args.debug:
         test_inputs, test_outputs, graph = generateDebugConfig(inputs, outputs, activations, graph)
     else:
-        # Load as int64 and infer types later
+        # Load as float64 and infer types later
         test_inputs = [inputs[x].reshape(-1).astype(np.float64) for x in inputs.files]
         test_outputs = [outputs[x].reshape(-1).astype(np.float64) for x in outputs.files]
 
@@ -266,12 +342,17 @@ if __name__ == '__main__':
     memoryHierarchy = MemoryHierarchy(memoryLevels)
     memoryHierarchy.setDefaultMemoryLevel(args.defaultMemLevel)
 
-    deployer, signProp = setupDeployer(graph,
-                                       memoryHierarchy,
-                                       defaultTargetMemoryLevel = L1,
-                                       defaultIoMemoryLevel = memoryHierarchy.memoryLevels[args.defaultMemLevel],
-                                       verbose = verbosityCfg,
-                                       args = args)
+    # Build deployer with new manual override aware setup (types inferred within)
+    deployer, signProp, inputOffsets = setupDeployer(graph,
+                                                     memoryHierarchy,
+                                                     defaultTargetMemoryLevel = L1,
+                                                     defaultIoMemoryLevel = memoryHierarchy.memoryLevels[args.defaultMemLevel],
+                                                     verbose = verbosityCfg,
+                                                     args = args,
+                                                     input_names = list(inputs.files),
+                                                     test_inputs = test_inputs,
+                                                     manual_types = manual_types,
+                                                     manual_offsets = manual_offsets)
 
     platform = deployer.Platform
 
@@ -282,11 +363,6 @@ if __name__ == '__main__':
         log.debug(f" - {engine.name}: {engine}")
 
     log.debug(f"Deployer: {deployer}")
-
-    for index, num in enumerate(test_inputs):
-        _type, offset = inferTypeAndOffset(num, signProp)
-        inputTypes[f"input_{index}"] = _type
-        inputOffsets[f"input_{index}"] = offset
 
     schedule = _filterSchedule(_mockScheduler(graph), deployer.layerBinding)
 

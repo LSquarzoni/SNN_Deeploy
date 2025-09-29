@@ -32,7 +32,7 @@ from typing import Tuple
 import numpy as np
 import onnx_graphsurgeon as gs
 
-from Deeploy.DeeployTypes import NetworkContext, NodeParser, VariableBuffer
+from Deeploy.DeeployTypes import NetworkContext, NodeParser, VariableBuffer, ConstantBuffer
 
 
 class ConcatParser(NodeParser):
@@ -1008,6 +1008,48 @@ class ReluParser(NodeParser):
         self.operatorRepresentation['data_in'] = data_in.name
         self.operatorRepresentation['data_out'] = data_out.name
         self.operatorRepresentation['size'] = np.prod(data_in.shape)
+
+        return ctxt, True
+
+
+class LIFParser(NodeParser):
+
+    def __init__(self):
+        super().__init__()
+
+    def parseNode(self, node: gs.Node) -> (bool):
+        # Expect 4 inputs (input, mem, beta, threshold) and 2 outputs (spike, mem_out)
+        ret = all([len(node.inputs) == 4, len(node.outputs) == 2])
+        return ret
+
+    def parseNodeCtxt(self,
+                      ctxt: NetworkContext,
+                      node: gs.Node,
+                      channels_first: bool = True) -> Tuple[NetworkContext, bool]:
+
+        inputs = ['data_in', 'mem_in', 'beta', 'threshold']
+        outputs = ['spike_out', 'mem_out']
+
+        for idx, inputNode in enumerate(node.inputs):
+            self.operatorRepresentation[inputs[idx]] = ctxt.lookup(inputNode.name).name
+        for idx, outputNode in enumerate(node.outputs):
+            self.operatorRepresentation[outputs[idx]] = ctxt.lookup(outputNode.name).name
+
+        data_in_buf = ctxt.lookup(node.inputs[0].name)
+        # size and dimensions derived from input tensor (N,C,H,W)
+        size = int(np.prod(data_in_buf.shape))
+        self.operatorRepresentation['size'] = size
+        if len(data_in_buf.shape) == 4:
+            self.operatorRepresentation['N'] = int(data_in_buf.shape[0])
+            self.operatorRepresentation['C'] = int(data_in_buf.shape[1 if channels_first else -1])
+            self.operatorRepresentation['H'] = int(data_in_buf.shape[2 if channels_first else 1])
+            self.operatorRepresentation['W'] = int(data_in_buf.shape[3 if channels_first else 2])
+        else:
+            # Fallback treat as flat
+            self.operatorRepresentation['N'] = 1
+            self.operatorRepresentation['C'] = int(data_in_buf.shape[0])
+            self.operatorRepresentation['H'] = 1
+            self.operatorRepresentation['W'] = int(size // self.operatorRepresentation['C'])
 
         return ctxt, True
 
