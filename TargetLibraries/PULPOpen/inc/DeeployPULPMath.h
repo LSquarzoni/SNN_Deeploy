@@ -55,6 +55,7 @@
 #include "kernel/UniformRequantShift.h"
 #include "kernel/gemv.h"
 #include "kernel/iRMSnorm.h"
+#include "kernel/LIF.h"
 
 #define LOG2(x) (__builtin_pulp_fl1(x))
 
