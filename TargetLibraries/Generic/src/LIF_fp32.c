@@ -6,7 +6,7 @@
  *
  * ===================================================================== */
 /*
- * Copyright (C) 2023 ETH Zurich and University of Bologna.
+ * Copyright (C) 2025 ETH Zurich and University of Bologna.
  *
  * Authors:
  * - Lorenzo Squarzoni, University of Bologna

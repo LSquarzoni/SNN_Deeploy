@@ -55,9 +55,9 @@ from Deeploy.Targets.PULPOpen.Templates import ConvTemplate, FloatAddTemplate, F
     FloatReluTemplate, FloatSoftmaxTemplate, GEMMTemplate, MatrixVectorTemplate, MaxPool2DTemplate, MulTemplate, \
     ReduceMeanTemplate, RequantShiftTemplate, ReshapeTemplate, RQAddTemplate, RQSiHardswishTemplate, SGDTemplate, \
     SliceTemplate, SoftmaxCrossEntropyLossTemplate, TallGEMMTemplate, TransposeTemplate, UniformRequantShiftTemplate, \
-    iRMSNormTemplate, iSoftmaxTemplate
+    iRMSNormTemplate, iSoftmaxTemplate, LIFTemplate
 from Deeploy.Targets.PULPOpen.TypeCheckers import PULPConvChecker, PULPLinearChecker, PULPMaxPoolChecker, \
-    PULPRequantShiftChecker
+    PULPRequantShiftChecker, PULPLIFChecker
 from Deeploy.TilingExtension.CodeTransformationPasses.TilingVariableReplacement import TilingVariableReplacement, \
     TilingVariableReplacementUpdate
 
@@ -433,4 +433,21 @@ BasicDequantBindings = [
 ] + [
     NodeBinding(DequantChecker([PointerClass(int32_t)], [PointerClass(float32_t)]), DequantTemplate.referenceTemplate,
                 ForkTransformer),
+]
+
+# LIF: inputs (input, mem_in, beta, threshold) -> outputs (spike_out, mem_out)
+PULPLIFBindings = [
+    NodeBinding(
+        PULPLIFChecker([
+            PointerClass(float32_t),  # input
+            PointerClass(float32_t),  # mem_in
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(float32_t),  # spike_out
+            PointerClass(float32_t)   # mem_out
+        ]),
+        LIFTemplate.referenceTemplate,
+        ForkTransformer
+    )
 ]

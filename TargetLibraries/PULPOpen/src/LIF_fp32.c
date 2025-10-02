@@ -31,7 +31,7 @@
 
 // Parallelization strategy: split channels C across cores. Each core processes
 // a contiguous chunk of channels for all batches and spatial positions.
-// Tensor layout is NCHW: index = ((n * C + c) * H + h) * W + w
+// Tensor layout is NHWC: index = ((n * H + h) * W + w) * C + c
 void PULP_LIF_fp32_fp32(const float32_t *__restrict__ input,
 												const float32_t *__restrict__ mem_in,
 												const float32_t *__restrict__ beta,
@@ -52,29 +52,23 @@ void PULP_LIF_fp32_fp32(const float32_t *__restrict__ input,
 		return;
 	}
 
-	const uint32_t HW = H * W;
-	const uint32_t CHW = C * HW;
-
-	for (uint32_t n = 0; n < N; ++n) {
-		const uint32_t n_base = n * CHW;
-		for (uint32_t c = ch_start; c < ch_end; ++c) {
-			const float32_t beta_val = beta[c];
-			const float32_t thr_val = threshold[c];
-			const uint32_t c_base = n_base + c * HW;
-
-			// Iterate spatially; keep contiguous W accesses innermost
-			for (uint32_t h = 0; h < H; ++h) {
-				const uint32_t hw_base = c_base + h * W;
-				for (uint32_t w = 0; w < W; ++w) {
-					const uint32_t idx = hw_base + w;
-					const float32_t v = beta_val * mem_in[idx] + input[idx];
-					const float32_t spk = v >= thr_val ? 1.0f : 0.0f;
-					spike_out[idx] = spk;
-					// reset-to-zero on spike
-					mem_out[idx] = spk > 0.0f ? 0.0f : v;
+		const uint32_t HC = H * W * C;
+		for (uint32_t n = 0; n < N; ++n) {
+			const uint32_t n_base = n * HC;
+			for (uint32_t c = ch_start; c < ch_end; ++c) {
+				const float32_t beta_val = beta[c];
+				const float32_t thr_val = threshold[c];
+				for (uint32_t h = 0; h < H; ++h) {
+					for (uint32_t w = 0; w < W; ++w) {
+						const uint32_t idx = n_base + ((h * W + w) * C + c);
+						const float32_t v = beta_val * mem_in[idx] + input[idx];
+						const float32_t spk = v >= thr_val ? 1.0f : 0.0f;
+						spike_out[idx] = spk;
+						// reset-to-zero on spike
+						mem_out[idx] = spk > 0.0f ? 0.0f : v;
+					}
 				}
 			}
 		}
-	}
 }
 

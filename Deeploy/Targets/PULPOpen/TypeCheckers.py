@@ -157,3 +157,20 @@ class PULPMaxPoolChecker(SignPropTypeChecker):
     # Override this. This should compute the signednes of each output node of the Layer
     def checkOutputType(self, inputs: List[VariableBuffer], operatorRepresentation: OperatorRepresentation) -> bool:
         return True
+    
+
+class PULPLIFChecker(SignPropTypeChecker):
+
+    def __init__(self, input_types: Sequence[Type[Pointer]], output_types: Sequence[Type[Pointer]]):
+        super().__init__(input_types, output_types)
+
+    def _inferNumLevels(self, inputs: List[VariableBuffer],
+                        operatorRepresentation: OperatorRepresentation) -> List[int]:
+        # Both spike and membrane outputs share same float dynamic for type inference
+        levels = 2**(self.input_types[0].referencedType.typeWidth)
+        return [levels, levels]
+
+    def _inferSignedness(self, inputs: List[VariableBuffer],
+                         operatorRepresentation: OperatorRepresentation) -> List[bool]:
+        # Treat both outputs as non-negative for sign propagation
+        return [False, False]
