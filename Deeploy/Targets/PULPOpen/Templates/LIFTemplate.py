@@ -37,6 +37,6 @@ PULP_LIF_fp32_fp32(
     ${threshold},
     ${spike_out},
     ${mem_out},
-    ${N}, ${C}, ${H}, ${W}
+    ${N}, ${H}, ${W}, ${C}
 );
 """)

@@ -31,16 +31,16 @@
 
 #include "DeeployPULPMath.h"
 
-// PULP-optimized LIF neuron update (fp32, NCHW), parallelized over channels.
-// input      : [N, C, H, W] input current
-// mem_in     : [N, C, H, W] previous membrane
+// PULP-optimized LIF neuron update (fp32, NHWC), parallelized over channels.
+// input      : [N, H, W, C] input current
+// mem_in     : [N, H, W, C] previous membrane
 // beta       : [C]          decay factor per channel (0..1)
 // threshold  : [C]          firing threshold per channel
-// spike_out  : [N, C, H, W] output spikes (0/1)
-// mem_out    : [N, C, H, W] updated membrane potential (reset to 0 on spike)
+// spike_out  : [N, H, W, C] output spikes (0/1)
+// mem_out    : [N, H, W, C] updated membrane potential (reset to 0 on spike)
 void PULP_LIF_fp32_fp32(const float32_t *input, const float32_t *mem_in,
                         const float32_t *beta, const float32_t *threshold,
                         float32_t *spike_out, float32_t *mem_out, uint32_t N,
-                        uint32_t C, uint32_t H, uint32_t W);
+                        uint32_t H, uint32_t W, uint32_t C);
 
 #endif // __DEEPLOY_PULP_MATH_LIF_KERNEL_HEADER_

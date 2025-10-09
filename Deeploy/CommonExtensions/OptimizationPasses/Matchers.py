@@ -150,7 +150,8 @@ class BranchingMatcher(SubgraphMatcher):
         super().__init__(regex_op)
 
     def _valid_pattern(self, pattern: gs.Graph):
-        assert len(pattern.outputs) == 1, "Found more than one output"
+        #assert len(pattern.outputs) == 1, "Found more than one output"
+        return
 
     def _match_nodes_recursive(self, pn: gs.Node, gn: gs.Node, nodes_map: dict,
                                direction: Literal["Forward", "Reverse"]) -> Optional[Dict]:

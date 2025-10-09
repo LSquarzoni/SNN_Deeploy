@@ -29,7 +29,7 @@ from typing import Iterable, List, Optional, Sequence, Tuple, TypeVar, Union
 import numpy as np
 import onnx_graphsurgeon as gs
 
-from Deeploy.CommonExtensions.OptimizationPasses.Matchers import Match
+from Deeploy.CommonExtensions.OptimizationPasses.Matchers import Match, BranchingMatcher
 from Deeploy.CommonExtensions.OptimizationPasses.PassClasses import ReplaceSequentialPatternPass, SequentialPass, \
     contextagnostic
 from Deeploy.TilingExtension.TilingCodegen import HyperRectangle
@@ -352,6 +352,7 @@ class NCHWtoNHWCPass(SequentialPass):
             NCHWtoNHWCMaxPoolPass(default_channels_first),
             NCHWtoNHWCConvPass(default_channels_first),
             NCHWtoNHWCRequantizedConvPass(default_channels_first),
+            
         ]
         super().__init__(*passes)
 
@@ -478,6 +479,66 @@ class PULPNCHWtoNHWCDenseConvPass(ReplaceSequentialPatternPass):
                          name)
 
 
+
+def _NCHWtoNHWCLIF_fun(graph: gs.Graph, match: Match, name: str, default_channels_first: bool = True):
+    matched_nodes = [m for k, m in match.nodes_map.items()]
+    opNode = matched_nodes[0]
+
+    print(f"[LIF_LOWERING] matched LIF '{opNode.name}' inputs={ [i.name for i in opNode.inputs] } outputs={ [o.name for o in opNode.outputs] }")
+
+    # Always wrap LIF once (only for rank >= 4 tensors)
+    def rank_of(t: gs.Tensor) -> Optional[int]:
+        try:
+            return len(t.shape) if isinstance(t.shape, Sequence) else None
+        except Exception:
+            return None
+
+    # Transpose first two 4D inputs: X (input), Vmem_in
+    in_count = min(2, len(opNode.inputs))
+    for i in range(in_count):
+        tin = opNode.inputs[i]
+        r = rank_of(tin)
+        if r is not None and r >= 4:
+            in_perm = _permutationNCHWtoNHWC(r)
+            tnode, tout = _appendTransposeNode(tin, f"{name}_TransposeIn{i}", in_perm)
+            opNode.inputs[i] = tout
+            graph.nodes.append(tnode)
+
+    # Transpose first two 4D outputs: S (spike), Vmem_out
+    out_count = min(2, len(opNode.outputs))
+    for i in range(out_count):
+        tout = opNode.outputs[i]
+        r = rank_of(tout)
+        if r is not None and r >= 4:
+            out_perm = _permutationNHWCtoNCHW(r)
+            tnode, tinp = _prependTransposeNode(tout, f"{name}_TransposeOut{i}", out_perm, invert=True)
+            opNode.outputs[i] = tinp
+            graph.nodes.append(tnode)
+
+    # Mark layout as channels-last to prevent re-wrapping
+    opNode.attrs["channels_first"] = False
+    return graph
+
+
+@contextagnostic
+class PULPNCHWtoNHWCLIFPass(ReplaceSequentialPatternPass):
+    def __init__(self, default_channels_first: bool = True):
+        graph = gs.Graph()
+        x = gs.Variable(name='x')
+        vmem = gs.Variable(name='vmem')
+        beta = gs.Variable(name='beta')
+        threshold = gs.Variable(name='threshold')
+        s = gs.Variable(name='s')
+        v_out = gs.Variable(name='v_out')
+        # Single-output pattern keeps the matcher sequential
+        graph.layer(inputs=[x, vmem, beta, threshold], outputs=[s, v_out], op='LIF', name='lif')
+        graph.inputs.extend([x, vmem, beta, threshold])
+        graph.outputs.extend([s, v_out])
+
+        super().__init__(graph, partial(_NCHWtoNHWCLIF_fun, default_channels_first=default_channels_first),
+                         "_NCHW_TO_NHWC_LIF_PASS", matcher = BranchingMatcher(regex_op = True))
+        
+
 @contextagnostic
 class PULPNCHWtoNHWCPass(SequentialPass):
 
@@ -488,6 +549,7 @@ class PULPNCHWtoNHWCPass(SequentialPass):
             PULPDWConvPass(default_channels_first),
             PULPNCHWtoNHWCDenseConvPass(default_channels_first),
             PULPNCHWtoNHWCDenseRequantizedConvPass(default_channels_first),
+            PULPNCHWtoNHWCLIFPass(default_channels_first),
         ]
         super().__init__(*passes)
 

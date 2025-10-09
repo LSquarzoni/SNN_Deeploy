@@ -512,7 +512,7 @@ class MemoryScheduler():
                 #JUNVI: When using MiniMalloc we don't perform memory allocation with Tiling, hence we don't add the permutation constraints
                 continue
             else:
-                raise ("Unrecognized memory allocation strategy!")
+                raise ValueError("Unrecognized memory allocation strategy!")
 
             self._permutationState[memoryLevel + f"_{patternIdx}"] = permutationMatrix
 

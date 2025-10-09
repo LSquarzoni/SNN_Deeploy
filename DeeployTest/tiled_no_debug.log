@@ -1,0 +1,637 @@
+[Deeploy] Arguments: Namespace(dir='Tests/testSNN_relu', platform='Siracusa', dumpdir='/app/SNN_Deeploy/DeeployTest/TEST_SIRACUSA/Tests/testSNN_relu', verbose=2, debug=False, defaultMemLevel='L2', neureka_wmem=False, enable_3x3=False, enableStrides=False, doublebuffer=False, l1=64000, l2=1024000, shouldFail=False, memAllocStrategy='MiniMalloc', searchStrategy='random-max', profileTiling=True, plotMemAlloc=True, input_type_map=['event_cnt=float32_t'], input_offset_map=['event_cnt=0'])
+[Deeploy] Data spans [0, 2], which would fit in 'int8_t', but user forced 'float32_t'.
+[Deeploy] Platform: MemoryPULPPlatformWrapper(engines=['PULPCluster'], variableBuffer=PULPVariableBuffer, constantBuffer=PULPConstantBuffer, structBuffer=PULPStructBuffer, transientBuffer=PULPTransientBuffer) (sign: False)
+[Deeploy] Platform Engines:
+[Deeploy]  - PULPCluster: PULPClusterEngine(name='PULPCluster', mappings=['Conv', 'RequantizedConv', 'RequantizedGemm', 'Gemm', 'Gelu', 'LayerNormalization', 'MaxPool', 'RequantizediGELU', 'RQIntegerDiv', 'MatMul', 'IntegerMean', 'iSoftmax', 'Softmax', 'ReduceMean', 'ReduceSum', 'RequantShift', 'Add', 'Flatten', 'Gather', 'Mul', 'Pad', 'Relu', 'Reshape', 'Squeeze', 'Transpose', 'Unsqueeze', 'Slice', 'RequantizedAdd', 'Concat', 'iRMSNorm', 'iHardswish', 'RequantizediHardswish', 'Quant', 'Dequant', 'SoftmaxGrad', 'SoftmaxCrossEntropyLoss', 'SoftmaxCrossEntropyLossGrad', 'SGD', 'LIF', 'Constant'])
+[Deeploy] Deployer: TilerDeployerWrapper(name='DeeployNetwork', platform=MemoryPULPPlatformWrapper, inputTypes=['float32_t*'], scheduler=_mockScheduler) (loweringOptimizer: PULPOptimizer, default_channels_first: False)
+[Deeploy] ================================================================================
+[Deeploy] Deeploy FrontEnd
+[Deeploy] ================================================================================
+[Deeploy] - Apply Preprocessing
+[Deeploy]  - Remove Identity Nodes
+[Deeploy]  - Mangle Tensor Names
+[Deeploy]  - Mangle Node Names
+[Deeploy]  - Sanitize Graph Names
+[Deeploy]  - Remove Empty Inputs
+[Deeploy]  - Duplicate Constants
+[Deeploy]  - Constant Folding
+[Deeploy] > Export State to middleware_pre_lowering[.onnx|.pkl]
+[Deeploy] - Perform Graph Lowering
+[Deeploy]  - Apply QuantPatternPass
+[Deeploy]  - Apply DequantPatternPass
+[Deeploy]  - Apply SkipEmptyConcatPass
+[Deeploy]  - Apply SkipUnityRequantPass
+[Deeploy]  - Apply SkipUnityRequantPass
+[Deeploy]  - Apply SkipUnityRequantPass
+[Deeploy]  - Apply RQSSplitPass
+[Deeploy]  - Apply MergeTrueIntegerDivRequantShiftPass
+[Deeploy]  - Apply IntegerDivRequantMergePass
+[Deeploy]  - Apply iGELURequantMergePass
+[Deeploy]  - Apply iHardswishRequantMergePass
+[Deeploy]  - Apply PULPConvRequantMergePass
+[Deeploy]  - Apply MergeConstAddAndRequantPass
+[Deeploy]  - Apply PULPGEMMRequantMergePass
+[Deeploy]  - Apply PULPMatMulRequantMergePass
+[Deeploy]  - Apply PULPAddRequantMergePass
+[Deeploy]  - Apply TransposeMatmulInputsPass
+[Deeploy]  - Apply PULPNCHWtoNHWCPass
+[Deeploy]  - Apply TransposeSplitPass
+[Deeploy]  - Apply RQAddTransposeSquashPass
+[Deeploy]  - Apply TransposeSplitPass
+[Deeploy]  - Apply TransposeMergePass
+[Deeploy]  - Apply TransposeConstOptPass
+[Deeploy]  - Apply ReshapeConstOptPass
+[Deeploy]  - Apply TransposeNoPermOptPass
+[Deeploy]  - Apply RemoveGlobalOutputReshapePass
+[Deeploy] > Export State middleware_post_lowering[.onnx|.pkl]
+[Deeploy] - Perform Graph Parsing
+[Deeploy]  - Create IO Bindings
+[Deeploy]  - Bind Nodes to Layers
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_0_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind headconvConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind headreluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_1_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind G1convConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind G1reluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_2_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind R1aconvConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind R1areluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_3_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind R1bconvConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind R1breluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_4_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind G2convConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind G2reluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_5_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind R2aconvConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind R2areluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_6_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind R2bconvConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut to layer TransposeLayer
+[Deeploy]    ✓ Bind R2breluRelu to layer ReluLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn to layer TransposeLayer
+[Deeploy]    ✓ Bind predconv2dConv to layer ConvLayer
+[Deeploy]    ✓ Bind _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut to layer TransposeLayer
+[Deeploy]  - Parse and Type Check Network
+[Deeploy] ------------------------------- MAIN ITERATION 1  -------------------------------
+[Deeploy] [Layer 0] Trying '_NCHW_TO_NHWC_CONV_PASS_0_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 1] Trying 'headconvConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 2] Trying '_NCHW_TO_NHWC_CONV_PASS_0_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 3] Trying 'headreluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 4] Trying '_NCHW_TO_NHWC_CONV_PASS_1_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 5] Trying 'G1convConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 6] Trying '_NCHW_TO_NHWC_CONV_PASS_1_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 7] Trying 'G1reluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 8] Trying '_NCHW_TO_NHWC_CONV_PASS_2_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 9] Trying 'R1aconvConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 10] Trying '_NCHW_TO_NHWC_CONV_PASS_2_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 11] Trying 'R1areluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 12] Trying '_NCHW_TO_NHWC_CONV_PASS_3_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 13] Trying 'R1bconvConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 14] Trying '_NCHW_TO_NHWC_CONV_PASS_3_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 15] Trying 'R1breluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 16] Trying '_NCHW_TO_NHWC_CONV_PASS_4_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 17] Trying 'G2convConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 18] Trying '_NCHW_TO_NHWC_CONV_PASS_4_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 19] Trying 'G2reluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 20] Trying '_NCHW_TO_NHWC_CONV_PASS_5_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 21] Trying 'R2aconvConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 22] Trying '_NCHW_TO_NHWC_CONV_PASS_5_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 23] Trying 'R2areluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 24] Trying '_NCHW_TO_NHWC_CONV_PASS_6_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 25] Trying 'R2bconvConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 26] Trying '_NCHW_TO_NHWC_CONV_PASS_6_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 27] Trying 'R2breluRelu' (op: Relu)
+[Deeploy]  ✓ Parser ReluParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with ReluParser
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for NodeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 28] Trying '_NCHW_TO_NHWC_CONV_PASS_7_TransposeIn' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] [Layer 29] Trying 'predconv2dConv' (op: Conv)
+[Deeploy]  ✓ Parser PULPFPConv2DParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with PULPFPConv2DParser
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy] [Layer 30] Trying '_NCHW_TO_NHWC_CONV_PASS_7_TransposeOut' (op: Transpose)
+[Deeploy]  ✓ Parser TransposeParser succeeded
+[Deeploy]  ✓ Context parsing succeeded with TransposeParser
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int8_t) -> int8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint8_t) -> uint8_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int16_t) -> int16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint16_t) -> uint16_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int32_t) -> int32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint32_t) -> uint32_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(int64_t) -> int64_t
+[Deeploy]  ✗ Type check failed for PULPTransposeTemplate(uint64_t) -> uint64_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Type check passed for PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Parsed network with 31 layers after 1 iterations
+[Deeploy] ================================================================================
+[Deeploy] Deeploy MidEnd
+[Deeploy] ================================================================================
+[Deeploy] - Map Layers to Bindings
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_0_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped headconvConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped headreluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_1_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped G1convConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped G1reluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_2_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R1aconvConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R1areluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_3_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R1bconvConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R1breluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_4_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped G2convConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped G2reluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_5_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R2aconvConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R2areluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_6_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R2bconvConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped R2breluRelu to NodeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy]  ✓ Mapped predconv2dConv to PULP2DFloatConvIm2ColTemplate(float32_t, float32_t, float32_t) -> float32_t
+[Deeploy]  ✓ Mapped _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut to PULPTransposeTemplate(float32_t) -> float32_t
+[Deeploy] - Perform Memory Level Annotation
+[Deeploy] - Performing Tiling and Memory Allocation
+[Deeploy]  - Setup Constraint Model
+[Deeploy] Error during binding! Exporting deeploy state!
+Traceback (most recent call last):
+  File "/app/SNN_Deeploy/DeeployTest/testMVP.py", line 377, in <module>
+    _ = deployer.prepare(verbosityCfg)
+  File "/app/SNN_Deeploy/Deeploy/DeeployTypes.py", line 3567, in prepare
+    self.midEnd()
+  File "/app/SNN_Deeploy/Deeploy/DeeployTypes.py", line 3530, in midEnd
+    raise e
+  File "/app/SNN_Deeploy/Deeploy/DeeployTypes.py", line 3526, in midEnd
+    self.bind()
+  File "/app/SNN_Deeploy/Deeploy/TilingExtension/TilerExtension.py", line 1028, in bind
+    self.tile()
+  File "/app/SNN_Deeploy/Deeploy/TilingExtension/TilerExtension.py", line 996, in tile
+    tilingSolution = self.tiler.computeTilingSchedule(self.ctxt)
+  File "/app/SNN_Deeploy/Deeploy/TilingExtension/TilerExtension.py", line 320, in computeTilingSchedule
+    collector = self.tilerModel.trySolveModel()
+  File "/app/SNN_Deeploy/Deeploy/TilingExtension/TilerModel.py", line 375, in trySolveModel
+    self.debugConstraints()
+  File "/app/SNN_Deeploy/Deeploy/TilingExtension/TilerModel.py", line 286, in debugConstraints
+    raise RuntimeError(("\n").join(errorMsg))
+RuntimeError: 
+ERROR: Some geometrical constraints are infeasible. A minimal set is this one:
+[ _NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_1_copyIdx_0(1..128) == input_0_dim_2_copyIdx_0(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_2_copyIdx_0(1..128) == input_0_dim_3_copyIdx_0(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_3_copyIdx_0(inner__NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_3_copyIdx_0(0 .. 1) + 1) == input_0_dim_1_copyIdx_0(inner_input_0_dim_1_copyIdx_0(0 .. 1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut_Out_dim_3_copyIdx_1(1..8) == headconvweight_tensor_dim_0_copyIdx_1(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut_Out_dim_1_copyIdx_1(1..128) == ((CastVar<0>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut_Out_dim_2_copyIdx_1(1..128) == ((CastVar<1>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_1_copyIdx_1(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_2_copyIdx_1(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_3_copyIdx_1(inner__NCHW_TO_NHWC_CONV_PASS_0_TransposeIn_In_dim_3_copyIdx_1(0 .. 1) + 1) == 2),
+  (headconvweight_tensor_dim_1_copyIdx_1(1..3) == 3),
+  (headconvweight_tensor_dim_2_copyIdx_1(1..3) == 3),
+  (headconvweight_tensor_dim_3_copyIdx_1(inner_headconvweight_tensor_dim_3_copyIdx_1(0 .. 1) + 1) == 2),
+  headconvConv_ch_im_out_add_copyIdx_1(0..8) <= headconvConv_ch_im_out_tileSize_copyIdx_1(1..8),
+  (Not(Watch<headconvConv_ch_im_out_tileSize_copyIdx_1 >= 8>(0 .. 1)) * 8) <= headconvConv_ch_im_out_add_copyIdx_1(0..8),
+  (((headconvConv_ch_im_out_mul_copyIdx_1(1..8) * headconvConv_ch_im_out_tileSize_copyIdx_1(1..8)) + headconvConv_ch_im_out_add_copyIdx_1(0..8)) == 8),
+  headconvweight_tensor_dim_0_copyIdx_1(1..8) == headconvConv_ch_im_out_tileSize_copyIdx_1(1..8),
+  headconvConv_output_0_tensor_dim_1_copyIdx_2(1..8) == _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut_Out_dim_3_copyIdx_2(1..8),
+  headconvConv_output_0_tensor_dim_2_copyIdx_2(1..128) == _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut_Out_dim_1_copyIdx_2(1..128),
+  headconvConv_output_0_tensor_dim_3_copyIdx_2(1..128) == _NCHW_TO_NHWC_CONV_PASS_0_TransposeOut_Out_dim_2_copyIdx_2(1..128),
+  headconvConv_output_0_tensor_dim_1_copyIdx_3(1..8) == headreluRelu_output_0_tensor_dim_1_copyIdx_3(1..8),
+  headconvConv_output_0_tensor_dim_2_copyIdx_3(1..128) == headreluRelu_output_0_tensor_dim_2_copyIdx_3(1..128),
+  headconvConv_output_0_tensor_dim_3_copyIdx_3(1..128) == headreluRelu_output_0_tensor_dim_3_copyIdx_3(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_1_TransposeIn_In_dim_1_copyIdx_4(1..128) == headreluRelu_output_0_tensor_dim_2_copyIdx_4(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_1_TransposeIn_In_dim_2_copyIdx_4(1..128) == headreluRelu_output_0_tensor_dim_3_copyIdx_4(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_1_TransposeIn_In_dim_3_copyIdx_4(1..8) == headreluRelu_output_0_tensor_dim_1_copyIdx_4(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut_Out_dim_3_copyIdx_5(1..8) == G1convweight_tensor_dim_0_copyIdx_5(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut_Out_dim_1_copyIdx_5(1..128) == ((CastVar<2>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut_Out_dim_2_copyIdx_5(1..128) == ((CastVar<3>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_1_TransposeIn_In_dim_1_copyIdx_5(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_1_TransposeIn_In_dim_2_copyIdx_5(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_1_TransposeIn_In_dim_3_copyIdx_5(1..8) == 8),
+  (G1convweight_tensor_dim_1_copyIdx_5(1..3) == 3),
+  (G1convweight_tensor_dim_2_copyIdx_5(1..3) == 3),
+  (G1convweight_tensor_dim_3_copyIdx_5(1..8) == 8),
+  G1convConv_ch_im_out_add_copyIdx_5(0..8) <= G1convConv_ch_im_out_tileSize_copyIdx_5(1..8),
+  (Not(Watch<G1convConv_ch_im_out_tileSize_copyIdx_5 >= 8>(0 .. 1)) * 8) <= G1convConv_ch_im_out_add_copyIdx_5(0..8),
+  (((G1convConv_ch_im_out_mul_copyIdx_5(1..8) * G1convConv_ch_im_out_tileSize_copyIdx_5(1..8)) + G1convConv_ch_im_out_add_copyIdx_5(0..8)) == 8),
+  G1convweight_tensor_dim_0_copyIdx_5(1..8) == G1convConv_ch_im_out_tileSize_copyIdx_5(1..8),
+  G1convConv_output_0_tensor_dim_1_copyIdx_6(1..8) == _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut_Out_dim_3_copyIdx_6(1..8),
+  G1convConv_output_0_tensor_dim_2_copyIdx_6(1..128) == _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut_Out_dim_1_copyIdx_6(1..128),
+  G1convConv_output_0_tensor_dim_3_copyIdx_6(1..128) == _NCHW_TO_NHWC_CONV_PASS_1_TransposeOut_Out_dim_2_copyIdx_6(1..128),
+  G1convConv_output_0_tensor_dim_1_copyIdx_7(1..8) == G1reluRelu_output_0_tensor_dim_1_copyIdx_7(1..8),
+  G1convConv_output_0_tensor_dim_2_copyIdx_7(1..128) == G1reluRelu_output_0_tensor_dim_2_copyIdx_7(1..128),
+  G1convConv_output_0_tensor_dim_3_copyIdx_7(1..128) == G1reluRelu_output_0_tensor_dim_3_copyIdx_7(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_2_TransposeIn_In_dim_1_copyIdx_8(1..128) == G1reluRelu_output_0_tensor_dim_2_copyIdx_8(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_2_TransposeIn_In_dim_2_copyIdx_8(1..128) == G1reluRelu_output_0_tensor_dim_3_copyIdx_8(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_2_TransposeIn_In_dim_3_copyIdx_8(1..8) == G1reluRelu_output_0_tensor_dim_1_copyIdx_8(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut_Out_dim_3_copyIdx_9(1..8) == R1aconvweight_tensor_dim_0_copyIdx_9(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut_Out_dim_1_copyIdx_9(1..128) == ((CastVar<4>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut_Out_dim_2_copyIdx_9(1..128) == ((CastVar<5>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_2_TransposeIn_In_dim_1_copyIdx_9(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_2_TransposeIn_In_dim_2_copyIdx_9(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_2_TransposeIn_In_dim_3_copyIdx_9(1..8) == 8),
+  (R1aconvweight_tensor_dim_1_copyIdx_9(1..3) == 3),
+  (R1aconvweight_tensor_dim_2_copyIdx_9(1..3) == 3),
+  (R1aconvweight_tensor_dim_3_copyIdx_9(1..8) == 8),
+  R1aconvConv_ch_im_out_add_copyIdx_9(0..8) <= R1aconvConv_ch_im_out_tileSize_copyIdx_9(1..8),
+  (Not(Watch<R1aconvConv_ch_im_out_tileSize_copyIdx_9 >= 8>(0 .. 1)) * 8) <= R1aconvConv_ch_im_out_add_copyIdx_9(0..8),
+  (((R1aconvConv_ch_im_out_mul_copyIdx_9(1..8) * R1aconvConv_ch_im_out_tileSize_copyIdx_9(1..8)) + R1aconvConv_ch_im_out_add_copyIdx_9(0..8)) == 8),
+  R1aconvweight_tensor_dim_0_copyIdx_9(1..8) == R1aconvConv_ch_im_out_tileSize_copyIdx_9(1..8),
+  R1aconvConv_output_0_tensor_dim_1_copyIdx_10(1..8) == _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut_Out_dim_3_copyIdx_10(1..8),
+  R1aconvConv_output_0_tensor_dim_2_copyIdx_10(1..128) == _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut_Out_dim_1_copyIdx_10(1..128),
+  R1aconvConv_output_0_tensor_dim_3_copyIdx_10(1..128) == _NCHW_TO_NHWC_CONV_PASS_2_TransposeOut_Out_dim_2_copyIdx_10(1..128),
+  R1aconvConv_output_0_tensor_dim_1_copyIdx_11(1..8) == R1areluRelu_output_0_tensor_dim_1_copyIdx_11(1..8),
+  R1aconvConv_output_0_tensor_dim_2_copyIdx_11(1..128) == R1areluRelu_output_0_tensor_dim_2_copyIdx_11(1..128),
+  R1aconvConv_output_0_tensor_dim_3_copyIdx_11(1..128) == R1areluRelu_output_0_tensor_dim_3_copyIdx_11(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_3_TransposeIn_In_dim_1_copyIdx_12(1..128) == R1areluRelu_output_0_tensor_dim_2_copyIdx_12(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_3_TransposeIn_In_dim_2_copyIdx_12(1..128) == R1areluRelu_output_0_tensor_dim_3_copyIdx_12(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_3_TransposeIn_In_dim_3_copyIdx_12(1..8) == R1areluRelu_output_0_tensor_dim_1_copyIdx_12(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut_Out_dim_3_copyIdx_13(1..8) == R1bconvweight_tensor_dim_0_copyIdx_13(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut_Out_dim_1_copyIdx_13(1..128) == ((CastVar<6>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut_Out_dim_2_copyIdx_13(1..128) == ((CastVar<7>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_3_TransposeIn_In_dim_1_copyIdx_13(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_3_TransposeIn_In_dim_2_copyIdx_13(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_3_TransposeIn_In_dim_3_copyIdx_13(1..8) == 8),
+  (R1bconvweight_tensor_dim_1_copyIdx_13(1..3) == 3),
+  (R1bconvweight_tensor_dim_2_copyIdx_13(1..3) == 3),
+  (R1bconvweight_tensor_dim_3_copyIdx_13(1..8) == 8),
+  R1bconvConv_ch_im_out_add_copyIdx_13(0..8) <= R1bconvConv_ch_im_out_tileSize_copyIdx_13(1..8),
+  (Not(Watch<R1bconvConv_ch_im_out_tileSize_copyIdx_13 >= 8>(0 .. 1)) * 8) <= R1bconvConv_ch_im_out_add_copyIdx_13(0..8),
+  (((R1bconvConv_ch_im_out_mul_copyIdx_13(1..8) * R1bconvConv_ch_im_out_tileSize_copyIdx_13(1..8)) + R1bconvConv_ch_im_out_add_copyIdx_13(0..8)) == 8),
+  R1bconvweight_tensor_dim_0_copyIdx_13(1..8) == R1bconvConv_ch_im_out_tileSize_copyIdx_13(1..8),
+  R1bconvConv_output_0_tensor_dim_1_copyIdx_14(1..8) == _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut_Out_dim_3_copyIdx_14(1..8),
+  R1bconvConv_output_0_tensor_dim_2_copyIdx_14(1..128) == _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut_Out_dim_1_copyIdx_14(1..128),
+  R1bconvConv_output_0_tensor_dim_3_copyIdx_14(1..128) == _NCHW_TO_NHWC_CONV_PASS_3_TransposeOut_Out_dim_2_copyIdx_14(1..128),
+  R1bconvConv_output_0_tensor_dim_1_copyIdx_15(1..8) == R1breluRelu_output_0_tensor_dim_1_copyIdx_15(1..8),
+  R1bconvConv_output_0_tensor_dim_2_copyIdx_15(1..128) == R1breluRelu_output_0_tensor_dim_2_copyIdx_15(1..128),
+  R1bconvConv_output_0_tensor_dim_3_copyIdx_15(1..128) == R1breluRelu_output_0_tensor_dim_3_copyIdx_15(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_4_TransposeIn_In_dim_1_copyIdx_16(1..128) == R1breluRelu_output_0_tensor_dim_2_copyIdx_16(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_4_TransposeIn_In_dim_2_copyIdx_16(1..128) == R1breluRelu_output_0_tensor_dim_3_copyIdx_16(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_4_TransposeIn_In_dim_3_copyIdx_16(1..8) == R1breluRelu_output_0_tensor_dim_1_copyIdx_16(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut_Out_dim_3_copyIdx_17(1..8) == G2convweight_tensor_dim_0_copyIdx_17(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut_Out_dim_1_copyIdx_17(1..128) == ((CastVar<8>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut_Out_dim_2_copyIdx_17(1..128) == ((CastVar<9>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_4_TransposeIn_In_dim_1_copyIdx_17(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_4_TransposeIn_In_dim_2_copyIdx_17(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_4_TransposeIn_In_dim_3_copyIdx_17(1..8) == 8),
+  (G2convweight_tensor_dim_1_copyIdx_17(1..3) == 3),
+  (G2convweight_tensor_dim_2_copyIdx_17(1..3) == 3),
+  (G2convweight_tensor_dim_3_copyIdx_17(1..8) == 8),
+  G2convConv_ch_im_out_add_copyIdx_17(0..8) <= G2convConv_ch_im_out_tileSize_copyIdx_17(1..8),
+  (Not(Watch<G2convConv_ch_im_out_tileSize_copyIdx_17 >= 8>(0 .. 1)) * 8) <= G2convConv_ch_im_out_add_copyIdx_17(0..8),
+  (((G2convConv_ch_im_out_mul_copyIdx_17(1..8) * G2convConv_ch_im_out_tileSize_copyIdx_17(1..8)) + G2convConv_ch_im_out_add_copyIdx_17(0..8)) == 8),
+  G2convweight_tensor_dim_0_copyIdx_17(1..8) == G2convConv_ch_im_out_tileSize_copyIdx_17(1..8),
+  G2convConv_output_0_tensor_dim_1_copyIdx_18(1..8) == _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut_Out_dim_3_copyIdx_18(1..8),
+  G2convConv_output_0_tensor_dim_2_copyIdx_18(1..128) == _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut_Out_dim_1_copyIdx_18(1..128),
+  G2convConv_output_0_tensor_dim_3_copyIdx_18(1..128) == _NCHW_TO_NHWC_CONV_PASS_4_TransposeOut_Out_dim_2_copyIdx_18(1..128),
+  G2convConv_output_0_tensor_dim_1_copyIdx_19(1..8) == G2reluRelu_output_0_tensor_dim_1_copyIdx_19(1..8),
+  G2convConv_output_0_tensor_dim_2_copyIdx_19(1..128) == G2reluRelu_output_0_tensor_dim_2_copyIdx_19(1..128),
+  G2convConv_output_0_tensor_dim_3_copyIdx_19(1..128) == G2reluRelu_output_0_tensor_dim_3_copyIdx_19(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_5_TransposeIn_In_dim_1_copyIdx_20(1..128) == G2reluRelu_output_0_tensor_dim_2_copyIdx_20(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_5_TransposeIn_In_dim_2_copyIdx_20(1..128) == G2reluRelu_output_0_tensor_dim_3_copyIdx_20(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_5_TransposeIn_In_dim_3_copyIdx_20(1..8) == G2reluRelu_output_0_tensor_dim_1_copyIdx_20(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut_Out_dim_3_copyIdx_21(1..8) == R2aconvweight_tensor_dim_0_copyIdx_21(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut_Out_dim_1_copyIdx_21(1..128) == ((CastVar<10>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut_Out_dim_2_copyIdx_21(1..128) == ((CastVar<11>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_5_TransposeIn_In_dim_1_copyIdx_21(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_5_TransposeIn_In_dim_2_copyIdx_21(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_5_TransposeIn_In_dim_3_copyIdx_21(1..8) == 8),
+  (R2aconvweight_tensor_dim_1_copyIdx_21(1..3) == 3),
+  (R2aconvweight_tensor_dim_2_copyIdx_21(1..3) == 3),
+  (R2aconvweight_tensor_dim_3_copyIdx_21(1..8) == 8),
+  R2aconvConv_ch_im_out_add_copyIdx_21(0..8) <= R2aconvConv_ch_im_out_tileSize_copyIdx_21(1..8),
+  (Not(Watch<R2aconvConv_ch_im_out_tileSize_copyIdx_21 >= 8>(0 .. 1)) * 8) <= R2aconvConv_ch_im_out_add_copyIdx_21(0..8),
+  (((R2aconvConv_ch_im_out_mul_copyIdx_21(1..8) * R2aconvConv_ch_im_out_tileSize_copyIdx_21(1..8)) + R2aconvConv_ch_im_out_add_copyIdx_21(0..8)) == 8),
+  R2aconvweight_tensor_dim_0_copyIdx_21(1..8) == R2aconvConv_ch_im_out_tileSize_copyIdx_21(1..8),
+  R2aconvConv_output_0_tensor_dim_1_copyIdx_22(1..8) == _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut_Out_dim_3_copyIdx_22(1..8),
+  R2aconvConv_output_0_tensor_dim_2_copyIdx_22(1..128) == _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut_Out_dim_1_copyIdx_22(1..128),
+  R2aconvConv_output_0_tensor_dim_3_copyIdx_22(1..128) == _NCHW_TO_NHWC_CONV_PASS_5_TransposeOut_Out_dim_2_copyIdx_22(1..128),
+  R2aconvConv_output_0_tensor_dim_1_copyIdx_23(1..8) == R2areluRelu_output_0_tensor_dim_1_copyIdx_23(1..8),
+  R2aconvConv_output_0_tensor_dim_2_copyIdx_23(1..128) == R2areluRelu_output_0_tensor_dim_2_copyIdx_23(1..128),
+  R2aconvConv_output_0_tensor_dim_3_copyIdx_23(1..128) == R2areluRelu_output_0_tensor_dim_3_copyIdx_23(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_6_TransposeIn_In_dim_1_copyIdx_24(1..128) == R2areluRelu_output_0_tensor_dim_2_copyIdx_24(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_6_TransposeIn_In_dim_2_copyIdx_24(1..128) == R2areluRelu_output_0_tensor_dim_3_copyIdx_24(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_6_TransposeIn_In_dim_3_copyIdx_24(1..8) == R2areluRelu_output_0_tensor_dim_1_copyIdx_24(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut_Out_dim_3_copyIdx_25(1..8) == R2bconvweight_tensor_dim_0_copyIdx_25(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut_Out_dim_1_copyIdx_25(1..128) == ((CastVar<12>(-1..130) + -1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut_Out_dim_2_copyIdx_25(1..128) == ((CastVar<13>(-1..130) + -1) + 1),
+  (_NCHW_TO_NHWC_CONV_PASS_6_TransposeIn_In_dim_1_copyIdx_25(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_6_TransposeIn_In_dim_2_copyIdx_25(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_6_TransposeIn_In_dim_3_copyIdx_25(1..8) == 8),
+  (R2bconvweight_tensor_dim_1_copyIdx_25(1..3) == 3),
+  (R2bconvweight_tensor_dim_2_copyIdx_25(1..3) == 3),
+  (R2bconvweight_tensor_dim_3_copyIdx_25(1..8) == 8),
+  R2bconvConv_ch_im_out_add_copyIdx_25(0..8) <= R2bconvConv_ch_im_out_tileSize_copyIdx_25(1..8),
+  (Not(Watch<R2bconvConv_ch_im_out_tileSize_copyIdx_25 >= 8>(0 .. 1)) * 8) <= R2bconvConv_ch_im_out_add_copyIdx_25(0..8),
+  (((R2bconvConv_ch_im_out_mul_copyIdx_25(1..8) * R2bconvConv_ch_im_out_tileSize_copyIdx_25(1..8)) + R2bconvConv_ch_im_out_add_copyIdx_25(0..8)) == 8),
+  R2bconvweight_tensor_dim_0_copyIdx_25(1..8) == R2bconvConv_ch_im_out_tileSize_copyIdx_25(1..8),
+  R2bconvConv_output_0_tensor_dim_1_copyIdx_26(1..8) == _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut_Out_dim_3_copyIdx_26(1..8),
+  R2bconvConv_output_0_tensor_dim_2_copyIdx_26(1..128) == _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut_Out_dim_1_copyIdx_26(1..128),
+  R2bconvConv_output_0_tensor_dim_3_copyIdx_26(1..128) == _NCHW_TO_NHWC_CONV_PASS_6_TransposeOut_Out_dim_2_copyIdx_26(1..128),
+  R2bconvConv_output_0_tensor_dim_1_copyIdx_27(1..8) == R2breluRelu_output_0_tensor_dim_1_copyIdx_27(1..8),
+  R2bconvConv_output_0_tensor_dim_2_copyIdx_27(1..128) == R2breluRelu_output_0_tensor_dim_2_copyIdx_27(1..128),
+  R2bconvConv_output_0_tensor_dim_3_copyIdx_27(1..128) == R2breluRelu_output_0_tensor_dim_3_copyIdx_27(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_1_copyIdx_28(1..128) == R2breluRelu_output_0_tensor_dim_2_copyIdx_28(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_2_copyIdx_28(1..128) == R2breluRelu_output_0_tensor_dim_3_copyIdx_28(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_3_copyIdx_28(1..8) == R2breluRelu_output_0_tensor_dim_1_copyIdx_28(1..8),
+  _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_3_copyIdx_29(inner__NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_3_copyIdx_29(0 .. 1) + 1) == predconv2dweight_tensor_dim_0_copyIdx_29(inner_predconv2dweight_tensor_dim_0_copyIdx_29(0 .. 1) + 1),
+  _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_1_copyIdx_29(1..128) == _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_1_copyIdx_29(1..128),
+  _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_2_copyIdx_29(1..128) == _NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_2_copyIdx_29(1..128),
+  (_NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_1_copyIdx_29(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_2_copyIdx_29(1..128) == 128),
+  (_NCHW_TO_NHWC_CONV_PASS_7_TransposeIn_In_dim_3_copyIdx_29(1..8) == 8),
+  (predconv2dweight_tensor_dim_3_copyIdx_29(1..8) == 8),
+  output_0_dim_1_copyIdx_30(inner_output_0_dim_1_copyIdx_30(0 .. 1) + 1) == _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_3_copyIdx_30(inner__NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_3_copyIdx_30(0 .. 1) + 1),
+  output_0_dim_2_copyIdx_30(1..128) == _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_1_copyIdx_30(1..128),
+  output_0_dim_3_copyIdx_30(1..128) == _NCHW_TO_NHWC_CONV_PASS_7_TransposeOut_Out_dim_2_copyIdx_30(1..128),
+  DEEPLOY_PATTERN_MEM_copyIdx_0(1..262144) == CastVar<14>(8..262144),
+  DEEPLOY_PATTERN_MEM_copyIdx_1(1..655936) == Sum([, , ])(12..655936),
+  DEEPLOY_PATTERN_MEM_copyIdx_2(1..1048576) == CastVar<15>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_3(1..1048576) == CastVar<16>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_4(1..1048576) == CastVar<17>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_5(1..1050880) == Sum([, , ])(12..1050880),
+  DEEPLOY_PATTERN_MEM_copyIdx_6(1..1048576) == CastVar<18>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_7(1..1048576) == CastVar<19>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_8(1..1048576) == CastVar<20>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_9(1..1050880) == Sum([, , ])(12..1050880),
+  DEEPLOY_PATTERN_MEM_copyIdx_10(1..1048576) == CastVar<21>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_11(1..1048576) == CastVar<22>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_12(1..1048576) == CastVar<23>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_13(1..1050880) == Sum([, , ])(12..1050880),
+  DEEPLOY_PATTERN_MEM_copyIdx_14(1..1048576) == CastVar<24>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_15(1..1048576) == CastVar<25>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_16(1..1048576) == CastVar<26>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_17(1..1050880) == Sum([, , ])(12..1050880),
+  DEEPLOY_PATTERN_MEM_copyIdx_18(1..1048576) == CastVar<27>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_19(1..1048576) == CastVar<28>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_20(1..1048576) == CastVar<29>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_21(1..1050880) == Sum([, , ])(12..1050880),
+  DEEPLOY_PATTERN_MEM_copyIdx_22(1..1048576) == CastVar<30>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_23(1..1048576) == CastVar<31>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_24(1..1048576) == CastVar<32>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_25(1..1050880) == Sum([, , ])(12..1050880),
+  DEEPLOY_PATTERN_MEM_copyIdx_26(1..1048576) == CastVar<33>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_27(1..1048576) == CastVar<34>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_28(1..1048576) == CastVar<35>(8..1048576),
+  DEEPLOY_PATTERN_MEM_copyIdx_29(1..655424) == Sum([, , ])(12..655424),
+  DEEPLOY_PATTERN_MEM_copyIdx_30(1..262144) == CastVar<36>(8..262144)]
+Generation Directory:  /app/SNN_Deeploy/DeeployTest/TEST_SIRACUSA/Tests/testSNN_relu
+Test Directory      :  Tests/testSNN_relu
+Test Name           :  testSNN_relu
+[91m################## Testing Tests/testSNN_relu on Siracusa Platform ##################[00m
+[94m[TestRunner] Generation Command: python testMVP.py -d /app/SNN_Deeploy/DeeployTest/TEST_SIRACUSA/Tests/testSNN_relu -t Tests/testSNN_relu -p Siracusa  -vv --input-type-map event_cnt=float32_t --input-offset-map event_cnt=0 --defaultMemLevel=L2 --l1=64000 --l2=1024000 --profileTiling --memAllocStrategy=MiniMalloc --plotMemAlloc --searchStrategy=random-max[00m
+Traceback (most recent call last):
+  File "/app/SNN_Deeploy/DeeployTest/testRunner_tiled_siracusa.py", line 45, in <module>
+    testRunner.run()
+  File "/app/SNN_Deeploy/DeeployTest/testUtils/testRunner.py", line 362, in run
+    self.generate_test()
+  File "/app/SNN_Deeploy/DeeployTest/testUtils/testRunner.py", line 385, in generate_test
+    raise RuntimeError(f"generate Network failed on {self._args.dir}")
+RuntimeError: generate Network failed on Tests/testSNN_relu/
