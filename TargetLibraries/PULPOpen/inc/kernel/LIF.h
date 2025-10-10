@@ -43,4 +43,11 @@ void PULP_LIF_fp32_fp32(const float32_t *input, const float32_t *mem_in,
                         float32_t *spike_out, float32_t *mem_out, uint32_t N,
                         uint32_t H, uint32_t W, uint32_t C);
 
+// PULP-optimized stateful LIF neuron update (fp32, NHWC); updates mem_state in-place and can
+// optionally take a mem_in for this invocation. If mem_in is NULL, mem_state is used as prev mem.
+void PULP_LIF_stateful_fp32_fp32(const float32_t *input, const float32_t *mem_in,
+                                 const float32_t *beta, const float32_t *threshold,
+                                 float32_t *spike_out, float32_t *mem_state, uint32_t N,
+                                 uint32_t H, uint32_t W, uint32_t C);
+
 #endif // __DEEPLOY_PULP_MATH_LIF_KERNEL_HEADER_

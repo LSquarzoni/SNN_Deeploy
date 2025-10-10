@@ -153,12 +153,20 @@ class TilerModel():
 
         varName = f"{tensorName}_dim_{dimIdx}" + self._getSuffix(copyIdx)
 
+        # If the dim variable doesn't exist, return integer 1 as a safe constant.
+        # Returning a plain int prevents mutating the solver's variable set during solving,
+        # which can lead to segfaults in OR-Tools if variables are added late.
+        if varName not in self._variables:
+            return 1
         return self._variables[varName]
 
     def getTensorNumberOfEltVar(self, tensorName: str, copyIdx: Optional[int] = None):
 
         varName = f"{tensorName}_num_elements" + self._getSuffix(copyIdx)
 
+        # If num_elements var doesn't exist, return integer 1 as a safe constant.
+        if varName not in self._variables:
+            return 1
         return self._variables[varName]
 
     def addTensorDimToModel(self, ctxt: NetworkContext, tensorName: str, copyIdx: Optional[int] = None):
@@ -194,7 +202,10 @@ class TilerModel():
         for idx, _ in enumerate(tensor.shape):
 
             varNameIdx = f"{tensor.name}_dim_{idx}" + self._getSuffix(copyIdx)
-            tensorDimProductExpr *= self._variables[varNameIdx]
+            if varNameIdx in self._variables:
+                tensorDimProductExpr *= self._variables[varNameIdx]
+            else:
+                tensorDimProductExpr *= 1
 
         tensorDimProductVar = self._addVariable(name = varNameNumElt,
                                                 lowerBound = 1,

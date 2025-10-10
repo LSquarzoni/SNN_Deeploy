@@ -55,9 +55,9 @@ from Deeploy.Targets.PULPOpen.Templates import ConvTemplate, FloatAddTemplate, F
     FloatReluTemplate, FloatSoftmaxTemplate, GEMMTemplate, MatrixVectorTemplate, MaxPool2DTemplate, MulTemplate, \
     ReduceMeanTemplate, RequantShiftTemplate, ReshapeTemplate, RQAddTemplate, RQSiHardswishTemplate, SGDTemplate, \
     SliceTemplate, SoftmaxCrossEntropyLossTemplate, TallGEMMTemplate, TransposeTemplate, UniformRequantShiftTemplate, \
-    iRMSNormTemplate, iSoftmaxTemplate, LIFTemplate
+    iRMSNormTemplate, iSoftmaxTemplate, LIFTemplate, LIFstatefulTemplate
 from Deeploy.Targets.PULPOpen.TypeCheckers import PULPConvChecker, PULPLinearChecker, PULPMaxPoolChecker, \
-    PULPRequantShiftChecker, PULPLIFChecker
+    PULPRequantShiftChecker, PULPLIFChecker, PULPLIFstatefulChecker
 from Deeploy.TilingExtension.CodeTransformationPasses.TilingVariableReplacement import TilingVariableReplacement, \
     TilingVariableReplacementUpdate
 
@@ -450,4 +450,33 @@ PULPLIFBindings = [
         LIFTemplate.referenceTemplate,
         ForkTransformer
     )
+]
+
+
+PULPLIFstatefulBindings = [
+    # With mem_in override
+    NodeBinding(
+        PULPLIFstatefulChecker([
+            PointerClass(float32_t),  # input
+            PointerClass(float32_t),  # mem_in (optional override)
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(float32_t)   # spike_out
+        ]),
+        LIFstatefulTemplate.referenceTemplate,
+        ForkTransformer
+    ),
+    # Without mem_in (NULL is passed to kernel)
+    NodeBinding(
+        PULPLIFstatefulChecker([
+            PointerClass(float32_t),  # input
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(float32_t)   # spike_out
+        ]),
+        LIFstatefulTemplate.referenceTemplate,
+        ForkTransformer
+    ),
 ]

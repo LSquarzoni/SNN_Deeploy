@@ -39,7 +39,7 @@ from Deeploy.Targets.Generic.Templates import AddTemplate, ConcatTemplate, ConvT
     DequantTemplate, DummyTemplate, DWConvTemplate, FloatAddTemplate, FloatConvTemplate, FloatDivTemplate, \
     FloatDWConvTemplate, FloatGELUTemplate, FloatGemmTemplate, FloatLayernormTemplate, FloatMatMulTemplate, \
     FloatMaxPoolTemplate, FloatMulTemplate, FloatPadTemplate, FloatReduceMeanTemplate, FloatReluTemplate, \
-    FloatSoftmaxTemplate, FloatLIFTemplate, GatherTemplate, GemmTemplate, IntegerDivTemplate, ITAMaxTemplate, \
+    FloatSoftmaxTemplate, FloatLIFTemplate, FloatLIFstatefulTemplate, GatherTemplate, GemmTemplate, IntegerDivTemplate, ITAMaxTemplate, \
     ITAPartialMaxTemplate, MatMulTemplate, MaxPoolTemplate, MulTemplate, PadTemplate, QuantTemplate, \
     ReduceMeanTemplate, ReduceSumTemplate, RequantShiftTemplate, ReshapeTemplate, RQIntegerDivTemplate, \
     RQSiGELUTemplate, SliceTemplate, TransposeTemplate, iGELUTemplate, iLayernormTemplate, iRMSNormTemplate, \
@@ -48,7 +48,7 @@ from Deeploy.Targets.Generic.TypeCheckers import AddChecker, ConcatChecker, Conv
     DequantChecker, DivChecker, DummyChecker, GatherChecker, GELUChecker, GEMMChecker, LayerNormChecker, \
     MatMulChecker, MaxPoolChecker, MulChecker, PadChecker, QuantChecker, ReduceMeanChecker, ReduceSumChecker, \
     ReluChecker, RequantShiftChecker, ReshapeChecker, RQIntegerDivChecker, SliceChecker, SoftmaxChecker, \
-    TransposeChecker, LIFChecker
+    TransposeChecker, LIFChecker, LIFstatefulChecker
 
 BasicTransformer = CodeTransformation([ArgumentStructGeneration(), MemoryManagementGeneration(), FutureGeneration()])
 
@@ -236,6 +236,35 @@ BasicLIFBindings = [
         FloatLIFTemplate.referenceTemplate,
         BasicTransformer
     )
+]
+
+# LIF stateful (spikes only). Provide two bindings: with optional mem_in, and without mem_in.
+BasicLIFstatefulBindings = [
+    # With mem_in override
+    NodeBinding(
+        LIFstatefulChecker([
+            PointerClass(float32_t),  # input
+            PointerClass(float32_t),  # mem_in (optional override)
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(float32_t)   # spike_out
+        ]),
+        FloatLIFstatefulTemplate.referenceTemplate,
+        BasicTransformer
+    ),
+    # Without mem_in (NULL is passed to kernel)
+    NodeBinding(
+        LIFstatefulChecker([
+            PointerClass(float32_t),  # input
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(float32_t)   # spike_out
+        ]),
+        FloatLIFstatefulTemplate.referenceTemplate,
+        BasicTransformer
+    ),
 ]
 
 BasicReshapeBindings = [

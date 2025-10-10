@@ -43,4 +43,23 @@ void LIF_fp32_fp32(const float32_t *input, const float32_t *mem_in,
                    float32_t *spike_out, float32_t *mem_out, uint32_t N,
                    uint32_t C, uint32_t H, uint32_t W);
 
+// Stateful LIF neuron update (internal persistent membrane state).
+// Semantics:
+// - mem_state holds the persistent membrane across calls and is updated in-place.
+// - If mem_in is non-NULL, it overrides the membrane just for this call; subsequent
+//   calls continue from the updated mem_state.
+// - On spike (updated_mem >= threshold[c]): spike_out=1, mem_state reset to 0.
+// - Otherwise: spike_out=0, mem_state=updated_mem.
+// input      : [N, C, H, W] input current
+// mem_in     : optional [N, C, H, W] override for this call (pass NULL to use mem_state)
+// beta       : [C]          decay factor per channel (0..1)
+// threshold  : [C]          firing threshold per channel
+// spike_out  : [N, C, H, W] output spikes (0/1)
+// mem_state  : [N, C, H, W] in/out persistent membrane state buffer
+// N, C, H, W : tensor dimensions
+void LIF_stateful_fp32(const float32_t *input, const float32_t *mem_in,
+                       const float32_t *beta, const float32_t *threshold,
+                       float32_t *spike_out, float32_t *mem_state,
+                       uint32_t N, uint32_t C, uint32_t H, uint32_t W);
+
 #endif // __DEEPLOY_BASIC_MATH_LIF_KERNEL_HEADER_

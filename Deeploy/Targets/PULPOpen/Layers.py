@@ -80,3 +80,20 @@ class PULPLIFLayer(ONNXLayer):
     def computeOps(self):
         # Each element: one mul (beta*mem), one add, one compare -> ~3 ops
         return 3 * self.mapper.parser.operatorRepresentation['size']
+
+
+class PULPLIFstatefulLayer(ONNXLayer):
+
+    def __init__(self, maps: List[NodeMapper]):
+        super().__init__(maps)
+
+    def computeShapes(self, inputShapes: Shape, outputShapes: Shape, operatorRepresentation,
+                      channels_first: bool) -> Tuple[Shape, Shape]:
+        # Stateful LIF produces a single spike_out; propagate input shape to output[0] only
+        if len(inputShapes) >= 1 and inputShapes[0] is not None:
+            outputShapes[0] = list(inputShapes[0])
+        return (inputShapes, outputShapes)
+
+    def computeOps(self):
+        # Each element: one mul (beta*mem), one add, one compare -> ~3 ops
+        return 3 * self.mapper.parser.operatorRepresentation['size']

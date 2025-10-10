@@ -155,7 +155,8 @@ def _prependTransposeNode(anchor: gs.Variable,
     else:
         outShape = _permute(anchor.shape, permutation)
 
-    anchorTransposeInput = gs.Variable(nodeName + "_Out", dtype = np.float32, shape = outShape)
+    # Use a distinct name for the input-side placeholder to avoid collisions with existing outputs
+    anchorTransposeInput = gs.Variable(nodeName + "_Src", dtype = np.float32, shape = outShape)
     anchorTransposeNode = gs.Node(name = nodeName,
                                   op = "Transpose",
                                   inputs = [anchorTransposeInput],
@@ -168,14 +169,15 @@ def _prependTransposeNode(anchor: gs.Variable,
 def _appendTransposeNode(anchor: gs.Variable,
                          nodeName: str,
                          permutation: Iterable[int],
-                         invert: bool = False) -> (gs.Node, gs.Variable):
+                         invert: bool = False) -> Tuple[gs.Node, gs.Variable]:
 
     if invert:
         outShape = _permute(anchor.shape, _invertPermutation(permutation))
     else:
         outShape = _permute(anchor.shape, permutation)
 
-    anchorTransposeOutput = gs.Variable(nodeName + "_In", dtype = np.float32, shape = outShape)
+    # Use a distinct name for the output-side placeholder to avoid collisions with existing inputs
+    anchorTransposeOutput = gs.Variable(nodeName + "_Dst", dtype = np.float32, shape = outShape)
     anchorTransposeNode = gs.Node(name = nodeName,
                                   op = "Transpose",
                                   inputs = [anchor],
@@ -520,6 +522,55 @@ def _NCHWtoNHWCLIF_fun(graph: gs.Graph, match: Match, name: str, default_channel
     return graph
 
 
+def _NCHWtoNHWCLIFstateful_fun(graph: gs.Graph, match: Match, name: str, default_channels_first: bool = True):
+    matched_nodes = [m for k, m in match.nodes_map.items()]
+    opNode = matched_nodes[0]
+
+    print(f"[LIF_LOWERING] matched LIF_stateful '{opNode.name}' inputs={ [i.name for i in opNode.inputs] } outputs={ [o.name for o in opNode.outputs] }")
+
+    # Only wrap if current layout differs from desired one
+    channels_first = opNode.attrs["channels_first"] if "channels_first" in opNode.attrs else True
+    if channels_first == default_channels_first:
+        return graph
+
+    # Wrap LIF_stateful (only for rank >= 4 tensors)
+    def rank_of(t: gs.Tensor) -> Optional[int]:
+        try:
+            return len(t.shape) if isinstance(t.shape, Sequence) else None
+        except Exception:
+            return None
+
+    # Transpose first two 4D inputs: X (input), Vmem_in (if present)
+    in_count = min(2, len(opNode.inputs))
+    op_idx = graph.nodes.index(opNode)
+    for i in range(in_count):
+        tin = opNode.inputs[i]
+        r = rank_of(tin)
+        if r is not None and r >= 4:
+            in_perm = _permutationNCHWtoNHWC(r)
+            tnode, tout = _appendTransposeNode(tin, f"{name}_TransposeIn{i}", in_perm)
+            opNode.inputs[i] = tout
+            # Ensure producer (transpose) appears before consumer (opNode)
+            graph.nodes.insert(op_idx, tnode)
+            op_idx += 1
+
+    # Stateful LIF has a single output (spike). Transpose only that one if 4D
+    if len(opNode.outputs) >= 1:
+        tout = opNode.outputs[0]
+        r = rank_of(tout)
+        if r is not None and r >= 4:
+            out_perm = _permutationNHWCtoNCHW(r)
+            tnode, tinp = _prependTransposeNode(tout, f"{name}_TransposeOut0", out_perm, invert=True)
+            opNode.outputs[0] = tinp
+            # Ensure producer (opNode) appears before consumer (transpose)
+            op_idx_after = graph.nodes.index(opNode) + 1
+            graph.nodes.insert(op_idx_after, tnode)
+
+    # Mark layout as requested to prevent re-wrapping
+    opNode.attrs["channels_first"] = default_channels_first
+    return graph
+
+
 @contextagnostic
 class PULPNCHWtoNHWCLIFPass(ReplaceSequentialPatternPass):
     def __init__(self, default_channels_first: bool = True):
@@ -540,6 +591,20 @@ class PULPNCHWtoNHWCLIFPass(ReplaceSequentialPatternPass):
         
 
 @contextagnostic
+class PULPNCHWtoNHWCLIFstatefulPass(ReplaceSequentialPatternPass):
+    def __init__(self, default_channels_first: bool = True):
+        graph = gs.Graph()
+        # Minimal pattern to match both cases (with and without mem_in): single in/out is sufficient
+        x = gs.Variable(name='x')
+        s = gs.Variable(name='s')
+        graph.layer(inputs=[x], outputs=[s], op='LIF_stateful', name='lif_stateful')
+        graph.inputs.append(x)
+        graph.outputs.append(s)
+
+        super().__init__(graph, partial(_NCHWtoNHWCLIFstateful_fun, default_channels_first = default_channels_first),
+                         "_NCHW_TO_NHWC_LIF_STATEFUL_PASS")
+
+@contextagnostic
 class PULPNCHWtoNHWCPass(SequentialPass):
 
     def __init__(self, default_channels_first: bool = True):
@@ -550,6 +615,7 @@ class PULPNCHWtoNHWCPass(SequentialPass):
             PULPNCHWtoNHWCDenseConvPass(default_channels_first),
             PULPNCHWtoNHWCDenseRequantizedConvPass(default_channels_first),
             PULPNCHWtoNHWCLIFPass(default_channels_first),
+            PULPNCHWtoNHWCLIFstatefulPass(default_channels_first),
         ]
         super().__init__(*passes)
 

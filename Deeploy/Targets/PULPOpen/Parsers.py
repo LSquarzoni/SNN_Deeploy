@@ -451,3 +451,54 @@ class PULPLIFParser(NodeParser):
             self.operatorRepresentation['W'] = int(size // self.operatorRepresentation['C'])
 
         return ctxt, True
+    
+
+class PULPLIFstatefulParser(NodeParser):
+
+    def __init__(self):
+        super().__init__()
+
+    def parseNode(self, node: gs.Node) -> (bool):
+        # Expect 3 or 4 inputs: (input, beta, threshold) or (input, mem_in, beta, threshold)
+        # and 1 output: spike_out
+        num_in = len(node.inputs)
+        num_out = len(node.outputs)
+        ret = (num_in in [3, 4]) and (num_out == 1)
+        return ret
+
+    def parseNodeCtxt(self,
+                      ctxt: NetworkContext,
+                      node: gs.Node,
+                      channels_first: bool = True) -> Tuple[NetworkContext, bool]:
+
+        # Map inputs depending on presence of optional mem_in
+        if len(node.inputs) == 4:
+            inputs = ['data_in', 'mem_in', 'beta', 'threshold']
+            self.operatorRepresentation['has_mem_in'] = True
+        else:  # 3 inputs: no mem_in
+            inputs = ['data_in', 'beta', 'threshold']
+            self.operatorRepresentation['has_mem_in'] = False
+
+        for idx, inputNode in enumerate(node.inputs):
+            self.operatorRepresentation[inputs[idx]] = ctxt.lookup(inputNode.name).name
+
+        # Single output: spike_out
+        self.operatorRepresentation['spike_out'] = ctxt.lookup(node.outputs[0].name).name
+
+        data_in_buf = ctxt.lookup(node.inputs[0].name)
+        # size and dimensions derived from input tensor (N,C,H,W)
+        size = int(np.prod(data_in_buf.shape))
+        self.operatorRepresentation['size'] = size
+        if len(data_in_buf.shape) == 4:
+            self.operatorRepresentation['N'] = int(data_in_buf.shape[0])
+            self.operatorRepresentation['C'] = int(data_in_buf.shape[1 if channels_first else -1])
+            self.operatorRepresentation['H'] = int(data_in_buf.shape[2 if channels_first else 1])
+            self.operatorRepresentation['W'] = int(data_in_buf.shape[3 if channels_first else 2])
+        else:
+            # Fallback treat as flat
+            self.operatorRepresentation['N'] = 1
+            self.operatorRepresentation['C'] = int(data_in_buf.shape[0])
+            self.operatorRepresentation['H'] = 1
+            self.operatorRepresentation['W'] = int(size // self.operatorRepresentation['C'])
+
+        return ctxt, True

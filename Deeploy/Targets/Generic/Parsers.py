@@ -1052,6 +1052,54 @@ class LIFParser(NodeParser):
             self.operatorRepresentation['W'] = int(size // self.operatorRepresentation['C'])
 
         return ctxt, True
+    
+
+class LIFstatefulParser(NodeParser):
+
+    def __init__(self):
+        super().__init__()
+
+    def parseNode(self, node: gs.Node) -> (bool):
+        # Expect 3 or 4 inputs (input, [optional mem_in], beta, threshold) and 1 output (spike_out)
+        return (len(node.outputs) == 1) and (len(node.inputs) in (3, 4))
+
+    def parseNodeCtxt(self,
+                      ctxt: NetworkContext,
+                      node: gs.Node,
+                      channels_first: bool = True) -> Tuple[NetworkContext, bool]:
+
+        # Map required inputs and single output
+        has_mem_in = (len(node.inputs) == 4)
+        self.operatorRepresentation['has_mem_in'] = has_mem_in
+
+        if has_mem_in:
+            inputs = ['data_in', 'mem_in', 'beta', 'threshold']
+        else:
+            inputs = ['data_in', 'beta', 'threshold']
+
+        for idx, inputNode in enumerate(node.inputs):
+            self.operatorRepresentation[inputs[idx]] = ctxt.lookup(inputNode.name).name
+
+        # Single output: spike only
+        self.operatorRepresentation['spike_out'] = ctxt.lookup(node.outputs[0].name).name
+
+        data_in_buf = ctxt.lookup(node.inputs[0].name)
+        # size and dimensions derived from input tensor (N,C,H,W)
+        size = int(np.prod(data_in_buf.shape))
+        self.operatorRepresentation['size'] = size
+        if len(data_in_buf.shape) == 4:
+            self.operatorRepresentation['N'] = int(data_in_buf.shape[0])
+            self.operatorRepresentation['C'] = int(data_in_buf.shape[1 if channels_first else -1])
+            self.operatorRepresentation['H'] = int(data_in_buf.shape[2 if channels_first else 1])
+            self.operatorRepresentation['W'] = int(data_in_buf.shape[3 if channels_first else 2])
+        else:
+            # Fallback treat as flat
+            self.operatorRepresentation['N'] = 1
+            self.operatorRepresentation['C'] = int(data_in_buf.shape[0])
+            self.operatorRepresentation['H'] = 1
+            self.operatorRepresentation['W'] = int(size // self.operatorRepresentation['C'])
+
+        return ctxt, True
 
 
 class ReshapeParser(NodeParser):
