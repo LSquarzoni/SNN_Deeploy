@@ -153,9 +153,24 @@ class TileConstraint():
 
             return solution, solutionLengths
 
-        assert len(tilingSolution.outputTensorMemoryConstraints) == 1, "Expected node to have only one output!"
+        # Support nodes with multiple outputs by selecting a reference output to
+        # derive the tiling cubes. All outputs must share the same shape.
+        if len(tilingSolution.outputTensorMemoryConstraints) == 0:
+            raise AssertionError("Expected node to have at least one output!")
 
+        # Pick the first output as reference for computing cube transfers
         outVar, outTensorConstraint = next(iter(tilingSolution.outputTensorMemoryConstraints.items()))
+
+        # Validate that all outputs share the same shape as the reference
+        refShape = tuple(ctxt.lookup(outVar).shape)
+        for _ovar in tilingSolution.outputTensorMemoryConstraints.keys():
+            _shape = tuple(ctxt.lookup(_ovar).shape)
+            if _shape != refShape:
+                raise AssertionError(
+                    f"All outputs must have the same shape for tiling. Ref {outVar}:{refShape}, "
+                    f"but found {_ovar}:{_shape}"
+                )
+
         memoryPath = list(outTensorConstraint.memoryConstraints.keys())
 
         assert targetMemLevel in memoryPath, \

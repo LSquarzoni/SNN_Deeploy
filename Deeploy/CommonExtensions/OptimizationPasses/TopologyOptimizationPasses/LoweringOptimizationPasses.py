@@ -488,7 +488,12 @@ def _NCHWtoNHWCLIF_fun(graph: gs.Graph, match: Match, name: str, default_channel
 
     print(f"[LIF_LOWERING] matched LIF '{opNode.name}' inputs={ [i.name for i in opNode.inputs] } outputs={ [o.name for o in opNode.outputs] }")
 
-    # Always wrap LIF once (only for rank >= 4 tensors)
+    # Only wrap if current layout differs from desired one
+    channels_first = opNode.attrs["channels_first"] if "channels_first" in opNode.attrs else True
+    if channels_first == default_channels_first:
+        return graph
+
+    # Wrap LIF (only for rank >= 4 tensors)
     def rank_of(t: gs.Tensor) -> Optional[int]:
         try:
             return len(t.shape) if isinstance(t.shape, Sequence) else None
@@ -517,8 +522,8 @@ def _NCHWtoNHWCLIF_fun(graph: gs.Graph, match: Match, name: str, default_channel
             opNode.outputs[i] = tinp
             graph.nodes.append(tnode)
 
-    # Mark layout as channels-last to prevent re-wrapping
-    opNode.attrs["channels_first"] = False
+    # Mark layout as requested to prevent re-wrapping
+    opNode.attrs["channels_first"] = default_channels_first
     return graph
 
 
@@ -576,15 +581,11 @@ class PULPNCHWtoNHWCLIFPass(ReplaceSequentialPatternPass):
     def __init__(self, default_channels_first: bool = True):
         graph = gs.Graph()
         x = gs.Variable(name='x')
-        vmem = gs.Variable(name='vmem')
-        beta = gs.Variable(name='beta')
-        threshold = gs.Variable(name='threshold')
         s = gs.Variable(name='s')
-        v_out = gs.Variable(name='v_out')
         # Single-output pattern keeps the matcher sequential
-        graph.layer(inputs=[x, vmem, beta, threshold], outputs=[s, v_out], op='LIF', name='lif')
-        graph.inputs.extend([x, vmem, beta, threshold])
-        graph.outputs.extend([s, v_out])
+        graph.layer(inputs=[x], outputs=[s], op='LIF', name='lif')
+        graph.inputs.append(x)
+        graph.outputs.append(s)
 
         super().__init__(graph, partial(_NCHWtoNHWCLIF_fun, default_channels_first=default_channels_first),
                          "_NCHW_TO_NHWC_LIF_PASS", matcher = BranchingMatcher(regex_op = True))

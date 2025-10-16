@@ -70,29 +70,30 @@ BEGIN_SINGLE_CORE
         __lifstate_init_${mem_state} = 1;
     }
 
-    ${data_in_type.typeName}   ref_in     = ${data_in};
-    ${spike_out_type.typeName} ref_spike  = ${spike_out};
+    // Use per-layer unique ref variables to avoid redefinitions across layers
+    ${data_in_type.typeName}   ref_${spike_out}_${data_in}    = ${data_in};
+    ${spike_out_type.typeName} ref_${spike_out}_${spike_out}  = ${spike_out};
     % if has_mem_in:
-    ${mem_in_type.typeName}    ref_mem_in = ${mem_in};
+    ${mem_in_type.typeName}    ref_${spike_out}_${mem_in}     = ${mem_in};
     % endif
     for (uint32_t n=0; n<${N}; ++n) {
         LIF_stateful_fp32(
-            ref_in,
+            ref_${spike_out}_${data_in},
             % if has_mem_in:
-            ref_mem_in,
+            ref_${spike_out}_${mem_in},
             % else:
             NULL,
             % endif
             ${beta},
             ${threshold},
-            ref_spike,
+            ref_${spike_out}_${spike_out},
             ${mem_state},
             1, ${C}, ${H}, ${W}
         );
-        ref_in += ${batchOffset};
-        ref_spike += ${batchOffset};
+        ref_${spike_out}_${data_in}   += ${batchOffset};
+        ref_${spike_out}_${spike_out} += ${batchOffset};
         % if has_mem_in:
-        ref_mem_in += ${batchOffset};
+        ref_${spike_out}_${mem_in}    += ${batchOffset};
         % endif
     }
 END_SINGLE_CORE

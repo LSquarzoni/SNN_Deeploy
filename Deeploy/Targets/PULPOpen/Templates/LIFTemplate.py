@@ -30,13 +30,17 @@ referenceTemplate = NodeTemplate("""
 // LIF (PULP) (Name: ${nodeName}, Op: ${nodeOp})
 // Expects tensors: data_in, mem_in, beta, threshold
 // Produces tensors: spike_out, mem_out
+${data_in_type.typeName}   ref_${spike_out}_${data_in}      = ${data_in};
+${mem_in_type.typeName}    ref_${spike_out}_${mem_in}       = ${mem_in};
+${spike_out_type.typeName} ref_${spike_out}_${spike_out}    = ${spike_out};
+${mem_out_type.typeName}   ref_${spike_out}_${mem_out}      = ${mem_out};
 PULP_LIF_fp32_fp32(
-    ${data_in},
-    ${mem_in},
+    ref_${spike_out}_${data_in},
+    ref_${spike_out}_${mem_in},
     ${beta},
     ${threshold},
-    ${spike_out},
-    ${mem_out},
+    ref_${spike_out}_${spike_out},
+    ref_${spike_out}_${mem_out},
     ${N}, ${H}, ${W}, ${C}
 );
 """)

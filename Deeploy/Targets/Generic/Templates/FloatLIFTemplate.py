@@ -36,24 +36,25 @@ chw = C * H * W
 batchOffset = C * H * W
 %>
 BEGIN_SINGLE_CORE
-    ${data_in_type.typeName}   ref_in      = ${data_in};
-    ${mem_in_type.typeName}    ref_mem_in  = ${mem_in};
-    ${spike_out_type.typeName} ref_spike   = ${spike_out};
-    ${mem_out_type.typeName}   ref_mem_out = ${mem_out};
+    // Use per-layer unique ref variables to avoid redefinitions across layers
+    ${data_in_type.typeName}   ref_${spike_out}_${data_in}      = ${data_in};
+    ${mem_in_type.typeName}    ref_${spike_out}_${mem_in}       = ${mem_in};
+    ${spike_out_type.typeName} ref_${spike_out}_${spike_out}    = ${spike_out};
+    ${mem_out_type.typeName}   ref_${spike_out}_${mem_out}      = ${mem_out};
     for (uint32_t n=0; n<${N}; ++n) {
         LIF_fp32_fp32(
-            ref_in,
-            ref_mem_in,
+            ref_${spike_out}_${data_in},
+            ref_${spike_out}_${mem_in},
             ${beta},
             ${threshold},
-            ref_spike,
-            ref_mem_out,
+            ref_${spike_out}_${spike_out},
+            ref_${spike_out}_${mem_out},
             1, ${C}, ${H}, ${W}
         );
-        ref_in += ${batchOffset};
-        ref_spike += ${batchOffset};
-        ref_mem_in += ${batchOffset};
-        ref_mem_out += ${batchOffset};
+        ref_${spike_out}_${data_in}   += ${batchOffset};
+        ref_${spike_out}_${spike_out} += ${batchOffset};
+        ref_${spike_out}_${mem_in}    += ${batchOffset};
+        ref_${spike_out}_${mem_out}   += ${batchOffset};
     }
 END_SINGLE_CORE
 """)
