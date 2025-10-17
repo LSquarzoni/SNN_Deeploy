@@ -43,12 +43,12 @@ from Deeploy.Targets.Generic.Templates import AddTemplate, ConcatTemplate, ConvT
     ITAPartialMaxTemplate, MatMulTemplate, MaxPoolTemplate, MulTemplate, PadTemplate, QuantTemplate, \
     ReduceMeanTemplate, ReduceSumTemplate, RequantShiftTemplate, ReshapeTemplate, RQIntegerDivTemplate, \
     RQSiGELUTemplate, SliceTemplate, TransposeTemplate, iGELUTemplate, iLayernormTemplate, iRMSNormTemplate, \
-    iSoftmaxTemplate
+    iSoftmaxTemplate, FloatTanhTemplate
 from Deeploy.Targets.Generic.TypeCheckers import AddChecker, ConcatChecker, ConvChecker, DebugPrintChecker, \
     DequantChecker, DivChecker, DummyChecker, GatherChecker, GELUChecker, GEMMChecker, LayerNormChecker, \
     MatMulChecker, MaxPoolChecker, MulChecker, PadChecker, QuantChecker, ReduceMeanChecker, ReduceSumChecker, \
     ReluChecker, RequantShiftChecker, ReshapeChecker, RQIntegerDivChecker, SliceChecker, SoftmaxChecker, \
-    TransposeChecker, LIFChecker, LIFstatefulChecker
+    TransposeChecker, LIFChecker, LIFstatefulChecker, TanhChecker
 
 BasicTransformer = CodeTransformation([ArgumentStructGeneration(), MemoryManagementGeneration(), FutureGeneration()])
 
@@ -220,6 +220,9 @@ BasicReduceSumBindings = [
 
 BasicReluBinding = NodeBinding(ReluChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
                                FloatReluTemplate.referenceTemplate, BasicTransformer)
+
+BasicTanhBinding = NodeBinding(TanhChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
+                               FloatTanhTemplate.referenceTemplate, BasicTransformer)
 
 # LIF: inputs (input, mem_in, beta, threshold) -> outputs (spike_out, mem_out)
 BasicLIFBindings = [

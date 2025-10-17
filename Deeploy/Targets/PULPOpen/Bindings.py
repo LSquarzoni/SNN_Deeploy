@@ -42,7 +42,7 @@ from Deeploy.Targets.Generic.Templates import AddTemplate, ConcatTemplate, Dequa
 from Deeploy.Targets.Generic.TypeCheckers import AddChecker, ConcatChecker, ConvChecker, DequantChecker, \
     GatherChecker, GELUChecker, GEMMChecker, HardswishChecker, LayerNormChecker, MatMulChecker, MulChecker, \
     QuantChecker, ReduceMeanChecker, ReluChecker, ReshapeChecker, RQAddChecker, RQHardswishChecker, SGDChecker, \
-    SliceChecker, SoftmaxChecker, SoftmaxCrossEntropyLossChecker, TransposeChecker
+    SliceChecker, SoftmaxChecker, SoftmaxCrossEntropyLossChecker, TransposeChecker, TanhChecker
 from Deeploy.Targets.PULPOpen.CodeTransformationPasses.PULPClusterSynch import PULPSynchCoresPass
 from Deeploy.Targets.PULPOpen.CodeTransformationPasses.PULPClusterTiling import PULPClusterTiling
 from Deeploy.Targets.PULPOpen.CodeTransformationPasses.PULPL3Tiling import PULPL3Tiling
@@ -55,7 +55,7 @@ from Deeploy.Targets.PULPOpen.Templates import ConvTemplate, FloatAddTemplate, F
     FloatReluTemplate, FloatSoftmaxTemplate, GEMMTemplate, MatrixVectorTemplate, MaxPool2DTemplate, MulTemplate, \
     ReduceMeanTemplate, RequantShiftTemplate, ReshapeTemplate, RQAddTemplate, RQSiHardswishTemplate, SGDTemplate, \
     SliceTemplate, SoftmaxCrossEntropyLossTemplate, TallGEMMTemplate, TransposeTemplate, UniformRequantShiftTemplate, \
-    iRMSNormTemplate, iSoftmaxTemplate, LIFTemplate, LIFstatefulTemplate
+    iRMSNormTemplate, iSoftmaxTemplate, LIFTemplate, LIFstatefulTemplate, FloatTanhTemplate
 from Deeploy.Targets.PULPOpen.TypeCheckers import PULPConvChecker, PULPLinearChecker, PULPMaxPoolChecker, \
     PULPRequantShiftChecker, PULPLIFChecker, PULPLIFstatefulChecker
 from Deeploy.TilingExtension.CodeTransformationPasses.TilingVariableReplacement import TilingVariableReplacement, \
@@ -406,6 +406,9 @@ PULPMulBindings = [
 
 PULPReluBinding = NodeBinding(ReluChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
                               FloatReluTemplate.referenceTemplate, ForkTransformer)
+
+PULPTanhBinding = NodeBinding(TanhChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
+                              FloatTanhTemplate.referenceTemplate, ForkTransformer)
 
 PULPLayernormBinding = NodeBinding(
     LayerNormChecker(

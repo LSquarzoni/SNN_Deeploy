@@ -38,13 +38,14 @@ from Deeploy.Targets.Generic.Layers import AddLayer, ConcatLayer, ConvLayer, Gat
     LayerNormLayer, MatMulLayer, MaxPoolLayer, MulLayer, PadLayer, QuantLayer, ReduceMeanLayer, ReduceSumLayer, \
     ReluLayer, RequantShiftLayer, ReshapeLayer, RQIntegerDivLayer, RQSiGELULayer, RQSiHardswishLayer, SGDLayer, \
     SliceLayer, SoftmaxCrossEntropyLossGradLayer, SoftmaxCrossEntropyLossLayer, SoftmaxGradLayer, SoftmaxLayer, \
-    TransposeLayer, iHardswishLayer, iRMSNormLayer
+    TransposeLayer, iHardswishLayer, iRMSNormLayer, TanhLayer
 from Deeploy.Targets.Generic.Parsers import AddParser, ConcatParser, DequantParser, FlattenParser, GatherParser, \
     GELUParser, GEMMParser, LayerNormParser, MatMulParser, MaxPool2DParser, MulParser, Pad1DParser, Pad2DParser, \
     QuantParser, ReduceMeanParser, ReduceSumParser, ReluParser, RequantShiftParser, ReshapeParser, RQAddParser, \
     RQIntegerDivParser, RQSiGELUParser, RQSiHardswishParser, SGDParser, SliceParser, \
     SoftmaxCrossEntropyLossGradParser, SoftmaxCrossEntropyLossParser, SoftmaxGradParser, SoftmaxParser, \
-    TransposeParser, UniformRequantShiftParser, UnsqueezeParser, iHardswishParser, iRMSNormParser, iSoftmaxParser
+    TransposeParser, UniformRequantShiftParser, UnsqueezeParser, iHardswishParser, iRMSNormParser, iSoftmaxParser, \
+    TanhParser
 from Deeploy.Targets.Generic.Templates import AllocateTemplate as BasicAllocateTemplate
 from Deeploy.Targets.Generic.TopologyOptimizationPasses.Passes import DequantPatternPass, IntegerDivRequantMergePass, \
     MergeConstAddAndRequantPass, MergeTrueIntegerDivRequantShiftPass, QuantPatternPass, RQSSplitPass, \
@@ -66,7 +67,8 @@ from Deeploy.Targets.PULPOpen.Tiler import PULPAddTilingReadyBindings, PULPConca
     PULPRQSiHardswishTilingReadyBindings, PULPRQSMatrixVecTilingReadyBindings, PULPRQSTallGEMMTilingReadyBindings, \
     PULPRQSTilingReadyBindings, PULPSGDTilingReadyBindings, PULPSoftmaxCrossEntropyGradTilingReadyBindings, \
     PULPSoftmaxCrossEntropyTilingReadyBindings, PULPSoftmaxGradTilingReadyBindings, PULPSoftmaxTilingReadyBindings, \
-    PULPTransposeTilingReadyBindings, PULPUniformRQSTilingReadyBindings, PULPLIFTilingReadyBindings, PULPLIFstatefulTilingReadyBindings
+    PULPTransposeTilingReadyBindings, PULPUniformRQSTilingReadyBindings, PULPLIFTilingReadyBindings, \
+    PULPLIFstatefulTilingReadyBindings, PULPTanhTilingReadyBindings
 from Deeploy.Targets.PULPOpen.TopologyOptimizationPasses.Passes import PULPAddRequantMergePass, \
     PULPConvRequantMergePass, PULPGEMMRequantMergePass, PULPMatMulRequantMergePass
 from Deeploy.CommonExtensions.OptimizationPasses.TopologyOptimizationPasses.LoweringOptimizationPasses import \
@@ -105,6 +107,7 @@ TallGEMMMapper = NodeMapper(PULPTallGEMMParser(), PULPRQSTallGEMMTilingReadyBind
 MaxPool2DMapper = NodeMapper(MaxPool2DParser(), PULPMaxPool2DTilingReadyBindings)
 LayerNormMapper = NodeMapper(LayerNormParser(), PULPLayernormTilingReadyBindings)
 ReluMapper = NodeMapper(ReluParser(), PULPReluTilingReadyBindings)
+TanhMapper = NodeMapper(TanhParser(), PULPTanhTilingReadyBindings)
 SoftmaxMapper = NodeMapper(SoftmaxParser(), PULPSoftmaxTilingReadyBindings)
 SoftmaxGradMapper = NodeMapper(SoftmaxGradParser(), PULPSoftmaxGradTilingReadyBindings)
 Softmax_int8_Mapper = NodeMapper(iSoftmaxParser(), PULPSoftmaxTilingReadyBindings)
@@ -149,6 +152,7 @@ PULPMapping = {
     'Mul': MulLayer([MulMapper]),
     'Pad': PadLayer([Pad1DMapper, Pad2DMapper]),
     'Relu': ReluLayer([ReluMapper]),
+    'Tanh': TanhLayer([TanhMapper]),
     'Reshape': ReshapeLayer([ReshapeMapper]),
     'Squeeze': ReshapeLayer([UnsqueezeMapper]),
     'Transpose': TransposeLayer([TransposeMapper]),
