@@ -249,12 +249,32 @@ def generateL3HexDump(deployer: NetworkDeployer, path: str, test_inputs: List, t
     def dumpBuffer(buf: VariableBuffer, path: str):
 
         if "input" in buf.name:
-            idx = int(buf.name.split("_")[1])
+            # Try to extract index from buffer name (e.g., "input_0" -> 0)
+            try:
+                _list = buf.name.split("_")
+                idx = int(_list[1])
+            except (IndexError, ValueError):
+                idx = 0
             array = _shapeBroadcast(deployer.ctxt, test_inputs[idx], f"input_{idx}")
 
         elif "output" in buf.name:
-            _list = buf.name.split("_")
-            idx = int(_list[1])
+            # Try to extract index from buffer name (e.g., "output_0" -> 0)
+            # Handle cases like "output_0_output_0" by looking for first numeric part after "output"
+            try:
+                _list = buf.name.split("_")
+                # Find first numeric component after "output"
+                idx = None
+                for i, part in enumerate(_list):
+                    if part == "output" and i + 1 < len(_list):
+                        try:
+                            idx = int(_list[i + 1])
+                            break
+                        except ValueError:
+                            continue
+                if idx is None:
+                    idx = 0
+            except (IndexError, ValueError):
+                idx = 0
             array = _shapeBroadcast(deployer.ctxt, test_outputs[idx], f"output_{idx}")
 
         elif isinstance(buf, ConstantBuffer):

@@ -31,7 +31,7 @@ from Deeploy.CommonExtensions.DataTypes import uint16_t
 from Deeploy.DeeployTypes import NetworkContext, OperatorRepresentation
 from Deeploy.TilingExtension.MemoryConstraints import NodeMemoryConstraint
 from Deeploy.TilingExtension.TileConstraint import TileConstraint
-from Deeploy.TilingExtension.TilerModel import TilerModel
+from Deeploy.TilingExtension.TilerModel import TilerModel, PerformanceHint
 from Deeploy.TilingExtension.TilingCodegen import (
 	AbsoluteHyperRectangle,
 	HyperRectangle,
@@ -83,6 +83,13 @@ class LIFTileConstraint(TileConstraint):
 		out_c_var = tilerModel.getTensorDimVar(tensorName=out_spike, dimIdx=numDims - 1)
 		tilerModel.addConstraint(in_c_var == shape[-1])
 		tilerModel.addConstraint(out_c_var == shape[-1])
+
+		# Add hard minimum constraints for spatial dimensions (H/W at idx 1,2 in NHWC)
+		# to prevent L1 buffer layout violations. 8x8 minimum for safety.
+		h_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=1)
+		w_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=2)
+		tilerModel.addConstraint(h_var >= 8)
+		tilerModel.addConstraint(w_var >= 8)
 
 		return tilerModel
 

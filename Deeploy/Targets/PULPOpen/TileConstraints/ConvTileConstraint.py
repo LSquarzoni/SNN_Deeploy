@@ -33,7 +33,7 @@ from Deeploy.CommonExtensions.DataTypes import uint8_t, uint16_t
 from Deeploy.DeeployTypes import NetworkContext, OperatorRepresentation
 from Deeploy.TilingExtension.MemoryConstraints import NodeMemoryConstraint
 from Deeploy.TilingExtension.TileConstraint import TileConstraint
-from Deeploy.TilingExtension.TilerModel import TilerModel
+from Deeploy.TilingExtension.TilerModel import TilerModel, PerformanceHint
 from Deeploy.TilingExtension.TilingCodegen import AbsoluteHyperRectangle, HyperRectangle, TilingSchedule, \
     VariableReplacementScheme
 
@@ -88,20 +88,11 @@ class RQConv2DTileConstraint(TileConstraint):
 
         inputBuffer = ctxt.lookup(inputBufferName)
 
-        # Avoid creating boolean equality expressions inside arithmetic (these become CastVar
-        # with wide/negative ranges). For tiling correctness we can conservatively add the
-        # full padding to the effective size (this simplifies the CP model and prevents
-        # spurious negative intermediate ranges).
-        effectiveHeight = inputHeightVar + (padding[0] + padding[2])
-        effectiveWidth = inputWidthVar + (padding[1] + padding[3])
+        effectiveHeight = inputHeightVar + ((padding[0] + padding[2]) * (inputHeightVar == inputBuffer.shape[1]))
+        effectiveWidth = inputWidthVar + ((padding[1] + padding[3]) * (inputWidthVar == inputBuffer.shape[2]))
 
-        # Ensure numerator non-negative to avoid spurious negative ranges in the CP model
-        tilerModel.addConstraint(effectiveHeight >= weightHeightVar)
-        tilerModel.addConstraint(effectiveWidth >= weightWidthVar)
-
-        # Use canonical output size formula: out = floor((effective - kernel) / stride) + 1
-        tilerModel.addConstraint(outputHeightVar == (effectiveHeight - weightHeightVar) // strides[0] + 1)
-        tilerModel.addConstraint(outputWidthVar == (effectiveWidth - weightWidthVar) // strides[1] + 1)
+        tilerModel.addConstraint((outputHeightVar == (effectiveHeight - (weightHeightVar - 1) - 1) // strides[0] + 1))
+        tilerModel.addConstraint((outputWidthVar == (effectiveWidth - (weightWidthVar - 1) - 1) // strides[1] + 1))
 
         return tilerModel
 
@@ -292,20 +283,11 @@ class Conv2DTileConstraint(TileConstraint):
 
         inputBuffer = ctxt.lookup(inputBufferName)
 
-        # Avoid creating boolean equality expressions inside arithmetic (these become CastVar
-        # with wide/negative ranges). For tiling correctness we can conservatively add the
-        # full padding to the effective size (this simplifies the CP model and prevents
-        # spurious negative intermediate ranges).
-        effectiveHeight = inputHeightVar + (padding[0] + padding[2])
-        effectiveWidth = inputWidthVar + (padding[1] + padding[3])
+        effectiveHeight = inputHeightVar + ((padding[0] + padding[2]) * (inputHeightVar == inputBuffer.shape[1]))
+        effectiveWidth = inputWidthVar + ((padding[1] + padding[3]) * (inputWidthVar == inputBuffer.shape[2]))
 
-        # Ensure numerator non-negative to avoid spurious negative ranges in the CP model
-        tilerModel.addConstraint(effectiveHeight >= weightHeightVar)
-        tilerModel.addConstraint(effectiveWidth >= weightWidthVar)
-
-        # Use canonical output size formula: out = floor((effective - kernel) / stride) + 1
-        tilerModel.addConstraint(outputHeightVar == (effectiveHeight - weightHeightVar) // strides[0] + 1)
-        tilerModel.addConstraint(outputWidthVar == (effectiveWidth - weightWidthVar) // strides[1] + 1)
+        tilerModel.addConstraint((outputHeightVar == (effectiveHeight - (weightHeightVar - 1) - 1) // strides[0] + 1))
+        tilerModel.addConstraint((outputWidthVar == (effectiveWidth - (weightWidthVar - 1) - 1) // strides[1] + 1))
 
         return tilerModel
 
@@ -328,21 +310,23 @@ class Conv2DTileConstraint(TileConstraint):
         strides = parseDict["strides"]
         padding = parseDict["pads"]
 
-        # Allow spatial tiling: do NOT force input H/W to the full image dimension.
-        # Instead constrain them to be at least the kernel size and divisible by the stride
-        # so the solver can pick smaller tiles (reduces peak L2 memory usage).
+        # Input channels must be fixed (cannot be tiled in convolution)
         tilerModel.addConstraint(inputChannelVar == parseDict['ch_im_in'])
 
+        # Weights are fixed: kernel dimensions and input channels
         tilerModel.addConstraint(weightHeightVar == parseDict['dim_kernel_x'])
         tilerModel.addConstraint(weightWidthVar == parseDict['dim_kernel_y'])
         tilerModel.addConstraint(weightInChannelVar == parseDict['ch_im_in'])
 
-        # Ensure tile sizes allow at least one kernel application and are stride-aligned
-        tilerModel.addConstraint(inputHeightVar >= parseDict['dim_kernel_x'])
-        tilerModel.addConstraint(inputWidthVar >= parseDict['dim_kernel_y'])
+        # Allow spatial tiling on input H/W (do NOT force them to full image dimensions).
+        # But add a HARD minimum to prevent tiles that are too small for code generator's
+        # L1 buffer layout assumptions. Minimum is 8x8 for safety.
+        tilerModel.addConstraint(inputHeightVar >= max(parseDict['dim_kernel_x'], 8))
+        tilerModel.addConstraint(inputWidthVar >= max(parseDict['dim_kernel_y'], 8))
         tilerModel.addConstraint((inputHeightVar % strides[0]) == 0)
         tilerModel.addConstraint((inputWidthVar % strides[1]) == 0)
 
+        # Output channel dimension can be tiled (minimum 8 if out channels >= 8 for performance)
         if (parseDict["ch_im_out"] >= 8):
             tilerModel.addMinTileSizeConstraint(parseDict, 'ch_im_out', outputChannelVar, 8)
 
