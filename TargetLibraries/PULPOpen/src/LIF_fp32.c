@@ -41,7 +41,6 @@ void PULP_LIF_fp32_fp32(const float32_t *__restrict__ input,
   for (uint32_t n = 0; n < N; ++n) {
     const uint32_t n_base = n * HWC;
     for (uint32_t c = ch_start; c < ch_end; ++c) {
-      printf("");
 
       const float32_t beta_val = beta[c];
       const float32_t thr_val  = threshold[c];

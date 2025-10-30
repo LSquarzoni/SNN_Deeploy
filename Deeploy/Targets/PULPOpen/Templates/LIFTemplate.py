@@ -32,13 +32,15 @@ referenceTemplate = NodeTemplate("""
 // Produces tensors: spike_out, mem_out
 ${data_in_type.typeName}   ref_${spike_out}_${data_in}      = ${data_in};
 ${mem_in_type.typeName}    ref_${spike_out}_${mem_in}       = ${mem_in};
+${beta_type.typeName}      ref_${spike_out}_${beta}         = ${beta};
+${threshold_type.typeName} ref_${spike_out}_${threshold}    = ${threshold};
 ${spike_out_type.typeName} ref_${spike_out}_${spike_out}    = ${spike_out};
 ${mem_out_type.typeName}   ref_${spike_out}_${mem_out}      = ${mem_out};
 PULP_LIF_fp32_fp32(
     ref_${spike_out}_${data_in},
     ref_${spike_out}_${mem_in},
-    ${beta},
-    ${threshold},
+    ref_${spike_out}_${beta},
+    ref_${spike_out}_${threshold},
     ref_${spike_out}_${spike_out},
     ref_${spike_out}_${mem_out},
     ${N}, ${H}, ${W}, ${C}
