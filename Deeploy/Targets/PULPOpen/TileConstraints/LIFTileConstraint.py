@@ -47,17 +47,20 @@ class LIFTileConstraint(TileConstraint):
 		# Buffers: inputs (data_in, mem_in, beta, threshold), outputs (spike_out, mem_out)
 		in_data = parseDict['data_in']
 		in_mem = parseDict['mem_in']
+		beta = parseDict['beta']
+		threshold = parseDict['threshold']
 		out_spike = parseDict['spike_out']
 		out_mem = parseDict['mem_out']
 
-		# Add dims for tensors we tile (beta/threshold are 1D params and don't affect geometry)
-		for name in [in_data, in_mem, out_spike, out_mem]:
+		# Add dims for all tensors including per-channel params
+		for name in [in_data, in_mem, beta, threshold, out_spike, out_mem]:
 			tilerModel.addTensorDimToModel(ctxt, name)
 
 		inputShape = ctxt.lookup(in_data).shape
+		numDims = len(inputShape)
 
 		# Elementwise equality across inputs/outputs (NHWC order in PULP stack)
-		for dim in range(len(inputShape)):
+		for dim in range(numDims):
 			in_d = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=dim)
 			in_m = tilerModel.getTensorDimVar(tensorName=in_mem, dimIdx=dim)
 			o_s = tilerModel.getTensorDimVar(tensorName=out_spike, dimIdx=dim)
@@ -66,6 +69,15 @@ class LIFTileConstraint(TileConstraint):
 			tilerModel.addConstraint(in_d == in_m)
 			tilerModel.addConstraint(o_s == in_d)
 			tilerModel.addConstraint(o_m == in_d)
+
+		# Link beta and threshold to the channel dimension (last dim in NHWC)
+		# These are 1D vectors with shape [C] (or [C,1,1] flattened to [C])
+		in_c_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=numDims - 1)
+		beta_var = tilerModel.getTensorDimVar(tensorName=beta, dimIdx=0)
+		threshold_var = tilerModel.getTensorDimVar(tensorName=threshold, dimIdx=0)
+		
+		tilerModel.addConstraint(beta_var == in_c_var)
+		tilerModel.addConstraint(threshold_var == in_c_var)
 
 		return tilerModel
 
@@ -106,8 +118,8 @@ class LIFTileConstraint(TileConstraint):
 
 		outputCubes = [cube.rectangle for cube in absoluteOutputCubes]
 
-		# Include both inputs and both outputs; params (beta, threshold) are not tiled
-		addrNames = ['data_in', 'mem_in', 'spike_out', 'mem_out']
+		# Include all inputs (data_in, mem_in, beta, threshold) and outputs (spike_out, mem_out)
+		addrNames = ['data_in', 'mem_in', 'beta', 'threshold', 'spike_out', 'mem_out']
 		inputBaseOffsets, outputBaseOffsets = cls.extractBaseAddr(
 			tilingSolution, targetMemLevel, operatorRepresentation, addrNames
 		)
@@ -121,21 +133,35 @@ class LIFTileConstraint(TileConstraint):
 		inputLoadSchedule: List[Dict[str, HyperRectangle]] = []
 		outputLoadSchedule: List[Dict[str, HyperRectangle]] = []
 
+		# Get the full channel dimension size - beta and threshold are 1D with shape [C]
+		beta_buffer = operatorRepresentation['beta']
+		full_C = ctxt.lookup(beta_buffer).shape[0]
+
 		for out_cube in outputCubes:
 			# NHWC ordering for cubes in PULP stack
 			n_t, h_t, w_t, c_t = out_cube.dims
 
-			# replacements for template
+			# replacements for template - but we always load full C for beta/threshold
 			replacements['N'].append(n_t)
-			replacements['C'].append(c_t)
+			replacements['C'].append(full_C)  # Always use full_C since beta/threshold aren't tiled
 			replacements['H'].append(h_t)
 			replacements['W'].append(w_t)
 
 			# Inputs have same offsets/dims as outputs for elementwise op
 			data_in_cube = HyperRectangle(offset=out_cube.offset, dims=out_cube.dims)
 			mem_in_cube = HyperRectangle(offset=out_cube.offset, dims=out_cube.dims)
+			
+			# beta and threshold: always load all C elements (no tiling along channel)
+			# These are 1D tensors with shape [C], so offset is (0,) and dims is (full_C,)
+			beta_cube = HyperRectangle(offset=(0,), dims=(full_C,))
+			threshold_cube = HyperRectangle(offset=(0,), dims=(full_C,))
 
-			inputLoadSchedule.append({'data_in': data_in_cube, 'mem_in': mem_in_cube})
+			inputLoadSchedule.append({
+				'data_in': data_in_cube, 
+				'mem_in': mem_in_cube,
+				'beta': beta_cube,
+				'threshold': threshold_cube
+			})
 			outputLoadSchedule.append({'spike_out': out_cube, 'mem_out': out_cube})
 
 		tilingSchedule = TilingSchedule(inputBaseOffsets, outputBaseOffsets, inputLoadSchedule, outputLoadSchedule)

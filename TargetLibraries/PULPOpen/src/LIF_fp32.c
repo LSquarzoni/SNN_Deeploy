@@ -31,6 +31,17 @@ void PULP_LIF_fp32_fp32(const float32_t *__restrict__ input,
   int8_t core_id = pi_core_id();
   int8_t log2Core = LOG2(NUM_CORES);
 
+  /* // DEBUG: Print beta/threshold values (only core 0 to avoid clutter)
+  if (core_id == 0) {
+    printf("[LIF DEBUG] C=%u, beta[0-3]=%.6f,%.6f,%.6f,%.6f thr[0-3]=%.6f,%.6f,%.6f,%.6f\n",
+           C, beta[0], beta[1], beta[2], beta[3],
+           threshold[0], threshold[1], threshold[2], threshold[3]);
+    printf("[LIF DEBUG] input[0-7]=%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+           input[0], input[1], input[2], input[3], input[4], input[5], input[6], input[7]);
+    printf("[LIF DEBUG] mem_in[0-7]=%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+           mem_in[0], mem_in[1], mem_in[2], mem_in[3], mem_in[4], mem_in[5], mem_in[6], mem_in[7]);
+  } */
+
   const uint32_t HWC = H * W * C;
   uint32_t ch_chunk = (C >> log2Core) + ((C & (NUM_CORES - 1)) != 0);
   uint32_t ch_start = MIN(ch_chunk * core_id, C);

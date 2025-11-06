@@ -312,6 +312,8 @@ class Conv2DTileConstraint(TileConstraint):
 
         # Input channels must be fixed (cannot be tiled in convolution)
         tilerModel.addConstraint(inputChannelVar == parseDict['ch_im_in'])
+        #tilerModel.addConstraint(inputHeightVar == parseDict['dim_im_in_x'])
+        #tilerModel.addConstraint(inputWidthVar == parseDict['dim_im_in_y'])
 
         # Weights are fixed: kernel dimensions and input channels
         tilerModel.addConstraint(weightHeightVar == parseDict['dim_kernel_x'])

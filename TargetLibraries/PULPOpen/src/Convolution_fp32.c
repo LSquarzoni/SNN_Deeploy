@@ -97,6 +97,18 @@ void PULP_Conv2d_Im2Col_fp32_fp32_fp32_HWC(
   int8_t core_id = pi_core_id();
   int8_t log2Core = LOG2(NUM_CORES);
 
+  /* // DEBUG: Print input values (only core 0)
+  if (core_id == 0) {
+    printf("[CONV DEBUG] input[0-7]=%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+           pSrcA[0], pSrcA[1], pSrcA[2], pSrcA[3], pSrcA[4], pSrcA[5], pSrcA[6], pSrcA[7]);
+  }
+
+  // DEBUG: Print kernel weight values (only core 0 to avoid clutter)
+  if (core_id == 0) {
+    printf("[CONV DEBUG] weights[0-7]=%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+            pSrcB[0], pSrcB[1], pSrcB[2], pSrcB[3], pSrcB[4], pSrcB[5], pSrcB[6], pSrcB[7]);
+  } */
+
   uint16_t ch_out_chunk =
       (F_total >> log2Core) + ((F_total & (NUM_CORES - 1)) != 0);
   uint16_t ch_out_start = MIN(ch_out_chunk * core_id, F_total);
@@ -153,4 +165,9 @@ void PULP_Conv2d_Im2Col_fp32_fp32_fp32_HWC(
       }
     }
   }
+  /* // DEBUG: Print output values (only core 0)
+  if (core_id == 0) {
+    printf("[CONV DEBUG] output[0-7]=%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+           pDstC[0], pDstC[1], pDstC[2], pDstC[3], pDstC[4], pDstC[5], pDstC[6], pDstC[7]);
+  } */
 }

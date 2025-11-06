@@ -101,9 +101,6 @@ def generateTestInputsHeader(deployer: NetworkDeployer, test_inputs: List) -> st
 def generateTestOutputsHeader(deployer: NetworkDeployer, test_outputs: List[np.ndarray]) -> str:
     retStr = ""
     for index, values in enumerate(test_outputs):
-        # Concretize output buffer shape from provided expected outputs
-        if deployer.ctxt.is_buffer(f'output_{index}'):
-            deployer.ctxt.lookup(f'output_{index}').shape = list(values.shape)
         typeName = deployer.ctxt.lookup(f'output_{index}')._type.referencedType.typeName
         typeWidth = deployer.ctxt.lookup(f'output_{index}')._type.referencedType.typeWidth
 
@@ -248,33 +245,13 @@ def generateL3HexDump(deployer: NetworkDeployer, path: str, test_inputs: List, t
 
     def dumpBuffer(buf: VariableBuffer, path: str):
 
-        if "input" in buf.name:
-            # Try to extract index from buffer name (e.g., "input_0" -> 0)
-            try:
-                _list = buf.name.split("_")
-                idx = int(_list[1])
-            except (IndexError, ValueError):
-                idx = 0
+        if buf.name.startswith("input_"):
+            idx = int(buf.name.split("_")[1])
             array = _shapeBroadcast(deployer.ctxt, test_inputs[idx], f"input_{idx}")
 
-        elif "output" in buf.name:
-            # Try to extract index from buffer name (e.g., "output_0" -> 0)
-            # Handle cases like "output_0_output_0" by looking for first numeric part after "output"
-            try:
-                _list = buf.name.split("_")
-                # Find first numeric component after "output"
-                idx = None
-                for i, part in enumerate(_list):
-                    if part == "output" and i + 1 < len(_list):
-                        try:
-                            idx = int(_list[i + 1])
-                            break
-                        except ValueError:
-                            continue
-                if idx is None:
-                    idx = 0
-            except (IndexError, ValueError):
-                idx = 0
+        elif buf.name.startswith("output_"):
+            _list = buf.name.split("_")
+            idx = int(_list[1])
             array = _shapeBroadcast(deployer.ctxt, test_outputs[idx], f"output_{idx}")
 
         elif isinstance(buf, ConstantBuffer):

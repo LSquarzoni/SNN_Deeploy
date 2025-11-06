@@ -147,20 +147,9 @@ int main(void) {
       compbuf = DeeployNetwork_outputs[buf];
     }
 
-    /* Minimal fix: when there are 2 outputs, swap mapping so that
-       output 0 uses testOutputVector[1] and output 1 uses testOutputVector[0].
-       Keeps default behavior for other cases. */
-    uint32_t expected_index = buf;
-    if (DeeployNetwork_num_outputs == 2) {
-      if (buf == 0)
-        expected_index = 0;
-      else if (buf == 1)
-        expected_index = 1;
-    }
-
     if (ISOUTPUTFLOAT) {
       float_error_count = 0;
-      float_compare_args.expected = testOutputVector[expected_index];
+      float_compare_args.expected = testOutputVector[buf];
       float_compare_args.actual = compbuf;
       float_compare_args.num_elements =
           DeeployNetwork_outputs_bytes[buf] / sizeof(float);
@@ -178,16 +167,16 @@ int main(void) {
 
       for (uint32_t i = 0;
            i < DeeployNetwork_outputs_bytes[buf] / sizeof(OUTPUTTYPE); i++) {
-        OUTPUTTYPE expected = ((OUTPUTTYPE *)testOutputVector[expected_index])[i];
+        OUTPUTTYPE expected = ((OUTPUTTYPE *)testOutputVector[buf])[i];
         OUTPUTTYPE actual = ((OUTPUTTYPE *)compbuf)[i];
-        int32_t error = expected - actual;
+        float32_t error = expected - actual;
         OUTPUTTYPE diff = (OUTPUTTYPE)(error < 0 ? -error : error);
 
         if (diff) {
           tot_err += 1;
-          printf("Expected: %4d  ", expected);
-          printf("Actual: %4d  ", actual);
-          printf("Diff: %4d at Index %12u in Output %u\r\n", diff, i, buf);
+          printf("Expected: %4f  ", expected);
+          printf("Actual: %4f  ", actual);
+          printf("Diff: %4f at Index %12u in Output %u\r\n", diff, i, buf);
         }
       }
     }
