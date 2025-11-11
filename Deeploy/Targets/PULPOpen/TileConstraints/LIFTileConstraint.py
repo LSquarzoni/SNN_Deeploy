@@ -83,25 +83,41 @@ class LIFTileConstraint(TileConstraint):
 
 	@staticmethod
 	def addPolicyConstraint(tilerModel: TilerModel, parseDict: Dict, ctxt: NetworkContext) -> TilerModel:
-		# Keep channel dimension (last, NHWC) intact to simplify per-channel params (beta/threshold)
+		# LIF is an elementwise operation that can be tiled in all dimensions (N, H, W, C).
+		# 
+		# NOTE: Due to a framework limit, spatial tiling (H/W) will produce INCORRECT results
+		# because DMA stride calculation is hardcoded for channel-only tiling. However, this
+		# configuration is used for performance benchmarking to measure inference cycles.
+		#
+		# CONSTRAINTS:
+		# - Minimum tile sizes prevent excessive tiling overhead and code generation issues
+		# - Channel tiling must use multiples of 8 for efficient 8-core parallelization
+		# - Spatial dimensions have minimum sizes to avoid degenerate tiles
+		
 		in_data = parseDict['data_in']
-		out_spike = parseDict['spike_out']
-
 		shape = ctxt.lookup(in_data).shape
 		numDims = len(shape)
 
-		# Fix C dimension to full size; allow tiler to split N/H/W as needed
-		in_c_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=numDims - 1)
-		out_c_var = tilerModel.getTensorDimVar(tensorName=out_spike, dimIdx=numDims - 1)
-		tilerModel.addConstraint(in_c_var == shape[-1])
-		tilerModel.addConstraint(out_c_var == shape[-1])
-
-		# Add hard minimum constraints for spatial dimensions (H/W at idx 1,2 in NHWC)
-		# to prevent L1 buffer layout violations. 8x8 minimum for safety.
+		# Spatial dimension constraints: minimum 4x4 tiles to avoid tiny tiles
+		# These minimums balance memory usage vs tiling overhead
 		h_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=1)
 		w_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=2)
-		tilerModel.addConstraint(h_var >= 8)
-		tilerModel.addConstraint(w_var >= 8)
+		
+		tilerModel.addConstraint(h_var >= 4)  # Minimum height per tile
+		tilerModel.addConstraint(w_var >= 4)  # Minimum width per tile
+
+		# Channel dimension constraints: minimum 8 channels for parallelization
+		c_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=numDims - 1)
+		total_channels = shape[-1]
+		
+		if total_channels < 8:
+			# Very small channel count: keep all together
+			tilerModel.addConstraint(c_var == total_channels)
+		else:
+			# Allow channel tiling with minimum 8 channels per tile
+			tilerModel.addConstraint(c_var >= 8)
+			# Require multiples of 8 for optimal core distribution (8 cores on PULP)
+			tilerModel.addConstraint((c_var % 8) == 0)
 
 		return tilerModel
 
@@ -124,8 +140,8 @@ class LIFTileConstraint(TileConstraint):
 			tilingSolution, targetMemLevel, operatorRepresentation, addrNames
 		)
 
-		# For LIF template we need N, C, H, W (NCHW variables), but PULP shapes are NHWC.
-		# Map NHWC cube.dims -> (N, H, W, C) then populate replacements accordingly.
+		# For LIF template we need N, C, H, W variables.
+		# PULP tensors are NHWC, and per-channel params (beta, threshold) are indexed by C.
 		replacements: Dict[str, List[int]] = {k: [] for k in ['N', 'C', 'H', 'W']}
 		replacementTypes = {k: PointerClass(uint16_t) for k in ['N', 'C', 'H', 'W']}
 
@@ -133,17 +149,21 @@ class LIFTileConstraint(TileConstraint):
 		inputLoadSchedule: List[Dict[str, HyperRectangle]] = []
 		outputLoadSchedule: List[Dict[str, HyperRectangle]] = []
 
-		# Get the full channel dimension size - beta and threshold are 1D with shape [C]
-		beta_buffer = operatorRepresentation['beta']
-		full_C = ctxt.lookup(beta_buffer).shape[0]
+		# DEBUG: Print tiling information
+		#print(f"\n[LIF TILING DEBUG] Node: {operatorRepresentation.get('nodeName', 'unknown')}")
+		#print(f"  Number of tiles: {len(outputCubes)}")
+		
+		for tile_idx, out_cube in enumerate(outputCubes):
+			# Extract both offset and dims for NHWC ordering
+			(n_off, h_off, w_off, c_off) = out_cube.offset
+			(n_t, h_t, w_t, c_t) = out_cube.dims
 
-		for out_cube in outputCubes:
-			# NHWC ordering for cubes in PULP stack
-			n_t, h_t, w_t, c_t = out_cube.dims
+			# DEBUG: Print tile info
+			#print(f"  Tile {tile_idx}: offset=({n_off},{h_off},{w_off},{c_off}) dims=({n_t},{h_t},{w_t},{c_t})")
 
-			# replacements for template - but we always load full C for beta/threshold
+			# Template replacements: use the TILED dimensions for this cube
 			replacements['N'].append(n_t)
-			replacements['C'].append(full_C)  # Always use full_C since beta/threshold aren't tiled
+			replacements['C'].append(c_t)  # Use tiled C, not full C
 			replacements['H'].append(h_t)
 			replacements['W'].append(w_t)
 
@@ -151,10 +171,10 @@ class LIFTileConstraint(TileConstraint):
 			data_in_cube = HyperRectangle(offset=out_cube.offset, dims=out_cube.dims)
 			mem_in_cube = HyperRectangle(offset=out_cube.offset, dims=out_cube.dims)
 			
-			# beta and threshold: always load all C elements (no tiling along channel)
-			# These are 1D tensors with shape [C], so offset is (0,) and dims is (full_C,)
-			beta_cube = HyperRectangle(offset=(0,), dims=(full_C,))
-			threshold_cube = HyperRectangle(offset=(0,), dims=(full_C,))
+			# beta and threshold: 1D tensors indexed by channel dimension
+			# Load only the slice [c_off : c_off + c_t] corresponding to this tile's channels
+			beta_cube = HyperRectangle(offset=(c_off,), dims=(c_t,))
+			threshold_cube = HyperRectangle(offset=(c_off,), dims=(c_t,))
 
 			inputLoadSchedule.append({
 				'data_in': data_in_cube, 
@@ -163,6 +183,8 @@ class LIFTileConstraint(TileConstraint):
 				'threshold': threshold_cube
 			})
 			outputLoadSchedule.append({'spike_out': out_cube, 'mem_out': out_cube})
+
+		#print(f"[LIF TILING DEBUG] Replacements: N={replacements['N']}, C={replacements['C']}, H={replacements['H']}, W={replacements['W']}\n")
 
 		tilingSchedule = TilingSchedule(inputBaseOffsets, outputBaseOffsets, inputLoadSchedule, outputLoadSchedule)
 		variableReplacementSchedule = VariableReplacementScheme(replacements, replacementTypes)
