@@ -1,0 +1,43 @@
+Deeploy.Targets.Generic.Layers.LIFstatefulLayer
+===============================================
+
+.. currentmodule:: Deeploy.Targets.Generic.Layers
+
+.. autoclass:: LIFstatefulLayer
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Methods
+   .. automethod:: __init__
+
+   .. autosummary::
+   
+      ~LIFstatefulLayer.__init__
+      ~LIFstatefulLayer.bind
+      ~LIFstatefulLayer.broadcast
+      ~LIFstatefulLayer.codeTransform
+      ~LIFstatefulLayer.computeOps
+      ~LIFstatefulLayer.computeShapes
+      ~LIFstatefulLayer.discardCurrentMapper
+      ~LIFstatefulLayer.generate
+      ~LIFstatefulLayer.parse
+      ~LIFstatefulLayer.resetDiscardedMappers
+      ~LIFstatefulLayer.typeCheck
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LIFstatefulLayer.maps
+      ~LIFstatefulLayer.mapper
+      ~LIFstatefulLayer.discardedMappers
+      ~LIFstatefulLayer.node
+   
+   

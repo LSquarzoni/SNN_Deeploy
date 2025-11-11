@@ -1,0 +1,37 @@
+Deeploy.Targets.Generic.TypeCheckers.LIFChecker
+===============================================
+
+.. currentmodule:: Deeploy.Targets.Generic.TypeCheckers
+
+.. autoclass:: LIFChecker
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Methods
+   .. automethod:: __init__
+
+   .. autosummary::
+   
+      ~LIFChecker.__init__
+      ~LIFChecker.annotateDict
+      ~LIFChecker.checkOutputType
+      ~LIFChecker.signature
+      ~LIFChecker.typeCheck
+      ~LIFChecker.typeCheckNodeInputs
+      ~LIFChecker.typeInferGlobalCtxt
+      ~LIFChecker.typeInferOutput
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LIFChecker.typeDict
+   
+   

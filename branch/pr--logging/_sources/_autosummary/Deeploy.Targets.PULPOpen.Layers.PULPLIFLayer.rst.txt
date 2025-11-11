@@ -1,0 +1,43 @@
+Deeploy.Targets.PULPOpen.Layers.PULPLIFLayer
+============================================
+
+.. currentmodule:: Deeploy.Targets.PULPOpen.Layers
+
+.. autoclass:: PULPLIFLayer
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Methods
+   .. automethod:: __init__
+
+   .. autosummary::
+   
+      ~PULPLIFLayer.__init__
+      ~PULPLIFLayer.bind
+      ~PULPLIFLayer.broadcast
+      ~PULPLIFLayer.codeTransform
+      ~PULPLIFLayer.computeOps
+      ~PULPLIFLayer.computeShapes
+      ~PULPLIFLayer.discardCurrentMapper
+      ~PULPLIFLayer.generate
+      ~PULPLIFLayer.parse
+      ~PULPLIFLayer.resetDiscardedMappers
+      ~PULPLIFLayer.typeCheck
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PULPLIFLayer.maps
+      ~PULPLIFLayer.mapper
+      ~PULPLIFLayer.discardedMappers
+      ~PULPLIFLayer.node
+   
+   

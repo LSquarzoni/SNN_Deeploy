@@ -1,0 +1,37 @@
+Deeploy.Targets.Generic.TypeCheckers.ConvChecker
+================================================
+
+.. currentmodule:: Deeploy.Targets.Generic.TypeCheckers
+
+.. autoclass:: ConvChecker
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Methods
+   .. automethod:: __init__
+
+   .. autosummary::
+   
+      ~ConvChecker.__init__
+      ~ConvChecker.annotateDict
+      ~ConvChecker.checkOutputType
+      ~ConvChecker.signature
+      ~ConvChecker.typeCheck
+      ~ConvChecker.typeCheckNodeInputs
+      ~ConvChecker.typeInferGlobalCtxt
+      ~ConvChecker.typeInferOutput
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ConvChecker.typeDict
+   
+   

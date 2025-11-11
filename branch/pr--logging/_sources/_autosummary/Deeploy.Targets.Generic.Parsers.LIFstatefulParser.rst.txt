@@ -1,0 +1,35 @@
+Deeploy.Targets.Generic.Parsers.LIFstatefulParser
+=================================================
+
+.. currentmodule:: Deeploy.Targets.Generic.Parsers
+
+.. autoclass:: LIFstatefulParser
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Methods
+   .. automethod:: __init__
+
+   .. autosummary::
+   
+      ~LIFstatefulParser.__init__
+      ~LIFstatefulParser.parse
+      ~LIFstatefulParser.parseInputs
+      ~LIFstatefulParser.parseNode
+      ~LIFstatefulParser.parseNodeCtxt
+      ~LIFstatefulParser.parseOutputs
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LIFstatefulParser.operatorRepresentation
+   
+   

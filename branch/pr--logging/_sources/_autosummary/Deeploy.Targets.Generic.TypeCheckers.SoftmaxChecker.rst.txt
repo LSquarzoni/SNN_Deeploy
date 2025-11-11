@@ -1,0 +1,37 @@
+Deeploy.Targets.Generic.TypeCheckers.SoftmaxChecker
+===================================================
+
+.. currentmodule:: Deeploy.Targets.Generic.TypeCheckers
+
+.. autoclass:: SoftmaxChecker
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Methods
+   .. automethod:: __init__
+
+   .. autosummary::
+   
+      ~SoftmaxChecker.__init__
+      ~SoftmaxChecker.annotateDict
+      ~SoftmaxChecker.checkOutputType
+      ~SoftmaxChecker.signature
+      ~SoftmaxChecker.typeCheck
+      ~SoftmaxChecker.typeCheckNodeInputs
+      ~SoftmaxChecker.typeInferGlobalCtxt
+      ~SoftmaxChecker.typeInferOutput
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SoftmaxChecker.typeDict
+   
+   
