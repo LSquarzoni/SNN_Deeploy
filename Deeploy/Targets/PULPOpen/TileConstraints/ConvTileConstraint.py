@@ -222,12 +222,30 @@ class RQConv2DTileConstraint(TileConstraint):
 
             inputInCubes.append(InCube)
 
-            RequantCube = HyperRectangle((COffset,), (CSize,))
+            # Requant parameters (add/mul): Handle scalar vs per-channel
+            # Check actual tensor shape to determine if scalar
+            add_shape = ctxt.lookup(operatorRepresentation['add']).shape
+            mul_shape = ctxt.lookup(operatorRepresentation['mul']).shape
+            
+            add_channels = 1 if len(add_shape) == 0 or add_shape[0] == 1 else add_shape[0]
+            mul_channels = 1 if len(mul_shape) == 0 or mul_shape[0] == 1 else mul_shape[0]
+            
+            # When accessing full tensor (CSize >= channels), must use offset 0
+            if add_channels == 1 or CSize >= add_channels:
+                AddCube = HyperRectangle((0,), (add_channels,))
+            else:
+                AddCube = HyperRectangle((COffset,), (CSize,))
+                
+            if mul_channels == 1 or CSize >= mul_channels:
+                MulCube = HyperRectangle((0,), (mul_channels,))
+            else:
+                MulCube = HyperRectangle((COffset,), (CSize,))
+            
             WeightCube = HyperRectangle((COffset, 0, 0, 0), (CSize, weightH, weightW, weightC))
 
             inputWeightCubes.append(WeightCube)
-            inputAddCubes.append(RequantCube)
-            inputMulCubes.append(RequantCube)
+            inputAddCubes.append(AddCube)
+            inputMulCubes.append(MulCube)
 
         inputLoadSchedule = []
         outputLoadSchedule = []

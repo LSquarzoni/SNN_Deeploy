@@ -246,7 +246,13 @@ Old minOuterShape produced by outerDims: {outerShape} and rects:
             node for node in baseExecutionBlock.codeSnippets if hasattr(node.template, 'tileConstraint')
         ]
 
-        assert len(possibleTemplateNodes) == 1, "More than one template node with TCF found"
+        # Skip operations without tileConstraint (e.g., Quant, Dequant)
+        if len(possibleTemplateNodes) == 0:
+            return ctxt, executionBlock
+
+        if len(possibleTemplateNodes) != 1:
+            snippet_info = [(type(s.template).__name__, s.template.__class__.__module__) for s in possibleTemplateNodes]
+            raise AssertionError(f"Expected exactly 1 template node with tileConstraint, found {len(possibleTemplateNodes)}: {snippet_info}")
 
         templateNode = possibleTemplateNodes[0]
 

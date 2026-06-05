@@ -143,7 +143,13 @@ class TilingVariableReplacement(CodeTransformationPass, IntrospectiveCodeTransfo
             node for node in baseExecutionBlock.codeSnippets if hasattr(node.template, 'tileConstraint')
         ]
 
-        assert len(possibleSnippets) == 1, "More than one template node with TCF found"
+        # If no snippets have tileConstraint (e.g., Quant/Dequant operations), skip variable replacement
+        if len(possibleSnippets) == 0:
+            return ctxt, executionBlock
+
+        if len(possibleSnippets) != 1:
+            snippet_info = [(type(s.template).__name__, s.template.__class__.__module__) for s in possibleSnippets]
+            raise AssertionError(f"Expected exactly 1 template node with tileConstraint, found {len(possibleSnippets)} for layer '{name}': {snippet_info}")
 
         snippet = possibleSnippets[0]
         operatorRepresentation = snippet.operatorRepresentation
@@ -243,7 +249,13 @@ class TilingVariableReplacementUpdate(CodeTransformationPass, IntrospectiveCodeT
             node for node in baseExecutionBlock.codeSnippets if hasattr(node.template, 'tileConstraint')
         ]
 
-        assert len(possibleSnippets) == 1, "More than one template node with TCF found"
+        # Skip operations without tileConstraint (e.g., Quant, Dequant)
+        if len(possibleSnippets) == 0:
+            return ctxt, executionBlock
+
+        if len(possibleSnippets) != 1:
+            snippet_info = [(type(s.template).__name__, s.template.__class__.__module__) for s in possibleSnippets]
+            raise AssertionError(f"Expected exactly 1 template node with tileConstraint, found {len(possibleSnippets)} for layer '{name}': {snippet_info}")
 
         snippet = possibleSnippets[0]
         operatorRepresentation = snippet.operatorRepresentation

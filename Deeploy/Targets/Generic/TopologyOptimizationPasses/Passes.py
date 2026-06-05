@@ -1148,6 +1148,164 @@ class QuantPatternPass(ReplaceSequentialPatternPass):
         super().__init__(graph, _quant_pattern_fun, name)
 
 
+def _simple_quant_pattern_fun(graph: gs.Graph, match: Match, name: str):
+    """Handle Div → Round → Clip pattern (zero_point = 0)"""
+    matched_nodes = [m for k, m in match.nodes_map.items()]
+    
+    div_node = matched_nodes[0]
+    round_node = matched_nodes[1]
+    clip_node = matched_nodes[2]
+
+    # Extract scale from Div node
+    scale_input = div_node.inputs[1]
+    scale_value = float(scale_input.values.item()) if hasattr(scale_input, 'values') else 1.0
+
+    # For this pattern, zero_point is always 0 (no Add node)
+    zero_point_value = 0.0
+
+    # Extract min and max from Clip
+    min_input = clip_node.inputs[1] if len(clip_node.inputs) > 1 else None
+    max_input = clip_node.inputs[2] if len(clip_node.inputs) > 2 else None
+
+    min_value = float(min_input.values.item()) if (min_input is not None and hasattr(min_input, 'values')) else None
+    max_value = float(max_input.values.item()) if (max_input is not None and hasattr(max_input, 'values')) else None
+
+    # Determine bit_width and signed
+    if min_value is not None and max_value is not None:
+        if min_value < 0:
+            signed = True
+            bit_width = int(np.log2(max_value - min_value + 1))
+        else:
+            signed = False
+            bit_width = int(np.log2(max_value + 1))
+    else:
+        signed = True
+        bit_width = 8
+
+    # Create Quant node attributes
+    quant_attrs = {
+        'scale': np.array([scale_value], dtype = np.float32),
+        'zero_point': np.array([zero_point_value], dtype = np.float32),
+        'bit_width': np.array([bit_width], dtype = np.int32),
+        'signed': np.array([1 if signed else 0], dtype = np.int32),
+    }
+
+    if min_value is not None:
+        quant_attrs['min_val'] = np.array([min_value], dtype = np.int32)
+    if max_value is not None:
+        quant_attrs['max_val'] = np.array([max_value], dtype = np.int32)
+
+    # Get input/output tensors
+    input_tensor = div_node.inputs[0]
+    output_tensor = clip_node.outputs[0]
+    
+    # Update output tensor dtype to int8 for quantized data
+    output_tensor.dtype = np.int8
+
+    # Create new Quant node
+    quant_node = gs.Node(op = 'Quant',
+                         name = name + '_Quant',
+                         inputs = [input_tensor],
+                         outputs = [output_tensor],
+                         attrs = quant_attrs)
+
+    graph.nodes.append(quant_node)
+
+    # Remove old nodes
+    for node in matched_nodes:
+        node.inputs.clear()
+        node.outputs.clear()
+        graph.nodes.remove(node)
+
+    return graph
+
+
+@contextagnostic
+class SimpleQuantPatternPass(ReplaceSequentialPatternPass):
+    """
+    Recognizes simple quantization pattern: Div → Round → Clip (zero_point = 0)
+    This is common in symmetric quantization schemes.
+    """
+
+    def __init__(self):
+        # Define the pattern: Div -> Round -> Clip (no Add)
+        graph = gs.Graph()
+        input_var = gs.Variable(name = 'input_0')
+
+        # Create the pattern
+        div_out = graph.layer(inputs = [input_var], outputs = ['div_out'], op = 'Div', name = 'div')
+        round_out = graph.layer(inputs = div_out, outputs = ['round_out'], op = 'Round', name = 'round')
+        clip_out = graph.layer(inputs = round_out, outputs = ['clip_out'], op = 'Clip', name = 'clip')
+
+        graph.outputs.append(clip_out)
+        graph.inputs.append(input_var)
+
+        name = "_SIMPLE_QUANT_PATTERN_PASS"
+        super().__init__(graph, _simple_quant_pattern_fun, name)
+
+
+def _simple_dequant_pattern_fun(graph: gs.Graph, match: Match, name: str):
+    """Handle Mul-only dequantization pattern (zero_point = 0)"""
+    matched_nodes = [m for k, m in match.nodes_map.items()]
+    mul_node = matched_nodes[0]
+
+    # Find which input is the constant (scale)
+    mul_input_idx = 0 if (hasattr(mul_node.inputs[1], 'values')) else 1
+    const_input_idx = 1 - mul_input_idx
+
+    scale = float(mul_node.inputs[const_input_idx].values.item())
+    zero_point = 0.0  # Symmetric quantization
+
+    # Determine bit_width from input dtype
+    bit_width = 8
+    if hasattr(mul_node.inputs[mul_input_idx], 'dtype'):
+        input_dtype = mul_node.inputs[mul_input_idx].dtype
+        if input_dtype == np.int8:
+            bit_width = 8
+        elif input_dtype == np.int16:
+            bit_width = 16
+        elif input_dtype == np.int32:
+            bit_width = 32
+
+    dequant_attrs = {
+        'scale': scale,
+        'zero_point': zero_point,
+        'bit_width': bit_width,
+        'signed': True
+    }
+
+    _inputs = [mul_node.inputs[mul_input_idx]]
+    _outputs = mul_node.outputs
+    
+    # Update output tensor dtype to float32 for dequantized data
+    for output in _outputs:
+        output.dtype = np.float32
+
+    dequant_node = gs.Node(op = 'Dequant', name = name, attrs = dequant_attrs)
+    graph.replaceInsertNode(_inputs, _outputs, dequant_node)
+
+    return graph
+
+
+@contextagnostic
+class SimpleDequantPatternPass(ReplaceSequentialPatternPass):
+    """
+    Recognizes simple dequantization pattern: Mul (zero_point = 0)
+    This is common in symmetric quantization schemes.
+    """
+
+    def __init__(self):
+        # Define the pattern: just Mul (no Sub)
+        graph = gs.Graph()
+        _input = gs.Variable(name = 'input_1')
+        mul_output = graph.layer(inputs = [_input], outputs = ['mul_out'], op = 'Mul', name = 'mul')
+        graph.outputs.append(mul_output)
+        graph.inputs.append(_input)
+
+        name = "_SIMPLE_DEQUANT_PATTERN_PASS"
+        super().__init__(graph, _simple_dequant_pattern_fun, name)
+
+
 def _recognize_dequant_fun(graph: gs.Graph, match: Match, name: str):
     matched_nodes = [m for k, m in match.nodes_map.items()]
 

@@ -49,7 +49,12 @@ from Deeploy.Targets.Generic.Parsers import AddParser, ConcatParser, DequantPars
 from Deeploy.Targets.Generic.Templates import AllocateTemplate as BasicAllocateTemplate
 from Deeploy.Targets.Generic.TopologyOptimizationPasses.Passes import DequantPatternPass, IntegerDivRequantMergePass, \
     MergeConstAddAndRequantPass, MergeTrueIntegerDivRequantShiftPass, QuantPatternPass, RQSSplitPass, \
-    SkipEmptyConcatPass, SkipUnityRequantPass, iGELURequantMergePass, iHardswishRequantMergePass
+    SkipEmptyConcatPass, SkipUnityRequantPass, iGELURequantMergePass, iHardswishRequantMergePass, \
+    SimpleDequantPatternPass, SimpleQuantPatternPass
+from Deeploy.CommonExtensions.OptimizationPasses.TopologyOptimizationPasses.RemoveRedundantQuantDequant import \
+    RemoveRedundantQuantDequantPass
+from Deeploy.CommonExtensions.OptimizationPasses.TopologyOptimizationPasses.InsertRequantShift import \
+    InsertRequantShiftAfterConvPass, InsertRequantShiftAfterAddPass
 from Deeploy.Targets.PULPOpen.Bindings import BasicDequantBindings, BasicQuantBindings, PULPConv1DBinding, \
     PULPDMASliceBindings, PULPDWConv1DBinding, PULPReduceMeanBindings, PULPLIFBindings, PULPLIFstatefulBindings
 from Deeploy.Targets.PULPOpen.Layers import PULPRQSConvLayer, PULPRQSGEMMLayer, PULPLIFLayer, PULPLIFstatefulLayer
@@ -68,7 +73,8 @@ from Deeploy.Targets.PULPOpen.Tiler import PULPAddTilingReadyBindings, PULPConca
     PULPRQSTilingReadyBindings, PULPSGDTilingReadyBindings, PULPSoftmaxCrossEntropyGradTilingReadyBindings, \
     PULPSoftmaxCrossEntropyTilingReadyBindings, PULPSoftmaxGradTilingReadyBindings, PULPSoftmaxTilingReadyBindings, \
     PULPTransposeTilingReadyBindings, PULPUniformRQSTilingReadyBindings, PULPLIFTilingReadyBindings, \
-    PULPLIFstatefulTilingReadyBindings, PULPTanhTilingReadyBindings
+    PULPLIFstatefulTilingReadyBindings, PULPTanhTilingReadyBindings, PULPQuantTilingReadyBindings, \
+    PULPDequantTilingReadyBindings
 from Deeploy.Targets.PULPOpen.TopologyOptimizationPasses.Passes import PULPAddRequantMergePass, \
     PULPConvRequantMergePass, PULPGEMMRequantMergePass, PULPMatMulRequantMergePass
 from Deeploy.CommonExtensions.OptimizationPasses.TopologyOptimizationPasses.LoweringOptimizationPasses import \
@@ -124,8 +130,8 @@ SoftmaxCrossEntropyLossMapper = NodeMapper(SoftmaxCrossEntropyLossParser(), PULP
 SoftmaxCrossEntropyLossGradMapper = NodeMapper(SoftmaxCrossEntropyLossGradParser(),
                                                PULPSoftmaxCrossEntropyGradTilingReadyBindings)
 SGDMapper = NodeMapper(SGDParser(), PULPSGDTilingReadyBindings)
-QuantMapper = NodeMapper(QuantParser(), BasicQuantBindings)
-DequantMapper = NodeMapper(DequantParser(), BasicDequantBindings)
+QuantMapper = NodeMapper(QuantParser(), PULPQuantTilingReadyBindings)
+DequantMapper = NodeMapper(DequantParser(), PULPDequantTilingReadyBindings)
 GEMMDequantMapper = NodeMapper(PULPGEMMParser(), BasicGEMMBindings)
 LIFMapper = NodeMapper(PULPLIFParser(), PULPLIFTilingReadyBindings)
 LIFstatefulMapper = NodeMapper(PULPLIFstatefulParser(), PULPLIFstatefulTilingReadyBindings)
@@ -244,8 +250,13 @@ class PULPStructBuffer(StructBuffer):
 
 
 PULPOptimizer = TopologyOptimizer([
-    QuantPatternPass(),
-    DequantPatternPass(),
+    QuantPatternPass(),  # Div → Add → Round → Clip (with zero_point)
+    SimpleQuantPatternPass(),  # Div → Round → Clip (symmetric, zero_point=0)
+    DequantPatternPass(),  # Sub → Mul (with zero_point)
+    SimpleDequantPatternPass(),  # Mul only (symmetric, zero_point=0)
+    RemoveRedundantQuantDequantPass(),  # Remove back-to-back QUANT→DEQUANT pairs from fake quantization
+    InsertRequantShiftAfterConvPass(),  # Insert RequantShift after Conv to convert int32→int8
+    InsertRequantShiftAfterAddPass(),  # Insert RequantShift after Add to convert int32→int8
     SkipEmptyConcatPass(),
     SkipUnityRequantPass(previous_op_regex = "Concat", num_inputs = 2),
     SkipUnityRequantPass(previous_op_regex = "Reshape|Transpose", num_inputs = 1),

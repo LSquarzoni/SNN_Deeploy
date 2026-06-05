@@ -33,4 +33,16 @@
 
 void Tanh_fp32_fp32(float32_t *input, float32_t *output, int32_t size);
 
+// Tanh activation with int8 quantization using lookup table.
+// input        : [size] input tensor (int8)
+// output       : [size] output tensor (int8)
+// input_offset : zero-point for input
+// output_offset: zero-point for output
+// input_scale_mult/shift : fixed-point scale for input (mult >> shift)
+// output_scale_mult/shift: fixed-point scale for output (mult >> shift)
+void Tanh_s8_s8(int8_t *input, int8_t *output, int32_t size,
+                int32_t input_offset, int32_t output_offset,
+                int32_t input_scale_mult, int32_t input_scale_shift,
+                int32_t output_scale_mult, int32_t output_scale_shift);
+
 #endif // __DEEPLOY_BASIC_MATH_TANH_KERNEL_HEADER_

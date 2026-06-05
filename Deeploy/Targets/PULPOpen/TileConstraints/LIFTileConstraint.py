@@ -71,13 +71,43 @@ class LIFTileConstraint(TileConstraint):
 			tilerModel.addConstraint(o_m == in_d)
 
 		# Link beta and threshold to the channel dimension (last dim in NHWC)
-		# These are 1D vectors with shape [C] (or [C,1,1] flattened to [C])
+		# These can be 1D [C] or 3D [C,1,1] tensors
+		# Only constrain them to channel dimension if they're NOT scalars
+		beta_shape = ctxt.lookup(beta).shape
+		threshold_shape = ctxt.lookup(threshold).shape
+		
+		# Detect scalars: either [] or [1] or [1,1,1]
+		beta_is_scalar = len(beta_shape) == 0 or (len(beta_shape) >= 1 and beta_shape[0] == 1)
+		threshold_is_scalar = len(threshold_shape) == 0 or (len(threshold_shape) >= 1 and threshold_shape[0] == 1)
+		
 		in_c_var = tilerModel.getTensorDimVar(tensorName=in_data, dimIdx=numDims - 1)
 		beta_var = tilerModel.getTensorDimVar(tensorName=beta, dimIdx=0)
 		threshold_var = tilerModel.getTensorDimVar(tensorName=threshold, dimIdx=0)
 		
-		tilerModel.addConstraint(beta_var == in_c_var)
-		tilerModel.addConstraint(threshold_var == in_c_var)
+		# Only link non-scalar params to channel dimension for tiling
+		# Scalars stay fixed at size 1 regardless of channel tiling
+		if not beta_is_scalar:
+			tilerModel.addConstraint(beta_var == in_c_var)
+		else:
+			tilerModel.addConstraint(beta_var == 1)
+			
+		if not threshold_is_scalar:
+			tilerModel.addConstraint(threshold_var == in_c_var)
+		else:
+			tilerModel.addConstraint(threshold_var == 1)
+		
+		# For 3D tensors [C,1,1], constrain dimensions 1 and 2 to be fixed at 1
+		if len(beta_shape) == 3:
+			beta_dim1 = tilerModel.getTensorDimVar(tensorName=beta, dimIdx=1)
+			beta_dim2 = tilerModel.getTensorDimVar(tensorName=beta, dimIdx=2)
+			tilerModel.addConstraint(beta_dim1 == 1)
+			tilerModel.addConstraint(beta_dim2 == 1)
+			
+		if len(threshold_shape) == 3:
+			threshold_dim1 = tilerModel.getTensorDimVar(tensorName=threshold, dimIdx=1)
+			threshold_dim2 = tilerModel.getTensorDimVar(tensorName=threshold, dimIdx=2)
+			tilerModel.addConstraint(threshold_dim1 == 1)
+			tilerModel.addConstraint(threshold_dim2 == 1)
 
 		return tilerModel
 
@@ -171,10 +201,44 @@ class LIFTileConstraint(TileConstraint):
 			data_in_cube = HyperRectangle(offset=out_cube.offset, dims=out_cube.dims)
 			mem_in_cube = HyperRectangle(offset=out_cube.offset, dims=out_cube.dims)
 			
-			# beta and threshold: 1D tensors indexed by channel dimension
-			# Load only the slice [c_off : c_off + c_t] corresponding to this tile's channels
-			beta_cube = HyperRectangle(offset=(c_off,), dims=(c_t,))
-			threshold_cube = HyperRectangle(offset=(c_off,), dims=(c_t,))
+			# beta and threshold: Handle tiling for per-channel parameters
+			# These can be 1D [C] or 3D [C,1,1] tensors indexed by channel dimension
+			beta_shape = ctxt.lookup(operatorRepresentation['beta']).shape
+			threshold_shape = ctxt.lookup(operatorRepresentation['threshold']).shape
+			
+			# Get number of channels (first dimension)
+			beta_channels = 1 if len(beta_shape) == 0 or beta_shape[0] == 1 else beta_shape[0]
+			threshold_channels = 1 if len(threshold_shape) == 0 or threshold_shape[0] == 1 else threshold_shape[0]
+			
+			# Create HyperRectangles matching the tensor dimensionality
+			# For [C,1,1] tensors: tile only the channel dimension, keep trailing dims full
+			# For [C] tensors: create 1D rectangle
+			# When accessing full tensor (c_t >= channels), must use offset 0
+			if len(beta_shape) == 3:
+				# 3D tensor [C,1,1]: tile channel, keep trailing dims
+				if beta_channels == 1 or c_t >= beta_channels:
+					beta_cube = HyperRectangle(offset=(0, 0, 0), dims=(beta_channels, 1, 1))
+				else:
+					beta_cube = HyperRectangle(offset=(c_off, 0, 0), dims=(c_t, 1, 1))
+			else:
+				# 1D tensor [C]: tile channel dimension only
+				if beta_channels == 1 or c_t >= beta_channels:
+					beta_cube = HyperRectangle(offset=(0,), dims=(beta_channels,))
+				else:
+					beta_cube = HyperRectangle(offset=(c_off,), dims=(c_t,))
+			
+			if len(threshold_shape) == 3:
+				# 3D tensor [C,1,1]: tile channel, keep trailing dims
+				if threshold_channels == 1 or c_t >= threshold_channels:
+					threshold_cube = HyperRectangle(offset=(0, 0, 0), dims=(threshold_channels, 1, 1))
+				else:
+					threshold_cube = HyperRectangle(offset=(c_off, 0, 0), dims=(c_t, 1, 1))
+			else:
+				# 1D tensor [C]: tile channel dimension only
+				if threshold_channels == 1 or c_t >= threshold_channels:
+					threshold_cube = HyperRectangle(offset=(0,), dims=(threshold_channels,))
+				else:
+					threshold_cube = HyperRectangle(offset=(c_off,), dims=(c_t,))
 
 			inputLoadSchedule.append({
 				'data_in': data_in_cube, 

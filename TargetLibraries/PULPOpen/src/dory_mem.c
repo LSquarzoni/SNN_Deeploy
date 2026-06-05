@@ -91,6 +91,14 @@ void mem_init() {
   }
 
   ram_conf_init(&ram_conf);
+  // Set L3 RAM size to 16MB - this is the maximum safe addressing range
+  // Models requiring more than 132MB will fail allocation with proper error messages
+  #ifdef USE_HYPERRAM
+    ((struct pi_hyperram_conf*)&ram_conf)->ram_size = 16 * 1024 * 1024;  // 16MB heap (hardware limit)
+  #else
+    ram_conf.ram_size = 16 * 1024 * 1024;  // 16MB heap (hardware limit)
+  #endif
+  printf("Configuring L3 RAM heap: 16 MB\\n");
   pi_open_from_conf(&ram, &ram_conf);
   if (pi_ram_open(&ram)) {
     printf("ERROR: Cannot open ram! Exiting...\n");

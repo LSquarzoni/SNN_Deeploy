@@ -176,7 +176,10 @@ class RequantShiftLayer(ONNXLayer):
         return (inputShapes, outputShapes)
 
     def computeOps(self):
-        return self.mapper.parser.operatorRepresentation['size'] * 3  # One add, one mul, one div
+        # RequantShift operations per element: (input + offset) * mul + add >> shift + output_offset
+        # This involves: 2 adds, 1 mul (ignoring shift which is usually fast)
+        # Total: 3 ops per element ≈ 1.5 MACs, rounded to 2 MACs
+        return self.mapper.parser.operatorRepresentation['size'] * 2  # Approximate as 2 MAC per element
 
 
 class AddLayer(ONNXLayer):
@@ -384,12 +387,16 @@ class RQSConvLayer(ConvLayer):
 
     def computeOps(self):
         conv = super().computeOps()
-
+        
+        # Requantization after conv: (result + offset) * mul + add >> shift + output_offset
+        # This is 2 adds + 1 mul = 3 ops per output element ≈ 1.5 MAC per element
+        # Return as ops (1.5 MAC = 3 ops), so use * 3
         if 'dim_im_out_y' in self.mapper.parser.operatorRepresentation:
             rqs = self.mapper.parser.operatorRepresentation['dim_im_out_x'] * self.mapper.parser.operatorRepresentation[
-                'dim_im_out_y'] * 3
+                'dim_im_out_y'] * self.mapper.parser.operatorRepresentation['ch_im_out'] * 2  # 3 ops per element (1.5 MAC)
         else:
-            rqs = self.mapper.parser.operatorRepresentation['dim_im_out_x'] * 3
+            rqs = self.mapper.parser.operatorRepresentation['dim_im_out_x'] * self.mapper.parser.operatorRepresentation[
+                'ch_im_out'] * 2  # 2 ops per element (1 MAC)
 
         return conv + rqs
 
@@ -398,6 +405,10 @@ class PadLayer(ONNXLayer):
 
     def __init__(self, maps: List[NodeMapper]):
         super().__init__(maps)
+
+    def computeOps(self):
+        # Padding is just memory copy/initialization, no arithmetic operations
+        return 0
 
 
 class MaxPoolLayer(ONNXLayer):
@@ -452,7 +463,8 @@ class TanhLayer(ONNXLayer):
         super().__init__(maps)
 
     def computeOps(self):
-        return self.mapper.parser.operatorRepresentation['size']
+        # Approximate to 0 MACs, it it a negligible amount
+        return 0 #self.mapper.parser.operatorRepresentation['size']
 
 
 class LIFLayer(ONNXLayer):
@@ -471,7 +483,8 @@ class LIFLayer(ONNXLayer):
 
     def computeOps(self):
         # Each element: one mul (beta*mem), one add, one compare -> ~3 ops
-        return 3 * self.mapper.parser.operatorRepresentation['size']
+        # 1 MAC + 1 comparison (I will not consider the comparisons because they are much less wrt CONV MACs)
+        return 1 * self.mapper.parser.operatorRepresentation['size']
     
 
 class LIFstatefulLayer(ONNXLayer):
@@ -488,7 +501,7 @@ class LIFstatefulLayer(ONNXLayer):
 
     def computeOps(self):
         # Each element: one mul (beta*mem), one add, one compare -> ~3 ops
-        return 3 * self.mapper.parser.operatorRepresentation['size']
+        return 1 * self.mapper.parser.operatorRepresentation['size']
 
 
 class LayerNormLayer(ONNXLayer):
@@ -681,8 +694,20 @@ class QuantLayer(ONNXLayer):
     def __init__(self, maps: List[NodeMapper]):
         super().__init__(maps)
 
+    def computeOps(self):
+        # Quantization operations per element: input * scale + zero_point + round + clamp
+        # This involves: 1 mul, 1 add (ignoring round/clamp which are cheap)
+        # Total: 2 ops per element = 1 MAC
+        return self.mapper.parser.operatorRepresentation['size'] * 1  # Return as ops (1 MAC = 2 ops)
+
 
 class DequantLayer(ONNXLayer):
 
     def __init__(self, maps: List[NodeMapper]):
         super().__init__(maps)
+
+    def computeOps(self):
+        # Dequantization operations per element: (quantized - zero_point) * scale
+        # This involves: 1 sub, 1 mul (scale is pre-computed as 1/quantization_scale)
+        # Total: 2 ops per element = 1 MAC
+        return self.mapper.parser.operatorRepresentation['size'] * 1  # Return as ops (1 MAC = 2 ops)

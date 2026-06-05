@@ -42,8 +42,8 @@ from Deeploy.Targets.Generic.Templates import AddTemplate, ConcatTemplate, ConvT
     FloatSoftmaxTemplate, FloatLIFTemplate, FloatLIFstatefulTemplate, GatherTemplate, GemmTemplate, IntegerDivTemplate, ITAMaxTemplate, \
     ITAPartialMaxTemplate, MatMulTemplate, MaxPoolTemplate, MulTemplate, PadTemplate, QuantTemplate, \
     ReduceMeanTemplate, ReduceSumTemplate, RequantShiftTemplate, ReshapeTemplate, RQIntegerDivTemplate, \
-    RQSiGELUTemplate, SliceTemplate, TransposeTemplate, iGELUTemplate, iLayernormTemplate, iRMSNormTemplate, \
-    iSoftmaxTemplate, FloatTanhTemplate
+    RQSiGELUTemplate, SliceTemplate, TransposeTemplate, iGELUTemplate, iLayernormTemplate, iLIFTemplate, \
+    iRMSNormTemplate, iSoftmaxTemplate, iTanhTemplate, FloatTanhTemplate
 from Deeploy.Targets.Generic.TypeCheckers import AddChecker, ConcatChecker, ConvChecker, DebugPrintChecker, \
     DequantChecker, DivChecker, DummyChecker, GatherChecker, GELUChecker, GEMMChecker, LayerNormChecker, \
     MatMulChecker, MaxPoolChecker, MulChecker, PadChecker, QuantChecker, ReduceMeanChecker, ReduceSumChecker, \
@@ -221,11 +221,31 @@ BasicReduceSumBindings = [
 BasicReluBinding = NodeBinding(ReluChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
                                FloatReluTemplate.referenceTemplate, BasicTransformer)
 
-BasicTanhBinding = NodeBinding(TanhChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
-                               FloatTanhTemplate.referenceTemplate, BasicTransformer)
+BasicTanhBindings = [
+    NodeBinding(TanhChecker([PointerClass(int8_t)], [PointerClass(int8_t)]), iTanhTemplate.referenceTemplate,
+                BasicTransformer)
+] + [
+    NodeBinding(TanhChecker([PointerClass(float32_t)], [PointerClass(float32_t)]),
+                FloatTanhTemplate.referenceTemplate, BasicTransformer)
+]
 
 # LIF: inputs (input, mem_in, beta, threshold) -> outputs (spike_out, mem_out)
+# Int8 binding: activations are int8, but beta/threshold remain fp32 from ONNX
 BasicLIFBindings = [
+    NodeBinding(
+        LIFChecker([
+            PointerClass(int8_t),     # input
+            PointerClass(int8_t),     # mem_in
+            PointerClass(float32_t),  # beta (fp32 from ONNX)
+            PointerClass(float32_t)   # threshold (fp32 from ONNX)
+        ], [
+            PointerClass(int8_t),     # spike_out
+            PointerClass(int8_t)      # mem_out
+        ]),
+        iLIFTemplate.referenceTemplate,
+        BasicTransformer
+    )
+] + [
     NodeBinding(
         LIFChecker([
             PointerClass(float32_t),  # input

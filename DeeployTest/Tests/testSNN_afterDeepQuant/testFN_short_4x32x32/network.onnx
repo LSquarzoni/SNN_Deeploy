@@ -1,0 +1,1338 @@
+pytorch2.9.1:“”	
+‰
+input
+./model_head_ff_input_quant_1/Constant_output_0)/model_head_ff_input_quant_1/Div_output_0 /model_head_ff_input_quant_1/Div"Div
+ƒ
+)/model_head_ff_input_quant_1/Div_output_0+/model_head_ff_input_quant_1/Round_output_0"/model_head_ff_input_quant_1/Round"Round
+Ü
++/model_head_ff_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0*/model_head_ff_input_quant_1/Clip_output_0!/model_head_ff_input_quant_1/Clip"Clip
+®
+*/model_head_ff_input_quant_1/Clip_output_0
+./model_head_ff_input_quant_1/Constant_output_0)/model_head_ff_input_dequant/Mul_output_0 /model_head_ff_input_dequant/Mul"Mul
+‚
+)/model_head_ff_input_dequant/Mul_output_0
+*/model_head_ff_weight_dequant/Mul_output_0&/wrappedInnerForwardImpl/Conv_output_0/wrappedInnerForwardImpl/Conv"Conv*
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+­
+&/wrappedInnerForwardImpl/Conv_output_0
+//model_head_ff_output_quant_1/Constant_output_0*/model_head_ff_output_quant_1/Div_output_0!/model_head_ff_output_quant_1/Div"Div
+†
+*/model_head_ff_output_quant_1/Div_output_0,/model_head_ff_output_quant_1/Round_output_0#/model_head_ff_output_quant_1/Round"Round
+ß
+,/model_head_ff_output_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0+/model_head_ff_output_quant_1/Clip_output_0"/model_head_ff_output_quant_1/Clip"Clip
+²
++/model_head_ff_output_quant_1/Clip_output_0
+//model_head_ff_output_quant_1/Constant_output_0*/model_head_ff_output_dequant/Mul_output_0!/model_head_ff_output_dequant/Mul"Mul
+¹
+*/model_head_ff_output_dequant/Mul_output_0
+//model_head_ff_output_quant_1/Constant_output_0./model_head_lif_input_act_quant_1/Div_output_0%/model_head_lif_input_act_quant_1/Div"Div
+’
+./model_head_lif_input_act_quant_1/Div_output_00/model_head_lif_input_act_quant_1/Round_output_0'/model_head_lif_input_act_quant_1/Round"Round
+ë
+0/model_head_lif_input_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0//model_head_lif_input_act_quant_1/Clip_output_0&/model_head_lif_input_act_quant_1/Clip"Clip
+¾
+//model_head_lif_input_act_quant_1/Clip_output_0
+//model_head_ff_output_quant_1/Constant_output_0./model_head_lif_input_act_dequant/Mul_output_0%/model_head_lif_input_act_dequant/Mul"Mul
+Ä
+./model_head_lif_input_act_dequant/Mul_output_0
+./model_head_mem_input_act_dequant/Mul_output_0
+model.head.beta
+model.head.threshold/LIF_output_0/LIF_output_1/LIF"LIF:SNN_implementation
+£
+/LIF_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0//model_head_spk_output_act_quant_1/Div_output_0&/model_head_spk_output_act_quant_1/Div"Div
+•
+//model_head_spk_output_act_quant_1/Div_output_01/model_head_spk_output_act_quant_1/Round_output_0(/model_head_spk_output_act_quant_1/Round"Round
+î
+1/model_head_spk_output_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_00/model_head_spk_output_act_quant_1/Clip_output_0'/model_head_spk_output_act_quant_1/Clip"Clip
+Æ
+0/model_head_spk_output_act_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0//model_head_spk_output_act_dequant/Mul_output_0&/model_head_spk_output_act_dequant/Mul"Mul
+µ
+//model_head_spk_output_act_dequant/Mul_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0'/model_G1_ff_input_quant_1/Div_output_0/model_G1_ff_input_quant_1/Div"Div
+}
+'/model_G1_ff_input_quant_1/Div_output_0)/model_G1_ff_input_quant_1/Round_output_0 /model_G1_ff_input_quant_1/Round"Round
+Ö
+)/model_G1_ff_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0(/model_G1_ff_input_quant_1/Clip_output_0/model_G1_ff_input_quant_1/Clip"Clip
+®
+(/model_G1_ff_input_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0'/model_G1_ff_input_dequant/Mul_output_0/model_G1_ff_input_dequant/Mul"Mul
+‚
+'/model_G1_ff_input_dequant/Mul_output_0
+(/model_G1_ff_weight_dequant/Mul_output_0(/wrappedInnerForwardImpl_1/Conv_output_0/wrappedInnerForwardImpl_1/Conv"Conv*
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+©
+(/wrappedInnerForwardImpl_1/Conv_output_0
+-/model_G1_ff_output_quant_1/Constant_output_0(/model_G1_ff_output_quant_1/Div_output_0/model_G1_ff_output_quant_1/Div"Div
+€
+(/model_G1_ff_output_quant_1/Div_output_0*/model_G1_ff_output_quant_1/Round_output_0!/model_G1_ff_output_quant_1/Round"Round
+Ù
+*/model_G1_ff_output_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0)/model_G1_ff_output_quant_1/Clip_output_0 /model_G1_ff_output_quant_1/Clip"Clip
+ª
+)/model_G1_ff_output_quant_1/Clip_output_0
+-/model_G1_ff_output_quant_1/Constant_output_0(/model_G1_ff_output_dequant/Mul_output_0/model_G1_ff_output_dequant/Mul"Mul
+Â
+(/model_G1_ff_output_dequant/Mul_output_0
+4/model_G1_identity_add_act_quant_1/Constant_output_01/model_G1_identity_add_act_quant_1_1/Div_output_0(/model_G1_identity_add_act_quant_1_1/Div"Div
+›
+1/model_G1_identity_add_act_quant_1_1/Div_output_03/model_G1_identity_add_act_quant_1_1/Round_output_0*/model_G1_identity_add_act_quant_1_1/Round"Round
+ô
+3/model_G1_identity_add_act_quant_1_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_02/model_G1_identity_add_act_quant_1_1/Clip_output_0)/model_G1_identity_add_act_quant_1_1/Clip"Clip
+Ì
+2/model_G1_identity_add_act_quant_1_1/Clip_output_0
+4/model_G1_identity_add_act_quant_1/Constant_output_01/model_G1_identity_add_act_dequant_1/Mul_output_0(/model_G1_identity_add_act_dequant_1/Mul"Mul
+~
+1/model_G1_identity_add_act_dequant_1/Mul_output_0
+//model_G1_identity_add_act_dequant/Mul_output_0/Add_output_0/Add"Add
+š
+/Add_output_0
+1/model_G1_lif_input_act_quant_1/Constant_output_0,/model_G1_lif_input_act_quant_1/Div_output_0#/model_G1_lif_input_act_quant_1/Div"Div
+Œ
+,/model_G1_lif_input_act_quant_1/Div_output_0./model_G1_lif_input_act_quant_1/Round_output_0%/model_G1_lif_input_act_quant_1/Round"Round
+å
+./model_G1_lif_input_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0-/model_G1_lif_input_act_quant_1/Clip_output_0$/model_G1_lif_input_act_quant_1/Clip"Clip
+º
+-/model_G1_lif_input_act_quant_1/Clip_output_0
+1/model_G1_lif_input_act_quant_1/Constant_output_0,/model_G1_lif_input_act_dequant/Mul_output_0#/model_G1_lif_input_act_dequant/Mul"Mul
+Â
+,/model_G1_lif_input_act_dequant/Mul_output_0
+,/model_G1_mem_input_act_dequant/Mul_output_0
+model.G1.beta
+model.G1.threshold/LIF_1_output_0/LIF_1_output_1/LIF_1"LIF:SNN_implementation
+¡
+/LIF_1_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0-/model_G1_spk_output_act_quant_1/Div_output_0$/model_G1_spk_output_act_quant_1/Div"Div
+
+-/model_G1_spk_output_act_quant_1/Div_output_0//model_G1_spk_output_act_quant_1/Round_output_0&/model_G1_spk_output_act_quant_1/Round"Round
+è
+//model_G1_spk_output_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0./model_G1_spk_output_act_quant_1/Clip_output_0%/model_G1_spk_output_act_quant_1/Clip"Clip
+À
+./model_G1_spk_output_act_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0-/model_G1_spk_output_act_dequant/Mul_output_0$/model_G1_spk_output_act_dequant/Mul"Mul
+µ
+-/model_G1_spk_output_act_dequant/Mul_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0(/model_R1a_ff_input_quant_1/Div_output_0/model_R1a_ff_input_quant_1/Div"Div
+€
+(/model_R1a_ff_input_quant_1/Div_output_0*/model_R1a_ff_input_quant_1/Round_output_0!/model_R1a_ff_input_quant_1/Round"Round
+Ù
+*/model_R1a_ff_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0)/model_R1a_ff_input_quant_1/Clip_output_0 /model_R1a_ff_input_quant_1/Clip"Clip
+±
+)/model_R1a_ff_input_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0(/model_R1a_ff_input_dequant/Mul_output_0/model_R1a_ff_input_dequant/Mul"Mul
+„
+(/model_R1a_ff_input_dequant/Mul_output_0
+)/model_R1a_ff_weight_dequant/Mul_output_0(/wrappedInnerForwardImpl_3/Conv_output_0/wrappedInnerForwardImpl_3/Conv"Conv*
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+¬
+(/wrappedInnerForwardImpl_3/Conv_output_0
+./model_R1a_ff_output_quant_1/Constant_output_0)/model_R1a_ff_output_quant_1/Div_output_0 /model_R1a_ff_output_quant_1/Div"Div
+ƒ
+)/model_R1a_ff_output_quant_1/Div_output_0+/model_R1a_ff_output_quant_1/Round_output_0"/model_R1a_ff_output_quant_1/Round"Round
+Ü
++/model_R1a_ff_output_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0*/model_R1a_ff_output_quant_1/Clip_output_0!/model_R1a_ff_output_quant_1/Clip"Clip
+®
+*/model_R1a_ff_output_quant_1/Clip_output_0
+./model_R1a_ff_output_quant_1/Constant_output_0)/model_R1a_ff_output_dequant/Mul_output_0 /model_R1a_ff_output_dequant/Mul"Mul
+µ
+)/model_R1a_ff_output_dequant/Mul_output_0
+./model_R1a_ff_output_quant_1/Constant_output_0-/model_R1a_lif_input_act_quant_1/Div_output_0$/model_R1a_lif_input_act_quant_1/Div"Div
+
+-/model_R1a_lif_input_act_quant_1/Div_output_0//model_R1a_lif_input_act_quant_1/Round_output_0&/model_R1a_lif_input_act_quant_1/Round"Round
+è
+//model_R1a_lif_input_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0./model_R1a_lif_input_act_quant_1/Clip_output_0%/model_R1a_lif_input_act_quant_1/Clip"Clip
+º
+./model_R1a_lif_input_act_quant_1/Clip_output_0
+./model_R1a_ff_output_quant_1/Constant_output_0-/model_R1a_lif_input_act_dequant/Mul_output_0$/model_R1a_lif_input_act_dequant/Mul"Mul
+Æ
+-/model_R1a_lif_input_act_dequant/Mul_output_0
+-/model_R1a_mem_input_act_dequant/Mul_output_0
+model.R1a.beta
+model.R1a.threshold/LIF_2_output_0/LIF_2_output_1/LIF_2"LIF:SNN_implementation
+£
+/LIF_2_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0./model_R1a_spk_output_act_quant_1/Div_output_0%/model_R1a_spk_output_act_quant_1/Div"Div
+’
+./model_R1a_spk_output_act_quant_1/Div_output_00/model_R1a_spk_output_act_quant_1/Round_output_0'/model_R1a_spk_output_act_quant_1/Round"Round
+ë
+0/model_R1a_spk_output_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0//model_R1a_spk_output_act_quant_1/Clip_output_0&/model_R1a_spk_output_act_quant_1/Clip"Clip
+Ã
+//model_R1a_spk_output_act_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0./model_R1a_spk_output_act_dequant/Mul_output_0%/model_R1a_spk_output_act_dequant/Mul"Mul
+´
+./model_R1a_spk_output_act_dequant/Mul_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0'/model_G2_ff_input_quant_1/Div_output_0/model_G2_ff_input_quant_1/Div"Div
+}
+'/model_G2_ff_input_quant_1/Div_output_0)/model_G2_ff_input_quant_1/Round_output_0 /model_G2_ff_input_quant_1/Round"Round
+Ö
+)/model_G2_ff_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0(/model_G2_ff_input_quant_1/Clip_output_0/model_G2_ff_input_quant_1/Clip"Clip
+®
+(/model_G2_ff_input_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0'/model_G2_ff_input_dequant/Mul_output_0/model_G2_ff_input_dequant/Mul"Mul
+‚
+'/model_G2_ff_input_dequant/Mul_output_0
+(/model_G2_ff_weight_dequant/Mul_output_0(/wrappedInnerForwardImpl_4/Conv_output_0/wrappedInnerForwardImpl_4/Conv"Conv*
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+©
+(/wrappedInnerForwardImpl_4/Conv_output_0
+-/model_G2_ff_output_quant_1/Constant_output_0(/model_G2_ff_output_quant_1/Div_output_0/model_G2_ff_output_quant_1/Div"Div
+€
+(/model_G2_ff_output_quant_1/Div_output_0*/model_G2_ff_output_quant_1/Round_output_0!/model_G2_ff_output_quant_1/Round"Round
+Ù
+*/model_G2_ff_output_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0)/model_G2_ff_output_quant_1/Clip_output_0 /model_G2_ff_output_quant_1/Clip"Clip
+ª
+)/model_G2_ff_output_quant_1/Clip_output_0
+-/model_G2_ff_output_quant_1/Constant_output_0(/model_G2_ff_output_dequant/Mul_output_0/model_G2_ff_output_dequant/Mul"Mul
+Â
+(/model_G2_ff_output_dequant/Mul_output_0
+4/model_G2_identity_add_act_quant_1/Constant_output_01/model_G2_identity_add_act_quant_1_1/Div_output_0(/model_G2_identity_add_act_quant_1_1/Div"Div
+›
+1/model_G2_identity_add_act_quant_1_1/Div_output_03/model_G2_identity_add_act_quant_1_1/Round_output_0*/model_G2_identity_add_act_quant_1_1/Round"Round
+ô
+3/model_G2_identity_add_act_quant_1_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_02/model_G2_identity_add_act_quant_1_1/Clip_output_0)/model_G2_identity_add_act_quant_1_1/Clip"Clip
+Ì
+2/model_G2_identity_add_act_quant_1_1/Clip_output_0
+4/model_G2_identity_add_act_quant_1/Constant_output_01/model_G2_identity_add_act_dequant_1/Mul_output_0(/model_G2_identity_add_act_dequant_1/Mul"Mul
+‚
+1/model_G2_identity_add_act_dequant_1/Mul_output_0
+//model_G2_identity_add_act_dequant/Mul_output_0/Add_1_output_0/Add_1"Add
+œ
+/Add_1_output_0
+1/model_G2_lif_input_act_quant_1/Constant_output_0,/model_G2_lif_input_act_quant_1/Div_output_0#/model_G2_lif_input_act_quant_1/Div"Div
+Œ
+,/model_G2_lif_input_act_quant_1/Div_output_0./model_G2_lif_input_act_quant_1/Round_output_0%/model_G2_lif_input_act_quant_1/Round"Round
+å
+./model_G2_lif_input_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0-/model_G2_lif_input_act_quant_1/Clip_output_0$/model_G2_lif_input_act_quant_1/Clip"Clip
+º
+-/model_G2_lif_input_act_quant_1/Clip_output_0
+1/model_G2_lif_input_act_quant_1/Constant_output_0,/model_G2_lif_input_act_dequant/Mul_output_0#/model_G2_lif_input_act_dequant/Mul"Mul
+Â
+,/model_G2_lif_input_act_dequant/Mul_output_0
+,/model_G2_mem_input_act_dequant/Mul_output_0
+model.G2.beta
+model.G2.threshold/LIF_3_output_0/LIF_3_output_1/LIF_3"LIF:SNN_implementation
+¡
+/LIF_3_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0-/model_G2_spk_output_act_quant_1/Div_output_0$/model_G2_spk_output_act_quant_1/Div"Div
+
+-/model_G2_spk_output_act_quant_1/Div_output_0//model_G2_spk_output_act_quant_1/Round_output_0&/model_G2_spk_output_act_quant_1/Round"Round
+è
+//model_G2_spk_output_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0./model_G2_spk_output_act_quant_1/Clip_output_0%/model_G2_spk_output_act_quant_1/Clip"Clip
+À
+./model_G2_spk_output_act_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0-/model_G2_spk_output_act_dequant/Mul_output_0$/model_G2_spk_output_act_dequant/Mul"Mul
+µ
+-/model_G2_spk_output_act_dequant/Mul_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0(/model_R2a_ff_input_quant_1/Div_output_0/model_R2a_ff_input_quant_1/Div"Div
+€
+(/model_R2a_ff_input_quant_1/Div_output_0*/model_R2a_ff_input_quant_1/Round_output_0!/model_R2a_ff_input_quant_1/Round"Round
+Ù
+*/model_R2a_ff_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0)/model_R2a_ff_input_quant_1/Clip_output_0 /model_R2a_ff_input_quant_1/Clip"Clip
+±
+)/model_R2a_ff_input_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0(/model_R2a_ff_input_dequant/Mul_output_0/model_R2a_ff_input_dequant/Mul"Mul
+„
+(/model_R2a_ff_input_dequant/Mul_output_0
+)/model_R2a_ff_weight_dequant/Mul_output_0(/wrappedInnerForwardImpl_6/Conv_output_0/wrappedInnerForwardImpl_6/Conv"Conv*
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@@@@ *
+strides@@ 
+¬
+(/wrappedInnerForwardImpl_6/Conv_output_0
+./model_R2a_ff_output_quant_1/Constant_output_0)/model_R2a_ff_output_quant_1/Div_output_0 /model_R2a_ff_output_quant_1/Div"Div
+ƒ
+)/model_R2a_ff_output_quant_1/Div_output_0+/model_R2a_ff_output_quant_1/Round_output_0"/model_R2a_ff_output_quant_1/Round"Round
+Ü
++/model_R2a_ff_output_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0*/model_R2a_ff_output_quant_1/Clip_output_0!/model_R2a_ff_output_quant_1/Clip"Clip
+®
+*/model_R2a_ff_output_quant_1/Clip_output_0
+./model_R2a_ff_output_quant_1/Constant_output_0)/model_R2a_ff_output_dequant/Mul_output_0 /model_R2a_ff_output_dequant/Mul"Mul
+µ
+)/model_R2a_ff_output_dequant/Mul_output_0
+./model_R2a_ff_output_quant_1/Constant_output_0-/model_R2a_lif_input_act_quant_1/Div_output_0$/model_R2a_lif_input_act_quant_1/Div"Div
+
+-/model_R2a_lif_input_act_quant_1/Div_output_0//model_R2a_lif_input_act_quant_1/Round_output_0&/model_R2a_lif_input_act_quant_1/Round"Round
+è
+//model_R2a_lif_input_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0./model_R2a_lif_input_act_quant_1/Clip_output_0%/model_R2a_lif_input_act_quant_1/Clip"Clip
+º
+./model_R2a_lif_input_act_quant_1/Clip_output_0
+./model_R2a_ff_output_quant_1/Constant_output_0-/model_R2a_lif_input_act_dequant/Mul_output_0$/model_R2a_lif_input_act_dequant/Mul"Mul
+Æ
+-/model_R2a_lif_input_act_dequant/Mul_output_0
+-/model_R2a_mem_input_act_dequant/Mul_output_0
+model.R2a.beta
+model.R2a.threshold/LIF_4_output_0/LIF_4_output_1/LIF_4"LIF:SNN_implementation
+£
+/LIF_4_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0./model_R2a_spk_output_act_quant_1/Div_output_0%/model_R2a_spk_output_act_quant_1/Div"Div
+’
+./model_R2a_spk_output_act_quant_1/Div_output_00/model_R2a_spk_output_act_quant_1/Round_output_0'/model_R2a_spk_output_act_quant_1/Round"Round
+ë
+0/model_R2a_spk_output_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0//model_R2a_spk_output_act_quant_1/Clip_output_0&/model_R2a_spk_output_act_quant_1/Clip"Clip
+Ã
+//model_R2a_spk_output_act_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0./model_R2a_spk_output_act_dequant/Mul_output_0%/model_R2a_spk_output_act_dequant/Mul"Mul
+À
+./model_R2a_spk_output_act_dequant/Mul_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0-/model_pred_conv2d_input_quant_1/Div_output_0$/model_pred_conv2d_input_quant_1/Div"Div
+
+-/model_pred_conv2d_input_quant_1/Div_output_0//model_pred_conv2d_input_quant_1/Round_output_0&/model_pred_conv2d_input_quant_1/Round"Round
+è
+//model_pred_conv2d_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0./model_pred_conv2d_input_quant_1/Clip_output_0%/model_pred_conv2d_input_quant_1/Clip"Clip
+À
+./model_pred_conv2d_input_quant_1/Clip_output_0
+4/model_head_spk_output_act_quant_1/Constant_output_0-/model_pred_conv2d_input_dequant/Mul_output_0$/model_pred_conv2d_input_dequant/Mul"Mul
+Ž
+-/model_pred_conv2d_input_dequant/Mul_output_0
+./model_pred_conv2d_weight_dequant/Mul_output_0(/wrappedInnerForwardImpl_7/Conv_output_0/wrappedInnerForwardImpl_7/Conv"Conv*
+	dilations@@ *
+group *
+kernel_shape@@ *
+pads@ @ @ @  *
+strides@@ 
+»
+(/wrappedInnerForwardImpl_7/Conv_output_0
+3/model_pred_conv2d_output_quant_1/Constant_output_0./model_pred_conv2d_output_quant_1/Div_output_0%/model_pred_conv2d_output_quant_1/Div"Div
+’
+./model_pred_conv2d_output_quant_1/Div_output_00/model_pred_conv2d_output_quant_1/Round_output_0'/model_pred_conv2d_output_quant_1/Round"Round
+ë
+0/model_pred_conv2d_output_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_0//model_pred_conv2d_output_quant_1/Clip_output_0&/model_pred_conv2d_output_quant_1/Clip"Clip
+Â
+//model_pred_conv2d_output_quant_1/Clip_output_0
+3/model_pred_conv2d_output_quant_1/Constant_output_0./model_pred_conv2d_output_dequant/Mul_output_0%/model_pred_conv2d_output_dequant/Mul"Mul
+Ç
+./model_pred_conv2d_output_dequant/Mul_output_0
+3/model_pred_conv2d_output_quant_1/Constant_output_01/model_pred_activation_input_quant_1/Div_output_0(/model_pred_activation_input_quant_1/Div"Div
+›
+1/model_pred_activation_input_quant_1/Div_output_03/model_pred_activation_input_quant_1/Round_output_0*/model_pred_activation_input_quant_1/Round"Round
+ô
+3/model_pred_activation_input_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_02/model_pred_activation_input_quant_1/Clip_output_0)/model_pred_activation_input_quant_1/Clip"Clip
+Ë
+2/model_pred_activation_input_quant_1/Clip_output_0
+3/model_pred_conv2d_output_quant_1/Constant_output_01/model_pred_activation_input_dequant/Mul_output_0(/model_pred_activation_input_dequant/Mul"Mul
+Ç
+1/model_pred_activation_input_dequant/Mul_output_0
+4/model_pred_activation_act_quant_1/Constant_output_0//model_pred_activation_act_quant_1/Div_output_0&/model_pred_activation_act_quant_1/Div"Div
+•
+//model_pred_activation_act_quant_1/Div_output_01/model_pred_activation_act_quant_1/Round_output_0(/model_pred_activation_act_quant_1/Round"Round
+î
+1/model_pred_activation_act_quant_1/Round_output_0
+*/model_head_ff_input_quant_1/Cast_output_0
+,/model_head_ff_input_quant_1/Cast_1_output_00/model_pred_activation_act_quant_1/Clip_output_0'/model_pred_activation_act_quant_1/Clip"Clip
+
+0/model_pred_activation_act_quant_1/Clip_output_0
+4/model_pred_activation_act_quant_1/Constant_output_0output&/model_pred_activation_act_dequant/Mul"Mul
+main_graph*+Bmodel.head.betaJXþ>/ªD?¨3µ= 3>*0Bmodel.head.thresholdJ=×{>üÛ?¾È>†—7?*)Bmodel.G1.betaJÝ•?óm?#¢5?7\>*.Bmodel.G1.thresholdJg–6=  Ÿ<Úl‚>Fç>**Bmodel.R1a.betaJøÐT>à$?$cž>˜nÍ>*/Bmodel.R1a.thresholdJ#Å>&˜9?ïï>š­;*)Bmodel.G2.betaJ0ï2=¶ì>5úI?U?*.Bmodel.G2.thresholdJ-8±=8¾Ì>AÂ>=Àª>**Bmodel.R2a.betaJä>Ru6?&'ˆ>Ãd>*/Bmodel.R2a.thresholdJ3§Z<³?ß*/?ê¦+>*8B./model_head_ff_input_quant_1/Constant_output_0J¸Ü?9*9B//model_head_ff_output_quant_1/Constant_output_0J‰Z9*>B4/model_head_spk_output_act_quant_1/Constant_output_0J   <*7B-/model_G1_ff_output_quant_1/Constant_output_0JhÑ<*>B4/model_G1_identity_add_act_quant_1/Constant_output_0JB Ç<*;B1/model_G1_lif_input_act_quant_1/Constant_output_0JÏ´=*8B./model_R1a_ff_output_quant_1/Constant_output_0JmÁÑ<*7B-/model_G2_ff_output_quant_1/Constant_output_0J+`=*>B4/model_G2_identity_add_act_quant_1/Constant_output_0JrÅ=*;B1/model_G2_lif_input_act_quant_1/Constant_output_0J–=*8B./model_R2a_ff_output_quant_1/Constant_output_0JÎ.=*=B3/model_pred_conv2d_output_quant_1/Constant_output_0J—Y79*>B4/model_pred_activation_act_quant_1/Constant_output_0J¹Q79*4B*/model_head_ff_input_quant_1/Cast_output_0J   Ã*6B,/model_head_ff_input_quant_1/Cast_1_output_0J  þB*ÙB*/model_head_ff_weight_dequant/Mul_output_0J ~2)¿’ª ?Æê	?d’4¿É~>ßÝî½ßÝî½ˆî¤¾ÂV‹>FÕ¾Ï¦…>aþµ>Ùb?É~ˆ>g&3¿æì¾aþµ>¢Ž>¿Â¿'–Ï¾{ž*?Òô>•>Ÿ¾aþ5¾x
+,¿aþ5¼É~¿ÂV¿•>½Ø=¯Þ“¾Ø>öÚ¾ˆî$?Ìe÷>¥"¿aþ5¾É~=Ø={ž*>¼.Ž>aþ5=nN°¾{žª>tv-¿FÕ¾aþ5¾nN°¾¸í¾¯Þ¿¢Ž¾¢Ž>æì¾•>½Ùb?¯Þ“½aþµ<Å=z½¯Þ>óUæ>x
+,?óUæ>x
+,?-¾L½Ž"¿{žª¾Ìe÷>aþµ»g&³¾ÂV¿~2)¿¥"¿*¾€  B./model_head_mem_input_act_dequant/Mul_output_0J€€o,£>Õ_?Õ_?OÄL<€_&?Å+³=^ùŸ>)s>€_¦>o,£>Å+3=Ù\f=£Å¬>`÷Ï>¶ö_>öÆ?;“=
+ø¿>
+ø??)s>+C?n-?;“=	ù'?Ö^¶>¶ö_>_ø7?;“™=È)ã>o,£>´ø/?Ã-?³ù?n-?LÆœ>o,£>öÆŒ=Õ_?_ø7?£Å,?)ó=ƒ]Ö>)ó=è‘9>£Å,>å“	?€_&>>‘É>ƒ]Ö>	ù'?OÄÌ=cõÿ=£Å,>+_.?Ã-ƒ>ùÄ<?n-?Ù\æ>OÄÌ>o,£>Ù\æ>LÆœ>OÄÌ>Ù\æ>Å+³=
+ø?>è‘9?;“™=ùÄ¼>Æ*K?n-?q*Ó>Ù\f=;“?Ù\æ=-“>å“‰>´ø¯>`÷Ï>p+;?Ù\æ>“‘A?øÅ$?;“>¡Æ?)ó=ûÂl>KÇ?\ú?Å+3?å“‰>OÄÌ>Ä,?OÄL<´ø/?öÆŒ=`÷Ï>‘’©>
+ø?>Ù\æ>p+;?ú>€_&>cõ>OÄÌ;¡Æ?q*S>Ô`>£Å,>æ’!?LÆ?NÅ4?n-?å“‰>-“>KÇ?p+;?:”?”Y>”Y>;“™<@ù>Å+3>Å+3=
+ø??öÆ>Ö^¶>Ã-?q*Ó>Ô`>;“™=_ø7?ûÂì>p+;?å“‰>KÇ?LÆœ>+Ã>^ù>å“	?Ô`?>‘É>^ùŸ>^ù>£Å,?OÄÌ=ú?Ô`†>q*S>)ó>-^F>RÂü>/\ö>OÄÌ=öï>“?`?Å+³>;“™=£Å¬>å“	?Ã-ƒ>öÆ?,+?-^F>`÷Ï>ú?¥ÃÜ>¥ÃÜ>Ù\æ>Å+³=¥ÃÜ>£Å,?+C?o,#?êé>*`?q*S>öÆŒ=Ù\f=Æ*K?	ù'?cõÿ=`?Å+3?Æ*K?
+ø??Ö^6?LÆœ>Ô`†>p+;?^ù?^ù>+C?³ù?Õ_?;“>Ã-?Ô`†>Ö^6?€_¦>`?öï>“?Ô`†>³ù?)ó=@ù>Ô`>OÄÌ;€_¦=_ø7?Õ_?-^F?_ø7?Å+3=cõÿ=£Å¬>öÆ>£Å,?OÄÌ=q*S>OÄL<Å+3>p+;?è‘9?´ø/?NÅ4?“‘A?;“™>-?“‘A?\ú?Æ*K?Ä,?€_&?Ô`†>³ù?È)ã>LÆœ>Å+3>Å+3>
+ø¿=,+?´ø/?Ö^¶>£Å,>NÅ4?	ù'?¥ÃÜ>”Y>¤ÄD?ú?
+ø¿=µ÷G?NÅ4?Ã-ƒ>^ù?Å+3>£Å¬>ùÄ<?ƒ]Ö>)ó=å“‰>*`–>€_¦>¶öß>¤ÄD?ƒ]Ö>;“>ƒ]Ö>³ù?;“?;“=‘’©>OÄÌ=ûÂl>n-?)ó=öÆ?ùÄ<?”Ù>Ô`>Ã-ƒ>@ù>
+ø¿=;“?;“=OÄL<OÄL<o,£>,+?;“™<p+;?)s>KÇ?ƒ]Ö>;“=p+;?LÆ?Æ*K?;“?öÆ>p+;?ƒ]Ö>*`?€_¦=-“>OÄÌ;@y>@ù>Å+³=Ô`?LÆ?êé>Ô`>Å+³=öÆŒ>-?Æ*K?æ’!?Ö^¶>å“	?OÄÌ;Ù\f=*`?Å+3>³ù?)ó=OÄL>öÆŒ=Ä,?Ö^¶>NÅ4?€_&?Õ_?q*Ó>öÆŒ>^ùŸ>êé>;“?)ó=ùÄ<?Ö^¶>cõ=è‘9>“‘A?¤ÄD?cõÿ<+_.?;“?o,#?ùÄ<?
+ø?>Ô`?ú?ú>\ú?-“>€_&?-“>cõ>cõÿ>n-?q*S>¶öß>æ’!?è‘¹>KÇ?LÆœ>å“	?Ù\æ=€_&>OÄL>¤ÄD?*`–>OÄÌ>q*S>Æ*K?Æ*K?OÄÌ=;“™=
+ø¿=OÄÌ>;“™>öÆ>Ã-ƒ>)ó>-^F>@ù>LÆœ>q*S>êé>p+;?Ô`>ƒ]Ö>cõ>Æ*K?;“™<;“™<Æ*K?;“>)ó>è‘¹>o,£>^ùŸ>	ù'?ƒ]Ö>OÄL<€_&>Ô`†>;“?->-^F?^ùŸ>‘’©>Ö^6?;“?ùÄ<?æ’!?ú>öÆ>ùÄ¼>p+;?å“‰>cõÿ<ú?>‘I?-“>öÆŒ=;“=cõÿ>ùÄ¼>OÄL>/\ö>öÆ?_ø7?Ö^6?£Å¬>OÄL=;“=-^F?-?-?Ù\f=¤ÄD?µ÷G?+C?cõ=cõ>cõÿ=µ÷G?ûÂl>¶ö_>LÆ?”Y>OÄL>è‘¹>è‘¹>Å+³=p+;?Ù\f>n-?
+ø??;“?êé>ùÄ<?êé>”Y>µ÷G?RÂü>OÄL<-“>cõÿ=
+ø??‘’©>;“=
+ø¿>€_&?:”?Ô`?¶öß>öÆ?;“™>@y>OÄÌ<OÄÌ=-?€_&>êé>Ô`?¥ÃÜ>->µ÷G?£Å,>p+;?€_¦=LÆœ>Õ_?)s>ùÄ<?cõÿ=cõ=¶ö_>ûÂì>¤ÄD?q*S>n-?;“™>^ùŸ>=’1?Å+³=È)ã>-^F?´ø¯>Ö^6?öÆŒ>è‘9?OÄL<´ø¯>‘’©>\ú?`?NÅ4?£Å¬>+Ã>£Å,?*`–>
+ø??Ô`>Ö^¶>+Ã>¡Æ?£Å,?£Å¬>öÆŒ=;“?KÇ?ú?^ù>	ù'?µ÷G?¶öß>OÄÌ<+_.?”Ù=RÂü>êé>”Y>å“	?Å+3=RÂü>->Ö^¶>Ù\æ>^>?q*S>	ù'?Å+³>”Y>OÄL=cõÿ<Æ*K?;“™>ƒ]Ö>:”?£Å,?^>?è‘9?”Ù=£Å¬>€_&>£Å,>RÂü>-^F?€_¦=øÅ$?-^F>€_¦>_ø7?^ùŸ>¶öß>)ó=ùÄ<?Å+³>”Ù=KÇ?Ù\æ=€_¦=”Ù>_ø7?-“>*`?^>?‘’)?
+ø?>Ö^¶>öÆŒ>€_¦=OÄÌ>Å+3?ùÄ<?¶öß>RÂü>Ù\f>Å+3?ûÂl>cõÿ=ûÂì>o,#?;“=+C?n-?)ó=^ùŸ>
+ø??
+ø¿=ú>\ú?OÄL=Õ_?Ä,?€_&?->Æ*K?€_&>Æ*K?;“™<Å+3=øÅ$?È)ã>”Ù>è‘9>ûÂl>ú>OÄL<ƒ]Ö>öï>OÄÌ>\ú?µ÷G?:”?Ã-ƒ>)s>->cõÿ=£Å¬>‘’©>-?ûÂl>_ø7?)ó=OÄÌ>+C?Æ*K?£Å,>öï>Ù\æ>”Y>Ô`†>:”?)ó=öï>-?@y>p+;?
+ø¿>¡Æ?Æ*K?öÆŒ>Õ_?-“>´ø¯>‘’©>OÄÌ>cõ>RÂü>q*Ó>	ù'?o,£>¶öß>cõ>cõ=ú?Ù\æ>)s>Ô`†>:”?€_¦>‘’)?”Ù>öÆ?-?;“™>-?=’1?ƒ]Ö>/\ö>q*Ó>£Å,?ûÂl>
+ø?>-?OÄL=`÷Ï>¶ö_>‘’)?OÄÌ<øÅ$?Æ*K?/\ö>
+ø¿>Æ*K?ûÂl>ùÄ¼>Ù\f>´ø¯>@ù>êé>€_¦>    ƒ]Ö>-^Æ>ûÂì>NÅ4?>‘I?€_&>
+ø¿>)s>cõÿ<”Ù=-^F?æ’!?LÆ?^ù?€_¦=È)ã>-^F?Å+3>“‘A?:”?+_.?ûÂl>*`?Å+3=
+ø¿>\ú?KÇ?ùÄ<?Æ*K?+C?,+?+_.?Å+³>Å+³=cõ>Ö^¶>è‘9>Ä,?å“	?ûÂì>RÂü>
+ø??n-?OÄL=Ù\æ=-?êé>³ù?    cõÿ<øÅ$?	ù'?;“=öÆ?Å+³=Å+3?Ô`?Æ*K?OÄÌ;OÄL<,+?“‘A?øÅ$?,+?cõ=´ø/?OÄÌ<@ù>öÆ>@y>öï>@y>£Å¬>;“™<OÄÌ<`?ûÂl>^ù>@y>;“™=€_¦=o,#?Ä,?êé>è‘9>\ú?ƒ]Ö>Ù\æ=@ù>+C?OÄÌ;    Ù\æ>Å+3?^ù>@ù>+_.?Ô`?@ù>Æ*K?‘’)?Å+3>¶öß>Ä,?
+ø??    Õ_?ú>OÄÌ;@ù>è‘9>êé>öÆ>OÄÌ=ùÄ¼>å“‰>æ’!?¶öß>Ö^6?)ó>å“‰>,+?”Ù>)ó>å“‰>OÄÌ>€_¦>ùÄ¼>Å+³=OÄÌ>öÆŒ=^ùŸ>æ’!?cõÿ=Ô`>;“™>-“>öï>öï>;“?cõÿ=ùÄ¼>^ù?^>?ùÄ¼>£Å,>Ã-?^ù?;“>£Å,>-?
+ø¿>OÄÌ<£Å,>ú?Ô`†>£Å,?_ø7?êé>ùÄ¼>öÆŒ>+Ã>)ó>
+ø¿=LÆœ>öÆŒ=øÅ$?->+C?;“™>£Å,>³ù?ûÂì>£Å,?“?OÄL<€_&?€_¦>Ù\f>	ù'?=’1?OÄL=è‘¹>p+;?`?ùÄ<?Ô`†>è‘9>^>?“?µ÷G?ûÂl>->Ö^¶>OÄÌ<`?=’1?RÂü>è‘¹>;“?->Æ*K?    ;“™<LÆœ>è‘9?¶öß>`?”Ù=n-?Ö^¶>ú?+_.?-?ùÄ¼>
+ø¿>;“>Ã-ƒ>‘’)?)s>€_&?@y>LÆœ>`÷Ï>cõÿ<>‘É>è‘¹>è‘¹>o,£>Ö^6?=’1?Ô`>*`?Å+³=cõ=Ô`?`÷Ï>”Y>OÄL<@y>\ú?cõÿ<OÄL<Ù\æ>Ù\æ=OÄL=@y>£Å¬>;“=Ô`>”Ù>OÄÌ<´ø¯>->cõÿ=`?
+ø¿=OÄÌ=æ’!?)ó>+C?*`–>q*S>è‘¹>OÄÌ>NÅ4?    ùÄ¼>-?è‘9>-^F>³ù?;“™<RÂü>Å+³=;“?Ù\f=øÅ$?;“™<cõ=`÷Ï>Ö^6?Ù\f=¶ö_>
+ø??‘’©>“?OÄL<öÆŒ>OÄL>ùÄ<?“?”Ù=ûÂì>>‘É>)s>£Å,>å“‰>Ö^6?Ù\æ=Ù\æ=öÆŒ>`÷Ï>:”?q*Ó>LÆœ>^ù>‘’©>)s>è‘9?OÄL<->;“™=€_¦>Ö^6?
+ø??OÄL=+Ã>o,#?-?è‘9?-^Æ>Ô`>‘’)?Ô`†>Ä,?;“™>“?+C?-^F?;“=öÆ>)s>->µ÷G?è‘¹>öÆ>Ù\f>è‘9>ú?OÄL=OÄÌ<OÄÌ;-?;“?;“>cõÿ>=’1?êé>^ùŸ>¥ÃÜ>Ö^¶>;“?Ô`>;“?^ù?^ù>è‘9?Æ*K?@y>-“>;“?Å+³=`?RÂü>€_&?OÄL=öÆŒ=¡Æ?n-?OÄÌ<Å+3>cõÿ<Ù\æ=¶ö_>p+;?o,£>æ’!?µ÷G?¡Æ?Å+3=;“?öÆ?Ö^6?OÄÌ;øÅ$?è‘9?OÄÌ<È)ã>^>?”Ù=\ú?-?:”?Æ*K?è‘9?^>?Å+³>ùÄ<?OÄÌ<è‘9>^ùŸ>ú>¤ÄD?*`?	ù'?£Å,?OÄÌ=Ö^¶>êé>:”?Ä,?@y>ú>ùÄ<?*`–>cõÿ=,+?,+?öÆŒ>o,£>”Ù=öÆŒ=öÆ?ûÂl>_ø7?€_¦=´ø¯>`÷Ï>Ä,?è‘9?,+?-?¶ö_>Ù\æ=Å+3=ƒ]Ö>>‘I?€_¦>+Ã>”Ù=Ô`?	ù'?OÄÌ;)ó==’1?RÂü>
+ø¿>öï>£Å¬>)ó=OÄÌ<‘’)?Å+³>cõ>*`–>è‘9>ú>Ù\f=Å+3?ú?OÄL>Ô`†>¡Æ?cõ>:”?Ã-?;“>cõÿ>”Ù>
+ø??Ã-ƒ>;“™>^>?;“™=¥ÃÜ>>‘I?¶ö_>µ÷G?“‘A?-^F?è‘¹>+C?Ù\f>Ô`†>öÆ?@ù>Õ_?µ÷G?;“>LÆ?\ú?LÆ?*`?cõ>€_¦=_ø7?Å+3>	ù'?;“™<‘’©>`÷Ï>öï>¥ÃÜ>Ô`?Ö^¶>cõÿ>Æ*K?->+Ã>cõ>
+ø??^>?-^Æ>Ô`†>;“>´ø/?
+ø¿>-^F?æ’!?
+ø??_ø7?öÆ>KÇ?ûÂl>;“?è‘¹>¶öß>cõÿ=Å+3=öÆ?RÂü>¶öß>,+?ûÂl>n-?è‘9>/\ö>LÆœ>+_.?
+ø??
+ø??ƒ]Ö>o,#?    €_&>öï>OÄÌ>Å+³=Ù\f>”Y>OÄÌ;¶öß>£Å,?ú?”Y>cõÿ<;“™=`÷Ï>£Å,?)s>è‘9>
+ø?>è‘¹>;“™<OÄL=Æ*K?q*S>€_¦>*`–>OÄL=‘’©>Ô`?)s>+Ã>OÄÌ>    =’1?è‘9?£Å,?å“‰>Ä,?OÄÌ<;“™>o,£>Ã-ƒ>“?¶ö_>Ö^¶>-“>OÄÌ<‘’©>cõ=æ’!?LÆ?-^F?å“‰>ƒ]Ö>/\ö>Æ*K?¤ÄD?-^F>cõ=;“=q*S>ùÄ<?å“	?>‘I?=’1?`÷Ï>;“>Æ*K?_ø7?-?è‘9>Ö^6?¶öß>‘’)?“?LÆ?OÄL=è‘9>o,#?o,£>OÄL=+C?>‘É>è‘9?Å+³=å“	?cõ>ûÂl>o,£>cõ>Õ_?€_¦>NÅ4?RÂü>£Å¬>£Å,>cõÿ<ú>cõÿ<€_¦>`÷Ï>
+ø¿>q*S>£Å,?^ù?;“™>@y>€_&?
+ø??cõÿ<^ùŸ>è‘¹>Ã-ƒ>^>?´ø¯>ùÄ<?OÄÌ>Ö^¶>£Å,>å“‰>\ú?-?-^Æ>µ÷G?cõÿ=`?+C?‘’©>_ø7?`÷Ï>OÄÌ=è‘9>öÆ?Ù\f>RÂü>Æ*K?å“	?è‘¹>cõÿ>£Å,>cõ=OÄÌ=cõ=/\ö>)ó>ûÂl>OÄÌ;Õ_?Å+3>‘’©>cõ=Å+3>“?OÄÌ<Å+3>Å+3?-^F>ûÂl>-“>“?öÆ>¶öß>ú?ùÄ¼>)ó>
+ø¿=¡Æ?öÆ?Å+³>öÆŒ=ú?‘’)?‘’©>*`?öÆ?)s>
+ø¿>Æ*K?OÄÌ>€_¦=ùÄ¼>;“?å“‰>
+ø?>p+;?LÆ?‘’©>ƒ]Ö>Ö^¶>RÂü>q*Ó>^ù>)ó>q*Ó>”Ù>cõ>cõÿ>;“™=KÇ?Õ_?Ö^¶>Å+³=OÄÌ>OÄÌ>Ù\f=)ó=¤ÄD?Å+3?Õ_?£Å,?`?^ù?‘’)?LÆœ>Å+³>´ø/?OÄÌ>öÆ>Å+³=^ù?p+;?Ö^6?öï>£Å,?cõÿ<Ù\æ=OÄL<è‘9?>‘É>¶ö_>å“	?cõ>->`?)ó>Ù\æ=öÆ>*`?NÅ4?¥ÃÜ>OÄL>³ù?öï>OÄL=->@ù>€_&?å“‰>³ù?;“>µ÷G?´ø/?)ó>-?å“	?€_&>>‘É>:”?^ùŸ>µ÷G?@y>Å+3=”Y>cõÿ<p+;?¶ö_>)ó=Ö^¶>Ô`>-^F>Ä,?OÄÌ=*`?=’1?OÄÌ>-?Å+3>Ö^6?>‘I?RÂü>+C?    Ö^¶>/\ö>OÄL=³ù?cõ>Ã-ƒ>€_¦=ú?”Ù=^ùŸ>-?Å+3?@ù>cõ>Ù\f>^ù?)ó>ùÄ<?öÆ?è‘9?;“™=_ø7?¶ö_>*`–>OÄÌ>€_¦>/\ö>“‘A?€_&>Ô`?€_¦=ûÂì>p+;?,+?^>?Õ_?ùÄ¼>:”?ûÂl>ùÄ<?;“?”Ù=^>?>‘É>+Ã>-“>*`–>ƒ]Ö>q*S>OÄÌ<-^F>o,£>Å+3?=’1?€_&>-^Æ>-“>
+ø?>‘’©>Ô`†>^ù?OÄL>ûÂì>Å+3>öÆŒ>Ö^6?q*S>
+ø¿>µ÷G?å“	?-^F>€_&>Ô`†>öÆŒ>-?^ùŸ>ùÄ<?è‘9>öÆŒ>n-?_ø7?µ÷G?ûÂì>ƒ]Ö>¶ö_>^ù?£Å,>*`–>öÆŒ=OÄL<^ù?”Ù>_ø7?_ø7?LÆ?ú?*`–>LÆ?³ù?å“	?-^Æ>ûÂì>OÄÌ>Ù\æ=RÂü>”Ù=³ù?€_&>å“‰>”Y>_ø7?)ó=Ä,?;“?+_.?cõÿ>Õ_?_ø7?/\ö>å“	?Å+³=*`–>¶öß>Ù\æ>Ã-ƒ>OÄÌ;*`–>`?^>?;“=³ù?;“™<;“™<;“>Å+³>Ã-?
+ø¿=NÅ4?+C?”Ù>è‘9?¶ö_>@y>Å+³>È)ã>)ó=€_¦=`?Ã-?Æ*K?)s>n-?)s>;“?
+ø¿>=’1?^ù?p+;?Ä,?q*Ó>^>?€_&>-^F?Æ*K?µ÷G?”Y>
+ø?>”Ù>Ô`?;“?ú?^>?;“™>å“‰>\ú?Ã-?£Å,>¶öß>
+ø¿=ú>@y>
+ø??;“=€_&>OÄÌ;cõÿ>
+ø¿=\ú?cõÿ=->-^F>ûÂì>¤ÄD?-^F?ùÄ¼>OÄÌ;å“‰>cõ>^ùŸ>öÆ?;“?-?Ã-?)s>>‘É>Ù\æ>-^F>è‘¹>Å+³>OÄÌ<,+?è‘¹>Ù\f=_ø7?
+ø?>n-?Æ*K?ƒ]Ö>Ã-?`?Å+3?öÆŒ>Å+3>ùÄ¼>Ö^6?¶öß>£Å,?OÄÌ>Ô`?q*Ó>q*Ó>;“™<OÄL=¥ÃÜ>;“?,+?ƒ]Ö>“?“?Ù\f=OÄL=Å+³=`÷Ï>;“>öÆŒ>£Å¬>`?RÂü>¤ÄD?+C?->OÄÌ>öï>
+ø??öÆŒ>@y>->=’1?-“>cõ>,+?¤ÄD?+Ã>)ó=è‘9?Ô`†>¶ö_>)ó=q*S>Å+³=£Å,>;“=o,£>ú?
+ø¿=OÄÌ>cõ>³ù?^>?Å+³>OÄL>
+ø¿=€_&>Ã-?RÂü>LÆ?£Å¬>Ä,?Å+3=:”?>‘I?OÄÌ;-^F>	ù'?£Å¬>
+ø?>øÅ$?”Ù>ƒ]Ö>ú>Å+3?^ù?öï>ûÂì>Ä,?€_&?)s>Ö^¶>-?q*S>-^F?cõÿ=*`?Ù\æ=\ú?+_.?Ù\æ>è‘¹>	ù'?Ù\æ=Ô`>Ù\f=^ù>q*Ó>¶ö_>@ù>q*Ó>p+;?Ù\f>-“>‘’)?;“™>µ÷G?@y>>‘É>LÆœ>*`?`?
+ø?>‘’)?
+ø¿>;“™>>‘É>+_.?Æ*K?³ù?öï>‘’)?ûÂl>-^F>-“>->-?¶öß>Ô`†>è‘¹>>‘É>^>?“‘A?
+ø¿=n-?`?öÆ?´ø¯>cõÿ>cõÿ>>‘I?;“™<cõ>Ô`>q*S>/\ö>øÅ$?OÄÌ=‘’)?p+;?OÄL>öï>-^F>@ù>”Y>@y>Ô`>öÆŒ=_ø7?Å+³>-^Æ>OÄL>+_.?£Å,>)s>Å+³=cõ=“‘A?
+ø¿=´ø¯>ú>n-?:”?
+ø¿=“‘A?    ¶öß>ùÄ¼>LÆœ>£Å,?ùÄ<?Ù\æ>Ã-ƒ>Å+3?€_&?)ó>*`–>ƒ]Ö>“‘A?È)ã>o,£>cõ=
+ø?>´ø/?-^Æ>
+ø¿>`?öÆ>
+ø¿>-“>LÆ?è‘9?€_&?Å+3?Å+3=Ã-ƒ>Ù\æ>cõ=:”?öÆ>“?è‘9?Ù\f=ùÄ<?*`?öÆ>µ÷G?Ù\f=Ô`>OÄL>+Ã>)ó>ú>;“™<Ö^¶>NÅ4?NÅ4?;“?êé>cõÿ>
+ø¿=ú?    )s>*`–>=’1?-^Æ>¶ö_>öï>öÆŒ=*`–>Ã-?
+ø¿>Ö^¶>øÅ$?
+ø¿=OÄL>>‘I?/\ö>£Å¬>Ä,?øÅ$?‘’©>ûÂl>£Å¬>n-?Å+³>æ’!?;“™=q*S>NÅ4?Ù\æ>/\ö>\ú?LÆœ>)s>Ã-?*`–>)s>Ù\æ>RÂü>è‘¹>Ô`>£Å¬>Å+3>LÆ?öÆ>_ø7?ú?Ù\f=Å+3?OÄÌ;
+ø¿>;“>Ù\f=¶öß>q*S>´ø/?Å+³=p+;?øÅ$?
+ø??ú>^ù>Ô`>p+;?OÄL>Å+³>£Å¬>öï>öÆŒ=è‘9?”Ù=Æ*K?@y>¶ö_>´ø¯>KÇ?€_¦>    +_.?Æ*K?;“?Æ*K?:”?ùÄ¼>€_¦=OÄL=cõÿ=;“™>æ’!?)s>-^Æ>>‘É>öÆ>-^Æ>>‘I?_ø7?NÅ4?è‘¹>`÷Ï>Õ_?å“‰>)s>^>?”Ù>Ô`>ùÄ<?öï>LÆ?OÄL=)ó>øÅ$?´ø¯>Å+3>_ø7?*`?Ã-?RÂü>`÷Ï>æ’!?^ùŸ>€_&>öÆ?:”?öÆ?Ö^¶>Å+³>ùÄ¼>:”?
+ø¿=OÄÌ<öÆ?è‘9>ùÄ¼>Ã-?êé>	ù'?Ù\æ>cõÿ>è‘¹>êé>n-?£Å,?;“™<ûÂl>Å+3=)s>øÅ$?;“™<Å+3=æ’!?€_&>=’1?Ô`?cõÿ>_ø7?cõÿ<=’1?\ú?Ô`>cõÿ>-“>)s>Ö^¶>”Y>
+ø??^>?Ö^¶>Å+3=
+ø¿>”Ù>,+?q*Ó>KÇ?:”?Å+3>;“>Å+3=OÄÌ>Ô`?ùÄ¼>>‘I?€_¦>öÆ>öï>-“>´ø¯>>‘I?-^Æ>
+ø??êé>cõ>=’1?Å+3>q*Ó>@ù>¡Æ?cõÿ<ƒ]Ö>*`–>‘’)?å“	?ú?o,#?^ùŸ>
+ø¿>_ø7?;“™=cõÿ=¥ÃÜ>@y>”Ù>“‘A?Ö^¶>Ù\f=¶ö_>¤ÄD?^ùŸ>Ù\f>¡Æ?Ù\æ>OÄL=p+;?^ù?
+ø??-?Ô`†>å“‰>³ù?€_¦>/\ö>OÄL<OÄL>öÆ?+Ã>q*S>OÄL=	ù'?o,£>OÄÌ;>‘I?³ù?€_&>”Ù=>‘I?OÄÌ>€_&>æ’!?o,£>”Ù>-^F>cõ=Ô`>Ö^¶>Ù\æ=Æ*K?`÷Ï>cõ>`?Å+3=-^F>öÆ?cõ=;“?¥ÃÜ>öÆŒ=    Ô`?*`?o,£>Å+3=£Å,>È)ã>q*Ó>cõÿ>öï>+Ã>LÆ?>‘I?p+;?+C?Ô`†>Ô`†>Ö^¶>KÇ?ú?è‘¹>->OÄÌ=>‘I?*`–>´ø¯>^ù>OÄL>@ù>“?@y>cõ>_ø7?-^F>OÄÌ=£Å¬>µ÷G?@ù>êé>Å+³>€_&?OÄL>,+?RÂü>È)ã>êé>^ù>Å+3?LÆ?Å+³=OÄÌ<;“™>,+?OÄL>¤ÄD?OÄL>;“=-?^ù>£Å¬>öÆŒ>ùÄ¼>OÄL=cõÿ<-?Ö^¶>^ù>-^Æ>;“=:”?*`?>‘I?;“™=Å+³>Õ_?¤ÄD?Ù\æ=“?ú?øÅ$?cõÿ=´ø/?Ù\f>^ù>/\ö>ùÄ<?öÆ>LÆ?Ö^¶>Ô`?Ö^6?:”?öÆŒ=ú>/\ö>cõ=öï>
+ø?>o,£>n-?;“™=->¡Æ?OÄÌ;£Å,?
+ø¿=>‘É>/\ö>`?;“>êé>-?^>?OÄÌ=OÄL>KÇ?-^Æ>Ô`>cõ=Å+3=)ó=ûÂl>cõÿ=OÄL=¥ÃÜ>o,#?”Y>¶öß>>‘É>*`?cõÿ=ƒ]Ö>-^F?´ø/?OÄÌ;£Å¬>`÷Ï>å“‰>öÆ>)ó=,+?å“‰>
+ø¿>KÇ?^ù>¶öß>o,#?£Å,>KÇ?-^Æ>Õ_?,+?:”?q*Ó>Ù\f=`?øÅ$?Ã-ƒ>    è‘9?LÆœ>/\ö>-“>	ù'?>‘I?€_&?öÆŒ>+_.?³ù?¶öß>;“™=ûÂl>OÄÌ;,+?Æ*K?æ’!?Ô`?RÂü>>‘I?OÄL>å“‰>Å+3=è‘¹>”Ù>Ã-?)ó=Ö^¶>öÆŒ=;“™=Ù\æ>OÄL<:”?cõÿ<)ó=o,£>;“™<è‘9?è‘9?-^F>/\ö>Ä,?Ô`?´ø¯>OÄÌ<=’1?OÄL=€_¦>”Ù>å“‰>Ã-ƒ>Ù\f=”Ù>Ö^¶>
+ø??å“‰>NÅ4?ƒ]Ö>¶ö_>LÆœ>Ö^¶>`÷Ï>‘’©>KÇ?p+;?ûÂì>n-?€_&?@ù>*`?LÆ?-^F?;“=å“	?+Ã>‘’©>@y>o,#?¤ÄD?;“™=Õ_?£Å,?öï>`÷Ï>NÅ4?q*Ó>;“™>ùÄ¼>\ú?cõÿ>+Ã>Ô`?:”?;“™=cõÿ>øÅ$?È)ã>è‘¹>NÅ4?OÄL=¶ö_>¶ö_>^>?OÄL<¶öß>OÄL<-^Æ>öÆ?LÆœ>>‘I?OÄÌ>-^F>:”?Ä,?OÄÌ>^>?->“?^ù?;“?OÄÌ>Ã-?Å+³=Å+³=
+ø¿>Å+³>Å+3?´ø/?,+?¶ö_>Å+³=OÄÌ<n-?;“=    OÄL>cõ=@y>;“>-^F>µ÷G?€_¦>p+;?`÷Ï>Å+³>ú>Ù\æ=€_¦=£Å,?öÆŒ>OÄL<¤ÄD?`÷Ï>Ô`>Å+³=cõ=OÄL=+C?£Å,?¥ÃÜ>Ù\f=*`–>OÄÌ<å“	?*`–>^ùŸ>öÆŒ>*`?Õ_?@ù>Å+³>è‘¹>>‘É>OÄÌ=>‘I?Ù\f>æ’!?Å+3>OÄÌ>å“	?cõÿ<¡Æ?
+ø¿=êé>o,£>æ’!?>‘I?@ù>-^Æ>OÄL>öÆ?q*S>ú?Ù\f>,+?NÅ4?øÅ$?`÷Ï>*`?;“=è‘9?*`–>n-?‘’©>å“‰>”Y>	ù'?è‘9>‘’©>;“?¶öß>cõ=    q*S>¤ÄD?Ù\æ=Õ_?´ø/?ûÂl>Ù\f>Ù\æ=ûÂì>´ø¯>ƒ]Ö>-?“?öÆŒ>”Ù>RÂü>`÷Ï>/\ö>)s>è‘9?Ö^¶>Å+³>Å+3=Ù\æ=q*Ó>£Å¬>OÄL>LÆ?è‘¹>n-?ùÄ<?¶ö_>q*S>o,£>ùÄ¼>OÄL>LÆœ>-^Æ>¡Æ?¤ÄD?=’1?È)ã>
+ø¿>cõÿ>+Ã>Å+³>å“	?;“™=cõ=OÄÌ>ú>OÄL>OÄÌ<,+?+Ã>
+ø?>)s>:”?Ù\æ=”Ù>>‘É>å“	?`?öÆ>-?Å+3?”Ù>Ä,?cõ>/\ö>KÇ?”Y>€_&?;“™<cõ>€_&>€_&>^ù>OÄÌ<öï>o,£>cõ=OÄÌ>‘’©>ú?Å+³=-“>/\ö>“?¥ÃÜ>:”?Æ*K?Ô`†>£Å,?^>?Å+3=RÂü>^ù?£Å¬>Õ_?q*Ó>NÅ4?`÷Ï>->NÅ4?KÇ?ùÄ<?cõÿ>LÆ?€_&?öï>LÆœ>/\ö>)ó=q*Ó>å“‰>”Ù>€_¦=øÅ$?cõÿ<“?‘’)?cõÿ<+C?OÄÌ=o,£>Ä,?öÆŒ>“‘A?Ù\f>´ø¯>öÆ>”Y>>‘I?Å+3?¥ÃÜ>¥ÃÜ>cõ=Å+3?£Å¬>ûÂl>€_¦=p+;?*`?øÅ$?È)ã>Ô`>ú?È)ã>\ú?;“™>”Y>p+;?\ú?)s>¶öß>^ùŸ>ùÄ¼>^ù?€_¦=+C?,+?OÄÌ>)s>/\ö>öÆ>‘’)?
+ø?>)ó>OÄÌ;³ù?,+?Å+3?¥ÃÜ>o,#?å“	?,+?^ù?OÄL=È)ã>Ô`†>q*S>+_.?´ø¯>ûÂì>€_&?,+?LÆ?‘’©>Å+3=;“™<Ô`?>‘É>;“>-?+C?æ’!?´ø¯>êé>->*`?Å+³=£Å,?¶ö_>@y>cõ=LÆœ>è‘¹>¶ö_>´ø/?æ’!?OÄL=è‘¹>å“	?>‘I?LÆœ>øÅ$?
+ø¿>@y>øÅ$?Å+3=ùÄ<?Æ*K?*`–>`?Æ*K?KÇ?`?öÆ?)s>cõÿ>
+ø?>^>?ûÂl>RÂü>ú>;“?`÷Ï>Õ_?*`–>€_&>`?Å+3>öÆŒ=`?€_&>cõ>;“™>¥ÃÜ>Ô`†>Ã-ƒ>;“™>+_.?KÇ?q*S>cõÿ=`÷Ï>\ú?>‘É>æ’!?ùÄ<?KÇ?\ú?æ’!?Ô`†>öï>è‘9?q*S>¥ÃÜ>@y>
+ø¿=LÆ?_ø7?è‘9>öÆ?Ô`?`?Õ_?-^F?NÅ4?OÄL=@y>LÆ?£Å,>/\ö>ûÂl>/\ö>³ù?Ô`?=’1?Å+³>Õ_?\ú?öÆŒ>)ó=¤ÄD?ú>Å+3?€_&?+Ã>öÆŒ=¥ÃÜ>q*S>:”?@y>NÅ4?;“=*`–>ûÂì>¶öß>p+;?öÆŒ>€_¦=‘’)?Ã-?‘’)?€_&>€_&>)s>¥ÃÜ>å“	?£Å,>è‘¹>‘’©>+C?Ã-ƒ>>‘I?^ù>)s>OÄÌ==’1?cõÿ=“?cõ>Æ*K?êé>OÄL=öï>Ù\æ>OÄL</\ö>µ÷G?Ã-?OÄÌ>o,£>:”?¶ö_>Æ*K?^>?*`?cõ>OÄÌ<£Å,>>‘I?cõÿ<;“™<ùÄ¼>Ô`?    cõÿ<OÄÌ>å“‰>+_.?Ã-?OÄL=;“=£Å,?‘’©>Ù\f>Ô`?o,£>³ù?cõÿ>Ù\f>€_¦=Õ_?€_&>Ö^¶>êé>£Å,>Õ_?)ó=cõÿ>È)ã>n-?OÄÌ;”Ù>³ù?->cõÿ>OÄÌ>ùÄ<?^ùŸ>OÄÌ>Ù\f>;“™>Ã-?OÄL<NÅ4?´ø/?“?Å+3?öÆŒ>RÂü>ƒ]Ö>cõÿ=@y>Ã-ƒ>;“™>Å+3=)ó=è‘¹>£Å¬>;“=@ù>Õ_?p+;?ùÄ<?)ó=å“‰>”Y>)ó>:”?@ù>æ’!?LÆ?
+ø?>£Å,?,+?Ù\æ>OÄL=^ù>Ã-?å“	?-^F?Ä,?n-?-^Æ>£Å,?Ã-ƒ>ú?”Y>>‘É>o,#?¡Æ?^ùŸ>>‘É>Å+3>*`?,+?å“	?OÄL<Ù\æ=,+?´ø¯>øÅ$?=’1?ú>€_&>OÄÌ<öÆ?Ä,?‘’©>OÄL<->+Ã>¡Æ?å“‰>->)ó=“‘A?n-?;“™=;“>cõ=êé>)s>OÄÌ>£Å¬>OÄL=Å+3=Å+³=ûÂl>ûÂì>”Y>-^Æ>Å+³>¤ÄD?¶ö_>-^F?
+ø¿=öÆŒ=\ú?£Å,>Ä,?è‘9>Ö^6?>‘I?”Ù>@ù>-^F?o,#?OÄL=-^Æ>;“=NÅ4?€_¦>OÄÌ>^ù>è‘9>Ù\æ>p+;?OÄL>¶öß>+C?“‘A?o,£>-^F?n-?+C?q*Ó>cõ=*`–>KÇ?LÆ?    Ö^6?Å+3=o,#?Æ*K?cõÿ>€_¦>Õ_?ú>”Ù=)ó=*`?NÅ4?ƒ]Ö>OÄL<OÄÌ;^ùŸ>Õ_?Ô`>:”?è‘9>è‘9?*`–>o,£>OÄL=Å+3=”Ù>ûÂì>Õ_?OÄL=öï>´ø¯>o,#?¶ö_>KÇ?ú?;“?Ô`†>\ú?o,£>:”?^ù>€_¦=;“™=;“>ûÂl>ûÂì>^ùŸ>Å+3>`÷Ï>öÆŒ>øÅ$?öÆŒ=cõ>->Ù\æ>”Ù>
+ø¿>Æ*K?cõ>´ø¯>:”?p+;?NÅ4?È)ã>cõ>\ú?€_&?>‘É>Õ_?è‘9?
+ø?>^ùŸ>;“=RÂü>´ø/?€_¦>ûÂì>Ô`?>‘É>Ö^6?êé>OÄÌ;öÆŒ=OÄÌ;ƒ]Ö>Õ_?Å+³>+C?€_¦>/\ö>+C?;“?-^Æ>>‘I?€_&>öÆ?€_&?;“>OÄÌ<Ô`?cõ>OÄL>/\ö>Ù\æ=+C?è‘¹>öÆŒ>ùÄ<?Ã-?)ó>q*S>µ÷G?ú>p+;?ùÄ¼>;“?+_.?OÄÌ=Ô`>OÄÌ;´ø/?^>?Ã-ƒ>q*S>öï>LÆ?cõÿ>o,£>->^>?->OÄL<)s>/\ö>öÆ?`?£Å,>@y>Ù\f>q*S>cõ=/\ö>ú>OÄL<£Å,>€_&>Ù\f>;“>‘’©>n-?;“™=ùÄ¼>-“>-^F>^ùŸ>ûÂl>q*Ó>Ù\æ=)ó>¤ÄD?p+;?¶ö_>Ô`?OÄÌ<ùÄ<?    Å+3=Å+3=cõÿ<êé>*`–>RÂü>
+ø¿>>‘É>Ã-ƒ>€_&>cõ=;“?-^F>o,£>³ù?;“™>;“™>Ô`>Ù\f=³ù?^ùŸ>€_&?”Ù>OÄÌ>;“=`÷Ï>^ùŸ>£Å,>LÆœ>ƒ]Ö>OÄÌ=öï>+_.?/\ö>µ÷G?*`?Å+³=@y>LÆœ>KÇ?-^Æ>è‘9?È)ã>->Ã-ƒ>öÆŒ=-“>³ù?`÷Ï>;“™<Ù\f=n-?OÄL=€_¦=€_&>µ÷G?-“>)s>Ô`>	ù'?£Å¬>)ó>RÂü>Ã-?	ù'?ƒ]Ö>È)ã>
+ø¿>Å+³=LÆœ>µ÷G?)ó=;“>    ”Ù>OÄÌ<-^F>¤ÄD?“?LÆ?öï>cõ=”Y>;“™=;“>å“	?-“>Æ*K?”Ù=Ù\f=Æ*K?Ù\f=ùÄ<?:”?;“=
+ø??*`–>)s>Å+³=cõ=@ù>OÄÌ;ú?;“™>å“	?;“™>å“	?-^Æ>KÇ?)s>cõÿ=Ù\æ>->;“>OÄL<öÆŒ>Ô`>Ö^6?´ø/?RÂü>è‘9?³ù?OÄÌ<è‘¹>£Å¬>^ù>Ã-?öÆŒ>q*S>>‘É>Ô`>p+;?	ù'?µ÷G?‘’©>\ú?+Ã>öÆŒ=¡Æ?)ó=Ã-ƒ>¶ö_>OÄL<q*Ó>ûÂì>ùÄ¼>=’1?ƒ]Ö>€_¦>è‘9>€_&>´ø¯>€_&>öÆ>Å+³>‘’©>^ù>æ’!?ùÄ<?cõÿ=-?”Y>Ö^¶>-^F?Ù\æ>;“™<¤ÄD?+Ã>OÄL>
+ø?>^>?`÷Ï>Õ_?‘’)?@y>¥ÃÜ>->p+;?
+ø?>,+?cõÿ>øÅ$?)ó=-^Æ>Ä,?+Ã>>‘É>³ù?OÄÌ=o,£>¡Æ?³ù?¤ÄD?o,£>RÂü>q*S>‘’©>OÄL>=’1?OÄÌ>ú?Õ_?)ó>È)ã>ùÄ¼>cõ=ûÂì>^ùŸ>cõ=-^F?Ö^¶>OÄL>OÄL<cõÿ<öÆ?¶ö_>Ù\f>£Å,>è‘9?LÆœ>‘’)?_ø7?Å+³=Å+3?€_¦>µ÷G?Ä,?OÄL<)ó>n-?Ã-ƒ>NÅ4?öÆŒ=öÆŒ>µ÷G?Æ*K?;“?€_&>Ù\f=;“™=;“™>^ù?Ô`?Å+³>+C?Ö^6?”Y>Ù\f>>‘É>/\ö>OÄÌ>`?£Å,?€_¦>³ù?êé>`?ú?*`–>¶ö_>“?->LÆ?->£Å,?ú?;“™>æ’!?å“‰>@ù>KÇ?È)ã>/\ö>>‘É>-“>^ù?`?öÆ?,+?-^F>LÆœ>-^Æ>è‘9?€_¦=£Å,>LÆœ>Ù\f=€_¦=£Å,?ƒ]Ö>€_¦=‘’©>-^Æ>Ã-ƒ>cõ=Õ_?Å+³>Æ*K?
+ø¿=è‘9>+Ã>)ó==’1?Ö^6?+C?;“>´ø/?£Å,?@y>È)ã>³ù?´ø/?OÄÌ<Æ*K?;“™>ú?;“>
+ø¿=Ô`>o,#?OÄL>æ’!?KÇ?`?^ùŸ>öÆŒ>”Y>Å+3>¤ÄD?+Ã>ûÂl>OÄÌ<ƒ]Ö>    >‘É>€_&?£Å,>Õ_?öÆŒ>
+ø¿=OÄÌ;;“?
+ø¿=³ù?êé>Õ_?OÄÌ=
+ø??    
+ø¿=o,#?q*Ó>Å+3>o,£>Å+3=OÄL=^ùŸ>NÅ4?KÇ?)ó>*`–>+C?`÷Ï>å“	?`÷Ï>ûÂì>\ú?NÅ4?æ’!?Ù\æ>ú?ú>£Å,?Ã-?Å+3?£Å¬>;“™=/\ö>ú?è‘9?`?öÆ?_ø7?Ô`†>“‘A?Ä,?,+?´ø/?;“™=Ä,?-^F?)ó=ùÄ¼>^ù>LÆœ>ûÂì>LÆ?ú>;“™<Õ_?^ù?€_¦>^>?NÅ4?^ùŸ>q*Ó>öï>o,£>;“™>¶ö_>Å+3>;“?ú>q*S>
+ø??ûÂì>´ø/?+C?´ø¯>ûÂì>¤ÄD?cõÿ=ú>êé>
+ø¿>:”?LÆ?)s>¥ÃÜ>+C?Å+3>Ô`>
+ø¿=o,#?cõÿ<q*S>,+?€_&>è‘9?”Y>ûÂì>Ù\æ>-^Æ>€_&?ùÄ<?;“>^ù?:”?>‘É>)ó=KÇ?´ø/?Ù\f=cõÿ<OÄÌ;RÂü>-“>öÆŒ>-^F?;“™>->¶öß>è‘9>ú>LÆ?RÂü>cõÿ=µ÷G?,+?cõÿ=-?ú?Ù\æ=)ó=öÆŒ=¡Æ?öï>“?Ù\f>Å+3?Ù\æ>€_¦=;“™>Ä,?@ù>£Å¬>)ó=;“>^>?£Å,>+_.?å“‰>`÷Ï>OÄL<å“‰>ùÄ<?Å+3=;“?cõ=êé>;“=€_¦=;“™=Ô`†>êé>”Ù=cõÿ>øÅ$?è‘9?“‘A?‘’)?ú>è‘¹>“‘A?;“?*`–>Å+3?OÄL=^>?^ù?”Ù=;“™=Ö^6?Æ*K?¶öß>@y>^ù?¡Æ?Å+³>_ø7?‘’)?cõÿ>Ä,?OÄÌ<”Y>È)ã>:”?´ø¯>öÆ?Ô`?cõÿ<Ô`?ùÄ¼>cõÿ=q*Ó>;“™>
+ø?>;“=ùÄ<?^ù>êé>_ø7?Å+³>öÆ>OÄL<öï>OÄL>¥ÃÜ>Ô`?-“>,+?Å+³>)s>öÆ>KÇ?;“>/\ö>Å+³>£Å,?q*S>OÄL>Å+³>^ù>öÆ?Ã-ƒ>ú?æ’!?æ’!?€_¦>Õ_?
+ø?>    è‘¹>Ù\æ=Å+³=cõÿ>^>?@y>
+ø¿>Ù\æ=öï>Ã-?£Å¬>NÅ4?;“™=´ø¯>Å+3>
+ø??ùÄ<?Æ*K?¤ÄD?`?
+ø¿=Ô`>RÂü>Å+3=	ù'?-?RÂü>OÄL==’1?Ö^¶>ûÂl>Ä,?¥ÃÜ>Ù\f>RÂü>Ô`>-^F?
+ø??*`?LÆ?    Å+3>OÄL<-^F>öÆŒ==’1?Õ_?o,#?Ù\f>NÅ4?´ø¯>*`–>LÆ?‘’)?Ù\æ=µ÷G?è‘¹>:”?    È)ã>OÄL>;“>ûÂl>OÄÌ>-“>->´ø/?KÇ?OÄÌ</\ö>cõÿ>q*Ó>cõÿ>ùÄ¼>-?)ó=ûÂl>Å+3?;“>³ù?¤ÄD?cõÿ<Ù\f>^>?
+ø¿>/\ö>êé>ú?)s>Ù\æ>£Å,?ùÄ¼>cõÿ<å“	?;“™>o,£>Ä,?öï>^ù>”Y>£Å¬>;“™>^ùŸ>cõÿ=´ø/?Ä,?/\ö>RÂü>Ù\æ>Å+3?@ù>ûÂì>è‘9>\ú?OÄÌ<Ô`?Ù\f=)s>LÆ?€_&>_ø7?è‘9>µ÷G?Ô`?Ù\f>øÅ$?Å+3=->;“>Ù\æ>¶öß>Ù\f=>‘I?OÄÌ>
+ø?>q*Ó>ûÂl>Ã-?n-?-“>”Ù>o,#?öÆ>^ùŸ>´ø¯>öÆ>¥ÃÜ>q*Ó>;“™=/\ö>µ÷G?LÆ?è‘9>¤ÄD?cõÿ=-^F>-?_ø7?µ÷G?^>?è‘9>RÂü>;“>`÷Ï>p+;?;“?cõÿ<Ù\f>cõ=*`?Å+³>”Ù=öÆŒ>\ú?¶öß>-^F?>‘É>Ô`?ú>Ù\æ>*÷B(/model_G1_ff_weight_dequant/Mul_output_0JÀgöÒ¾JÄz>u¿¾göR¾oÇ=#¯=èøÐ>   €r
+C¾göR¾G¿~<u¿¾îÉ¾aìZ¾u?<&­¾I‘¾{·>ÔÕì>Œ7¾aìÚ¾r
+C¾jûN>‡-'>Œ7¾Ýäà¾<¾XÝæ½•F“>G¿~¾?™>˜K=#¯½Úßä¾ÈÁü>{·½5¡>X…¾ËÆø¾ëýÌ¾¡Zƒ¾‰2#¾˜K½åóÔ>ÔÕì¾G¿~>dñÖ>G¿~;Œ7Ÿ¾G¿~<MÉö=[âb><¾#/¾PÎr¾MÉö¾~3>ôÁ¾MÉv¾G¿~»ñÅ>[ââ>x»¾^çÞ>Úßä>jûÎ>#/=ëýÌ>MÉv>{·¾žU‡¾G¿þ;üµ¾‡-'¾jûÎ>SÓn>^çÞ>G¿~;¡Zƒ¾+©>˜K=#¯=aìZ¾göR>÷½¾ëýÌ>Ýäà>{7>oÇ><›>r
+C¾^çÞ¾žU‡=5¡>jûN½#/=÷½>göR>u¿>’A—=^ç^=MÉö½#¯½žU‡¾„(«>×Úè>u?>G¿~<‡-'¾ÈÁü¾u¿½üµ¾÷½¾oÇ½oÇ½jûÎ=ú¹¾{·>×Úè¾PÎr¾r
+C¾G¿þ<göR>žU¾Œ7Ÿ=SÓî½m K¾˜K½jûÎ=ËÆø¾~³¾oÇ>XÝf>u?¼G¿~<˜K=SÓî=#¯¾›P¾UØê¾îÉ¾u¿½žU‡½îÉ>*¿€  B//model_G1_identity_add_act_dequant/Mul_output_0J€€-Ðˆ¾B Ç¿Lf¿FpÓ>IÄÜ¿Jà_>/¿@È@¿: ®¾RÀø¾B G>ETÐ¿-Ð?2@¿RÀø=@È@¿.ì‹¿<X4?6°!ÀRÀø=: .¿B G>.ì‹¿6°¡>FpS¿NPl?M4é¿<X4?-Ð¿Jà_¿RÀx¾B Ç½9«¿: ®¾8v)ÀJà_¾AäCÀETÐ¿NPì¿B GÀRÀx¾=t·¿B G>Pˆr¿FpS¿M4é¿1²À1²À2@•¿7Ì¤¿H¨Ù¿NPl¿4x›¿5”À-Ð¿0$À@È@¿1²À9«¿4x›¿NPì¿B GÀ.ì‹¿Læ¿Lf¿-Ðˆ¾2ÎÀ<X4?4x›¿B Ç¿?¬½¿7Ì$À2@•½4À>º¾Küâ¿RÀø=: .¿IÄÜ¿M4é¿<X4¿>º¿/¿B Ç¿7Z&À.ìÀ;<±¿: .¿/À,´…¿.ì‹¿RÀx¾0$ÀB GÀ6°¡¿5”À7Ì¤¿M4é¿B GÀRÀø¾8v)À8è'À;<±¿NPì¾>º¿B GÀ/¿<æ5ÀRÀø½3êÀIÄÜ¿M4é¿: ®¾8è'¿9«¿Q¤õ¿B G¾5”ž¿.ì‹¿RÀx¾RÀø¿Jàß¾.^
+ÀJàß>B GÀ/¿CÊ¿D8Í¿B G¿2@•¿Læ¿,´…¿B GÀ+˜À=t·¿-Ð??¬=À>º¾@VBÀJàß¾RÀx¾9’,À6°¡¿TÜû¿Pˆr¿4x¿: .À-Ð¿4x?5”ž¿IÄÜ¿,´…¿=t·¿ETÐ¿Læ¿Jàß¾CÊ¿NPl¿: .À>º¿: ®¾@È@¿RÀx>2@>ETÐ¿8è'À-Ðˆ¾<X4¿>º¿: ®¾D8Í¿<X4¿=t·¿CÊ¿+
+À: .¿Pˆr¿FpS?.ìÀJà_¾B G¿H¨Ù¿5”ž¿-Ðˆ¾2ÎÀ5”ž¿Pˆò¿,´…¿5”ž¿<X4¿,&ÀLæ¿6°¡¿,´…¿2@¿NPì¿Q¤õ¿M4é¿Jàß¾9«¿Jà_>5" À+˜‚¿-ÐÀFpS¿    9«¿B G>RÀø½B Ç½RÀø½=t·¿B G>?:?ÀB Ç=4À7Ì¤¿,&À6°¡¿Q¤õ¿Q¤õ¿Pˆr¿H¨Ù¿TÜû¿5”À2@¾: .¿+˜ÀM4é¿2@•½D8M¿-ÐÀ5”ž¿-BÀ/¿B G¿7Ì¤?H¨Ù¿9«¿5”ÀB Ç¿.ì‹¿,´…¿Q¤õ¿NPl¿B GÀ4x¿.ìÀ=t·¿Q¤õ¿RÀx>RÀø¿    Pˆò¿3\À4x›¿Pˆò¿9«¿RÀø½5”ž¿GŒÖ¿-Ð?><À7Z&ÀB Ç¿-BÀ9’,À: ®¿NPì¾:®/ÀD8Í¿GŒÖ¿;<±¿/¿0$ÀIÄÜ¿B G¿M4é¿Læ¿/¿ETÐ¿TÜû¿<X4¿Q¤õ¿/¿B Ç==t·¿6°¡¿4x›¿Q¤õ¿6°¡¿9«¿B Ç¿B Ç¼B GÀ2@•¿,´…¿=t·¿D8M¿B G¾,&À9’,À?¬½¿.ì‹¿8è'¿+˜‚¿4x›¿RÀx>2@•¿CÊ¿9«¿B Ç½B GÀ6°!ÀPˆò¿?¬½¿TÜû¿2@¾ETÐ¿+
+À: .¿/¿+
+À: ®¾2@>IÄÜ¿/¿Jà_¾+
+ÀJàß¾5”ž¿Læ¿4x›¿0$ÀLf¿FpÓ¾Jàß>3êÀJà_¾ETÐ¿B G>>º¾/¿Jàß¾<X4À6°¡¾/¿Pˆr¿Küâ¿D8Í¿D8M?.^
+ÀNPl¿CÊ¿+˜À2@•¿Uø~¿RÀø¿,´…¿NPl¿0–ÀCÊ?D8Í¿-BÀ2@¾<æ5À7Ì¤¿B G¿: ®¾B Ç¿Uø~¿@ÈÀ¿: .¿0$’¿D8M¿D8Í¿B G¿Uø~¿/¿Jàß¾-BÀ,&ÀB G¿=t·¿+˜À+˜‚¿;<±¿RÀø¿.^
+À2@>0–À<X4¿6°!ÀPˆr¿D8Í¿-ÐÀ2@•¿2@¿H¨Ù¿NPì¿M4é¿@ÈÀ¿5" ÀKüâ¿Jà_¾9«¿@ÈÀ¿H¨Ù¿B G¿/ÀPˆr¿Jàß¾Jà_¿<æ5À=t·¿0$ÀPˆò¿@È@¿-BÀB Ç¿Pˆò¿B Ç=+˜ÀRÀø¿<æ5À2ÎÀB Ç¼;<±¿/¿-Ðˆ>B Ç¿B G¿2@•=Q¤õ¿+
+ÀPˆr¿,´…¿>º¾B Ç½Jà_¾?¬½¿-Ð¿7Ì$À.ì‹¿>º¿Küâ¿,´…¿7Z&À8è'¿-ÐÀ5”ž¿: .¿2@¿4x¿RÀø=CÊ¿NPl¿0$’¿<X4¿;<±¿CÊ¿RÀø¾7Ì$À0$’¿: ®¿7Z&ÀNPl¿Jà_¿Jàß¾.ì‹¿H¨Ù¿4x›¿8è'¿,´…¿=t·¿-ÐÀ/¿@È@¿>º¿RÀø¿2@¾B Ç¿Jàß¾6°¡¿4x¿+˜‚¿: ®¾=t·¿=t·¿2@¿8v)ÀFpS¿>º¿.ìÀ3êÀ1²À@È@¿RÀø¿Jà_¾2@¾RÀø>>º¿3êÀ0$ÀKüâ¿4x›¿RÀø¾Pˆr¿4x¿4x›¿Jàß¾GŒÖ¿2@•¿@VBÀ/¿Lf¿GŒÖ¿Jàß¾: ®¿B G>-ÐÀJà_¿B GÀ,´…¿: .¿3êÀNPì¾.ìÀ4x›¿+
+ÀD8Í¿5”ž¿   €><À?¬½¿>º¾5”ž¿=t·¿TÜû¿NPl¿6°!À: ®>6°!ÀRÀø=RÀø¾8v)À@È@¿B G¾: .ÀRÀø¾/¿+˜ÀLf¿TÜû¿RÀø¿M4é¿: ®¾@ÈÀ¿Q¤õ¿: .¿>º¿: .?0–À0–À7Ì¤¿M4é¿RÀx¾: ®¿7Ì¤¿Küâ¿Læ¿GŒÖ¿@ÈÀ¿RÀø¾B GÀ2@•½5”ž¿+˜‚¿Læ¿B G¿Jà_??¬=À4x?:®/ÀB Ç=-Ðˆ¾=t·¿: ®¿NPl¿: ®¿.ìÀ9«¿Küâ¿@È@¿NPl¿7Z&À-BÀB Ç<Pˆr¿+˜À/¿0$À.^
+ÀRÀø½2@¾Uø~¿;<±¿,´…¿IÄÜ¿6°¡¿6°!À8è'À5”ž¿ETÐ¿4x¿5”À>º¾FpÓ¾3êÀFpS¿-Ð¿: ®¿/¿9«¿/¿FpS¿NPì¾D8Í¿0$’¿RÀx¾Pˆò¿NPì>D8Í¿.ì‹¿?¬½¿@È@¿6°¡¾5”ž¿RÀø¾2ÎÀPˆò¿4x›¿.ì‹¿9«¿6°¡¿Jà_¾4À;<±¿8è'¿NPl¿Küâ¿?¬½¿.ìÀ-ÐÀIÄÜ¿H¨Ù¿B Ç¼,´…¿GŒÖ¿: .¿Q¤õ¿@ÈÀ¿2@•=2@•½6°¡¿=t·¿@ÈÀ¿B Ç¿B Ç¿4x›¿RÀø¾9«¿RÀø¿B Ç¼1²À8è'¿7Ì¤¿B Ç</À2@•=.^
+À>º¾-Ð¿Jà_¿2ÎÀ>º¿8v)À@È@¿Pˆò¿TÜû¿?:?ÀFpS¿ArEÀ1²À2@>: .¿>º¾M4é¿Jà_¿Küâ¿B Ç¿=t·¿=t·¿RÀø¿Pˆr¿/¿,´…¿/À6°¡¿D8Í¿B G¿NPl¿+˜ÀPˆr¿4x›¿@ÈÀ¿.^
+À4x¿Pˆr¿FpÓ¾6°¡¿4ÀFpS¿6°¡¾ETÐ¿6°¡¾B G¾+˜‚¿B Ç½D8Í¿0$’¿,´…¿Pˆò¿Lf¿IÄÜ¿+˜À-Ðˆ>Læ¿,&À>º¿FpS¿/¿Jàß><X4À0$’¿/¿CÊ¿B Ç¿/À-Ð¿: ®¾-Ð¿FpÓ¾6°!ÀB Ç½D8Í¿/¿5”ž¿4x¿8è'À2@•¿7Ì¤¿8è'¿B G¿-Ðˆ>B GÀPˆò¿+
+ÀD8M¿2ÎÀ;<±¿IÄÜ¿2@>GŒÖ¿: .À2@•½NPì¿2@•¿/ÀNPl¿B G¿+
+ÀJà_¿RÀø½2@•¿-ÐÀ+
+ÀNPl¿/¿?¬=ÀPˆò¿1²À5”ž¿+˜‚¿+˜À4x¿Jà_¿?¬=ÀRÀx¾FpS¿9’,À-Ð¿H¨Ù¿-ÐÀLf?6°!À0–ÀRÀø½B G¾>º¿7Ì¤¿@È@?,´…¿,´…¿9«¿6°¡>4x›¿NPì¿-BÀ6°¡¿4x›¿D8Í¿,&ÀLf¿Küâ¿Jàß¾ETÐ¿RÀø¾-Ð¿Læ¿NPl¿B Ç<3êÀ2@•½0–ÀAäCÀ/??¬=ÀFpÓ¾TÜû¿RÀø½Pˆò¿Q¤õ¿GŒÖ¿ETÐ¿AäCÀ4x¿=t·¿D8M¿2ÎÀ@ÈÀ¿0$’¿3êÀRÀø=.ìÀ/¿H¨Ù¿B G¿Q¤õ¿-ÐÀJàß¾M4é¿;<±¿: ®>TÜû¿-Ð¿H¨Ù¿B GÀRÀø½D8Í¿.ì‹¿/¿7Ì$À-Ð¿NPì¿-BÀB Ç¿B GÀLf¿NPì¿Læ¿@ÈÀ¿>º¿Uø~¿FpÓ¾=t·¿+˜‚¿8è'¿: .¿GŒÖ¿=t·¿Pˆr¿Jàß¾.^
+À-Ð¿RÀø¾;<±¿B Ç=AäCÀ=t·¿: ®¾D8Í¿: ®¿RÀø¾Q¤õ¿6°¡¿5”ž¿: ®¿Uø~¿9«¿H¨Ù¿3\À7Ì¤¿M4é¿.ìÀ5”ž¿2@•=NPì¿6°¡>Jà_¿B G¿CÊ¿<X4¿Læ¿Jà_¿0$ÀFpS¿;<±¿0$’¿RÀø=.^
+ÀD8M¿B Ç½-ÐÀ?¬½¿2ÎÀGŒÖ¿6°¡¾.ì‹¿RÀx¾2@•=/¿: ®¿2@¿4x?B GÀNPl¿CÊ¿Pˆò¿Pˆr¿: ®¾B Ç¿B G¿:®/ÀFpS¿.^
+ÀB Ç<;<±¿-Ð¿9«¿-ÐÀLf¿9«¿ETÐ¿;<±¿<X4¿Lf¿B Ç¿B Ç¿5”ž¿3êÀ/ÀNPì¾:®/À+˜À/¿7Ì¤¿B GÀ,´…¿8è'À/¿@È@?GŒÖ¿B G>CÊ¿: .¿IÄÜ¿@ÈÀ¿-Ð¿GŒÖ¿Læ¿NPl¿Pˆr¿+˜‚¿NPì¾.ìÀ<X4¿4x›¿2@>@ÈÀ¿2@•½=t·¿Pˆr¿,&À-Ð¿7Z&À2@•=;<±¿@È@¿ETÐ¿D8Í¿/¿.ì‹¿@È@¿4ÀJàß>.ìÀ2@¿NPì¾RÀø¿B G¿8è'¿;Ê2ÀRÀx¾B Ç½4x›¿Jà_>;<±¿B G¿D8M¿RÀø¿7Ì¤¿.ì‹¿IÄÜ¿-ÐÀ2@•½FpÓ¾B G¿7Ì¤¿>º¿5”ž¿NPl¿<X4¿Q¤õ¿2@¾@ÈÀ¿@ÈÀ¿+˜‚¿B Ç<: .¿5”ž¿>º¿9«¿M4é¿FpS¿Jà_¾Jàß¾CÊ¿>º¾>º¾/?+˜‚¿Jà_¿B Ç½>º¿Jà_>Pˆr¿: ®¿+˜‚¿D8Í¿?¬½¿2@?B G¾+˜‚¿<X4¿NPl¿2@¾B Ç<0$’¿RÀx¾2@¾Jà_¾0$’¿B Ç¿B G¿>º¾+˜À-Ð¿9«¿9«¿<X4¿/¿: ®¾B G¾6°¡>Jàß>6°¡>Jàß¾GŒÖ¿2@?9«¿4x›¿B Ç¼/?RÀø¾B G¾Jàß¾RÀø¾RÀx>?¬½¿-Ðˆ¾CÊ?.ì‹¿B G¿IÄÜ¿RÀø¾2@•½,´…¿,´…¿/¿-Ð¿RÀø¾FpS¿+˜‚¿H¨Ù¿NPl?Jà_¾NPì¾>º¿8è'¿RÀx>Lf?/¿B Ç¼-Ð¿D8Í¿6°¡¿7Ì¤¿6°¡¾RÀø>B Ç<B Ç=-Ð?4x?2@¾>º>B Ç<: ®>: ®?/¿RÀø½2@•?6°¡¿>º>NPì¾: ®¾D8M?CÊ¿: ®>>º>>º¿M4é¿: ®¾2@¿B G¿2@•=1²ÀGŒÖ¿GŒÖ?Lf¿Uø~¿-Ðˆ>FpS¿4x¿6°¡>2@•=<X4¿CÊ¿8è'¿,´…¿Jà_¿2@•=B G¾RÀø=/¿: ®>6°¡¾NPì>NPl¿/¿6°¡¾/?Jà_>2@•=/?B Ç=: .?2@•½RÀø¿8è'¿B G?<X4¿B G¾FpS¿>º¿@È@¿Jà_¾: .¿-Ð¿RÀø¾2@•=: ®¾RÀx¾-Ðˆ>Lf¿Jà_?6°¡¾/¿<X4¿0$’?RÀø½GŒÖ¿FpS¿NPì>Küâ¿,´…¿RÀø¾2@•½RÀx>Jàß¾M4é¿0$’¿-Ð¿2@•?NPì¾B Ç=Lf¿6°¡¾4x›¿-Ð¿4x¿Lf¿: .¿B G¿RÀø½RÀø>+˜ÀRÀx¾@È@¿Pˆr¿RÀø¾B Ç½GŒÖ¿: .¿2@>: .¿>º¾ETÐ¿8è'¿D8M¿6°¡¾NPì>NPì¾Jà_¾RÀx¾NPì>Jà_>2@¿4x›¿2@¾Uø~¿Lf?D8M¿4x¿?¬½¿RÀx¾CÊ¿/¿B G>2@¾FpS¿6°¡>/¿/¿: ®>2@>>º¿B Ç½Jà_>5”ž¿Jàß¾2@•½4x¿-Ðˆ¾: ®¾,´…¿Uø~¿   €4x›¿@È@¿Lf?0$’¿NPì>: .¿NPl¿    NPì>RÀø½-Ð¿Jà_¿4x›¿B Ç=Lf¿FpÓ¾FpÓ¾Jà_¿@È@¿5”ž¿: ®¾<X4¿/¿>º¾,´…¿NPì>/¿B Ç¼: .¿NPl¿Pˆr¿FpS?Jà_¾NPì¿FpS¿/?    9«¿NPl?B Ç½B Ç¼7Ì¤¿,´…?RÀø½4x›¿6°¡>/¿2@•½6°¡¾D8M¿Jàß¾8è'¿/?    6°¡>6°¡¾>º¾6°¡>@ÈÀ¿Jà_¿Pˆr¿;<±¿7Ì¤¿D8M?B G¿: ®>-Ð?-Ð¿B Ç¿Jà_>/¿Uø~¿B Ç<,´…¿RÀx>Uø~¿>º¾2@?RÀx¾7Ì¤?M4é¿B Ç½Jà_¾7Ì¤¿B Ç½NPl¿RÀø=/¿NPl?Lf?-Ð¿-Ðˆ>-Ðˆ>RÀø¾>º¾+˜‚¿2@•¿@È@¿B Ç=RÀø½GŒÖ¿>º¾B Ç=NPl¿+˜‚¿2@•½5”ž¿RÀx¾B G¿/?: .?-Ðˆ>2@¾Jàß>.ì‹¿+
+ÀB Ç<@È@¿,´…¿;<±¿D8M¿Jà_¿Jà_¾D8Í¿Pˆr¿2@•¿FpÓ¾0$’¿2@•½RÀø>6°¡>.ì‹¿>º¾<X4?6°¡¾-Ðˆ>: ®>=t·¿;<±¿<X4?Lf¿4x?>º>-Ð?FpS?RÀx¾>º¾9«¿RÀx>: ®¾B Ç¼B Ç¼-Ð?2@¿: ®¾: .¿@È@¿Læ¿: .¿: ®¾B Ç½6°¡>D8M¿@È@¿Pˆr¿D8M¿B Ç<.ìÀPˆr¿: .?Küâ¿B G¿Uø~¿@È@?2@¿-Ð??¬½¿/¿7Ì¤¿6°¡>RÀx¾M4é¿: .¿NPì>@È@?5”ž¿2@¿4x¿B G¿B G¿-Ðˆ¾,´…¿2@•¿Lf¿.ì‹¿Jàß>FpS?B G¾4x›¿FpS¿NPì>Uø~¿<X4¿2@•¿Jàß¾+˜‚?: ®¾2@•¿Jà_¿-Ð¿4x›¿Jà_>4x¿4x?: ®¾Pˆò¿B Ç¿2@•½Pˆr¿-Ð¿Jà_¾-Ðˆ>-Ðˆ>B Ç½RÀx>RÀx¾-Ð¿RÀø½2@¿/¿Pˆr¿>º¾2@>>º¾Pˆr¿4x?B Ç<2@•½B Ç½,´…¿/¿RÀx¾5”ž¿/¿B Ç<B Ç¼/?Jà_>RÀø¾    9«¿RÀø½-Ðˆ¾/¿D8M¿: .?/?2@•=4x›¿/¿B Ç¼6°¡¾5”ž¿B Ç<B G¿@VBÀ2@•½-Ðˆ¾Lf¿RÀx¾: .¿/¿D8M¿@ÈÀ¿8è'¿Pˆr¿=t7ÀRÀx>D8M¿2@¾B Ç=<X4¿>º>B G>2@•?/?/¿4x›¿8è'¿: ®?: .¿2@•=CÊ¿3\À2@•½>º>RÀø>IÄÜ¿4x¿D8Í¿B Ç½Jà_¾RÀø>/¿RÀø¾NPì>B Ç<2@•=RÀø¾RÀø=.^
+À7Ì¤¿8è'¿8è'¿: ®¾/¿,´…¿<X4¿B Ç½: ®?2@•¿0$’¿: ®¿2@¿+˜‚¿Jàß>B Ç¼Pˆr¿2@¿RÀx¾: ®>    >º¿-Ðˆ>NPl?/¿Jà_>2@?FpÓ¾6°¡¾B G¿: .¿<X4¿>º>RÀx¾FpS¿RÀø=?¬½¿<X4¿5”ž¿CÊ¿4x›¿ETÐ¿4x¿B G>B Ç¼B Ç½@È@?-Ðˆ¾6°¡>0$’¿2@¾8è'?: ®¾Jà_¾Jà_¾2@>Pˆr¿6°¡¿@È@¿B Ç½D8M¿B Ç<Lf¿Jà_>NPì>: ®>@È@¿2@?2@>RÀx¾Uø~¿<X4?8è'¿Læ¿2@¿+˜‚?4x¿: .¿+˜‚?2@•?-Ðˆ>RÀø½B Ç¼>º¾/¿: ®¿FpÓ>2@•=H¨Ù¿B Ç<B Ç<9«¿>º¾RÀø=2@•¿>º>H¨Ù¿Lf¿: ®¾2@•½4x›¿2@¾: ®>2@?B G¿2@•=NPì¾4x¿B Ç¿Jà_¾2@•?FpS¿/¿+˜‚¿H¨Ù¿D8M¿9«¿.ìÀB G¾=t·¿CÊ¿NPì¾4x›¿2@?>º>6°¡¿2@•¿B Ç½NPl¿@ÈÀ¿4x¿2@>4x›?Jà_¾   €6°¡¾Jà_¿0$’¿1²À: ®>-BÀFpÓ¾@È@¿6°¡¿2@¿RÀø=B Ç½-Ð?9«¿FpS¿2Î@FpS¿8è'?RÀx>NPì¾Jà_¾: ®¾H¨Ù¿2@¿D8M?CÊ¿<X4¿;<±¿B Ç<IÄÜ?8è'?2@>/¿B Ç=Küâ¿B Ç=NPl¿<X4¿D8M¿TÜû¿/À,´…¿FpS¿Pˆr¿2@¿2@•=6°¡¾NPì>2@•¿B G¾B Ç=Jà_¿/¿4x¿0$’¿@ÈÀ¿6°¡¿: ®¾2@¿-Ð¿<X4?B G¿2@?/?Jà_>-Ð¿/¿@È@?5”ž¿NPì>RÀø=NPì¾/¿NPl¿5”ž?-Ðˆ¾B Ç=RÀø=<X4¿FpÓ>B Ç<0$’¿-ÐÀB G¾2@?+˜‚¿Jà_¿B Ç½-Ð?FpÓ¾D8M¿0$’¿CÊ¿RÀx¾Pˆr¿?¬½¿=t·¿Jà_¾@È@¿@ÈÀ¿8è'¿RÀø½GŒÖ¿2@•=2@>: .?6°¡¾IÄÜ¿2@¿<X4¿RÀø>2@•=.ì‹¿+˜‚¿B Ç=RÀx¾NPl¿/?: .?Jàß¾Pˆr¿Jà_?D8M¿2@>FpÓ>    B G¿-Ð?Pˆr¿NPì¾>º>Lf¿RÀø½2@¾B Ç¿Jà_?/?6°¡?B Ç=2@>Uø~¿: ®¾: .¿2@¿RÀx>2@•¿2@•½B G¾FpÓ¾2@•½Jà_¾4x›¿FpÓ><X4¿6°¡¿8è'?RÀø>Jà_¾2@?Jàß¾?¬½¿Jà_>Lf¿ETÐ¿2@¿0$’¿+˜‚¿Jà_>H¨Ù¿2@•=>º¾2@¿: .?<X4?Pˆò¿-Ðˆ¾6°¡>B G¿2@>0$’?,´…¿Uø~¿2@?RÀø>2@•¿.ì‹¿Pˆò¿@È@¿: ®¾2@•½FpÓ><X4¿    0$’¿6°!ÀB Ç=;<±¿B Ç=8è'¿8è'¿RÀø½2@•½NPì>RÀx>B Ç=CÊ¿FpS¿2@•=8è'¿Læ¿+˜‚¿: ®>/¿FpÓ>Jàß¾@È@¿: .¿D8M¿-Ð¿/¿2@¾<X4?/¿Pˆr?6°¡¾Jàß¾: ®¾B G¿@ÈÀ¿Jà_¿Lf¿RÀø=FpÓ>CÊ¿,´…¿4x¿B Ç¿B G¾-BÀ>º¾4x¿/?,´…¿+˜‚¿ETÐ¿Jàß>2@•¿6°¡¾B G¿   €D8Í¿-Ðˆ¾6°¡¿/¿2@•¿2@•½B G¾Jà_>6°¡>B G¿FpS¿<X4À/¿-Ðˆ¾@È@?Jàß¾D8M¿,´…¿2@?Jà_¿2@•½Jàß>FpÓ>2@•=RÀø>4x›?RÀx¾Jà_¾B G¿B Ç=B G>9«?B Ç½2@>RÀx¾2@¾Lf¿B G?>º¾RÀx¾-Ð?B G¾8è'?Jà_>@È@?: .¿B Ç½2@>6°¡¾Jà_>>º¾8è'¿Pˆr?NPl?B G>: ®¾8è'?<X4¿5”ž?Jà_?+˜‚?FpS?Jà_¾.ì‹?/?Pˆr?>º¾B G>7Ì¤?D8M?@È@?-Ð?: ®>B Ç¼FpÓ>NPì¾@È@?Jà_¾FpÓ¾4x›¿B Ç½-Ðˆ>Uø~?Lf?CÊ?Pˆr?2@•?@È@?-Ð@Jà_¾: ®>.ì‹?/?FpS?.ì‹?B Ç?2@?6°¡?: .?B Ç?B Ç¼: .?NPì>RÀx>+˜‚?4x¿0$@NPl?8è'?8è'?3\@GŒÖ?+˜‚?@È@?Q¤õ?9«?2@•?RÀø?2@?TÜû?GŒÖ?TÜû?3ê@2@•?+˜@ETÐ?: .?5”ž?+˜‚?Jà_?Q¤õ?>º?Jàß>.ì@GŒÖ?<X4?ETÐ?RÀø>RÀx>NPì?B G¾2@•½B Ç½Pˆr?>º>NPì¾Uø~?6°¡?D8M?9«?Jàß¾FpÓ>FpÓ>;<±?0$@IÄÜ?/?6°¡?7Ì$@@ÈÀ?Uø~?NPl?: .?IÄÜ?M4é?NPì?B G?NPl?0$@Pˆr?RÀø>0$’?@È@?0$@IÄÜ?7Z&@,&@@È@?1²@IÄÜ?Küâ?GŒÖ?Uø~?2@>B Ç?@È@?>º>3ê@Jà_¾4x?2@¾+˜‚?NPl?;<±?/¿4x¿H¨Ù?-Ðˆ>RÀø=>º>5”ž?CÊ?Küâ?,&@Jàß>-Ð?Lf?+˜‚?;<±?@È@?-B@5”ž??¬½?+
+@.ì‹?@È@?NPì>Jàß>@ÈÀ?H¨Ù?=t·?2@•?4x?5”ž?Lf?: .?Jà_?RÀø?-B@+˜@9«?Jàß>Jà_>+
+@Pˆò?CÊ?=t·?Küâ?6°¡?Lf?B G>?¬½?RÀx>,&@9«?TÜû?.ì‹?0–@: ®?ETÐ?2Î@H¨Ù?RÀø>5”ž??¬½?0–@: .@+˜‚?B Ç<4x›?Lf?,´…?IÄÜ?RÀø>2@•=RÀø=+˜‚?8è'?>º>4x›?D8Í?GŒÖ?H¨Ù?0–@-Ðˆ>NPì??¬½?-B@RÀx>/?Jà_¾D8M?.ì‹?2@¿Küâ?@È@?;<±?RÀø=B Ç</?+˜‚?IÄÜ?Pˆò?3\@>º?7Ì¤?B Ç?/?D8M?-B@/?/?RÀø?: ®>Jà_¾RÀx>4x›?B G>RÀø?B G?NPl?Q¤õ?Jà_>9’,@NPl?B Ç<+˜@.ì‹?: ®?D8Í?0$@,´…?/?FpÓ>B Ç=/?/?FpS?6°¡?,´…?Jà_¾B Ç<,´…?RÀø?CÊ?.^
+@=t·?Pˆò?9«?FpS¿,´…?-Ð@2@•?/?: ®>ETÐ?9«?+
+@B Ç<GŒÖ?/?+˜‚?7Z&@+
+@0$@8v)@>º?8è'?RÀø>.ì‹?RÀx¾Jà_>6°!@.ì‹?Jà_?Jà_?: .?<X4?,´…?6°¡?Küâ?RÀø=FpÓ>7Ì¤?GŒÖ?Jà_?1²@,´…?Jà_>-B@: ®?4x?NPl?-Ð¿/¿B G?Jà_?NPì?Lf?NPì>RÀø>FpS?6°¡?Jà_>,´…?FpÓ>0$’?@È@¿: ®?2Î@5”ž?B Ç<.^
+@CÊ?Jà_>+˜@6°¡??¬½?+˜@Küâ?B Ç?NPì?AäC@: ®?9«?3ê@+˜‚??¬½?NPl?NPì?/@NPl?5”ž?Pˆò?+˜‚?D8M?2@?4x›?4x?GŒÖ?2@•?-B@7Ì¤?Jà_>H¨Ù?+˜@NPì?Jà_?Jà_>1²@>º>FpÓ>B Ç?Jà_?<X4?2@>4x›?,´…?0$’?6°¡?: .?: .?9«?TÜû?FpS?Lf?5”ž?5”ž?RÀx¾Pˆr?B G¾D8M?: ®?;<±?GŒÖ?>º?4x?/@3\@-Ð@-Ð?D8Í?-B@D8M?Jà_?: ®¾FpS?IÄÜ?9’,@2@?NPl?D8M?,´…?B Ç½: ®>: ®>H¨Ù?ETÐ?Lf?0$’?0$’?@È@??¬½?IÄÜ?FpS?@È@?4x?8è'?RÀø>9«?2@>-B@;<±?5”ž?/?B Ç?D8M?6°¡>D8M?@È@?/@GŒÖ?ArE@0$’?/?8è'?H¨Ù?2@?RÀø=D8M?>º?CÊ?IÄÜ?Pˆr?=t·?FpÓ>B Ç¼<X4?2@•½RÀx>B G?<X4?8è'?GŒÖ?B Ç=GŒÖ?;<±¿9«?4x›?>º?FpS?B G?: .?7Ì¤?/?@È@?ETÐ?B G?0–@/@2@•?>º?5" @Læ?/?M4é?Jà_?>:@D8Í?;Ê2@0$@9’,@0$@-Ð?3ê@NPl?ETÐ?TÜû?M4é?RÀø=Q¤õ?GŒÖ?Lf?7Ì¤?+˜‚??¬½?6°¡>/?: ®?B Ç?@È@?Uø~?4x›?Uø~?=t·?4x?RÀx>H¨Ù?4@5”ž?6°¡>@È@?RÀø>9«?FpÓ>/?B Ç?FpÓ>+˜‚?>º>B Ç?/?-Ð?+˜‚?NPl?7Ì¤??¬½?Jàß>8è'?0–@2@•?@ÈÀ??¬½?>º>2@•=NPì>B Ç?Q¤õ?NPì>/¿Pˆr?Uø~?@ÈÀ?Küâ?.ì‹?-Ðˆ>-Ðˆ¾?¬½?+˜@Jà_?@È@?CÊ?2@?8è'?-Ðˆ>4x›?<X4¿M4é?: ®¾2@•?1²@7Ì¤?B G?4x›?NPì?3\@IÄÜ?B Ç½: ®¾CÊ?FpS?Uø~?: .?2@•=>º?/?.ì@0$’?FpS?D8M?0$’??¬½?>º?;<±?3\@-B@GŒÖ?+˜@NPl?3ê@Lf?Pˆr¿IÄÜ?@ÈÀ?FpÓ>8è'?4@@ÈÀ?Lf?5" @>º?IÄÜ?2@?D8M?@È@?6°¡¾FpÓ¾4x›?NPì?1²@-B@6°¡?RÀx>Pˆò?;<±?Jà_¾8è'?/??¬½?2@?H¨Ù?NPì?5" @2@•?FpÓ>>º>Læ?B Ç¼RÀø><X4?B Ç¼Küâ?D8M?Pˆr?-Ð@Pˆr?FpÓ>FpÓ>5”ž?3ê@Lf?7Ì¤?ETÐ?Lf?CÊ?Uø~?.ì‹?Læ?Jà_?6°¡?6°¡?/¿2@•?=t·?,&@Uø~?,&@Lf??¬½?ETÐ?: ®?.ì‹?8v)@3ê@=t·?5”ž?6°¡?.ì@<X4?RÀø>-Ð?>º?2@•=.ì‹?;<±?H¨Ù?@È@?: ®?Jà_?+˜‚?<X4?2@•?RÀø?5”ž?8è'?Lf?Uø~?NPl?>º?9’,@D8Í?B G¾RÀø½Uø~¿@È@?Lf?@È@?7Ì¤?D8Í?IÄÜ?2@•?.ì@2@¾NPì¾NPl?B G?RÀø>2@•?4x?TÜû?4x?FpÓ>Pˆr?FpS?D8M?ETÐ?NPì>Jà_>6°¡?B G?4x?CÊ?FpS?;<±?RÀø½: ®¾+˜‚?.^
+@+˜@RÀø=ArE@: .?: ®?M4é?CÊ?6°¡>IÄÜ?: ®>GŒÖ?B Ç?ETÐ?H¨Ù?6°¡?0$@7Ì$@;<±?Jà_>: ®?/?RÀx>NPì?6°¡?1²@6°¡?FpS?: ®?NPì?NPl?B Ç¼GŒÖ?6°¡?2@•?B G?>º?0$’?B Ç=RÀø>=t·??¬½?9«?B Ç¼IÄÜ?B Ç½2@•?Jàß>FpÓ¾6°!@Læ?FpÓ>B G?6°¡?@ÈÀ?B Ç½2@¾FpS?0$’?4x›?8è'?NPì?FpÓ>B Ç?,&@2@•?M4é?FpÓ>-Ðˆ>Læ?4x›?2@•?/?Pˆr??¬½?CÊ?3ê@9«?2@>D8Í?B G?+
+@1²@9«?Lf?Pˆò?GŒÖ?.ì‹?Q¤õ?,&@.ì‹?2@>1²@/?Uø~?Küâ??¬½?0–@: .?Jà_>H¨Ù?FpS?+˜@+˜‚?Læ?7Ì¤?2@•½FpS?/?8è'@RÀx>-Ðˆ>: ®>?¬½?/?@È@?2@•?6°¡?Küâ?2@¾Læ?RÀø>D8M?Pˆr?6°!@Pˆr?=t·?Jà_?Uø~?-Ð@+˜‚?+˜‚?0–@: .¿IÄÜ?4x›?   €+˜‚?NPl?2@?6°¡?7Ì¤?B G>FpS?Lf?6°¡?,´…?5”ž?2@•?B Ç?Lf?5”@<X4?2@•?Uø~?0$’?2@•½: ®?RÀø>FpÓ>8è'@>º?ETÐ?: ®>>º>>º>2@•½5”ž?/@-Ðˆ>-Ð?Uø~?5”ž?FpS?7Ì¤?/?Q¤õ?,&@?:?@Lf?>º>Jà_>: ®>FpS?6°¡?-Ð?-B@IÄÜ?2@•?>º?RÀx>D8M?H¨Ù?2@•=Küâ?RÀø?H¨Ù?0$@2@•=>º>@ÈÀ?Küâ?FpS?RÀø>2@?/?Jà_>0$’?Pˆr?-Ð?CÊ?NPì>@ÈÀ?-B@?¬½?Jà_?B Ç?0–@=t7@2@•??¬=@Jà_?Pˆò?,´…?4x›?-Ð@Jàß>: ®?: .?+˜@9«?3\@RÀø>H¨Ù?/@B G¾ETÐ?RÀx><X4?6°¡>IÄÜ?8è'?=t·?Jà_>Jà_?FpÓ>9«?<X4?Jà_>6°¡>Pˆr?RÀx>,´…?Jà_¾: ®¾D8M?: .?Læ?RÀø==t·?8è'?-Ð?B G¾.ì‹?Jà_>/?RÀø>: ®>NPì>RÀø?NPl?B G¾B G¿0$’?NPl¿/¿-Ðˆ¾6°¡>6°¡>2@¿B G?RÀø½/?FpÓ>4x›¿Jàß¾FpÓ¾6°¡>2@•=Jà_>RÀx>RÀx>4x?RÀx>Jà_?B Ç=>º>.ì‹¿B Ç<RÀø=6°¡¾: .?9«?: ®>RÀx>>º?<X4¿/?FpÓ>NPl¿<X4?,´…?: .¿2@•½RÀx>    +˜‚?Jà_>B Ç<4x›?: ®?B G?B G¾4x?RÀø½2@¾/¿6°¡?: ®¾+˜‚?-Ð?-Ð¿4x?Lf?B G?RÀø½B G¿=t·?2@>: ®?-Ðˆ>RÀø>/?RÀø¾<X4?9«¿B Ç¼Lf?RÀø>6°¡>7Ì$@6°¡>-Ð¿/?RÀø>B Ç¼/?Jàß>2@•½6°¡>,´…?Lf?/¿2@?4x?B Ç=/?B G>6°¡¾>º>2@¾4x¿B G>RÀø=B Ç¿NPl?: ®¾Uø~?CÊ?.ì‹¿.ì‹¿6°¡>Jà_?NPì¾<X4?,´…?,&@?¬½?: .?4x?>º>+˜‚¿RÀø>=t·?2@•=>º¾4x›?NPl?Pˆr?=t·?Jà_>Uø~?Uø~¿-Ðˆ¾ETÐ?NPì>FpÓ>B Ç¼>º>2@•?.ì‹?@ÈÀ¿B Ç=RÀø?4x›?-Ðˆ>Lf¿NPl?FpS?B Ç½Jà_?2@•?B Ç½/?D8M¿-Ð?Lf?<X4?RÀø½FpÓ>Jàß>B G?Uø~?B G>B Ç=@È@¿>º>>º?RÀø½,´…¿-Ðˆ>B Ç=FpÓ>Jàß>: ®¾RÀø>NPl?CÊ?-Ð¿.ì‹¿-Ð?RÀø½-Ð¿6°¡>: .?B G>5”ž?FpS¿D8M?B Ç<?¬½¿/?CÊ?<X4?=t·?2@•=8è'¿2@>: .?8è'?>º¾FpS?4x?B G?B Ç¼@È@?6°¡?2@¿CÊ?/?RÀx¾RÀø½4x›¿B G¾?¬½?;<±?B G>Lf¿Jàß¾.ì‹?8è'?NPì¾D8M?NPì¾RÀø=B G?Pˆr?: ®¾9«?7Ì¤??¬½¿RÀx¾@ÈÀ?6°¡¾-Ðˆ><X4?CÊ?RÀx¾: ®¿@ÈÀ¿B G>>º>-Ðˆ>NPì>B Ç?Læ¿4x¿4x?B Ç<Læ?;<±?2@?NPì¾: ®>7Ì¤¿Uø~?: ®?Jà_>-Ðˆ>NPl?NPì>Uø~?B Ç=Jàß>2@>RÀx>Pˆr?;<±?-Ð?2@>B G¿RÀø=8è'?5”ž?RÀx>B G¾<X4¿RÀø½>º>9«?B G?5”ž¿RÀø½-Ðˆ>Lf?;<±?/¿B Ç½B Ç=2@¾6°¡?B G¾2@>8è'?7Ì¤?B G¾@ÈÀ?/?NPì¾B G>@È@¿-Ðˆ¾Küâ?;<±?Lf¿/¿8è'?RÀø=;<±?NPl?B G?<X4?-Ð¿RÀø¾NPl??¬½?FpÓ>B G?FpS?D8M¿8è'?,´…?Jà_¿5”ž?9«?4x¿/?,´…?-Ðˆ>@È@?B Ç=FpS¿B Ç¼RÀø¾B Ç?Jà_>Uø~?@È@?ETÐ?FpS?-Ð¿-Ðˆ¾RÀø=NPì>6°¡¾2@?5”ž?>º>/¿: .?NPl?RÀø=2@•=NPì>-Ðˆ¾4x¿?¬½¿2@>B G>2Î@Jàß¾/?FpÓ>NPì>: .?,´…¿8è'¿+˜‚?2@•=B Ç¼FpS?: .?M4é?RÀø½8è'¿2@¾Lf?Jà_>: ®?B G¿6°¡>RÀx>/?M4é?,´…?: ®¾B G>Jà_¾FpÓ¾Pˆr?: .?>º¾Uø~¿0$’?2@?NPì¾RÀx¾-Ð¿RÀx¾RÀx>D8Í?NPl?Jàß¾2@¾NPì>@È@¿6°¡¾;<±?Pˆr?6°¡>3êÀ-Ð?2@¾Pˆr¿Jà_?: ®¾B Ç=NPì>/?6°¡¾: .?NPì>5”ž¿<X4¿;<±?NPl?Jà_>2@•½+˜@IÄÜ?Küâ¿NPì>2@¾<X4¿Uø~?7Ì¤?B Ç?/?B G?Jàß¾2@•½2@•½RÀø=B Ç½-Ð?6°¡¾: ®>B Ç<2@>RÀø½/¿NPì¾RÀx¾/?+˜‚?ETÐ?2@•½6°¡>: ®>Uø~?: ®¿Pˆr¿Jà_¾NPl?B G?D8M?B Ç=: .?4x?D8M¿4x›¿: ®>/?-Ð?/?RÀø½0$’?2@¾Jà_¾NPì¿>º?RÀø=/?B Ç½9«?RÀx¾,´…?B Ç<-Ð¿B Ç=6°¡¿6°¡>Jàß>4x›?/?FpS¿0$’?6°¡¾D8M?6°¡?<X4¿Pˆr¿2@•?RÀø>NPl?4x›?: ®¾B G>B Ç¼B Ç?: ®¾7Ì¤?5”ž¿B G¿-Ðˆ¾FpÓ>Jàß¾4x?NPì¾<X4?6°¡?Jàß>6°¡>9«¿CÊ?RÀx¾B G?4x?FpS¿Küâ?: .?B Ç=Jàß¾M4é¿B Ç=Jà_?Jàß¾Jàß¾B G?RÀx¾B G>NPì¾-Ðˆ¾Pˆr?/?>º>: .¿Læ?Jà_¾NPl¿=t·?RÀø¾+˜‚?2@•½Uø~¿4x?=t·?B Ç¼Jà_>2@?D8M?Pˆr¿RÀø½RÀø=FpS?=t·?6°¡¾RÀø=RÀx>B Ç½7Ì¤?RÀø=@È@¿6°¡>: ®¾Jàß>/?>º¾B G¿5”ž?7Ì¤?RÀø>/?<X4¿,´…?Jàß¾: .¿: ®?: .?/¿Jà_>NPì>2@•=Pˆò?RÀø>=t·¿B Ç<Jà_?@ÈÀ?B G>RÀø¿Lf?FpS¿B Ç½.ì‹?B G¾B G¾B G¿/?B G?/?B Ç¿FpÓ>B Ç=2@¿RÀx>.ì@;<±?-Ð¿2@?2@>2@•¿RÀx>4x›?Lf?Jà_¿.ì‹?CÊ?+˜@FpÓ>RÀø>Jà_?RÀø=NPì¾8è'¿/?   €7Ì¤?B G¿FpS¿@È@?Jàß>CÊ¿CÊ?RÀø¾2@•=D8M¿-Ðˆ¾B Ç¼=t·??¬½?>º>6°¡¾7Ì¤?+˜‚¿4x¿2@•=8è'?: .?8è'¿2@¿>º?6°¡?Pˆr?B Ç=RÀø¾Jà_?NPl¿6°¡¿Uø~¿Jà_>RÀø½Uø~?RÀø=<X4?+˜‚¿RÀx>2@¿NPì¾;<±?RÀø>2@¾Jà_¾    -Ð?Jà_>: ®?B G>B G¿7Ì¤¿+˜‚¿2@•?/?RÀø=2@?,´…?FpS?B G¿6°¡¿CÊ¿Jàß¾: ®?@È@?: .?RÀø>2@•=D8M¿-Ð?RÀx>: .?4x?/¿RÀø¾Uø~¿B G>2@?: ®>8è'@6°¡¾2@•½4x¿B Ç¼B Ç=2@>Pˆr?8è'?9«?-Ð¿0$@: .?D8M?0$’?Jà_?9«¿RÀø½: ®¾: ®>: .?RÀø>5”ž?/¿?¬½¿Jà_¾Jà_¾Jà_¿;<±?B Ç=Jà_¾RÀx>2@>>º?B Ç¼NPì¾GŒÖ¿RÀø½2@•?B G¿+˜‚?B Ç½2@•=Jàß>2@•?NPl?ETÐ?FpS¿8è'¿: .¿8è'?H¨Ù?4x?    Uø~?+
+@=t·¿,´…¿: ®?B G>4x?Jàß¾FpS?B G¾B Ç=FpÓ>B G?    -Ð¿Uø~¿0$’?1²@Lf¿B Ç=2@•?2@>/?+˜‚?RÀø>RÀø=2@•=2@•?RÀø=6°¡¾4x?NPì>Uø~?Lf?B G¾: ®¾D8M??¬½?Læ¿RÀø½/?RÀø½B G>2@?Jàß>2@•=>º¾D8M?B Ç=/?B Ç¼RÀø½9«?2@•==t·?B Ç¼RÀø>>º>Jàß¾NPl?,´…?B Ç=: .?Lf?NPl¿0–@: .?5”ž¿RÀx>B G?FpÓ>,´…¿/?B G¾<X4¿Pˆò?B G>2@¿: ®>RÀx¾2@•=+˜‚?: .?Uø~?-Ð¿,´…?: ®¾    CÊ¿Jà_>4x?: ®¿: .?B G?>º>2@•=6°¡?RÀø=4x¿D8Í?Uø~?9«¿FpS¿>º?-Ð¿/¿RÀx>/?4x¿/¿: ®¾B Ç½9«?8è'?2@?2@>2@•¿Pˆr?Pˆr?2@•½6°¡>2@¾IÄÜ¿: ®?+˜‚?Jàß¾B Ç?<X4¿RÀø¾RÀx>/¿-Ð?B G¾Jàß¾Pˆr?FpS?>º>M4é?Lf?Jà_¾-Ð¿6°¡>Jà_¿: ®>Jà_¿: .?5”ž?RÀø>ETÐ?FpÓ¾CÊ¿D8Í?B G>>º>Jà_>-Ðˆ¾;<±¿8è'?RÀø=FpS¿6°¡>-Ð@8è'?2@¿-B@<X4?=t·?Jà_¾4x?Uø~?: ®¾/?=t·?6°¡>6°¡¾NPl¿?¬½¿,´…?Lf?: .?B G>Jà_¿: ®¾+˜‚¿4x›?9«?2@•=2@•½Jà_¾5”ž?FpÓ>Lf?<X4¿RÀø½<X4¿.ì‹?B Ç¼FpS?2@>B Ç½2@•=B Ç?8è'¿>º?FpÓ>RÀx>0$’¿Uø~?4x?RÀø=: ®>-Ð¿: .?8è'?FpÓ>4x¿Jàß>.ì@RÀx>: .?6°¡?2@•=Jàß¾FpÓ>2@•=: ®>RÀx¾Pˆr?6°¡>Jàß>NPl?-Ðˆ>Jà_?FpS?: ®¾-Ðˆ>NPì>NPl?@È@?B G¾NPì>5”ž¿Jà_?: ®¾Jàß¾B Ç=Jà_>>º>2@¾NPì¾/?RÀø½Jà_?+˜‚?*¼€  B,/model_G1_mem_input_act_dequant/Mul_output_0J€€º^¶>;õ=#“™>§*K?àÆŒ=©+³=f_&?§*K?/ÄL<#“=àÆŒ>§*K?©+3>ƒÃÜ>Ë‘9?®-ƒ>àÆŒ>¿`>P*Ó>^F?ñù?_.?ì÷¿>ˆÅ¬>w’©>Í’!?©+³>µ\f=¿`†>i`?‘I?f_¦>/ÄL=rÙ=©+³=ñù?!’1?6Ç?Ð“	?w’)?ˆÅ,?U,#?Eù?&”?¬,?;õÿ=->&”?ÖÂì>/ÄL=rÙ=f_¦=Bø7?w’)?ì÷?>ÖÂì>4Æœ>ì÷??#“=rÙ=àÆŒ=Í’!?/ÄL>U,#?Ð“	?P*S>`–>ø(s>-?ø(s>Ð“	?ƒÃÜ>f_¦=#“>;õÿ=4Æ?ù>^Æ>f_&>/ÄÌ;®-ƒ>ì÷¿=    #“™<àÆ>/ÄL<¿`?àÆ?ñù?    f_&?ø(ó>¬,?#“™>›ù?#“™<Ð“	?Bø7?y“?/ÄÌ<-“>©+³>4Æ?;õ>Æé>¿`†>ˆÅ¬>‘É>ˆÅ,>;õÿ=S+;?ÛÄ<?^Æ>d^>?1Å4?#“>y>;õÿ=Gú?P*Ó>˜ø¯>©+3?y>Ë‘9>ø(ó=^F>‘I?P*S>-“>ŠÆ?ì÷¿=Eù>!’1?y>^F>©+³>˜ø¯>ø(ó>X-?ì÷¿=ý*C?#“™<Ð“	?-“>ÖÂl>^F?/ÄL<rÙ>ïø'?t‘A?;õ=µ\æ>§*K?/ÄÌ;;õÿ>#“>ÖÂì>#“=#“?EùŸ>U,#?‘É>˜ø¯>#“™>;õÿ<ÖÂl>P*Ó>©+³=ì÷??àÆ>y>˜ø¯>#“™=/ÄÌ>P*S>;õ=P*Ó>t‘A?;õÿ>S+;?‘É>¿`†>Ë‘9?ì÷?>;õÿ<ù>#“?f_&>X-?®-ƒ>©+³>EùŸ>EùŸ>#“™=;õÿ>`–>1Å4?çõï>#“™=ì÷¿=^F>›ù?->“ö_>ø(ó>;õÿ=/ÄL>ý*C?ì÷?>Ð“‰>˜ø/?ù>º^6?/ÄL=#“?ˆÅ¬>->ÖÂl>/ÄL<ˆÅ,?f_¦>/ÄÌ;d^>?ïø'?ñù?§*K?ý*C?^F?t‘A?Ë‘9?&”?ÛÄ¼>P*Ó>ÖÂl>`?P*Ó>*Âü>->;õ>©+3?“öß>Ð“	?/ÄL=ÖÂl>^Æ>º^¶>ïø'?ñù>S+;?f_¦>i`?ø(ó=çõï>/ÄL<µ\f=->®-?ƒÃÜ>“öß>º^¶>ÛÄ<?§*K?y“?Bø7?ý*Ã>;õ>ø(ó>w’)?ˆÅ¬>ì÷¿=Gú?#“™>P*S>f_&?^Æ>ˆÅ,>f_&>^F?w’)?µ\æ=/ÄÌ>‘É>›ù?µ\f=@÷Ï>Gú?¬,?¤)ã>/ÄL>#“™<¼_?ý*C?ñù>©+3=6Ç?ø(ó=àÆ>&”?Ë‘¹>ì÷¿>t‘A?w’©>ÞÅ$?àÆŒ>©+3?¿`?t‘A?Ð“	?®-ƒ>-?d^>?ø(ó>`?ø(ó=¼_?/ÄÌ<t‘A?ñù?rÙ>/ÄÌ<ý*C?ïø'?…ÄD?i`?Ð“	?`–>ø(s>i`?Ð“	?^Æ>ÖÂì>Ð“	?/ÄL<©+3=`–>ˆÅ,?›ù?#“™<ñù>º^¶>Gú?Ë‘9?@÷Ï>©+³=rÙ>y>Eù>¼_?˜ø¯>`?º^6?“öß>Eù?rY>Eù?a]Ö>ÿ++?–÷G?/ÄÌ=–÷G?1Å4?#“™=6Ç?#“™=Gú?ÖÂì>#“™<X-?-“>§*K?‘I?Ð“	?º^6?X-?–÷G?Ë‘¹>;õÿ>w’©>‘É>ñù>y>Í’!?y“?µ\f>/ÄL=›ù?;õÿ<ý*Ã>µ\f=ÛÄ<?Ë‘9?àÆŒ=/ÄÌ<f_&>®-?/ÄL>4Æœ>#“™>ø(ó>rY>ŠÆ?µ\æ=Ë‘¹>ÛÄ<?Ë‘9>1Å4?¬,?Ð“‰>Ð“	?¿`>ƒÃÜ>®-?d^>?©+3>©+3>/ÄL>/ÄL<	\ö>àÆŒ=`–>“ö_>rÙ>6Ç?rÙ=ñù>Ë‘¹>ˆÅ,>*Âü>àÆ?µ\æ=º^6?_.?ñù>ÖÂì>µ\æ>˜ø¯>¿`>S+;?#“?àÆŒ=©+³=–÷G?ÖÂì>4Æœ>ÿ++?®-?X-?Bø7?ÛÄ¼>–÷G?ø(ó=Eù>çõï>©+³>Í’!?`–>ÖÂì>U,£>©+3?ì÷¿>@÷Ï>!’1?‘I?–÷G?/ÄÌ;©+3>EùŸ>U,£>Í’!?ŠÆ?ÛÄ¼>P*Ó>ù>d^>?¬,?/ÄL>^F>¿`?Ë‘¹>->/ÄL<Æé>ñù>ˆÅ,>ø(ó>‘I?S+;?Í’!?/ÄÌ=Í’!?¬,?Gú?#“™>‘É>Ë‘9>EùŸ>w’©>˜ø¯>    X-?#“™=/ÄÌ=ñù?#“™=–÷G?–÷G?àÆŒ>w’©>ì÷¿=rÙ>ø(ó>Ë‘9>¿`?^Æ>ñù>/ÄÌ>/ÄL<ø(ó=µ\æ>‘I?f_&>ïø'?“öß>µ\f>/ÄÌ>›ù?µ\æ>t‘A?f_¦>¿`>ý*C?-“>ïø'?w’)?çõï>àÆŒ=/ÄÌ;`?;õÿ>Í’!?/ÄL=˜ø¯>d^>?4Æ?S+;?º^6?#“™>;õÿ=f_&>Ð“	?y>/ÄÌ>ÖÂì>f_&?Eù?Í’!?a]Ö>Eù?rY>ø(s>ˆÅ¬>ˆÅ,>t‘A?ˆÅ¬>6Ç?^Æ>‘É>ì÷?>ÛÄ¼>©+3=P*S>1Å4?/ÄÌ<çõï>ÖÂì>#“™<	\ö>`?˜ø/?ø(ó>º^6?P*Ó>àÆ?6Ç?rÙ=EùŸ>ø(ó=º^6?›ù?ÖÂl>f_¦>&”?/ÄL=P*Ó>›ù?µ\æ>Ë‘¹>ïø'?-?©+3=U,#?©+³=Eù?ÛÄ<?“öß>¿`†>^F>µ\f>f_¦>ÖÂl>§*K?µ\f>y“?;õÿ<#“?ÛÄ<?µ\æ=#“™>*Âü>#“™<#“>Ð“	?^F?ñù>‘É>/ÄL<#“™<ì÷??ÛÄ<?ñù>y>ì÷¿>`?/ÄL<Ë‘9>Ð“‰>µ\f>^Æ>!’1?ù>#“=…ÄD?Ë‘9?¿`?›ù?àÆ?Ë‘9?/ÄL<#“>©+³>f_¦>¿`>#“™<ì÷¿=ˆÅ¬>ÛÄ<?w’)?®-?Eù>ø(s>“öß>;õÿ<ý*Ã>	\ö>ý*C?`–>§*K?ƒÃÜ>;õÿ=–÷G?ì÷??f_¦=ˆÅ,>›ù?Eù>ˆÅ,?P*S>àÆŒ>-“>–÷G?¿`†>f_¦>ÞÅ$?;õÿ=/ÄÌ>ì÷¿=;õÿ<4Æœ>¤)ã>d^>?#“™<-“>&”?àÆ?Í’!?f_¦=#“™>*Âü>f_¦=#“?#“™<f_&?Gú?-“>Gú?ÛÄ<?!’1?ÞÅ$?ˆÅ,>®-?©+3?çõï>w’)?#“>_.?^Æ>©+3=`–>t‘A?¿`†>w’©>ø(s>Ë‘9>çõï>ÞÅ$?µ\æ>ì÷¿>rÙ>/ÄÌ=ì÷?>a]Ö>f_¦=#“?ÖÂì>@÷Ï>ì÷¿>ÛÄ<?ý*C?›ù?#“?P*S>ñù?¿`>-?ø(ó=/ÄÌ>˜ø/?ÿ++?t‘A?Ð“	?i`?&”?!’1?4Æ?6Ç?¿`†>P*S>#“™>›ù?Ë‘9>&”?ì÷??ÛÄ<?rÙ=®-?w’)?#“=ïø'?#“>µ\æ=ÖÂl>;õ>ø(s>®-?i`?i`?ˆÅ,?#“>#“™<f_¦=Ë‘9>“ö_>-?µ\æ=rÙ=4Æ?->ø(ó>ì÷¿=àÆ?f_&?;õ=Ð“	?ì÷?>ïø'?ý*C?;õ=àÆ?ÿ++?ý*C?©+3?	\ö>rÙ>	\ö>f_&>U,£>‘É>#“>ý*Ã>©+³>¿`†>àÆŒ>    –÷G?#“?˜ø/?;õ=/ÄÌ;©+3?w’©>ÖÂì>#“?rÙ>^Æ>U,#?Bø7?-“>µ\f=Ë‘9>˜ø/?“öß>d^>?¿`†>#“™<¿`?ÖÂl>f_&>f_&?rÙ>ÛÄ¼>‘I?ì÷??#“™=;õÿ</ÄL>©+³=ì÷?>ÿ++?¿`>…ÄD?¿`?a]Ö>çõï>ù>Gú?#“™=‘É>w’)?§*K?ý*Ã>µ\æ=ŠÆ?;õÿ<t‘A?ÞÅ$?ŠÆ?Æé>!’1?ø(s>àÆŒ=Ë‘9>©+3?/ÄL>f_¦=ù>#“>ý*Ã>->ù>ˆÅ¬>µ\æ>`?->¿`†>¿`>S+;?®-ƒ>àÆ?*Âü>/ÄÌ;ø(ó=#“™>ì÷¿=4Æ?f_&?/ÄÌ>µ\æ>&”?Gú?f_¦>y>#“>a]Ö>Bø7?©+³>d^>?Ð“	?^F>i`?ñù?µ\f>w’©>º^¶>X-?º^6?EùŸ>w’)?¼_?µ\f=!’1?ý*Ã>1Å4?º^6?/ÄL<àÆŒ=º^¶>Gú?ˆÅ¬>/ÄL<¼_?ˆÅ,>ŠÆ?_.?¿`†>ÞÅ$?Æé>àÆŒ>rÙ>X-?¬,?ˆÅ,>©+3?rY>µ\f=µ\f>©+3=®-?rÙ>ý*Ã>¿`>4Æ?ÖÂì>#“™>çõï>X-?f_&>-“>“ö_>t‘A?;õÿ>/ÄÌ=_.?ˆÅ¬>rÙ>µ\æ>º^¶>–÷G?-?ù>®-ƒ>*Âü>rÙ=¿`†>#“?/ÄÌ;^Æ>;õ>¬,?#“>çõï>-“>ÛÄ<?ˆÅ¬>rÙ=àÆŒ>_.?i`?ù>f_&?i`?©+³>ì÷?>#“™<›ù?º^6?;õ>“ö_>çõï>Ë‘¹>1Å4?‘É>^Æ>;õÿ<¿`?/ÄÌ>*Âü>ÞÅ$?y“?/ÄÌ>ÛÄ¼>/ÄL>ý*C?S+;?/ÄÌ>§*K?ì÷??Í’!?¬,?i`?w’©>“öß>Ë‘9?w’©>¿`?Ð“‰>çõï>Í’!?f_&?›ù?`?4Æœ>ý*C?_.?–÷G?#“™=“ö_>àÆŒ=“öß>1Å4?;õÿ=&”?‘É>/ÄÌ<ý*Ã>©+³>P*S>#“>U,#?º^¶>U,£>-“>©+³>-“>f_&>y“?‘É>©+3=/ÄL>U,£>;õ>*Âü>^F?µ\æ=‘É>ì÷??ˆÅ,>©+³=&”?‘É>‘É>f_&?µ\f=f_&>ˆÅ,?ø(ó=˜ø¯>`?Ë‘9>©+³=f_&>/ÄÌ=µ\f=ˆÅ¬>;õÿ<Eù>ƒÃÜ>^F?§*K?ÛÄ<?¤)ã>f_&?àÆŒ>->#“?i`?X-?`?#“™>!’1?¼_?µ\f>!’1?X-?P*Ó>@÷Ï>d^>?P*Ó>X-?!’1?a]Ö>ý*C?f_&>Ë‘¹>ƒÃÜ>a]Ö>rÙ=–÷G?©+3>˜ø/?ø(s>i`?Ë‘9>µ\f>&”?ˆÅ,?ÛÄ¼>àÆ?Ë‘9>¿`?º^¶>4Æœ>#“?Ð“‰>Eù>-“>#“?–÷G?ý*C?_.?Eù>t‘A?ñù?çõï>ˆÅ,>ì÷?>&”?Ë‘¹>-“>ì÷¿=d^>?¿`?µ\æ>“öß>4Æ?Eù>ý*Ã>t‘A?ˆÅ¬>µ\f=f_&>f_&?4Æ?ˆÅ,?®-ƒ>rY>©+3=rÙ>EùŸ>–÷G?“ö_>->ñù?®-ƒ>Ë‘¹>§*K?f_&?    a]Ö>P*Ó>§*K?µ\f=ÞÅ$?/ÄÌ;/ÄÌ;^F>#“™<ì÷¿>Ë‘9?-“>ì÷¿=ÛÄ¼>#“™=ÿ++?Æé>t‘A?y“?X-?Ð“	?…ÄD?#“>Eù>1Å4?X-?…ÄD?*Âü>X-?ÞÅ$?w’)?¼_?©+³=6Ç?;õÿ=µ\æ>¼_?Ð“‰>ì÷??t‘A?®-?µ\æ=@÷Ï>º^6?ø(ó>ì÷??ƒÃÜ>rY>w’)?Gú?¼_?f_&>ì÷¿=ÿ++?Ð“	?!’1?àÆŒ=“ö_>^Æ>^F>f_&?Bø7?d^>?Æé>#“=®-ƒ>*Âü>`–>y“?`–>S+;?d^>?§*K?Gú?¿`>`–>ì÷?>ŠÆ?Ë‘¹>ñù?6Ç?àÆŒ>Æé>ˆÅ¬>çõï>àÆ>@÷Ï>1Å4?¬,?#“>S+;?;õ>t‘A?U,£>‘I?U,#?ÛÄ¼>ÿ++?ÛÄ<?©+³=ø(ó>ˆÅ,?º^¶>ïø'?º^6?f_¦=¼_?;õÿ<f_&?Ë‘9>àÆŒ>;õÿ>µ\f=^Æ>¿`†>¿`?ì÷¿>#“=#“™>ÖÂì>¼_?ˆÅ,>Eù>ŠÆ?f_&>y>    4Æœ>f_¦=ÖÂì>Ë‘9?-?àÆŒ=t‘A?©+3=y>Eù?`?¼_?4Æœ>/ÄL=/ÄÌ;ƒÃÜ>/ÄL<àÆ>w’)?ˆÅ¬>Ð“	?©+³=ÖÂì>ý*C?ø(ó>çõï>Eù>µ\æ=Í’!?©+3=ì÷¿>f_¦=ƒÃÜ>/ÄÌ;Gú?/ÄÌ>àÆ>;õ>ø(s>“ö_>#“™>ø(ó>ˆÅ,>;õÿ>àÆŒ=^F?f_&>y“?;õÿ=;õÿ=˜ø¯>©+3>-“>µ\f>-“>ì÷¿=‘I?Eù?®-ƒ>˜ø/?“ö_>#“™=Gú?¿`†>©+3?`–>#“™=ÛÄ<?ù>6Ç?Ë‘¹>f_¦=Gú?/ÄÌ>àÆ>Eù?/ÄÌ<#“>4Æœ>/ÄÌ<#“=ñù>f_¦>!’1?`?^F?¿`?Æé>f_¦>ÖÂl>©+3=#“=y“?->ø(s>`?#“>àÆ?ì÷¿>	\ö>“ö_>!’1?#“™=/ÄÌ<º^6?¿`>–÷G?-?i`?©+³>ø(ó>;õÿ>rY>!’1?ÞÅ$?rÙ>®-?©+³>®-ƒ>ì÷¿=y>#“™<àÆŒ>4Æ?‘I?;õÿ<àÆŒ=S+;?®-ƒ>/ÄÌ>f_&?t‘A?àÆ?;õÿ>^Æ>P*Ó>ñù?/ÄÌ</ÄL<ÿ++?/ÄÌ;4Æ?˜ø/?w’)?¿`?¤)ã>`?U,#?P*Ó>µ\æ=f_&?¤)ã>ÞÅ$?¿`>#“™>->rÙ>ÛÄ<?ø(ó>ÛÄ<?!’1?;õÿ=–÷G?rÙ>ÛÄ<?ø(ó>w’©>ÛÄ<?rÙ=@÷Ï>˜ø¯>a]Ö>-“>Bø7?ý*Ã>ñù?-?ý*C?X-?    àÆŒ=/ÄÌ</ÄÌ;àÆŒ=‘É>–÷G?->y“?“ö_>º^6?w’)?`?ì÷??/ÄÌ=;õ=^F>	\ö>t‘A?w’)?¿`?w’©>©+3>§*K?/ÄL=;õÿ=U,#?º^6?&”?‘É>©+³>µ\æ>/ÄL>§*K?§*K?y>ˆÅ,?4Æœ>µ\æ=çõï>f_¦>S+;?rÙ>EùŸ>f_¦=w’)?ÿ++?Æé>Ë‘¹>Ð“‰>*Âü>–÷G?w’©>“öß>#“™<;õÿ>ÖÂl>4Æœ>ì÷?>…ÄD?ˆÅ,?µ\f>#“™>¿`?àÆ?rY>ñù?ÖÂì>Í’!?Ë‘9>->`?^Æ>µ\f>º^6?º^¶>¿`>˜ø¯>rY>¿`†>àÆŒ=Bø7?ì÷??;õ=f_&?6Ç?ø(s>ñù>çõï>ù>ÛÄ<?–÷G?rÙ>^F?f_&>@÷Ï>àÆŒ=›ù?	\ö>Eù>ì÷¿=U,£>;õ>ø(s>/ÄL=->S+;?P*S>ñù?rÙ>˜ø¯>Gú?©+3?¿`?¤)ã>Ë‘9?ƒÃÜ>ù>‘I?µ\æ=!’1?P*S>ý*Ã>ˆÅ,>w’)?f_¦=µ\f>çõï>;õ>¤)ã>…ÄD?©+3=àÆ>©+³=–÷G?;õÿ>µ\æ=/ÄL=!’1?…ÄD?Eù>;õÿ>#“™>U,#?©+3>ˆÅ,?§*K?ÞÅ$?w’©>µ\æ>-?ˆÅ,>rY>/ÄÌ;_.?rY>d^>?U,£>;õ>¬,?Ë‘¹>¿`>¤)ã>rY>µ\æ=#“>Ð“	?ƒÃÜ>ø(s>X-?àÆŒ>ì÷¿=Ð“	?¿`†>ñù>˜ø/?©+3?/ÄÌ;d^>?t‘A?µ\æ=    ©+³=`–>ý*Ã>®-?*Âü>ø(ó>©+³=‘I?d^>?›ù?ù>©+3>ƒÃÜ>µ\æ=…ÄD?©+3=ÛÄ<?^F?P*S>©+3=X-?ì÷¿=;õÿ<Eù>_.?#“>ø(s>ø(s>˜ø/?i`?Í’!?f_¦>f_&>X-?ñù?S+;?/ÄÌ<rÙ=w’)?&”?ÿ++?#“™>§*K?i`?y>P*S>&”?^Æ>P*S>ì÷?>Ð“	?#“?–÷G?ÖÂl>f_&>#“>¿`>§*K?P*S>rY>!’1?Bø7?;õÿ<º^¶>6Ç?ÖÂì>©+3>#“™=µ\æ=Gú?rY>#“=§*K?ŠÆ?ñù>ÖÂì>®-ƒ>àÆ>;õÿ<w’)?;õÿ</ÄÌ=S+;?#“>Ð“‰>/ÄÌ>/ÄÌ;#“=#“™=ˆÅ¬>®-ƒ>©+3?ïø'?‘I?µ\f=rY>ˆÅ,?Ð“	?àÆ>©+3?^F>–÷G?f_¦=¬,?ì÷¿>µ\f=¬,?®-ƒ>@÷Ï>àÆŒ>EùŸ>#“™>ŠÆ?ÛÄ¼>ˆÅ,?ñù?/ÄÌ>ñù?¿`†>ì÷¿=àÆ>;õÿ=#“™=ÖÂì>Ë‘¹>#“=¬,?f_&?ÛÄ<?a]Ö>ÛÄ¼>U,#?/ÄL=rÙ>w’)?ˆÅ,?µ\æ>ÛÄ¼>X-?ù>^Æ>Bø7?d^>?©+3>ý*C?`–>ù>t‘A?rY>`?˜ø¯>©+3>ì÷¿>d^>?Eù?^F>ý*C?	\ö>d^>?–÷G?ñù>Bø7?˜ø¯>ÖÂì>P*Ó>@÷Ï>ÛÄ¼>;õÿ<“öß>…ÄD?Gú?;õÿ<ø(ó>ˆÅ¬>6Ç?;õÿ<çõï>µ\æ=Æé>ÞÅ$?_.?w’©>t‘A?ì÷¿>ˆÅ,>`?a]Ö>©+³=ïø'?‘I?¼_?ˆÅ¬>;õ=d^>?ì÷?>ÖÂì>#“=ÞÅ$?	\ö>–÷G?›ù?#“™<Bø7?#“™=P*S>¬,?Ë‘9>&”?¤)ã>ƒÃÜ>Ë‘9>_.?Æé>àÆ?¤)ã>/ÄL>;õ>ÿ++?/ÄL=¿`†>;õÿ<f_&>Æé>4Æœ>Gú?1Å4?	\ö>–÷G?/ÄÌ>‘I?ÖÂì>^Æ>®-?©+³=Ë‘9?…ÄD?/ÄL=f_&>Bø7?;õÿ>®-ƒ>/ÄL>4Æœ>f_¦>…ÄD?Eù>Æé>®-?/ÄL>ì÷¿>f_¦>1Å4?˜ø/?ý*Ã>^F>ˆÅ,>ÖÂl>ì÷??Ë‘9?	\ö>/ÄÌ<¿`?f_¦>Eù?¬,?ÛÄ<?ƒÃÜ>ƒÃÜ>/ÄÌ>ˆÅ,?©+3?`?U,£>ñù>…ÄD?^F>çõï>¿`?¬,?Eù>f_¦>^Æ>Ë‘¹>µ\f=-?ì÷¿=#“™>¿`?º^6?w’©>Ë‘9>“ö_>‘É>Ë‘9>;õÿ>ŠÆ?^F?ÛÄ<?U,£>y“?µ\æ>`?“ö_>^F?/ÄÌ>ïø'?!’1?EùŸ>1Å4?`–>#“?ˆÅ¬>f_¦=#“™>àÆ?Bø7?#“™=ˆÅ,>¬,?^F>a]Ö>ø(ó=rÙ>P*S>ù>i`?ø(ó>©+³=©+3?ÛÄ<?©+3=Ë‘9?µ\f=`?ì÷¿>ÛÄ¼>P*S>º^6?ÖÂì>ì÷¿>^Æ>˜ø/?§*K?©+3>©+3=¿`>Ë‘9>#“™=®-ƒ>y>/ÄÌ>®-?ïø'?àÆ>µ\æ=µ\f>rÙ=a]Ö>ì÷¿=ý*Ã>˜ø¯>©+³=“ö_>-?-“>/ÄL=Ë‘9?àÆŒ>µ\æ>Bø7?#“?#“™=t‘A?-“>;õÿ>ŠÆ?Ð“	?ˆÅ,?“ö_>©+3?ïø'?/ÄL=;õ>d^>?rÙ=#“=f_&?X-?¤)ã>Bø7?a]Ö>‘I?àÆ>µ\f=EùŸ>‘I?µ\f=ñù?;õÿ>ÖÂl>#“™=y“?àÆ?^Æ>i`?¼_?ø(ó=µ\f=w’©>˜ø¯>y>&”?ì÷¿=‘I?U,£>©+3>ˆÅ¬>f_¦=µ\f=6Ç?-“>Ë‘9>`?º^6?¤)ã>/ÄL>¼_?¿`†>rY>f_¦>#“™>‘I?w’©>#“=àÆŒ>X-?-?¿`>ø(ó=-“>rÙ>àÆŒ=ŠÆ?f_¦>Í’!?6Ç?ˆÅ¬>Ë‘¹>¿`?^F>`–>ŠÆ?©+3=U,£>	\ö>^F>`?#“?˜ø¯>Ð“‰>›ù?rÙ>ì÷¿=Í’!?§*K?d^>?Ë‘9>…ÄD?ÖÂl>/ÄÌ=˜ø/?ø(ó=…ÄD?§*K?¿`>w’)?f_¦>`–>ÖÂì>àÆ?;õÿ=§*K?_.?ˆÅ,>`?çõï>¼_?‘É>Ð“	?®-?^F?Æé>Ë‘9?çõï>Gú?º^¶>º^¶>/ÄÌ=‘I?Ë‘9>4Æ?*Âü>w’)?#“™<Ë‘¹>#“™<©+³=X-?4Æœ>ÿ++?©+3?/ÄÌ>ñù>ˆÅ,?–÷G?µ\æ>àÆŒ=y“?w’©>rÙ=ù>P*Ó>@÷Ï>§*K?¬,?f_&?@÷Ï>U,£>àÆ?/ÄÌ=–÷G?µ\æ>;õÿ<ˆÅ,>›ù?*Âü>#“?/ÄÌ;/ÄÌ>U,#?¼_?a]Ö>/ÄÌ;ì÷??i`?i`?ÞÅ$?U,#?º^¶>w’)?ˆÅ,?;õÿ>ì÷¿=_.?P*S>d^>?#“>ì÷¿>y>Ë‘9>Ð“‰>ïø'?Gú?Ë‘¹>f_¦=Ë‘9>Eù?rY>ì÷¿=Ë‘9>Ð“‰>µ\f>4Æ?‘É>^F?;õÿ</ÄL>Gú?ÞÅ$?ø(s>ñù?Ë‘9>Eù>¼_?ì÷¿>rÙ=^Æ>ì÷??*Âü>U,£>f_¦>f_&>Eù?@÷Ï>^F>rÙ>¿`?a]Ö>ÛÄ¼>/ÄÌ<^Æ>àÆŒ>‘É>Eù>àÆ?#“>Ð“‰>“ö_>/ÄL>@÷Ï>µ\f>µ\f>¤)ã>y“?rY>4Æ?6Ç?1Å4?“öß>S+;?#“=6Ç?µ\f=y“?y>U,£>ÛÄ<?^F?#“™>ˆÅ,>¼_?µ\f>rY>/ÄÌ=§*K?rÙ>	\ö>ˆÅ,>`?#“™<ñù>ˆÅ¬>U,#?Ë‘¹>Æé>1Å4?X-?Ë‘9?¿`†>f_&?ˆÅ¬>ÛÄ¼>ù>‘I?/ÄÌ>º^¶>y>#“>Í’!?U,£>¿`†>ù>çõï>ˆÅ¬>ÛÄ<?ÞÅ$?;õÿ>rY>ÖÂl>ì÷??	\ö>#“=˜ø¯>ù>&”?ÛÄ<?P*Ó>©+³>_.?˜ø¯>Gú?/ÄÌ=®-ƒ>/ÄÌ=“öß>©+³=1Å4?µ\f>;õÿ=rÙ>rY>f_&>!’1?Gú?ÖÂì>›ù?Ð“‰>¤)ã>‘I?µ\f>ñù?ÛÄ<?˜ø¯>S+;?`–>U,£>;õÿ>ˆÅ¬>`–>f_¦>	\ö>Ë‘9>ì÷¿=©+³=§*K?P*Ó>ŠÆ?#“™<˜ø¯>©+³=Ë‘¹>t‘A?˜ø/?®-ƒ>Ë‘9>#“™=/ÄL>Ð“	?f_&>¼_?®-ƒ>…ÄD?4Æœ>w’©>U,#?_.?˜ø/?˜ø/?#“™<¼_?^F>_.?º^6?ÛÄ¼>Ð“	?ù>-?ÿ++?6Ç?Ð“‰>a]Ö>¤)ã>àÆŒ=Gú?àÆ>ïø'?t‘A?Æé>ÛÄ<?@÷Ï>f_&?#“?àÆŒ=f_¦=4Æœ>i`?f_¦>U,£>ÞÅ$?t‘A?y“?6Ç?¬,?Æé>#“=/ÄÌ;/ÄÌ</ÄL=©+3?ÛÄ¼>;õÿ=ù>/ÄÌ>f_&>#“™<*Âü>@÷Ï>®-ƒ>©+3>`–>ì÷??f_¦=y>àÆŒ>…ÄD?rÙ>ˆÅ,?Ë‘¹>ˆÅ¬>Eù?y>U,#?ì÷??ñù?f_&?©+³=…ÄD?Eù>Eù?¿`?ƒÃÜ>&”?/ÄÌ;–÷G?ì÷¿>t‘A?P*Ó>ø(s>f_&?‘É>->µ\æ>    #“>#“™=a]Ö>Ë‘9>‘É>ì÷¿=µ\f=º^¶>µ\æ>˜ø/?¿`†>–÷G?µ\æ=Ð“	?#“=ý*C?;õ>Eù?a]Ö>ø(s>4Æœ>;õ>ÞÅ$?!’1?–÷G?4Æœ>ñù>/ÄL>ì÷¿>*Âü>ÛÄ¼>->ƒÃÜ>^Æ>f_¦=`–>ý*Ã>/ÄL<Æé>®-?Ë‘¹>˜ø¯>P*Ó>;õÿ>P*S>Ë‘¹>Í’!?ñù>/ÄÌ>;õÿ<ì÷¿=Ë‘¹>¿`†>‘I?EùŸ>àÆŒ=d^>?->S+;?Ë‘¹>	\ö>/ÄÌ;ý*C?‘É>/ÄL>µ\æ=ø(ó>/ÄÌ<!’1?¼_?d^>?t‘A?f_&>`–>ÞÅ$?ïø'?§*K?ø(s>Æé>^Æ>Í’!?P*S>ý*C?ñù>#“?©+3?    ø(ó>;õÿ=›ù?d^>?àÆŒ>¿`>^F>º^6?ˆÅ¬>/ÄÌ=Ë‘9?w’)?º^¶>¤)ã>µ\æ>‘I?Í’!?ø(ó>@÷Ï>Gú?rÙ=¼_?y“?¤)ã>Í’!?f_¦>#“=àÆŒ=^F?Ð“‰>rÙ=§*K?ø(ó=Ë‘9?t‘A?©+³>Í’!?1Å4?/ÄÌ<ì÷?>µ\æ>¿`?;õÿ=àÆŒ=–÷G?rY>/ÄL<-?^F>¿`†>¿`†>…ÄD?àÆ?§*K?®-ƒ>˜ø/?#“™=ÞÅ$?a]Ö>P*Ó>d^>?ƒÃÜ>ÖÂl>Ë‘9>ÖÂì>Ð“‰>#“?àÆŒ=¿`>ì÷??y>/ÄÌ;˜ø/?`–>/ÄÌ>f_&?Gú?#“™<çõï>‘I?ì÷¿>!’1?ì÷??àÆ?;õÿ<d^>?Bø7?6Ç?ÛÄ¼>;õÿ=ù>¿`†>t‘A?    ù>‘É>/ÄÌ>©+³>y“?µ\f=ù>¿`>¿`?ÛÄ¼>µ\æ>Eù?y>#“™=rY>Ë‘9?#“™=ïø'?®-ƒ>a]Ö>ñù?®-ƒ>;õÿ=Ð“	?ÞÅ$?àÆ?^Æ>¤)ã>y“?¿`?/ÄL>˜ø/?˜ø¯>y>ñù>Æé>^F>rÙ=Eù?Ë‘9?    Bø7?f_&>*Âü>…ÄD?#“>ø(s>®-?#“>y>;õ=¤)ã>f_&?&”?w’©>–÷G?º^6?Ë‘9>Í’!?4Æœ>Gú?¤)ã>-?^F>P*S>©+3>->µ\f>*Âü>®-?ø(ó>©+3?1Å4?Ë‘9?f_&?/ÄÌ>;õÿ>/ÄL>@÷Ï>ƒÃÜ>#“™=Ë‘9?EùŸ>1Å4?`?Ë‘9>6Ç?µ\f>P*S>¿`?›ù?ˆÅ,>/ÄL>©+3?;õ>¿`>;õ=Í’!?˜ø/?§*K?/ÄÌ=µ\æ>ø(ó>“öß>	\ö>;õÿ</ÄL<ÖÂl>“öß>ƒÃÜ>˜ø¯>    f_&?¿`>*Âü>rÙ=˜ø/?Ë‘9?^F>d^>?ñù>/ÄL<ˆÅ¬>/ÄÌ=	\ö>ø(ó>µ\f>-“>6Ç?Ë‘9>ñù?rÙ=Í’!?rY>àÆŒ=ø(ó>¤)ã>rÙ=ì÷??®-ƒ>w’)?`–>ÿ++?P*S>;õÿ=#“™=^F>Ë‘9>ŠÆ?àÆ>w’©>®-ƒ>;õ>©+³>¼_?ø(s>;õ=ˆÅ,?ˆÅ,>ˆÅ,?º^¶>©+³>^F?ø(ó>#“=#“™</ÄÌ<rÙ=X-?y“?¬,?;õÿ<U,#?t‘A?i`?y>µ\f=§*K?“öß>ù>P*Ó>ÿ++?/ÄÌ;#“?¿`>…ÄD?©+³=EùŸ>Gú?Gú?Gú?a]Ö>®-?¿`>ì÷¿>®-?Bø7?#“™=y>¿`>^F>ˆÅ,>ˆÅ¬>X-?f_¦>	\ö>4Æœ>/ÄL<µ\æ>a]Ö>¿`>/ÄL<;õÿ>-“>	\ö>EùŸ>#“™>ø(s>‘I?©+3=#“™>`–>®-ƒ>#“?t‘A?S+;?P*S>µ\f>i`?4Æ?;õ=“ö_>rY>Ë‘¹>¿`†>ì÷¿=w’©>4Æœ>ƒÃÜ>;õ>rY>t‘A?-“>U,#?àÆ>µ\f>ñù?	\ö>/ÄÌ=1Å4?`–>/ÄÌ>˜ø¯>1Å4?;õÿ>`?EùŸ>§*K?i`?#“?f_¦>àÆŒ=˜ø/?©+3=/ÄÌ;“öß>f_¦>µ\æ=1Å4?“öß>rY>ïø'?X-?©+³=w’©>µ\f=©+3>ø(ó>®-?y>®-ƒ>µ\f=#“>ì÷¿>P*Ó>Eù?ÿ++?ì÷??ø(ó>rÙ=-“>/ÄL=ÛÄ¼>4Æ?¤)ã>ŠÆ?ÛÄ<?¬,?U,£>ý*C?¼_?rÙ=Æé>›ù?Gú?‘I?àÆ>Æé>‘I?#“>ì÷?>ÿ++?#“?º^6?w’©>U,#?µ\f=ˆÅ,>ÖÂì>ø(ó=‘É>;õ>§*K?ñù>Ð“	?ø(ó>‘I?@÷Ï>Eù?¿`>µ\æ=¬,?f_&?/ÄL>Bø7?Gú?©+3>›ù?§*K?#“™>º^6?àÆŒ>/ÄÌ<f_¦=¿`†>–÷G?y“?d^>?#“?‘É>àÆ>#“=Ð“‰>µ\f>ý*C?4Æœ>©+³>ø(ó>S+;?º^¶>4Æ?;õÿ=#“™<ˆÅ¬>ŠÆ?f_&?X-?1Å4?f_&>ù>S+;?#“>ˆÅ,?#“™=w’)?¬,?ì÷??º^¶>ì÷¿>f_&>…ÄD?^Æ>`–>rÙ>¬,?/ÄL>f_¦=#“™>6Ç?“öß>`–>µ\æ>ÛÄ¼>º^6?f_&>‘I?@÷Ï>_.?ñù?/ÄÌ=˜ø/?¿`†>¿`>-?ø(ó>/ÄL>rY>ì÷??    Æé>@÷Ï>f_¦=-?©+3=^Æ>U,£>Eù?EùŸ>;õÿ<ÛÄ¼>º^6?ˆÅ,>ÛÄ<?Eù?º^¶>^Æ>S+;?@÷Ï>Æé>ƒÃÜ>ƒÃÜ>/ÄL=ˆÅ,>…ÄD?U,#?a]Ö>–÷G?y>y“?^F>1Å4?¼_?Ð“	?ì÷¿>ˆÅ,?¼_?¬,?;õ>P*Ó>4Æœ>ˆÅ,>;õÿ>d^>?U,#?-“>Í’!?ÛÄ¼>–÷G?/ÄÌ;&”?©+3=›ù?˜ø/?1Å4?Ð“‰>“öß>&”?¿`†>^F?ˆÅ,?#“?ø(s>_.?^F>#“™=àÆŒ>Ë‘¹>f_&?ñù?X-?ñù>º^6?–÷G?µ\f=ý*C?	\ö>Ð“	?i`?Í’!?@÷Ï>#“™>¿`†>->^Æ>©+3>U,#?µ\æ=ì÷??©+3=S+;?¤)ã>/ÄÌ<6Ç?->f_¦=a]Ö>-“>;õÿ>Bø7?;õÿ<§*K?Ë‘9>U,£>w’)?ÖÂl>/ÄL>4Æœ>i`?ý*Ã>ý*C?-?#“=µ\æ=ƒÃÜ>^Æ>ñù>Gú?y“?ˆÅ,>U,£>X-?X-?Ë‘¹>#“?X-?/ÄÌ<#“™<P*Ó>Ð“	?µ\æ=^F>#“™<ø(ó>˜ø/?t‘A?#“™=1Å4?ø(s>/ÄL=ïø'?ÛÄ<?ý*Ã>-“>µ\æ>`?`?/ÄL>P*Ó>®-?Æé>	\ö>*Âü>&”?¼_?/ÄL>S+;?#“™>#“™=ÿ++?->/ÄÌ;ÛÄ¼>‘I?/ÄÌ=ù>©+³=ñù?ÿ++?ˆÅ¬>©+3=/ÄÌ=Eù>;õ>P*S>-?ù>f_¦=µ\æ>;õÿ<˜ø/?ì÷¿>^F?º^6?ˆÅ,>º^6?µ\f=;õÿ<ÿ++?^F>rÙ=àÆ>ˆÅ,>©+3=µ\æ>µ\f=-“>f_&?ì÷¿=ˆÅ,?§*K?ˆÅ¬>©+³>#“™<…ÄD?Bø7?º^¶>U,#?/ÄL=¿`>^F?    º^¶>ì÷?>/ÄÌ<çõï>µ\f>	\ö>;õ>Gú?µ\æ>    ïø'?f_&?ì÷¿=6Ç?rY>ˆÅ,?P*S>f_&?->ì÷?>ñù?&”?“ö_>!’1?ø(ó>›ù?f_&>*Âü>*Âü>Í’!?…ÄD?ïø'?§*K?µ\f>àÆŒ=çõï>‘É>ˆÅ¬>#“™=^Æ>P*Ó>ÞÅ$?›ù?çõï>_.?º^¶>Ë‘9?#“=^Æ>“ö_>ïø'?-“>¿`>w’©>/ÄÌ>ÿ++?¼_?#“=ÖÂl>P*S>ý*Ã>-?˜ø¯>ý*C?¤)ã>¼_?4Æœ>Í’!?i`?P*Ó>^Æ>-?Æé>#“>àÆŒ>àÆ>*Âü>©+3?ˆÅ,>Gú?ì÷¿=ñù?/ÄÌ<y>‘É>w’©>Eù?ø(s>Gú?-?®-?/ÄL<Ë‘9>#“™>‘É>i`?_.?	\ö>;õÿ=    t‘A?/ÄÌ>©+3=-“>i`?^Æ>w’)?w’©>µ\æ>^F?©+3=“öß>#“™=¿`>/ÄÌ<›ù?U,£>X-?¤)ã>Gú?;õ=®-ƒ>-“>µ\æ=y“?Eù?®-ƒ>;õÿ=^F>/ÄÌ<àÆ>-“>çõï>P*S>#“™=#“?Bø7?a]Ö>˜ø¯>µ\f>Gú?ƒÃÜ>“ö_>ˆÅ,?U,#?!’1?ˆÅ,?f_&>…ÄD?‘É>;õÿ<ïø'?->rY>ø(ó>_.?ÖÂì>µ\f=;õÿ=àÆ?-“>&”?ì÷??àÆ>µ\f=Ð“‰>ÛÄ¼>¿`†>‘I?f_&>Í’!?i`?…ÄD?/ÄL<!’1?àÆŒ>®-ƒ>P*Ó>ÿ++?¬,?ˆÅ,>*Âü>ý*Ã>Gú?/ÄÌ>#“™>`?d^>?4Æ?Ð“‰>@÷Ï>ø(ó>ˆÅ,>ÛÄ<?4Æ?-?…ÄD?©+³>©+3?º^¶>Ë‘9?f_&>/ÄÌ;¬,?Ð“	?#“™<-?EùŸ>ñù?ý*C?Ë‘9?P*Ó>#“?;õÿ<ƒÃÜ>Gú?¬,?X-?ÿ++?rÙ>Gú?/ÄÌ;P*S>ŠÆ?Ð“	?y“?ñù?;õ=Gú?ñù>ˆÅ¬>ÛÄ¼>ÛÄ<?t‘A?#“?y>6Ç?Ð“	?1Å4?ƒÃÜ>/ÄÌ<ñù?f_¦=µ\æ>w’)?ñù?–÷G?‘I?;õÿ<P*Ó>®-?U,£>^F>‘I?f_&>;õÿ<#“=Ë‘9>¤)ã>ÿ++?ì÷¿>©+³=!’1?ÛÄ¼>®-ƒ>^Æ>-?©+³>i`?y“?àÆ>ý*C?w’)?ý*Ã>ïø'?-“>EùŸ>y“?rÙ=4Æœ>¿`>ÛÄ¼>y>Ð“‰>EùŸ>1Å4?;õÿ>/ÄL<;õÿ=ÛÄ¼>Gú?f_&?…ÄD?¿`>^F?ÿ++?f_¦=àÆŒ=©+³=@÷Ï>EùŸ>/ÄÌ;-“>f_&?ÛÄ¼>f_¦=àÆ>àÆ?¿`?µ\f>#“™=y“?ì÷?>/ÄL=…ÄD?ñù?w’©>Æé>Ë‘9?©+3=U,£>®-ƒ>/ÄL<ÛÄ<?/ÄÌ<ø(s>¬,?ý*C?`–>S+;?‘É>;õÿ</ÄÌ<rY>/ÄÌ>Ë‘9?ÖÂl>ˆÅ¬>ˆÅ,?#“™>-?ÛÄ¼>y>->§*K?ì÷?>¤)ã>Ð“	?ø(ó>ÛÄ¼>f_¦>ÖÂl>Ð“	?ñù>àÆ?¬,?X-?rY>;õÿ=`–>¿`?¤)ã>§*K?ÿ++?rY>˜ø/?©+3>¿`†>!’1?rÙ=-“>àÆŒ=`?˜ø/?ì÷??¿`†>rÙ=4Æ?->Ð“‰>àÆŒ=º^6?Ë‘¹>Æé>rÙ>Æé>µ\f>§*K?#“=©+³>ˆÅ,>;õÿ=4Æ?!’1?`?6Ç?ÿ++?4Æ?ñù>ÖÂl>6Ç?f_&?ÿ++?/ÄÌ>§*K?µ\æ=y“?d^>?rÙ>ÞÅ$?ì÷??©+³=w’)?`?4Æ?#“?U,#?¿`?Eù?#“=    4Æ?§*K?ñù>1Å4?º^¶>#“?ÛÄ¼>›ù?µ\f>àÆŒ=4Æ?ÖÂl>©+3?Æé>ø(s>‘I?–÷G?^F>-?®-?Eù>µ\æ>/ÄL=ƒÃÜ>µ\f=d^>?#“?Bø7?ø(ó>ÖÂl>¬,?-?¼_?ˆÅ¬>§*K?->©+3=&”?ý*C?ÖÂì>-“>µ\f=ÿ++?/ÄÌ;ø(s>Eù?©+3>àÆ>/ÄL>›ù?ÖÂl>4Æœ>4Æœ>¼_?ì÷??rÙ>/ÄÌ>º^¶>›ù?˜ø/?*Âü>f_&?àÆŒ>ý*Ã>àÆŒ=-?^F>ˆÅ¬>/ÄÌ;ƒÃÜ>¿`?ÞÅ$?EùŸ>a]Ö>^F?@÷Ï>˜ø/?§*K?ÛÄ<?ŠÆ?ïø'?ý*C?Ë‘¹>Bø7?ø(s>àÆŒ>ŠÆ?Eù>y>a]Ö>ƒÃÜ>a]Ö>˜ø¯>¿`?‘I?Ð“‰>¼_?;õÿ>ïø'?Ë‘9?Ë‘¹>U,£>y>-“>ÖÂl>#“™>Í’!?6Ç?rY>Eù?“öß>a]Ö>i`?©+3>º^¶>1Å4?ïø'?Eù?˜ø¯>“öß>w’)?çõï>¼_?#“?-?`?¿`>/ÄL=/ÄÌ;º^6?©+3>©+³=µ\æ>f_¦>¿`?`–>º^6?#“™</ÄÌ;d^>?µ\f>;õÿ>X-?ÖÂì>#“>¤)ã>àÆ>ÛÄ<?ÖÂì>˜ø/?_.?y“?X-?Eù?->©+3?EùŸ>1Å4?ì÷¿>`?!’1?ø(ó>f_¦>ñù?    º^¶>U,£>ì÷¿=ý*Ã>*Âü>/ÄL<Ë‘9?Eù?§*K?µ\f>ø(ó=ÞÅ$?^F?ˆÅ,>f_&>ÛÄ¼>ÛÄ<?ˆÅ¬>#“™<ø(s>ˆÅ,>©+3?rÙ=©+3?àÆ?Ë‘¹>#“™>¼_?©+3>y>ì÷??y>¤)ã>Ë‘9?©+³=çõï>P*Ó>^F>Ë‘9?ˆÅ,?ì÷¿>º^¶>f_&?Ð“‰>Eù?¿`>àÆŒ=ÿ++?ˆÅ,?©+³=EùŸ>y“?4Æ?U,#?_.?“ö_>ù>d^>?àÆŒ=w’)?;õÿ>a]Ö>§*K?ÖÂl>-“>/ÄÌ=ÛÄ<?rÙ=t‘A?rÙ=Í’!?/ÄL>ì÷??¿`>->-“>f_¦=–÷G?àÆ?Ë‘9>/ÄÌ=Ð“‰>ÖÂì>“ö_>Í’!?P*S>6Ç?˜ø/?ø(ó=©+³=#“™<ø(ó>º^6?->˜ø¯>f_&?º^6?¼_?Gú?çõï>ƒÃÜ>ì÷??P*Ó>i`?ÛÄ¼>Bø7?/ÄÌ;àÆŒ>#“™<*Âü>4Æœ>àÆŒ=ì÷¿=®-?©+3?d^>?ˆÅ,?#“™=S+;?–÷G?a]Ö>#“™<µ\æ=©+3=ÖÂì>S+;?ïø'?P*S>µ\f>*Âü>ì÷?>Ë‘¹>6Ç?®-ƒ>X-?˜ø¯>…ÄD?àÆŒ=ÛÄ<?ÿ++?©+3=*Âü>©+³>`?˜ø/?ì÷?>©+3>rÙ=˜ø/?;õ=#“>ý*C?¬,?ˆÅ,?d^>?/ÄL=#“™>ÛÄ¼>…ÄD?-“>ì÷¿>Eù?¬,?àÆ>/ÄL=;õ>¿`?–÷G?ŠÆ?Í’!?¿`?#“™>w’©>ÛÄ<?ù>	\ö>Í’!?˜ø/?®-?Ë‘¹>µ\f>Eù>/ÄL>Ë‘9?Bø7?ì÷?>ÛÄ<?`–>#“™>¿`?#“™=f_&>˜ø¯>àÆŒ>#“?4Æœ>µ\f=/ÄL=‘I?ŠÆ?    àÆŒ=#“>ý*C?¼_?Gú?Eù?çõï>˜ø/?#“™=º^6?ŠÆ?Gú?ïø'?f_¦>rY>`–>/ÄÌ=/ÄÌ>¬,?*øB)/model_R1a_ff_weight_dequant/Mul_output_0JÀ¿kß¾¶%>ñë>1eÛ>êaY¾@NM>=‰q>ºÑ€½` 1=(¡>` 1=ù¾%AE>ñë=Ò-¾ÎTQ½ò”>æœý>ÖÞ¾lDÇ>“÷>Æõ–>æœ}>£^×¾¯‚m¾ÎTQ¾X–ù>(¡=êaÙ¾Lrã¾1eÛ¾{-¹¾Tüš¾ÖÞˆ¾P7¿>ÎTQ¾hë>!|é½‡QÏ¾	4=¾oa¾¯¾ö…ï¾ºÑ€<lDÇ¾ò¾HØ¾8ï’¾(¡¼lDÇ¾¶%¾Lrã>¯‚í>(!==‰ñ=Lrã>Ëõ>=‰q¾(¡=³GÉ½¯¾Lrã>úJË>(¡<XÓ>ÖÞ>D©>êaY>=‰q>î&5>ºÑ€>oá>³GI>o	£¾	4=>- ÿ>XÓ>(¡>—:A¾æœý>{-¹=ÖÞˆ¾(¡¼{-¹>hë¾!|é½P7¿>cå¾@NM¾ÖÞ¾D)>%AÅ¾ºÑ€=HØ>ÖÞ>—:A¼æœ}>ºÑ ½lDÇ>D©>` ±¾³GÉ½lDÇ>ÎTQ½›ÿ¾ºÑ ½!|é½` 1¾oá=£^×>ñë=ñë>%AÅ>ý§¾î&µ¾ù˜½ù>=‰q½=‰q¾` ±¾ºÑ€<P7¿>(¡<„Œó>=‰q¾hë>¶¥¾úJË>oa=- ÿ>„Œó>` 1¾ñë½cå¾oá=æœ}¾=‰ñ½Tüš¾Tüš>³GÉ>oa=ºÑ€¼P7¿¾!|é¾*½€  B-/model_R1a_mem_input_act_dequant/Mul_output_0J€€*ö¿=tŽÙ=–ÅŒ=²^?*ö¿=7ø?n*+?OÂÌ>Ú¿ü>à]&?»‘=¥\>?Ê(K?ÁõG?ÐŒy>\Ä$?ãò>«Àì>!Ã<?ÇYö>,?²^–>tŽY>9?»‘=µóï>¹>©+“>OÂÌ;à]&>óÃ,>«Àì>_?»‘=ÐŒy>»‘™<óÃ,?ãòÿ<üö¯>üö¯>9>üö/?$’?@+?w].?OÂL>7ø?9?ÄÄœ>!Ã¼>†ôß>OÂÌ;]¶>*³>tŽÙ=1?OÂL=¾&s>×*#?«Àì> ø?k[Ö>OÂÌ<™Zæ=„_†>„_>»‘>’‰>¯A?]6?ÇYö>©+>Î÷>Ê(K?™Zæ>'ã>*3>=\F>7ø?!Ã¼>]¶>OÂL>tŽÙ=©+>OÂÌ;¸ÂD?¢é>¢é>*3?»‘?üö¯>à]&?XõÏ>OÂL<9?à]&>OÂÌ=ÄÄœ>ãòÿ>]6?OÂÌ;OÂÌ<„_>óÃ,>Ê(K?FÉ>üö/?{,?R‘!?=\F>©+?,?’	?OÂÌ=„_†>!Ã<?Î÷Ÿ>™Zæ=ãò=×*£>²^? ø>üö/?$’?à]¦=XõÏ>3)C?à]&?{,ƒ>tŽÙ=ö’?7ø?×*£>™Zf=FI?7ø?    k[Ö>Î÷Ÿ>¸ÂD?ÄÄ?ö’? ø>tŽÙ=„_? ø?XõÏ>*ö??R‘!?–ÅŒ=*ö¿>†ô_>3)Ã>†ôß>™Zæ>\Ä$?óÃ,?k[Ö>ãò>OÂL>@+?,?!Ã<?ãò=*ö¿=à]&>©+?]6?!Ã¼>ãò=«Àì>™Zf=e÷'?OÂÌ=¢é>XõÏ>»‘?ãòÿ=-Å?a(Ó>™Zæ>„_>=\F?à]¦>óÃ,>©+“> ø>Ê(K?1?OÂÌ>FI?OÂÌ>™Zæ>¾&ó>¹>OÂÌ=ÿÅ?!Ã¼>_?I^?üö/?ö’?k[Ö>™Zf>=\F?*3==\F>™Zæ>7ø?R‘!?*3=’	?–ÅŒ=w].?ãò=µóï>µóï>Î÷Ÿ>-Å?óÃ,?’	?ÇYö>Ê(K?=\F?ãòÿ=3)C?*ö??OÂÌ>ù?¾&s>ÐŒy>µóï>†ô_>ö’?$’?R‘!?™Zæ=OÂL>é©> ø?¾&s>tŽY>ÄÄœ>’	?k[Ö>»‘™>ãòÿ>OÂÌ=»‘™<Î÷?¯A?=\Æ>@+?w].?¥\>?}ÁÜ>¹>»‘™<*ö¿>©+“>=\Æ>ÁõG?’‰>»‘™=3)C?k[Ö>©+>k[Ö>FÉ>ù?¸ÂD?9>óÃ,>*ö¿>Î÷?Ê(K?©+>a(S>*ö¿>–ÅŒ=¹>ŠÃ4?3)C?üö/?óÃ¬>OÂL>]6? ø>a(Ó>¸ÂD?!Ã¼>*3?óÃ,>XõÏ>Ê(K?OÂÌ>–Å>ÐŒù>a(S>I^?1?é©>\Ä$?œ);?w].?×*#?OÂÌ<»‘™=“ö7?–Å?*³=¥\>?tŽÙ>»‘=¾&s>ãò=„_†>¹>!Ã¼>üö¯>¹>9?w].?ãòÿ<Ú¿ü>=\F>à]¦>ÐŒy>OÂL>9>OÂÌ;ãò>à]¦>ãòÿ<„_?*ö?>©+“> ø?FI?7ø?tŽÙ=üö/?¹>,?Î÷>=\F?©+>à]&?!Ã<?†ôß>]6?×*#?óÃ¬>™Zæ>XõÏ>óÃ¬>*3=Î÷?»‘™<,?{,ƒ>tŽÙ>×*£>óÃ,>ãò>»‘=à]&>@+?œ);?»‘™<ÄÄœ>†ôß>*3>¾&ó>]¶>µóï>*3>™Zf=]¶>óÃ,?*ö??“ö7?k[Ö>*3?¾&s>1?«Àì>OÂÌ=’‰>¯A?ãò>OÂÌ;FI?„_?ÐŒù>™Zf>3)C?œ);?»‘™=©+?¸ÂD?*ö¿=ÿÅ?«Àl>üö/?óÃ,?@+?²^–>9?ÄÄœ>é)?²^?–ÅŒ=»‘>!Ã¼>–ÅŒ=»‘™>I^?3)C?!Ã¼>ÄÄœ>OÂÌ=ÿÅ?¢é>$’?ãò=k[Ö>™Zf>*3>»‘?»‘™=à]&>1?–Å>n*+?{,ƒ>ãòÿ=*ö¿>Î÷>ö’?üö/?OÂÌ=„_>é©>a(Ó>¥\>?]6?9>é)?R‘!?*ö¿=à]&?FI?ÄÄœ>¥\>?ÁõG?ãòÿ>XõÏ>œ);?óÃ,?ÁõG?©+>’	?\Ä$?–Å>µóï>9>™Zæ=Ê(K?»‘™=ãòÿ<œ);?×*#?ÐŒù>üö/?a(Ó>–ÅŒ>üö¯>¾&ó>»‘™<»‘={,ƒ>'ã>é)?tŽY>ãò=*3=FÉ>»‘>Î÷Ÿ>©+>-Å?’‰>¾&ó=„_?=\Æ>à]&?k[Ö>$’?ù?*3>“ö7?¾&ó>üö¯>¢é>3)C?1?!Ã<?*3>»‘™>ÐŒù>üö¯>à]¦>*3?*ö?>†ô_>¢é>†ô_>*3>à]¦=n*+?OÂL>*³>é)?»‘™<FÉ>tŽY>™Zæ=™Zæ>„_?é)?Ê(K?ù?FÉ>*ö?>©+“>»‘=ãòÿ<*ö¿=w].?$’?¸ÂD?óÃ,?w].?ÇYö>»‘?,?à]¦=à]¦=“ö7?à]&?²^–>óÃ,>¾&ó=*ö¿=–ÅŒ>}ÁÜ>a(Ó>–Å?™Zæ>ö’?*3?ÐŒù>*ö¿>»‘?’	?©+?²^–>    {,ƒ>9?„_†>OÂL>«Àl>\Ä$?¸ÂD?»‘™<„_†>“ö7?ÐŒù>e÷'?à]¦=×*#?OÂL>»‘>ÐŒy>tŽÙ=ÿÅ?n*+?–Å>,?OÂÌ=I^?¹>tŽÙ>à]¦=,?–Å?{,ƒ>™Zf>]6?üö/?=\F>,?«Àl>OÂÌ<3)Ã>ãò=tŽY>!Ã¼>©+>R‘!? ø>*³=µóï>ãòÿ>²^–>OÂÌ=-Å?„_†>¾&s>9?*3>Î÷?XõÏ>Î÷Ÿ>»‘>FI?†ôß>¢é>à]¦=w].?FÉ>-Å?n*+?Ú¿ü>R‘!?tŽY>$’? ø?»‘?’‰>Î÷?*ö??a(S>]¶>¹>»‘?*³>Ú¿ü>ãò>„_?×*#?ÇYö>FI?¯A?¾&ó=ãòÿ=à]¦=×*£>ÄÄ?«Àl>»‘™>tŽY>{,?ÇYö>»‘™=OÂL>óÃ¬>¸ÂD?»‘™<ãòÿ<$’?ù?¹>à]¦=OÂL>óÃ,?=\F?¾&ó>Ê(K?“ö7?!Ã¼>»‘>9> ø>»‘™=Ê(K?a(Ó>»‘™<OÂL>’‰>»‘™=Î÷Ÿ>©+>»‘™>OÂÌ==\Æ>ãòÿ= ø?Ú¿ü>!Ã¼>\Ä$?7ø?*ö¿>XõÏ>_?™Zf=¾&ó>}ÁÜ>=\Æ>²^–>OÂL>„_?ãòÿ=_?–ÅŒ=ö’?†ôß>a(S>tŽY>©+“>tŽY>©+“>ÄÄœ>9?a(Ó>*ö??×*£>*³=ÄÄœ>I^?„_>“ö7?¹>]6?»‘™>OÂL=à]&>†ôß>™Zæ=*ö??!Ã<?ÄÄœ>1?ÿÅ?¹>OÂÌ;ãò=*ö¿=*ö¿>ŠÃ4?ö’?óÃ¬>\Ä$?©+?ãòÿ=ÐŒù>tŽÙ> ø?'ã> ø>†ô_>]6?„_?e÷'?]6? ø?à]¦=™Zæ>×*#?©+“>ŠÃ4?tŽY>OÂÌ<Ê(K?e÷'?9?\Ä$?ãò=„_?¸ÂD?*3>µóï>{,?*3=†ôß>–Å?=\Æ>–ÅŒ=@+?–ÅŒ=„_?k[Ö>k[Ö>™Zæ=ÐŒy> ø>tŽY>ãò>'ã>ÁõG?¾&s>™Zf={,?¯A?OÂÌ;*ö??üö/?„_?×*#?©+>»‘=3)C?»‘?–Å>¾&ó=ö’?é)?*ö??™Zæ>R‘!?_?,?OÂL>™Zæ=FI?ÇYö>»‘=ãò>†ôß>µóï>OÂÌ=*ö??ãòÿ<7ø?™Zf>¾&ó=©+?ÄÄœ>ÐŒy>]¶>{,ƒ>=\F?OÂÌ<„_†>*³>©+“>Î÷>™Zæ>XõÏ>e÷'?ù?óÃ,?¾&ó=œ);?«Àl>FÉ>–Å?×*£>²^–>-Å?üö/?–Å>R‘!?é)?$’?ù?ÄÄ?ÁõG?n*+?a(Ó>ãòÿ==\Æ>óÃ,>*ö?? ø>}ÁÜ>$’?’	?»‘™=©+>µóï>tŽÙ=_?ö’?ÐŒy>à]¦=«Àì>*3>ÁõG?e÷'?e÷'?²^?_?OÂÌ=ÁõG?×*£>R‘!?¸ÂD?¾&ó>™Zæ=3)Ã>óÃ,>»‘™=üö/?ãò>“ö7?óÃ,>$’?*ö¿>]¶>R‘!?»‘=!Ã<?×*£>-Å?à]&>=\F>FÉ>ÄÄœ>¾&s>I^?]¶>¾&s>]¶>¯A?»‘™=é©>óÃ¬>7ø?œ);?»‘>à]¦>OÂÌ<tŽÙ=–Å?]¶>1?¹>†ô_>’‰>'ã>e÷'?}ÁÜ>Ú¿ü>„_†>–Å?„_>à]&?3)Ã>!Ã<?=\F>Ê(K?e÷'?»‘™= ø>*ö??’	?œ);?×*£>«Àl>é)? ø>3)C?R‘!?Ê(K?*3? ø>!Ã<?*³=Ê(K?OÂÌ>†ô_>ÿÅ?ÄÄ?k[Ö>üö/?!Ã¼>OÂÌ;e÷'?XõÏ>Î÷?OÂL>é)?–Å?óÃ,>ãòÿ<=\Æ>¾&ó>Î÷>²^–>Î÷Ÿ>OÂL=«Àl>*ö?>k[Ö>Ê(K?\Ä$?»‘?*ö??}ÁÜ>ÇYö>*3>Î÷?@+?ãòÿ>Î÷>ãòÿ>™Zæ>×*#?¹>¯A?é©>×*#?ÇYö>*³=–Å?*3=ãò=ŠÃ4?»‘>–Å>²^–>œ);?Ê(K?¾&s>*3>Î÷>tŽY>»‘™<†ô_>Ú¿ü> ø>OÂL<*³>¸ÂD?ÐŒù>’	?*ö¿=*ö¿=–Å> ø>]¶>«Àl>’	?e÷'?»‘™>ãòÿ<¾&s>¥\>?»‘™={,ƒ>$’?ÄÄœ>=\F? ø>üö/?I^?»‘=FI?»‘>\Ä$?»‘>ãò> ø?é©>„_>óÃ,?ÿÅ?XõÏ>œ);?_?3)C?OÂÌ>™Zf=R‘!?à]¦=,?FÉ>*ö¿>™Zf>à]&>™Zf=Ú¿ü>óÃ¬>à]&>*ö??óÃ,?ÐŒù>ö’?*³>1?OÂL<Î÷>w].?w].?3)Ã> ø>²^?w].?ãò>»‘?7ø?'ã>Î÷>µóï>óÃ¬>{,?tŽÙ=–Å?*ö??a(S>1?©+?üö¯>à]&>@+?OÂÌ=R‘!?»‘™=*ö?>†ôß>@+?ãòÿ<{,?FÉ>óÃ,>²^–>]6?™Zæ=†ô_>¾&ó>»‘™='ã>ö’?ù?_?*ö??†ôß>3)C?†ô_>'ã>©+>OÂÌ;™Zæ>*ö¿>*ö?>†ô_>*ö¿=ÇYö>üö/?†ô_>*ö??à]¦=»‘™=Ê(K?ù?9>OÂL>=\Æ>à]¦=R‘!?–ÅŒ>3)C?1?ŠÃ4?»‘=@+?Î÷>a(S>à]&?OÂL=’‰>©+?OÂL>¯A?n*+?¾&ó=¾&ó>OÂL<R‘!?»‘™>ãòÿ>ãò>ŠÃ4?¢é>tŽÙ=OÂL<«Àl>¹>²^–>é©>=\F>FÉ>-Å?tŽY>×*£>]¶>1?3)Ã>–ÅŒ>à]&?¾&ó> ø?tŽY>«Àl>7ø?R‘!?„_?ÿÅ?OÂÌ>»‘™=«Àì>Ú¿ü>Î÷?¢é>Ê(K?]¶>à]&?*3=óÃ¬>©+>OÂÌ>*3=tŽY>“ö7? ø?ŠÃ4?$’?\Ä$?9>,?»‘™<tŽÙ=OÂÌ<×*#?„_?»‘>}ÁÜ>*ö??*3>ãòÿ=*ö¿=üö¯>¯A?ÇYö>¹>óÃ¬>²^–>™Zf>=\F?ÐŒy>{,ƒ>„_†>*ö??Î÷>Ê(K?XõÏ>«Àl>à]&?œ);?–ÅŒ>Î÷?à]&>«Àl>é)?¸ÂD?ãò=©+>tŽÙ=¹>]¶>e÷'?ãòÿ>*ö¿=!Ã¼>à]&>†ôß>„_?ãòÿ<Ê(K?ÄÄ?OÂÌ;™Zf>*ö??tŽÙ>*³=a(S>»‘=ÿÅ?OÂL>=\F?{,?*ö?>üö/?à]¦>„_>»‘™=†ô_>$’?Ú¿ü>–ÅŒ>„_†>»‘™>„_>¸ÂD?*3=]¶>¢é>OÂÌ>3)Ã>à]¦=™Zf>*3>3)C?–ÅŒ>™Zæ=¾&ó=tŽÙ=à]¦>«Àl>™Zæ=„_†>“ö7?*3=!Ã¼>=\F?e÷'?Ú¿ü>$’?„_†>*³=Î÷>óÃ,>1?XõÏ>»‘™=OÂÌ=*ö¿>Î÷?™Zæ>¾&ó>ÄÄœ>FÉ>×*#?ù?’‰>Ê(K?w].?’	?7ø?n*+?óÃ¬>µóï>–ÅŒ>–ÅŒ>k[Ö>„_>¯A?„_>©+>üö¯>é)?OÂL>*ö¿>Î÷?OÂL==\F?I^?’	?OÂÌ>×*#?©+“>}ÁÜ>*3?*3>tŽÙ>üö/?†ôß>à]&>¾&ó>Î÷Ÿ>™Zf=XõÏ>a(Ó>é)?3)Ã>™Zæ=*ö??ÐŒù>©+“>\Ä$?1?üö/?]6?¾&s>¸ÂD?\Ä$?„_>7ø?*3>©+?óÃ,>7ø?¾&s>ÐŒù>×*£>ÄÄ?FÉ>²^?ÐŒy>²^?I^?}ÁÜ> ø>«Àì>ãòÿ<!Ã¼>œ);?»‘?=\Æ>=\F>ÇYö>*ö??»‘?XõÏ>„_?}ÁÜ>ÄÄœ>tŽÙ=tŽY>«Àl>óÃ,>FI?™Zf=k[Ö>tŽÙ>OÂL>*³>,?¾&ó=ù?3)Ã>a(S>*ö¿=¹>tŽY>’	?OÂÌ;ŠÃ4?FI?}ÁÜ>ãòÿ=OÂL<7ø?’	?œ);?*ö?>Î÷?¾&s>OÂÌ=}ÁÜ> ø>-Å?*ö?>e÷'?™Zæ=ãòÿ>n*+? ø>OÂÌ<–Å?OÂL=*ö?>†ô_>*ö?>¸ÂD?OÂÌ=ŠÃ4?–Å>“ö7?’‰>é©>¾&ó='ã>ÐŒy>OÂÌ<7ø?ù?–Å>=\F?¹>é)?{,ƒ>OÂÌ;a(S>*³=3)C?9?à]¦>OÂÌ;à]&?ù?e÷'?ÇYö>$’?*ö¿>Ê(K?à]¦>²^?OÂL<üö¯>'ã>9?I^?FI?™Zæ>’‰>k[Ö>FÉ>ÿÅ?¾&ó>†ô_>©+?'ã>¾&ó=a(Ó>¾&ó=FÉ>{,?    w].?†ô_>à]¦>ÄÄœ>]6?»‘>OÂÌ;ãòÿ<-Å?{,ƒ>«Àì>7ø?XõÏ>Ê(K? ø?»‘™<à]¦=»‘=ãòÿ=»‘™>ãò>OÂÌ<$’?¾&ó>*³>_?²^–>}ÁÜ>«Àl>ÄÄ?“ö7?¾&ó>9?ù?©+“>1?ÇYö>ÇYö>'ã>9?©+>ãò>Î÷>–Å>@+?™Zf>«Àì>!Ã<?@+?}ÁÜ>9?{,ƒ>9?¸ÂD?OÂL<_?$’?„_?¥\>?¸ÂD?»‘™>µóï>’‰>–ÅŒ=3)Ã>ÿÅ?„_†>-Å?OÂL=–Å>„_>FÉ>e÷'?I^?“ö7?¸ÂD?»‘™=„_?*3>OÂÌ==\F?–ÅŒ=OÂL=*³=à]&?OÂÌ= ø?*ö¿=ö’?$’?tŽÙ=]¶>ãòÿ=¯A?Î÷Ÿ>tŽÙ=×*£>–Å?OÂÌ=*3?«Àì>–ÅŒ=n*+?„_?ÄÄ?]¶>=\F>*ö?>,?üö/?ù?OÂL>Ê(K?¢é>»‘>I^?I^?à]¦>’‰>Î÷>\Ä$?Ê(K?²^–>²^?×*#?’	?OÂL=é)?×*£>OÂÌ<«Àl>à]¦>é)?OÂL<ö’?à]¦=w].?ãòÿ=tŽÙ=„_†>„_†>²^–>–ÅŒ=*ö?>×*£>»‘?ÐŒù>*3?™Zf>×*£>I^?„_†>OÂÌ<ãòÿ<–Å>¾&ó>*3=×*£>    –ÅŒ>{,ƒ>ãòÿ<¥\>?ö’?tŽY>FI?œ);?}ÁÜ>]¶>ŠÃ4?†ôß>'ã>]¶>„_?I^?*ö??–Å>a(Ó>Ú¿ü>_?\Ä$?\Ä$?OÂL<’	?XõÏ>a(Ó>OÂL=*3?’	?™Zf=œ);?]6?*3= ø>OÂL<3)Ã>!Ã¼>OÂL<»‘>!Ã¼>Ê(K?\Ä$?ÁõG?tŽÙ>»‘™=@+?Î÷Ÿ>«Àì>Ê(K?à]&>XõÏ>ãòÿ<’‰>é©>µóï>“ö7?FI?œ);?†ôß>]6?ãò>ãò>„_†>à]&>²^–>é©>*ö?>Ú¿ü>ù?à]&>»‘™<¹>FÉ>ÇYö>Î÷?9>»‘™>óÃ,>»‘™>–ÅŒ=FI?OÂÌ;_?}ÁÜ>XõÏ>«Àl>\Ä$?«Àì>à]¦>=\F?OÂÌ<é©>»‘™<n*+?óÃ,>'ã>»‘=I^?Î÷Ÿ>ãòÿ>Ê(K?ÿÅ?1?»‘?*ö¿>¹>–ÅŒ=à]¦=²^?ãòÿ>†ôß>œ);?    üö/?7ø?*³=ÐŒù>ÿÅ?–ÅŒ=-Å?„_†>™Zf>*ö¿>–Å?ÄÄ?OÂL<a(Ó>OÂÌ<Ú¿ü>à]¦>*³>–ÅŒ=I^?Î÷>*³>OÂL=üö/?ÇYö>†ôß>*3?™Zæ>w].?OÂÌ=]¶>*ö?>ù?»‘™<©+“>tŽÙ>Ê(K?ÐŒy>Î÷>Î÷>†ô_>üö¯>*3?=\Æ>OÂL>OÂÌ>*3=FÉ>–Å>¥\>?!Ã<?óÃ,>ãòÿ>²^–>’‰>¯A?*ö??ŠÃ4?»‘™<ÐŒù>ÄÄ?²^?ãòÿ=©+?„_†>†ôß>»‘™>'ã>OÂL>©+?–ÅŒ>–ÅŒ>_?_?7ø?ù?tŽY>à]¦>»‘?OÂÌ;I^?n*+?ö’?e÷'?=\F?×*£>9>©+>_?Î÷>}ÁÜ>üö¯>™Zæ=ö’?*ö?>µóï>7ø? ø>²^–>óÃ¬>*ö¿>ÐŒù>é)?OÂÌ<*ö??Ê(K?9>ÄÄ?ãòÿ>ãòÿ=k[Ö>»‘™>9?«Àl>×*£>9?9>ãòÿ<œ);?™Zæ>–Å?¾&ó>«Àl>ö’?$’?a(Ó>»‘?OÂÌ=ö’?!Ã<?!Ã¼>=\F?óÃ¬>†ô_>k[Ö>e÷'?a(Ó>ãòÿ=\Ä$?„_?¾&ó=¢é>†ôß>ÇYö>]¶>]6?*³=*ö¿>¾&ó>™Zf>!Ã¼>OÂL<OÂÌ>k[Ö>é©>OÂÌ;©+?¾&s>ÁõG?ÁõG?¥\>?9?]6?XõÏ>-Å? ø>FÉ>™Zæ=*³>tŽÙ>óÃ¬>ãòÿ<¾&ó>]¶>¾&s>¾&s>¾&s>×*#?Ú¿ü>]¶>{,ƒ>XõÏ>–Å>Ê(K?™Zæ=-Å?OÂL=™Zæ=OÂÌ;=\F>™Zf=*3>Î÷Ÿ>ù?™Zf>×*#?™Zæ=ãò=à]¦=–ÅŒ=–Å?üö/?–Å?†ôß>!Ã<?*³>Î÷?tŽY>µóï>]¶>œ);?«Àl>\Ä$?!Ã¼>ãòÿ=«Àl>»‘=n*+?_?OÂÌ=*3>Î÷?üö/?e÷'?à]&? ø>¸ÂD?OÂÌ<’‰>©+?-Å?»‘™>OÂL>,?ÄÄ?©+?tŽÙ>ãòÿ>à]¦=»‘™<–ÅŒ=óÃ,?*³>{,?Î÷?»‘>k[Ö>œ);?–Å?9?²^?™Zæ=OÂL=óÃ¬>–ÅŒ=_?üö/?é)?FI?¾&s>]6?™Zf=tŽY>k[Ö>n*+?„_>»‘™<»‘=¾&ó>I^?¸ÂD?1?FI?9?»‘™<    ãòÿ>¾&ó={,?!Ã<?«Àì>Î÷Ÿ>ãò>*ö?>9?–ÅŒ>]6?{,?=\Æ>1?²^–>ù?ÇYö>OÂÌ<–Å>¯A?]¶>a(S>tŽÙ=OÂÌ>OÂÌ=„_†>ŠÃ4?FI?œ);?»‘™>*3=@+?–ÅŒ>¾&ó=ãòÿ>é©>=\F?ÐŒù> ø?{,?ù?»‘™<!Ã¼>„_?©+>!Ã<?'ã>'ã>’	?ãò>\Ä$?²^?-Å?óÃ,>üö¯>ù?=\Æ>ÐŒy>óÃ¬>,?OÂL>Ê(K?–Å?1?«Àì>’	?à]¦>ãò>é©>ãòÿ=ãòÿ<]¶>e÷'?_?Ê(K?*³>«Àì>«Àì>Î÷?*ö??OÂÌ=„_†>]¶>à]¦>à]&?OÂÌ;ãòÿ=–Å>$’?OÂÌ='ã>*³>ÐŒù>FÉ>k[Ö>1?¾&ó>²^?¾&ó=Î÷Ÿ>OÂL>¾&ó=à]&>»‘™>ù?©+“>*ö¿=ãòÿ=ÐŒù>k[Ö>»‘=ÇYö>ÿÅ?¯A?ÄÄœ>w].?†ô_>¥\>?»‘™=ÄÄœ>ãò=tŽY>’	?-Å?e÷'?!Ã<?–ÅŒ>»‘>¾&ó>*³=tŽY>ÄÄœ>»‘™<»‘™>¢é>–ÅŒ>OÂL>k[Ö>=\F>tŽY>Î÷>ãò>tŽÙ>=\F>©+>tŽÙ=OÂÌ<µóï>à]¦>Ú¿ü>{,ƒ>ãòÿ>üö/?™Zæ>“ö7?!Ã<?a(Ó>üö/?*ö¿>»‘=à]¦> ø?×*#?7ø?ö’?a(S>k[Ö>tŽÙ>ãòÿ>à]&?é©>$’?OÂL<™Zæ=–ÅŒ>üö/?ÄÄœ>óÃ,>9?à]¦>’	?_?=\F?ÇYö>¹>×*#?]¶>1?FI?à]¦>*3>»‘™>¯A?*3=ö’?„_?@+?à]¦=à]&?ãòÿ>OÂL>OÂL='ã>!Ã<?*ö??,?¯A?n*+?Ú¿ü>ÄÄœ>ÄÄ?Ê(K?tŽÙ=²^–>*³>„_>üö/?²^?XõÏ>OÂL>Ê(K?*ö?>»‘=OÂÌ<–Å>OÂÌ=¥\>?-Å?ãòÿ<!Ã<?OÂÌ;µóï>tŽY>e÷'?*ö?>]¶>_?{,ƒ>©+“>{,?¾&ó>ãòÿ=à]¦=ãò>×*#?×*#?Ê(K?²^–>tŽY>©+> ø>=\Æ>»‘™=»‘?*3>I^?_? ø?*³>ãòÿ=œ);?9>¥\>?*³>w].?óÃ¬>OÂL<=\F?*³> ø?™Zæ=w].?$’?_?ãòÿ<=\F>FÉ>Î÷>¾&s>3)Ã>a(Ó>à]&?OÂL>*3=ÁõG?@+?ãòÿ>×*£>*ö?>*ö¿>¯A?ãò=\Ä$?¾&ó={,?é)?a(Ó>FÉ>ù?©+“>µóï>9?ÇYö>™Zæ=    @+?»‘™<œ);?*ö¿=»‘™<!Ã<?„_†>OÂÌ=“ö7?à]&>„_?’‰>OÂÌ>e÷'?üö/?óÃ,>ÐŒù>@+?{,?ãòÿ<¯A?ÿÅ?ãòÿ=\Ä$?*ö¿>ãò=µóï>–ÅŒ=Î÷>*3>»‘™>XõÏ>!Ã¼>ÐŒù>$’?à]&?¾&s>Ê(K? ø>ãòÿ<»‘>3)Ã>XõÏ>ÁõG?»‘?à]&?«Àì>Ú¿ü>à]¦>*3=-Å?™Zf=™Zæ>XõÏ>¸ÂD?»‘={,ƒ>¯A?OÂL=ÇYö>*3={,ƒ>óÃ¬>XõÏ>óÃ,>9? ø?=\F>©+>à]¦>ÄÄ?™Zæ=„_†>à]¦=ãòÿ<w].?–ÅŒ>é)?²^?,?à]¦=*³>¥\>?™Zæ>¾&s>*ö??µóï>„_>tŽÙ>tŽY>ÐŒù>ù?*ö??¢é>XõÏ>²^?Î÷>ÁõG?@+?OÂL>ãò>«Àì>¢é>à]¦>†ô_>e÷'?Î÷?“ö7?ãò=»‘™>{,ƒ>»‘™==\F?é)?tŽÙ=ÐŒy>e÷'?ÁõG?ÄÄ?Î÷Ÿ>¹>Î÷Ÿ>OÂÌ=n*+?™Zæ>»‘™>_?à]&?ÇYö>tŽÙ>¹>\Ä$?üö¯>OÂL=!Ã<?}ÁÜ>FÉ>_?*3?ÿÅ?OÂL>¸ÂD? ø?¯A?«Àì>œ);?Ú¿ü>¾&s>R‘!?XõÏ>«Àì>¸ÂD?OÂL>a(S>Ê(K?'ã>9? ø?¾&s>!Ã¼>²^–>ŠÃ4?¾&ó>óÃ¬>*ö?>I^?–ÅŒ>™Zæ>¯A?ÿÅ?*³>œ);?œ);?à]¦>µóï>ãò=¸ÂD?™Zf=n*+?Î÷>Ê(K? ø>©+>a(S>OÂL<OÂL>»‘>²^–>Î÷Ÿ>»‘?«Àl>{,ƒ>ÐŒù>ãòÿ>¾&ó=OÂL=*ö??üö¯>,?ãò=ãò>à]¦=„_?²^?@+?ÿÅ?tŽY>@+?ŠÃ4?«Àl>*ö¿=–ÅŒ>¯A?n*+?ÐŒy>üö¯> ø?„_†>×*£>é)?tŽÙ>óÃ¬> ø?µóï>OÂÌ;»‘=™Zæ=„_>!Ã¼>ÄÄ?»‘?×*#? ø?]¶>¾&s>OÂÌ>3)C?*3>–ÅŒ=„_†>]6?üö/?=\F>ÿÅ?3)Ã>à]&?*³>Î÷>3)C?à]&>_?ÐŒù>×*£>tŽY>“ö7?é)?tŽY>ÁõG?I^?à]¦>*³>»‘™<–Å>'ã>»‘™<OÂÌ;@+?tŽY>9?Î÷>™Zf=ÐŒy>]¶>™Zf==\F?»‘™=é©>ö’?a(Ó>*ö¿=¹>»‘™<ö’?»‘™=’‰>tŽY>ÁõG?™Zæ>tŽY>µóï>»‘™<¹>„_†>*³>»‘>©+?FÉ>×*#?×*#?@+?ãò=óÃ,>OÂL<a(Ó> ø?à]&?à]&>}ÁÜ>w].?\Ä$?ÄÄ?*³>»‘='ã>ÇYö>$’?™Zf>Î÷>»‘™>I^?*3?™Zf=*³> ø?7ø?3)C?×*#?¾&s>]6?™Zæ>1?*³=×*£>»‘=@+?ö’?w].?*³>*3?óÃ,?FI?=\F>Ú¿ü>ÿÅ?üö/?¾&ó>ãòÿ<!Ã<?«Àì>†ô_>=\Æ>Î÷>$’?FI?w].?FÉ>OÂL<©+>„_>¾&ó=¥\>?9>©+? ø>3)Ã>OÂÌ;’	?à]&?*³=×*£>óÃ¬>é)?{,?™Zf>1?µóï>«Àl>óÃ,>@+?é)?¥\>?-Å?{,?»‘=†ôß>×*£>FÉ>„_?ÄÄœ>OÂÌ>]6?ãòÿ>\Ä$?é)?óÃ¬>k[Ö>*³=*ö¿>à]&>-Å?ãò>n*+?OÂÌ=¾&ó>ÇYö>†ôß>*ö¿=„_>*ö??ãòÿ>a(S>_?óÃ,?„_?–ÅŒ>ÿÅ?*3=ÄÄ?*3>tŽÙ=!Ã¼>Î÷>™Zf>a(S>¾&ó>Î÷Ÿ>“ö7?óÃ,>“ö7?}ÁÜ>¹>!Ã<?ÄÄ?™Zæ=»‘?n*+?OÂÌ>\Ä$?’	?1?ãòÿ=ãòÿ<OÂÌ>a(Ó>OÂL=à]¦=üö/?*³=I^?w].?©+“>tŽY>–ÅŒ>]6?×*#?OÂL=–ÅŒ=©+?*ö¿=»‘™>×*£>!Ã<?OÂÌ=óÃ¬>]6?w].?OÂL<*ö¿=»‘?ÐŒy>üö/?ÿÅ?üö/?™Zf>¢é>tŽÙ=™Zf=„_†>¸ÂD?1?üö/?ŠÃ4?OÂÌ<w].?]6?»‘™>–ÅŒ=©+“>“ö7?OÂL>™Zf>óÃ,>OÂL>²^–>'ã>Î÷?a(Ó>™Zf=*3?XõÏ>ãò>*ö¿=«Àì>ù?–ÅŒ=*³=I^?ù?à]¦>]¶>ÐŒy>Ú¿ü>«Àì>ö’?ÿÅ?{,?{,?¾&s>Ê(K? ø?×*£>a(Ó>»‘™<{,ƒ>’‰>©+?Ê(K?–ÅŒ>¥\>?Ú¿ü>*3>9>!Ã¼>k[Ö> ø>»‘?FI?ÿÅ?1?'ã>{,ƒ>ŠÃ4?=\F?Î÷>a(S>œ);?©+?¸ÂD?é)?ÁõG?*ö¿>tŽÙ>¾&ó=µóï>à]&?é©>¢é>Î÷>9?»‘=*³>¯A?²^–>=\F>é©>OÂL>9>ŠÃ4?’	?²^?OÂL=ù?«Àl>à]&>OÂL>“ö7?™Zæ=tŽY>OÂL=n*+?œ);?ù?œ);?}ÁÜ>¹>=\F?¥\>?œ);?“ö7?“ö7?I^?ãò>OÂL>tŽÙ>ãò>„_>©+?FI?OÂL=*ö¿=×*#?OÂÌ<»‘=,?OÂÌ;_?tŽÙ=«Àì>OÂÌ<Ê(K?¹>¯A?3)Ã>ÿÅ?©+?óÃ,>{,ƒ>OÂÌ>!Ã<?!Ã¼>Ê(K?3)C?@+?OÂÌ<–ÅŒ>™Zf=OÂÌ<3)Ã>FI?w].?ÇYö>©+>tŽÙ=†ô_> ø?=\Æ>ãòÿ=7ø?™Zf=¢é>©+“>Ê(K?ãòÿ<!Ã<?à]¦>OÂÌ=©+“>óÃ¬>3)Ã>„_?!Ã<?¾&ó>n*+?*ö¿=OÂL>*³={,?=\F?™Zf=×*£>¹>óÃ,>*ö¿=à]&?–ÅŒ>óÃ,>üö¯>ãò==\F?ÐŒù>»‘™>’	?n*+?]¶>©+?ãòÿ<œ);?üö/?{,ƒ> ø?„_?Î÷Ÿ>Ê(K?ÿÅ?tŽÙ=¾&ó>©+“>»‘™<1?ÇYö>à]¦=7ø?tŽY>]6?]¶>*³>*ö¿=OÂL>üö/?»‘?™Zf>'ã>Î÷Ÿ>à]¦=’	?«Àl>é)?¹>ÿÅ?à]¦>†ôß>]6?OÂL=FI?{,?tŽÙ=»‘=tŽÙ>OÂL>Ê(K?OÂL>¥\>?\Ä$?„_>–ÅŒ>n*+?*3>»‘>*3>óÃ¬>ÄÄ?¹>ÇYö>„_?!Ã¼>I^?1?9>²^?à]¦>3)Ã>»‘™=¥\>?\Ä$?²^?=\F>¢é>üö/?¾&ó>OÂÌ;e÷'?œ);?ÐŒù>à]&?óÃ,?*ö¿=Î÷Ÿ>é)?ÄÄœ>OÂL<OÂÌ;R‘!?}ÁÜ>»‘?™Zf=OÂÌ>à]¦=²^?©+>*3>–Å>©+>]¶>ãòÿ>óÃ,?Ê(K?©+“>ÐŒù>«Àl>»‘™<»‘™>ŠÃ4?,?OÂÌ>–ÅŒ=OÂL>ö’?=\F?3)Ã>óÃ,>-Å?'ã>²^?*³>R‘!?ÄÄ?„_>ÐŒù>¾&ó>¥\>?–ÅŒ=1?}ÁÜ>¢é>ÿÅ?–ÅŒ=–Å>»‘™<*3?œ);?=\F> ø?n*+?OÂL<tŽÙ>ÐŒù>*³=ãò>²^?R‘!?=\Æ>óÃ,?ÄÄ?ãò>9>óÃ,?XõÏ>Î÷?¾&ó>Î÷Ÿ>$’?–Å>¢é>_?à]&>9?*ö¿>™Zæ=ÿÅ?óÃ,>Î÷>OÂÌ>²^?FI?k[Ö>!Ã<?¯A?²^–>*ö¿>OÂL<–ÅŒ>e÷'?!Ã¼>*³>–ÅŒ>@+?“ö7?»‘>7ø?*ö?>à]&?OÂÌ>†ô_>à]&?™Zf=»‘?3)Ã>Î÷>tŽÙ=*3>OÂÌ>$’?=\Æ>²^–> ø>ÐŒù>n*+?a(Ó>9>óÃ¬>*ö¿=_?tŽY>,?*ö¿>9?†ô_>„_>tŽÙ>ù?*³=óÃ,>1?!Ã<?\Ä$?1?ÄÄ?œ);?{,?ãòÿ=9>©+?=\Æ>3)C?Ê(K?ŠÃ4?»‘> ø>!Ã<?«Àì>¥\>?×*#?»‘™<ÿÅ?ÇYö>*ö¿>“ö7?™Zæ==\F?“ö7?ö’?!Ã<?¾&ó>™Zf>„_>=\F?é©>ÐŒù>×*£>×*#?tŽÙ>*³>OÂL>3)C?FI?ÄÄ?3)Ã>n*+?¥\>? ø>*ö¿=»‘=«Àl>„_>„_†>Î÷Ÿ>tŽÙ=à]&?*ö??*ö??²^?_?–ÅŒ=k[Ö>!Ã<?ÐŒù>²^?ÁõG?™Zæ>„_†>=\F?ãòÿ<FÉ>ÇYö>'ã>–ÅŒ=™Zf>¯A?*ö¿>ÿÅ?–Å?_?à]&?’	?é©>óÃ¬>à]&>R‘!?Ê(K?3)C?à]&> ø?óÃ,>OÂL<!Ã<?²^?ãò=ÐŒù>¸ÂD?=\Æ>µóï>-Å?7ø?'ã>«Àì>†ô_>$’?ãò=©+?OÂL=×*£>ÄÄ?*ö?> ø>’‰>†ô_>óÃ¬>*3>™Zæ=à]¦>„_†>Ú¿ü>¢é>tŽÙ>}ÁÜ>'ã>»‘?™Zæ>–Å?ö’?¾&ó>ÐŒù>ŠÃ4?Î÷Ÿ>†ôß>»‘™>Î÷?_?«Àì>=\F>ãòÿ=¾&ó>9?9>-Å?]¶>7ø?¾&ó>’	?Î÷? ø?'ã>ÁõG?–Å>}ÁÜ>*3=*ö¿=OÂL<=\Æ>{,?*ö¿>¾&s>óÃ,>XõÏ>OÂL>3)Ã>œ);?à]&?{,?{,ƒ>OÂÌ<tŽY>üö¯>9>ÐŒy>†ô_>3)C?*ö¿>“ö7?¾&ó=7ø?»‘=’‰>¾&s>OÂÌ<OÂÌ=„_>é©>’‰>ãòÿ<«Àì>©+?µóï>ŠÃ4?¹>“ö7?*ö¿>!Ã¼>*ö¿>¾&s>ÐŒy>Ú¿ü>9>’	?à]¦=*³>üö¯>†ô_>üö/?»‘™=7ø?*3=×*#?ÁõG?ÄÄœ>!Ã¼>=\Æ>R‘!?tŽÙ>»‘™>¯A?ŠÃ4?*ö¿>=\F>R‘!?™Zf>*3>»‘>tŽÙ>«Àl>n*+?w].?«Àl>ÐŒy>üö/?=\F>e÷'?*ö¿>üö/?»‘?™Zæ=™Zæ=©+?a(S>}ÁÜ>¾&ó>»‘™=3)Ã>óÃ,?k[Ö>»‘>*ö??!Ã<?Ú¿ü>Î÷>©+?{,?à]&>™Zæ=«Àl>=\F?'ã>FÉ>²^?*3>–ÅŒ>µóï>*ö??*ö¿>ÐŒù>–ÅŒ=OÂÌ<ÇYö>FÉ>]6?Ú¿ü>3)C?à]¦>²^–>!Ã¼>tŽY>tŽÙ>–ÅŒ='ã>*ö¿>„_?FI?,?µóï>–Å>„_†>ÐŒy>ãò=ÄÄ?ÁõG?n*+?]6?9>¾&s>–ÅŒ>†ô_>*³=–ÅŒ=3)Ã>à]&>OÂÌ=FI?OÂÌ<–ÅŒ>e÷'?=\F>²^?™Zæ=FÉ>,?–ÅŒ>™Zæ=ÇYö>é©>*ö??óÃ¬>ŠÃ4?«Àl>ÐŒy>OÂÌ>Î÷?¸ÂD?²^?†ô_>tŽÙ>n*+?“ö7?üö/?’	?*³>óÃ,?ù?™Zf=Ê(K?!Ã¼>ÁõG?×*#?*ö¿>™Zf=»‘™<a(S>$’?}ÁÜ>†ôß>»‘™=I^?»‘™>ÄÄ?»‘™=XõÏ>»‘?ÿÅ?    !Ã<?OÂÌ=ãòÿ<ãòÿ=»‘™<,?*3?“ö7?,?²^–>ÐŒù>„_?OÂÌ;OÂÌ>ãòÿ>9?\Ä$?©+“>3)Ã>e÷'?3)C?=\F>Ê(K?é©>†ô_>OÂÌ>]6?óÃ,>a(Ó>óÃ,>=\Æ>w].?OÂL>†ô_>{,?²^?!Ã¼>ÄÄœ>*ö¿>ÿÅ?¯A?-Å?«Àì>ù?ÿÅ?3)Ã>„_>tŽY>’	?’	?=\F>9>Î÷?à]¦>\Ä$?ö’?¾&ó>]¶>™Zf>ãòÿ>»‘>™Zf>™Zæ=OÂÌ>9>ãò>’‰>©+?I^?n*+?]¶>ÁõG?OÂL>™Zæ>ö’?ãòÿ<à]&?w].?*3?óÃ,?Î÷?Î÷>üö/?ãò>{,?»‘=]¶>†ô_>a(S>OÂÌ=¹>»‘>»‘>ãòÿ<é)?üö/?óÃ¬>Î÷?Ú¿ü>Î÷>üö¯>©+?OÂÌ>3)Ã>óÃ¬>w].?™Zæ=}ÁÜ>©+>R‘!?!Ã¼>à]&>–Å>¹>}ÁÜ>\Ä$?×*£>=\F>OÂL<3)Ã>œ);?ãòÿ<×*£>]6?*ö??–Å>OÂL=Ê(K?a(S>{,?OÂÌ;-Å?OÂÌ>à]¦>OÂL>©+?¾&s>™Zf>»‘>9?a(Ó>óÃ¬>ÇYö>n*+?ãò=é)?-Å?I^?*³>à]&>*ö¿>FI?à]&>–ÅŒ=»‘™> ø?à]¦=!Ã¼>¾&ó>²^–>ãò={,ƒ>©+“>–Å?    ÐŒù>*³>óÃ,?=\F>Î÷?FÉ>„_?»‘™<üö¯>»‘>I^?*3=*3?™Zf=e÷'?{,ƒ>™Zf=tŽÙ>™Zf=„_?=\F?¹>óÃ,>*3?'ã>tŽÙ>@+?»‘™<a(S>ù?k[Ö>ÐŒy>tŽÙ=üö/? ø>!Ã¼>Î÷?FÉ>à]¦=»‘=†ôß>ÐŒù>n*+?@+?Ê(K?-Å?7ø?*ö??¾&s>»‘?©+“>¢é>ÄÄ?ãòÿ<×*#?µóï>©+“>ÐŒy>{,ƒ>ÐŒù>]¶>Ú¿ü>’‰>XõÏ>“ö7?    ]¶>I^?©+?„_?óÃ,?»‘™<*³=»‘™<¥\>?R‘!?n*+?=\F? ø>=\F?}ÁÜ>ÐŒù>²^–>’‰>óÃ,>{,?×*#?Î÷>tŽY>é©>OÂÌ<óÃ¬>Ú¿ü>!Ã¼>}ÁÜ>\Ä$?ãòÿ=’‰>×*£>$’?ÿÅ?™Zf=!Ã¼>*³=*³=™Zæ>à]&>“ö7?*ö?>×*£>-Å?ÿÅ?µóï>=\Æ>×*£>tŽY>FI?ŠÃ4?a(S>×*#?ù?„_>tŽY>OÂÌ>óÃ,>»‘>FÉ>OÂL=–Å>«Àì>]¶>7ø?üö/?e÷'?†ô_>'ã>’‰>ãòÿ>ãòÿ<9?é)?Î÷Ÿ>«Àl>œ);?I^?FI?à]&>¾&ó=»‘=óÃ¬>OÂÌ>9?=\F>*3=k[Ö>µóï>{,?ÐŒy>*³=OÂÌ<Ê(K?²^–>à]¦>I^?*ö?>ãòÿ<OÂL<3)Ã>„_?²^?†ô_>}ÁÜ>k[Ö>\Ä$?Î÷>1?Î÷Ÿ>©+?–ÅŒ={,ƒ>9>a(S>*³=Ú¿ü>Ê(K?*3?»‘>¹>²^–>™Zf>™Zf>ö’?™Zf>¾&ó=¢é>ÁõG?=\Æ>FI?©+>!Ã<?FÉ>üö/?¢é>ãòÿ>ãò=à]¦>FÉ>óÃ¬>é)?ãò>¾&s>™Zæ=ù?œ);?µóï>Î÷>–Å?¢é>e÷'?OÂÌ>=\F?¥\>?©+>ŠÃ4?„_†>OÂÌ;=\F?*ö?>«Àì>¸ÂD?a(S>üö/?Ú¿ü>OÂÌ>_?†ô_>«Àl>ãò=œ);?«Àl>]6?™Zæ>*ö¿>*ö??»‘?I^?üö¯>$’?»‘™<=\Æ>OÂÌ>–ÅŒ=à]¦>ù?n*+?†ôß>ãò>tŽY>©+>ãò>a(S>*ö¿=ÇYö>©+>FÉ>üö/?„_>à]&?»‘™=ãò=FI?a(S>¥\>?¯A?{,?OÂL>ö’?ÇYö>ÇYö>™Zæ>Ê(K?¢é>»‘?ãò>’‰>œ);?!Ã¼>$’?™Zf>¾&ó>*³=¢é>«Àì>!Ã¼> ø?ÄÄ?üö/?*÷B(/model_G2_ff_weight_dequant/Mul_output_0JÀÝ¹,>ýù¾/¾°¾ØÈ¾ØH>»í\>îŸ”¾`öä>YÀ²¾þÈº>ò`>òà½HÚÊ>'Ë¼>ÄàÐ>ÄàÐ¾zÏ@¾‚Â´¾qÜÌ>³úè=QŠ€¾ö’ˆ½/¾°>/ï>QŠ€;³úè¾³úh¾YÀ²>@¤˜=´·ª>íâÒ>/¾0¾îŸ”>Xq½`öd¾/¾°¾ØÈ=òà=Šµ¨>&û>ØÈ¾Šµ¨½“¨¾zŒ‚>ýy>³úè>/¾°>¼®>£ÑÂ¾Šµ¨¾qÜÌ¾O}¾O}¾YÀ²>ýy¾’ëÚ>iéØ>¼ªž>¢–>«Ä¶>Šµ¨=´·ª¾PÍ¾>þÈº>¼®>YÀ²¾QŠ€½a³¦>QŠ€¼››½ö’ˆ¾QŠ€>ò`>òà½'Ë¼>¢–¾¤Ž„>å¬ ¼ÄàP¾å¬ =äïÞ¾ÄàÐ>iéØ½¤Ž„¾ÄàP=Ä’>PÍ¾>Šµ¨>ÔÆ¸½³úè=Üüê>ö’ˆ>yÿ>/¾°=ªõ¾@¤>QŠ ¾ÔÆ¸=ØH>››>Xq¾PÍ¾¾Üüê>QŠ >ªu>I—>ÔÆ¸½Üüê¾`öä>ó>zÏ@¼¤Ž¾ò`>/ï¾I—>’ëÚ>¤Ž¾òà¼O}>zÏ@½zÏ@¼8±$>å¬ ½QŠ€»QŠ ½››>ÿì>/¾0=@¤˜=«Ä¶¾r™Ž>››>þÈº¾¢–>I—>“¨œ¾Šµ¨½7ôâ¾ö’ˆ=QŠ€>/¾°¾å¬ ½ØÈ>ÌÓÄ>*¿€  B//model_G2_identity_add_act_dequant/Mul_output_0J€€ß5k?ÙàÒ>+¨Â=ˆc¾rÅ>ˆã>+¨B>ÙàÒ¾ß5k?nû¿n{¿ˆã¾ˆc¿}o2¿+¨B¾n{?+¨Â¾+¨B¾}o²¾+¨Â>rÅ?L–¿Î6¢¾ þ‘¾ þ‘¿Éá‰¿rÅ¿w¿L–¿}o²¾£(ž¿Éá‰¿   €+¨B? þ‘?ˆã¾}o²>ˆc¾Î6¢?Éá	?     þ?rÅ¾&Sª?‚ÄJ?rÅ>Éá	?rÅ¿0ýZ?Ô‹:? þ¿úD¦¿rÅ=+¨Â?ÙàR¿ˆc?rÅ½+¨B?úD¦¿ þ‘?‚ÄJ? þ?}o²>Î6"¾rÅ=rÅ¾Ô‹º?6Rs¿ÙàÒ>}o2?Ô‹:?+¨Â= þ‘>rÅ¾+¨B?rÅ=ÙàR¿rÅ=Î6¢>wš?ß5k?+¨Â¾rÅ¾rÅ? þ?ÙàÒ¾žÓ…?³ÚÀžÓ…?žÓ…?úD¦?+¨B¿}o²¾Î6¢>w?Ô‹:?rÅ=rÅ½Î6"¾}o²>+¨Â>}o²>rÅ¿ß5k¿Î6"¾³Ú@rÅ>‚ÄJ¿ˆc>   €ß5k?&S*?£(ž?žÓ…? þ?Ô‹:¿ß5ë?}o²¾   €rÅ=rÅ?rÅ½žÓ…¿õï?Î6¢¾}o²>
+÷@   €ÙàR?Qa®?rÅ?‚ÄJ?w? þ?+¨Â>&S*¿rÅ>}o²>0ýZ¿‚ÄJ?}o2?ß5k? þ?ÙàR? þ¿+¨B?}o²> þ‘¿6Ró>rÅ?wš?¨}¶¿rÅ½}o²?£(ž?³Ú@ þ‘>+¨Â?rÅ>‚ÄÊ¿&S*?Î6¢¿ÙàÒ?rÅ>Î6">+¨B¾rÅ½rÅ?ˆc¾rÅ=Éá‰?Î6¢?+¨Â¾õï¿}o²>ßè@+¨Â=+¨Â½+¨Â½}o²>&Sª?+¨B¾nû?+¨Â>+¨Â¾ÙàR?6Rs?ß5k¿rÅ¾}o2?ÙàÒ>L–¿ÿ™¾?6Ró¾ˆã>Î6¢¾+¨Â½Éá	¿}o²>W¶Æ?Î6¢>žÓ…?ˆc?}o2¿+¨B>0ýZ?ÙàÒ>ˆc>}o2¿rÅ¿³'ç¿žÓ…?Î6"¾0ýZ¿}o²¾}o²>6Rs?n{¿}o²¾rÅ>rÅ?+¨Â>}o2¿+¨Â>w?0ýÚ?w?rÅ>³'ç?rÅ¾‚ÄJ?£(ž?}o²>wš?Î6">ÙàR?rÅ=Ô‹:?rÅ½rÅ=õï¿ þ‘>Éá	?rÅ>!@ÙàR?0ýZ?0ýZ? þ?}o²?Î6¢?Î6¢¾ÙàR?Î6"¾ß5k¿Î6"¿ˆc¿ˆã¿rÅ=ÙàÒ¾rÅ>wš?&S*? þ‘>+¨Â=ÿ™¾?&S*¿+¨B¿+¨Â¾žÓ…?Î6"?Î6¢?Î6¢>6Ró?Î6¢?}o²¾ þ¿&S*¿ˆã> þ‘¾Ô‹:¿Î6">6@rÅ=£(ž¿Éá	@&S*¿ÙàR¿õï?ÙàR?&S*?ˆc¾&S*?rÅ¾+¨Â= þ?rÅ>rÅ>ˆc¾ þ‘>ˆã?rÅ¾rÅ=n{¿ÙàÒ>ÙàÒ¾rÅ=0ýZ¿ÙàR?Î6"¿õï¿‚ÄJ?Î6"¾Î6¢>rÅ¾ˆc¾}o²¾}o²¾Î6¢?rÅ½0ýZ?Î6¢>ÙàÒ¾ þ?}o²¾žÓ…?+¨Â>rÅ=+¨Â=+¨Â½rÅ¾rÅ½Î6¢>+¨B¾}o²?}o²¾Éá	?ˆc>+¨B¾rÅ½L–?Î6">w?žÓ…?0ýZ¿+¨Â=}o²¾Î6"? þ‘? þ¿ˆã¾}o2?ˆc¾ˆc>ˆÌ@rÅ?}o²>+¨Â=+¨Â>Éá	@   €Î6¢?rÅ½Î6¢>rÅ>6Ró>ß5k?+¨Â>&S*?Éá	?rÅ=+¨Â?rÅ=+¨Â=rÅ@rÅ>L–?nû?}o²¾ þ?w?Î6"?+¨Â½6Rs¿¨}¶?+¨Â¿ˆc?¨}¶?&S*¿6Ró> þ¿ˆã¾Éá	¿a`÷?&Sª?L–?Éá	@ˆã>rÅ>w?žÓ…?rÅ>rÅ>+¨Â= þ?rÅ?+¨Â¾ þ‘>rÅ=žÓ…?&S*?+¨Â?Éá	?rÅ¾}o²¾+¨Â¾rÅ> þ¿+¨B¾0ýZ?rÅ¾0ýZ?Î6"¾ þ¿ þ?0ýZ¿rÅ>Î6">}o2¿}o²¾ þ?‚ÄJ¿ þ‘¾rÅ¾rÅ?L@n{?Î6¢?ÙàÒ¾+¨B> þ?+¨Â½rÅ?+¨Â½L–¿wš? þ?}o2?+¨Â?ÙàÒ¾£(ž?ÙàR? þ‘¾ˆc? þ? þ‘?Éá	¿ÙàÒ¾n{¿ÙàÒ> þ‘¾n{?rÅ?õï? þ‘?žÓ…? þ?+¨Â¾Î6"¿£(ž?w¿0ýÚ? þ¿Qa®?Î6¢>rÅ=ÙàR?Î6"?úD¦?wš¿ þ‘¾ þ¿ þ‘¾L–¿+¨Â>ÙàÒ¾&Sª?w?ß5k?+¨B¾Éá	@rÅ?}o²¾rÅ¾w? þ‘>ˆc¾ˆã>Î6"¾Î6¢?+¨B>}o2?Î6">ÙàÒ¾w? þ?wš?w?rÅ>rÅ>‚ÄÊ?rÅ½rÅ?nû?6Ró?ÿ™¾?&Sª?Éá	?ÙàÒ¾ÙàR? þ‘¾rÅ?}o²¾Éá	¿Qa®?w¿£(ž?}o²?rÅ½rÅ¾rÅ>rÅ?rÅ=ˆc?žÓ…?6Rs?‚ÄJ¿Qa®?}o²>     þ‘¿rÅ>‚ÄJ?Éá‰¿}o2?Éá‰?+¨B> þ‘¾Ô‹:? þ¿Ô‹:?6Rs? þ?+¨Â=ÙàÒ¾Ô‹:?rÅ? þ‘?}o²>ÙàR?¸|ÿ?rÅ¾Î6¢>0ýZ¿ÙàÒ>&S*¿ß5k?ÙàR?rÅ=ÙàR¿Éá	¿&Sª?
+Dï?+¨Â½ þ?žÓ…¿ïÖ?6Rs¿Éá	?Éá	¿ÙàR?ÙàR?rÅ=    +¨Â½Ô‹:?ˆã¾Î6">ÿ™¾? þ‘>Î6">6Ró¾}o²¾žÓ…¿6Ró?L–?Éá‰?Ô‹:?rÅ¾ˆc¾rÅ> þ‘?žÓ…?}o²>Î6¢> þ¿\ß¿Éá	¿}o²>õï@}o²>rÅ>Î6¢?}o²>ïÖ?6Rs?rÅ½0ýZ¿0ýZ?0ýZ¿ˆã>rÅ>Î6¢?rÅ½rÅ¾rÅ¾Éá	?Î6"?rÅ½‚ÄJ¿ þ‘?Ô‹:¿rÅ¿0ýÚ?ˆã>+¨Â=+¨Â=0ýÚ?w¿6Rs?rÅ?õïÀ6Ró>wš?Î6">rÅ½ÙàR?+¨B¿+¨B¾ˆã¾ß5k?+¨B¿n{?   €+¨B>L@+¨B¿ÿ™¾?&S*?6Ró>õï?rÅ>‚ÄJ?rÅ=+¨B?rÅ>Î6"¾0ýZ?}o²¾ÿ™¾? þ?¨}¶¿n{?Éá‰?}o²>ÙàR?ˆc¾}o2¿rÅ>Qa®¿ þ?Î6¢>0ýÚ?Î6¢>ÙàR?&S*?}o²¾ÙàR¿Î6"¾6Rs¿&Sª?+¨Â¾Î6">rÅ¾rÅ½Î6¢?¨}¶?‚ÄÊ¿ÙàR?rÅ½žÓ…?6Ró>‚ÄJ?ˆã¾wš?wš¿rÅ=rÅ¾ þ¿‚ÄJ¿+¨B>}o²¾rÅ>Éá	?6Ró¾+¨Â>rÅ>!ÀrÅ?L–?&Sª?Î6"?Î6¢>úD¦?ˆc¾6Ró>}o²¾Éá	?ß5ë?+¨B>rÅ¾rÅ¿6Ró>¸|ÿ?    rÅ>+¨B¾rÅ¾ˆã¾6Rs?rÅ>žÓ…?6@õï?ˆc>õï?rÅ?ˆã>+¨Â¾£(ž?L–?Ô‹:¿rÅ¾L–?ˆc¿0ýZ?0ýZ?‚ÄJ¿6Ró? þ¿ þ‘¾&S*?ˆã¾6Ró> þ?Î6">õï¿rÅ=ˆã>ä=$@Î6"?¨}¶?}o²¾+¨Â>Ô‹:¿&S*?ÙàÒ>+¨B?+¨B?žÓ…?ÙàÒ¾Éá‰? þ?}o²>õï?&S*?L–¿rÅ¾ˆc¾n{¿rÅ?L–?+¨B¾}o²? þ¿ˆc¾}o²¾rÅ>0ýZ? þ¿žÓ…? þ¿rÅ½rÅ=ÿ™¾? þ?‚ÄJ?¨}¶?&S*?ÙàÒ¾rÅ¾+¨B>ÙàR¿\ß?Ô‹:?Ô‹º?rÅ= þ‘¿0ýZ¿rÅ¾Î6">w?žÓ…?Î6¢¿wš?Ô‹º?}o²>nû?+¨Â>‚ÄJ?rÅ¾LÀ&S*¿ˆã>¸|ÿ?&S*?}o²>ÙàÒ?žÓ…?Î6"¿rÅ¾6Ró¾úD¦?¸|ÿ¿+¨B?žÓ…?ÙàR?0ýZ?+¨B¿A¯D@ þ?\ß?Éá	¿ÙàR?õï@+¨Â¾ˆã>0ýZ?rÅ½ þ‘?L–¿&Sª?0ýZ? þ?Î6"?ß5ë?õï?Éá	?Î6"?Éá	?+¨Â¾6Ró¾rÅ>}o²>rÅ@ þ?rÅ¾rÅ½‚ÄÊ¿    6Ró>rÅ½ÙàÒ¾}o²¾rÅ>&S*?Éá	?Éá	?ˆc?ˆc>&S*¿0ýZ¿+¨B?rÅ?ˆc¾}o²>rÅ=rÅ=Î6¢¾Î6"¿‚ÄJ¿Î6"?žÓ…¿ÙàR?ˆc¾Î6¢>wš¿+¨Â>&S*?rÅ¾Ô‹º?+¨Â>rÅ¾ˆã¾ˆc?+¨Â>n{¿rÅ> þ‘¾+¨B¿ þ¿6Ró>w?ÿ™¾¿Éá	¿Éá	?L–?+¨B>ß5k?rÅ¾ þ¿ˆc?£(ž?L–?wš?rÅ= þ‘?žÓ…?rÅ¾rÅ¿ˆc¿ÙàR?    rÅ?}o2¿ þ¿+¨B¾ þ?\ß?‚ÄJ?rÅ½+¨B¿Î6¢?ÙàÒ¾³'ç? þ‘>}o²>+¨B¾ˆc¿}o²>ÙàR?õï?&S*?ˆc¾!@£(ž¿rÅ>Î6¢¾ˆã>ÙàR?Éá‰?!@w¿Qa®?ˆc¾L–¿+¨B¾+¨Â=žÓ…?n{?rÅ?ÙàÒ¾rÅ> þ‘¾ß5ë?ÙàR?0ýZ¿n{? þ¿ˆã¾6Ró¾Î6¢¾ þ?Î6¢?ß5k?ˆc>Éá	?Éá	?Éá	?0ýZ?Î6¢?}o²>0ýZ?‚ÄJ?ÿ™¾?rÅ>Î6¢?ß5ë?ˆã>Î6¢?W¶Æ?6Ró¾w?+¨B>žÓ…?rÅ¾L–?+¨Â½Ô‹:?+¨B> þ?¨}¶?}o²¾Ô‹:?ˆc¾¹/ ÀúD¦¿w¿Ô‹º¿Ô‹º¿žÓ…¿žÓ…¿\ß¿rÅ½+¨B¿}o2¿w¿ÙàR?W¶Æ¿‚ÄJ¿}o²¾žÓ…¿}o²¿®ÒÎ¿ þ¿Ô‹º¿ïÖ¿rÅ½}o2¿ˆã¾Î6¢¾rÅ¾rÅ½+¨B¿W¶Æ¿+¨Â½
+÷À&S*À+¨Â¾+¨Â¾rÅ¿ þ‘¾+¨Â>Qa®¿‚ÄJ¿õï¿0ýZ¿£(ž¿ˆã¿¸|ÿ¿}o²¾®ÒÎ¿L–¿žÓ…¿úD¦¿ßèÀ}o²¾ˆc¿žÓ…¿Ô‹:?ÙàÒ¿
+Dï¿Éá	¿Î6"¾}o²¾ˆã¿rÅ¿rÅ?Éá‰¿žÓ…¿+¨Â½úD¦¿ÙàÒ¾žÓ…¿+¨Â¾+¨Â>rÅ¿ÙàR¿ßèÀ³ÚÀÉá	¿0ýÚ¿6À þ¿ÙàÒ¿‚ÄÊ¿ˆc¾‚ÄÊ¿ˆã¿ÿ™¾¿rÅ¿6Ró¾¾„8ÀrÅ>Î6"ÀÔ‹:À&S*ÀL–¿n{¿W¶Æ¿+¨B>®ÒÎ¿ˆc¾\ß¿£(ž¿0ýÚ¿ˆã> þ‘¾}o²>rÅ½!ÀÙàR¿rÅ¿ þ‘>0ýZ¿+¨Â¾L–¿}o²¿“v4À þ‘¿Ô‹º¿ÙàÒ¿Î6"?ïÖ¿ˆÌÀ‚ÄJ¿&Sª¿L–¿+¨Â¾&Sª¿‚ÄÊ¿6Rs¿Î6"¿\ß¿+¨Â¿Éá	ÀrÅ¿rÅ¾\ß¿Ô‹:¿Qa®¿\ß¿ä=$À&Sª¿ þ¿rÅ=ß5ë¿+¨B>úD¦¿+¨Â=0ýÚ¿úD¦¿ þ¿žÓ…¿žÓÀQa®¿Î6">6Rs¿A¯DÀwš¿ÿ™¾¿žÓ…¿W¶Æ¿6Ró>nû¿&S*¿+¨Â¿}o²¾Î6"¿‚ÄJ¿³'ç¿!Àÿ™¾¿ þ‘¿
+Dï¿³ÚÀW¶Æ¿ þ‘¾‚ÄJ¿n{¿žÓ…¿úD¦¿L–¿6Ró¿ˆÌÀ6Ró¿žÓ…¿Ô‹º¿£(ž¿wÀÎ6¢¿wš¿ þ¿³'ç¿Î6¢¿ˆã>0ýZ¿£(ÀrÅ¾úD¦¿ þ¿ˆã¾Ô‹:¿ˆÌÀ¾„8À0ýZ¿³'ç¿‚ÄÊ¿‚ÄJ¿\ß¿wÀžÓ…¿rÅ½Î6"¿6Ró¾õï¿ˆÌÀnû¿‚ÄÊ¿   €+¨Â¿\ß¿+¨Â½ÙàR?W¶Æ¿}o²¾úD¦¿Î6"¾ß5k¿£(ÀrÅ½\ß¿}o²¿Ô‹º¿Ô‹:¿W¶Æ¿ˆc¿ˆc¿Î6"¾úD&ÀÙàÒ¿‚ÄJÀ}o²¿úD¦¿0ýZ¿ þ¿}o2?Qa®¿ˆÌÀ þ¿Î6">³'ç¿&Sª¿£(ž¿a`÷¿6Rs¿}o²¿ þ¿w¿+¨B>õï¿&S*¿&S*¿rÅ>rÅ¿õïÀrÅ¿rÅ=rÅ?žÓ…¿˜ËLÀß5ë¿õï¿6À&S*¿ÙàR¿úD&ÀrÅ¿rÅ¿úD¦¿¹/ ÀÙàÒ¾bÀ!ÀÙàR¿ÙàR¿ˆcÀW¶Æ¿0ýZ¿ þ‘¿Î6">rÅ½}o²¾³ÚÀß5ë¿žÓ…¿úD&À£(ž¿nû¿0ýZ¿‚ÄJ¿+¨Â¾&Sª¿ˆã¿£(À þ‘¿L–¿}o²¿Qa®¿+¨B¿õïÀÙàÒ¾Éá	?£(ž¿ÿ™¾¿Ô‹:¿¨}¶¿õïÀ+¨Â¾}o²¿L–¿£(ž¿0ýZ¿Î6¢¾Ô‹º¿\ß¿+¨B¿³ÚÀrÅ¿L–¿‚ÄÊ¿0ýÚ¿õïÀ þ¿Î6"¿®ÒÎ¿\ß¿&Sª¿+¨Â¿Î6¢¾+¨Â=nû¿+¨Â¿Éá	À}o²¿+¨B>!ÀA¯DÀÿ™¾¿Ô‹:¿¸|ÿ¿Î6"¿õïÀ³'ç¿+¨Â¿}o²¾rÅ¾Ô‹:¿õï¿+¨Â¾a`÷¿6Rs¿žÓ…¿³'ç¿Î6"¿úD¦¿L–¿Ô‹:¿}o²¾nû¿rÅ¿}o²¿+¨Â¿¨}¶¿Î6¢¿l½HÀÉá‰¿ þ¿!Àwš¿‚ÄJ¿!À¹/ À\ß¿+¨Â¿ˆã¾Ô‹º¿žÓ…¿ˆã¾\ß¿6Rs¿ þÀ}o2À‚ÄJ¿õï¿ÿ™¾¿W¶Æ¿bÀ}o2¿&S*¿L–¿nû¿Éá‰¿Ô‹:Àˆã¿rÅ¿&Sª¿žÓ…¿+¨Â¿\ß¿Qa®¿+¨B>ßèÀõï¿\ß¿£(ž¿‚ÄJ¿;Z,À¨}¶¿}o²¾rÅ¾¨}¶¿žÓ…¿ÿ™¾¿Ô‹:¿ þ¿ˆã¾0ýZ¿rÅÀn{¿ˆc¿}o²¾6Ró¾rÅ¾&S*¿&S*ÀõïÀrÅ½+¨B>W¶Æ¿Ô‹:¿Î6¢¿õï¿‚ÄJ¿}o²> þÀˆã¿Î6"¿Qa®¿ß5k¿\ß¿ˆã¾+¨Â¿Î6"¾Ô‹º¿Î6¢¾&Sª¿    !À\ß¿Î6¢¿&Sª¿Qa®¿+¨Â¿wš¿rÅ¾ þ¿ þ? þ‘>Î6¢¿Î6"¿‚ÄJ¿rÅ½Qa®¿žÓÀw¿£(À£(ž¿ˆc¿ þ‘¾žÓÀwÀ!À+¨Â¾6Ró¾ˆc¾+¨BÀõïÀa`÷¿‚ÄJ¿ß5k¿‚ÄÊ¿rÅÀw¿l½HÀ}o²¿}o²¾£(À0ýÚ¿Î6¢¾Éá	?ˆc¿ þ¿6Ró¿rÅÀwÀßèÀÙàR¿úD¦¿ÿ™¾¿+¨Â¿‚ÄJÀˆÌÀ
+÷ÀžÓ…¿+¨Â=+¨Â½W¶Æ¿&Sª¿ þÀßèÀÉá‰¿ÙàÒ¾+¨B¾žÓ…¿+¨Â¿rÅ¾Î6¢¿¸|ÿ¿+¨B¿ˆã>ÙàR¿!À0ýÚ¿!À+¨B¾£(ž¿rÅ¾ þ‘¾ß5ë¿W¶Æ¿ÿ™¾¿Î6"¿žÓ…¿6Ró¾rÅ¾n{¿ÿ™¾¿¹/ Àˆã¿³'ç¿Ô‹:À0ýÚ¿ÙàÒ>\ß¿õïÀrÅ= þ‘¾}o²>úD¦¿žÓ…¿a`÷¿+¨Â¾\ß¿£(ž¿+¨Â¾Î6¢¿+¨B¾ä=$ÀÙàR¿žÓ…¿¨}¶¿¨}6À6Ró¾rÅ?&Sª¿õï¿rÅ=Î6¢¿ˆc¾Î6¢¿ß5k¿6Ró¾w?}o²¾žÓÀnû¿Î6¢¾õï¿ïÖ¿Î6¢¾bÀ£(ž¿!ÀÔ‹º¿ßèÀÿ™¾¿n{¿\ß¿LÀžÓ…¿³ÚÀnû¿¨}¶¿Î6¢>w¿úD¦¿úD¦¿6À¹/ ÀÎ6¢¿ þ?£(ž¿
+Dï¿Éá	¿+¨B> þ‘¿ïçTÀß5k¿6Rs¿õï¿+¨Â¿}o²¿}o²¾ÙàR¿ÙàR¿   €Î6"¿ þ¿!ÀQa.Àwš¿rÅ½ˆc¿6À+¨Â¾rÅ=0ýÚ¿Î6¢¿Ô‹º¿ß5k¿ß5k¿rÅ=6Ró¾&S*À}o2¿rÅ¿žÓ…¿n{¿žÓÀLÀrÅ¿+¨Â=   €Î6">6Ró¾žÓ…¿}o2¿W¶Æ¿Éá	¿Î6">¡@ÀrÅÀ+¨Â¾+¨Â¾+¨B¿ÙàRÀß5ë¿ˆã¿nû¿rÅ¿   €³'ç¿a`÷¿\ß¿ÙàÒ¿ þ‘¿Éá	?ß5k¿6À6ÀÉá	ÀrÅÀˆc>}o²>¸|ÿ¿Qa.À þ‘¾&Sª¿ÙàR¿ÿ™¾¿ þ‘¿ÙàR¿ßèÀÉá	ÀÎ6"¾Éá‰¿\ß¿³'ç¿LÀQa®¿õïÀ+¨Â¾}o²¿Éá	¿ÙàÒ¾Î6¢>Éá	¿;Z,ÀrÅ¿&Sª¿Ô‹º¿6Ró¾õï¿õïÀL–¿ þ¿nû¿0ýZ¿ þ‘¿wš¿rÅ¿ þ?ê’<ÀúD¦¿‚ÄJ¿‚ÄÊ¿ïÖ¿‚ÄJ¿õï¿ÙàÒ¿ïVÀˆã¿+¨Â½úD¦¿žÓ…¿0ýZ¿&S*ÀrÅ½}o2?rÅ=    Qa®¿ÙàR¿+¨Â¾6Ró¿bÀžÓ…¿žÓ…¿ÙàR¿ÙàÒ¾+¨B¿¨}¶¿úD¦¿\ß¿0ýZÀ
+÷ÀÔ‹º¿Éá	ÀõïÀÙàR¿}o²¾žÓ…¿0ýZ¿L–¿ˆã¾}o2ÀúD¦¿®ÒÎ¿ÿ™¾¿}o²¾}o²>\ß¿ˆc¿6À!ÀÉá	Àˆã¿+¨Â¿n{¿¨}6À}o2¿bÀ6Ró¿Qa.À\ß¿Qa®¿&S*¿Éá	Àwš¿}o²>wš¿Éá	?+¨Â½úD¦¿‚ÄJ¿wÀ}o²¿ÙàR¿®ÒÎ¿6ÀrÅ=}o2¿ þ?žÓ…¿ÙàÒ¾&S*À+¨Â¿!À þ¿nû¿Ô‹:¿rÅ¿Î6"¿“v4À£(ž¿rÅ¾ïÖ¿£(ž¿wÀžÓ…¿Î6"¿Î6">ÙàR¿ˆc>úD¦¿¹/ Àˆc¾&Sª¿‚ÄJ¿0ýZ¿
+Dï¿Ô‹º¿úD&ÀQa®¿n{¿Ô‹:?+¨B>žÓÀ}o²¿£(ž¿0ýZ¿ÿ™¾¿+¨B¿Éá	¿}o²¾nû¿n{¿žÓ…¿\ß¿ïVÀ\ß¿    ‚ÄÊ¿‚ÄJÀÎ6"ÀˆÌÀbÀõïÀn{¿Î6"¾úD&Àwš¿n{¿\ß¿¸|ÿ¿‚ÄJ¿rÅ¿ÙàR¿}o2¿Î6">W¶Æ¿úD¦¿rÅ¾+¨Â½ þ?rÅ¿ þ¿a`÷¿Ô‹:¿6ÀW¶Æ¿¨}¶¿+¨B>³ÚÀÙàÒ¿n{¿Ô‹º¿ÿ™¾¿¹/ ÀrÅ¾¨}¶¿a`÷¿ïÖ¿+¨B¾ þ?ˆc¿   €Î6"À+¨Â½õï¿wš¿rÅ=£(ž¿0ýZ¿ˆc¿rÅ¾ˆã¾rÅ¿ÙàÒ¿³ÚÀ þ¿õïÀÉá	¿Éá‰¿Qa®¿ÙàR¿Ô‹º¿Ô‹:¿
+Dï¿¨}¶¿úD&ÀÎ6"¿Éá	¿&Sª¿rÅ¿‚ÄJ¿Î6¢¿ þ?žÓ…¿Ô‹:¿}o²> þÀ þ¿ þ‘>Éá	¿Éá	¿+¨Â¿+¨B¾Î6"?‚ÄÊ¿õïÀ þÀ&Sª¿Î6"¿}o²>Ô‹º¿   €¸|ÿ¿¾„8Àõï¿ˆc¾Éá	ÀúD&ÀÙàR¿6Rs¿³'ç¿\ß¿Î6"¾+¨B¿&Sª¿6Ró>¨}¶¿Éá	¿L(À6Ró>nû¿³'ç¿bÀ
+Dï¿ïÖ¿&S*¿ þ¿Éá‰¿rÅ½ÙàÒ¿Ô‹º¿+¨Â¿õï¿w?ïÖ¿W¶Æ¿ˆã¿+¨Â¿wš¿6Rs?rÅÀúD¦¿Éá‰¿Éá	À®ÒÎ¿a`÷¿}o2¿6Ró¾rÅ¾&Sª?Î6"¿ˆc¾ þ‘¾ß5ë¿ þ‘¾rÅ¾rÅ>6Ró>&S*¿Éá‰¿Ô‹º¿ÙàR¿ÿ™¾¿\ß¿6Rs¿ß5k¿õï¿}o²¿0ýÚ¿³'ç¿}o²>}o²¾rÅ¿³'ç¿Éá‰¿‚ÄJ?+¨Â¾}o2¿Ô‹:¿L–¿ˆc¾rÅ>Éá	?rÅ½úD¦¿ þ‘¿ÙàÒ¿nû¿Qa®¿rÅ=ÙàÒ¿ÙàR¿Î6"¿õïÀ‚ÄJ¿0ýZ¿Î6">žÓ…¿+¨B>+¨Â¾rÅ¾&Sª¿}o2¿6Rs¿Î6¢¿ÿ™¾¿rÅ>nû¿L–¿L–¿&S*¿ïÖ¿Î6"¿Éá‰¿ þ‘¾rÅ¿Éá	¿rÅ¿+¨Â¿žÓÀrÅ¿rÅ½‚ÄÊ¿}o²>
+Dï¿6Rs¿ þ¿+¨Â¾ß5k¿rÅ¾ þ‘¾&Sª¿wš?W¶FÀ}o2¿ˆc¾ˆc¿ÙàÒ¾}o²¾žÓ…¿ˆã¿}o²¾rÅ½Éá‰¿ÙàÒ¾ þ¿}o2?ˆã¿ÙàR¿+¨B¾£(ÀrÅ=}o²¿wš¿£(ž¿rÅ>+¨B¾0ýÚ¿õïÀ+¨Â¿Éá	À þ?}o2?wÀÎ6"¿w¿‚ÄJ¿rÅ=0ýÚ¿ þ¿õïÀ‚ÄJ?+¨Â½£(ž¿n{¿ˆã¿ þ‘>}o2¿+¨Â¾0ýZ¿ˆc¿0ýZ¿W¶Æ¿ß5k¿Ô‹:¿‚ÄJ¿ þ‘¾rÅ>rÅ?6À¡@Àÿ™¾¿&Sª?nû¿ þ‘¾‚ÄJ¿+¨Â¾ˆã¿‚ÄJ¿Éá	?³ÚÀw?\ß¿ˆã¾}o²¾
+Dï¿rÅ½õïÀrÅ> þ¿+¨Â¾0ýZ¿úD¦¿nû¿Éá	?ÙàR¿rÅ¿Éá	¿w¿ þ¿rÅ¾\ß¿rÅ¿ÙàÒ¾rÅ¾n{¿Î6"> þ‘¿ÙàR¿ þ‘¾n{¿rÅ½ß5ë¿Î6¢¾õïÀÔ‹:?rÅ¾&Sª¿ þ¿‚ÄJ?ÿ™¾¿a`÷¿ß5ë?žÓÀ0ýZ¿rÅ½ÿ™¾¿³'ç¿rÅ½}o²¾wš¿Ô‹:¿}o²>6Ró>ˆã¿‚ÄJ¿ïÖ¿}o²> þ¿ˆÌÀ³ÚÀ þ‘>+¨B¾ÙàR¿žÓ…¿Éá‰¿ˆÌÀrÅ?‚ÄJ¿¨}¶¿ˆc¿rÅ¾&Sª¿nû¿}o²>}o²¾ß5ë¿rÅ=6À&Sª¿ þ‘¾ÙàÒ>nû¿+¨Â¾ˆc>w?ˆã¿Î6"¾ÿ™¾¿Î6¢¾+¨Â¿£(À³'ç¿+¨B¿Î6">Î6"¾wÀrÅ¾ÙàR¿6Rs¿ˆc¾}o²¾¸|ÿ¿ÙàÒ¾ßèÀÉá‰¿6Ró¾+¨Â>&S*ÀrÅ?ˆã¿}o2¿õï¿õï¿rÅ>ˆc>+¨Â=rÅ>6Ró¿Ô‹:¿rÅ¾³ÚÀwš¿gh0Àß5k¿Éá	¿ˆc>rÅ¾w?‚ÄJ¿w¿žÓ…¿ÿ™¾?L–¿Î6¢¿bÀ+¨Â½W¶Æ¿+¨Â=ˆÌÀˆc>+¨Â¿‚ÄJ¿+¨B¿}o²>Éá	¿+¨B¿ þ‘¾rÅ½ˆã¿}o²¿Éá‰¿&S*?&S*À+¨Â½£(ž¿+¨Â¾6Ró>
+Dï¿rÅ>rÅ¾ïÖ¿Éá‰¿ˆã¾ þ¿rÅ>n{¿&Sª¿Î6¢¿žÓ…¿+¨Â¾Î6"?ß5k¿ÙàÒ¿}o²¾®ÒÎ¿rÅ?Qa®¿Î6"¿L(À}o²¾®ÒÎ¿ þ‘¿+¨Â½ þ‘>+¨Â¿}o²¿rÅ¾Éá	¿ÙàR¿0ýÚ¿Î6¢¾&S*¿Î6¢¿ þ‘¿rÅ?rÅ¿Î6¢¾³'ç¿Î6¢¿rÅ¿}o²¾rÅ½ þ‘¿+¨Â¾+¨Â½õï¿úD¦¿ þ‘>0ýZ¿rÅ¿ß5ë¿ßèÀõï¿0ýZ¿Î6"¾ß5k¿6Ró>õïÀõï?õïÀrÅ½õïÀ}o²¾+¨B¿ÙàR¿0ýZ¿rÅ¿ˆc¾ÙàÒ¾   €wÀÎ6¢¿ˆc¾Î6¢¾n{¿+¨Â=\ß?6Ró¿}o²¿õï?ÙàÒ¾&Sª¿ˆã¾W¶Æ¿wš¿£(À
+Dï?+¨Â¿+¨B>Éá	¿ þ‘¿³ÚÀ}o²?‚ÄJ¿žÓ…¿ˆc>õïÀw?0ýZ¿+¨Â>rÅÀrÅ?ÙàR¿ïÖ¿ÙàR¿ÙàÒ¾ÙàR¿ß5k¿ˆã>Î6¢¿õïÀ}o²> þ‘¾6Ró¿ þ‘¾Ô‹º¿+¨B?‚ÄÊ¿6Rs¿6Ró¾ÙàÒ>n{¿ß5k¿}o2¿6Rs¿Î6">Î6¢¾Ô‹:¿\ß¿rÅ=ÙàR¿úD¦¿6Rs?ÙàR¿ þ¿ÙàÒ¿L(ÀÉá‰¿L–¿Éá‰¿}o²¾w¿ßèÀ}o²¾Î6¢¿ þ‘¾0ýÚ¿+¨Â=‚ÄJ¿+¨B¾6Ró¿³'ç¿n{¿W¶Æ¿L(À6@wš¿rÅ?+¨B>}o²>rÅ¿žÓ…¿Î6">Ô‹º¿žÓ…¿rÅ½&S*¿úD¦¿0ýÚ¿+¨Â=Î6¢¿0ýZ?£(ž¿rÅ½a`÷¿£(ž¿rÅ¿Éá‰¿0ýZ¿n{¿Î6¢¿žÓ…¿ÿ™¾¿rÅ¾®ÒÎ¿+¨Â>+¨B¾‚ÄJ?Î6">+¨Â¾+¨Â¾+¨Â½Î6¢¿+¨Â½ þ?ß5k¿0ýZ¿ þ‘¾ þ‘¿}o²>‚ÄÊ¿Éá	?nû¿rÅ¾wš¿wš¿rÅ¿ˆã¿+¨Â½®ÒÎ¿ßèÀ‚ÄJ¿ þ?wš¿Î6¢¿L–¿ÙàÒ>Î6">+¨B>ˆc>rÅ¿Éá	¿6Ró¿rÅ¾ßèÀ6Rs?nû¿Î6¢>+¨Â=&S*À þ¿    +¨B?+¨Â=+¨Â¿ þ‘¾ÙàÒ> þÀnû?6ÀÙàÒ¾ß5ë¿ÙàÒ¿žÓ…¿+¨Â= þ¿rÅ½}o2¿rÅ?}o²¾ä=$Àõï?0ýZ¿ þ‘¾wš¿rÅ¾rÅ>!Àˆc¾+¨Â¾}o²¾ þ‘¿ þ¿úD¦¿+¨Â> þ?+¨Â½;Z,ÀrÅ½W¶Æ¿Î6¢?+¨B¾&Sª¿+¨B¿Qa®¿ˆc¿&S*?rÅ>rÅ=+¨B¿Î6¢?žÓ…¿rÅ½Ô‹:¿ÙàR¿+¨Â¾ˆc¿wš¿ þ¿
+Dï¿&Sª¿W¶Æ¿Ô‹:?+¨B>ˆc¿rÅ¿Î6¢¿Éá	¿rÅ=+¨Â¿rÅ¿Î6">    w¿ÙàR¿ÙàÒ¾nû¿+¨Â¾ÿ™¾¿ þ¿\ß?n{¿‚ÄJ¿L–¿+¨Â¾Ô‹º¿   €wš¿rÅ?0ýZ¿ïÖ¿£(ž¿rÅ>ÙàÒ¾Î6"¾rÅ?nû¿&S*ÀÎ6¢¿+¨B¾Î6"?Éá	¿L–¿6Ró¾ß5ë?+¨B¿
+÷ÀrÅ¿žÓ…¿Qa®¿‚ÄJ¿£(ž¿ˆc>rÅ¾ÙàÒ¿Î6"¿‚ÄJ¿Î6¢¾}o²¿0ýÚ¿žÓ…?rÅ½ÙàR¿}o2¿n{¿}o²¾6Ró¿}o²>ÙàR¿£(ž¿   €Éá	?Ô‹º¿ˆã¾Qa®?6Àˆc?   €nû¿L(À+¨B¾ÙàÒ¾Qa®¿Î6¢>&S*ÀÎ6¢?6Ró¾‚ÄJ¿Î6¢¿rÅ= þ¿rÅ½}o²¾ˆã¾õï¿}o²¾Î6">‚ÄJ¿ þ‘¿ÙàÒ¿ÙàÒ¾&S*¿W¶Æ¿ÙàÒ¾+¨Â=rÅ¾rÅ¾Ô‹:¿ˆÌÀˆã¾L–¿wÀrÅ?a`÷¿rÅ=rÅ>‚ÄJ¿rÅ=+¨Â¿Ô‹:¿rÅ¾nû¿ÙàR?Qa®¿úD¦¿¨}¶¿rÅ>wš¿+¨B>‚ÄÊ¿Éá	¿\ß¿rÅ>ÙàR¿nû¿}o²¾&Sª¿wš¿6Rs¿ þ¿õï¿ÙàÒ¿+¨Â½ˆã¿õï¿rÅ¾ÙàÒ¾žÓ…¿w¿Ô‹º¿ þ? þ‘¾Éá	¿ˆc¾\ß¿£(ž¿£(ž¿ˆã¿rÅ¿rÅ¿rÅ¿£(ž¿ þ¿rÅ¾+¨Â¾}o2¿‚ÄÊ¿rÅ>+¨Â¾0ýZ¿¨}¶¿ÙàR¿w?+¨Â¿ þ‘>ÙàR¿+¨Â¾+¨B>+¨Â½‚ÄÊ¿rÅ?6À6Ró¾ïÖ¿Éá‰¿n{¿nû¿L–¿ÙàÒ¿Ô‹:?‚ÄJ¿6Ró¾®ÒÎ¿ÙàÒ¾
+Dï¿žÓ…?&Sª¿ˆc¾6Ró¿Éá	¿Î6">}o2?rÅ¿ÙàR¿£(ž¿ÙàÒ¾ÙàÒ¾ˆc?wÀ‚ÄÊ?!ÀÙàÒ¾}o2¿rÅ>Ô‹:À}o2?ß5ë¿Î6¢¿Éá‰¿Éá‰¿+¨B¾ þ¿¨}¶¿ þ‘¾Ô‹:¿ÙàÒ¿rÅ>ÿ™¾¿rÅ¿a`÷?úD¦¿rÅ=ïÖ¿rÅ¾Éá	¿¨}¶¿Qa®¿ þ?ˆã¾Î6"¿L–¿rÅ=n{¿³'ç¿}o2?ˆã>ß5ë¿rÅ½ÙàÒ¿Î6¢¿ þ¿Î6¢> þ‘>úD¦¿rÅ>L–¿Î6¢?£(ž¿n{¿Éá	?rÅ¿w¿0ýÚ¿\ß¿}o²¾rÅ¾}o²¾ß5k¿&S*¿}o²¿}o²¾Ô‹º¿rÅ>ˆã¿Î6"¿+¨Â¿}o²>žÓ…?ß5ë¿ þ‘¿Ô‹:¿Î6¢>¨}¶¿rÅ¾}o²¾+¨Â>ÙàR?Éá	¿ÙàÒ¾&S*?¹/ Àõï¿‚ÄJ¿Éá‰¿rÅ> þ?6Ró¾ÙàR¿ˆc¿+¨B¾ˆc¾¨}¶¿¨}¶¿¨}¶¿žÓ…?!À+¨Â½rÅ½LÀˆã¾žÓ…¿0ýZ?¸|ÿ¿Î6¢¾rÅ¿w? þ¿Î6¢¿6Ró?‚ÄJ¿rÅ¿Éá	¿³'ç¿+¨Â¾LÀˆc?Ô‹º¿+¨Â?ˆc¾}o²¿}o²¿+¨Â¾}o2¿‚ÄÊ¿žÓÀn{¿+¨Â?0ýZÀ£(ž¿ˆc¿Qa®¿Ô‹º¿rÅ¿rÅ>ˆc¿
+÷Àõï¿Î6¢¾ þ‘¾Î6¢¾nû¿rÅ?ÿ™¾¿ˆc¿6Ró¾!Àw¿}o²¾ÙàÒ¾}o²>L–¿6Ró¾ þ¿Î6¢¿+¨Â>úD&ÀÙàR¿rÅ¿&S*?6ÀßèÀrÅ¾6Ró¿6Rs¿Ô‹º¿Ô‹º¿Ô‹º¿0ýÚ¿ þ¿wš¿rÅ?ˆc¿žÓ…¿rÅ¿rÅ?L–¿ˆã>wš¿&S*¿0ýÚ¿£(ž¿6Ró>+¨Â¿Ô‹:?}o²¿‚ÄJ¿ þ‘¾ þ‘¿ÿ™¾¿}o²¾+¨B¾&S*¿0ýZ¿ˆc¿‚ÄJ¿£(ž¿ˆc¿\ß¿³'ç¿&S*¿ þ¿&S*¿ˆÌÀ&S*?ß5k¿+¨B¿ þ‘>rÅ>®ÒÎ¿žÓ…¿}o2¿ þ?&Sª¿}o²>6Ró¾ þ‘>rÅ>Éá‰¿+¨B¿    6Ró>Î6"¾rÅ?‚ÄJ¿ˆã¾ þ‘>ÙàR¿Ô‹:¿+¨Â=ß5ë¿}o²¾Î6">Î6¢>0ýÚ¿ÙàR¿žÓ…¿+¨B?¨}¶¿ˆc¾rÅ>rÅ¾ß5ë¿rÅ?rÅ½}o²> þ?rÅ½Éá	?Î6¢?ˆc>&S*?rÅ>úD¦?rÅ¾\ß?rÅ?+¨B?žÓ…?0ýÚ?+¨Â?+¨Â>}o²>rÅ>6Rs?     þ‘¾³Ú@ þ¿õï?rÅ?+¨Â?&S*?ÿ™¾?ˆã?rÅ½0ýZ?+¨B>+¨Â=w¿+¨Â>+¨Â>+¨B>¨}¶?Î6"¾n{?+¨B?rÅ>ß5k?0ýZ¿Éá	¿6Rs?}o²>rÅ>Î6¢? þ¿rÅ>rÅ?õï?rÅ>Î6">+¨B?}o2?rÅ½+¨Â?}o²¾+¨Â?ß5k?žÓ…?rÅ?&S*¿6Ró?rÅ>Î6¢?w¿rÅ?ˆc¿\ß?Î6¢¿L–?žÓ…? þ‘¾£(ž?ˆc¾rÅ>Î6">6Ró>rÅ>ˆã>+¨Â½ß5k?Î6"?žÓ…?rÅ?n{¿ˆc>rÅ=    rÅ½rÅ> þ‘>0ýZ?rÅ>nû?rÅ?wš?+¨Â½Éá	?Î6">ÙàR?   €ÙàÒ>ˆc>0ýZ?Éá	?+¨Â>õï?ˆã?+¨B>¨}¶¿‚ÄJ?rÅ½Î6¢¿rÅ½Éá	?rÅ?+¨Â½£(ž?Éá	? þ?0ýÚ?ˆc>ˆc>+¨Â¾}o²>rÅ¾}o2?Éá‰¿rÅ?Î6">rÅ?Éá‰? þ¿+¨Â?rÅ=rÅ½Î6"¿rÅ½Î6">6Rs?}o²¾rÅ>rÅ½rÅ?¨}¶? þ¿ÙàR?Î6"?    +¨Â½rÅ¾Î6">rÅ=rÅ?õï? þ¿6Ró>Î6¢?&S*¿Éá‰?rÅ¾rÅ>6Ró>ÙàR?    }o²>+¨B>Î6"?6Ró>ÿ™¾?Î6¢¾+¨Â= þ? þ‘>õï¿+¨Â?ß5k?rÅ½+¨B>ˆã¾õï@}o²¾Î6"¾6Ró¾w? þ?õï?rÅ¾ÙàÒ¾rÅ¾}o2?&Sª?rÅ?+¨Â=Î6¢>}o²>rÅ>Î6¢>+¨B>n{?Î6¢¾Î6¢? þ¿úD¦?‚ÄJ?ÙàR?}o2?ÙàR?0ýZ?Î6¢?+¨Â½Éá	?rÅ> þ?+¨Â?}o2?ˆc?}o²¾ þ‘¾Î6¢>Î6"¿ˆc¾+¨B>ÿ™¾¿Î6"¾ þ?žÓ…?&S*¿£(ž¿‚ÄÊ?Éá‰?+¨B¿ˆc¿‚ÄJ?+¨Â=¨}¶?Î6"¾žÓ…?rÅ>rÅ½}o2?ˆc¿Î6¢? þ‘>rÅ½rÅ¾rÅ=ÙàÒ>rÅ?Ô‹:?rÅ¾£(ž?ˆã> þ‘?+¨Â>ˆc>}o²>ˆc>¨}¶?ÙàÒ>0ýZ¿ˆc>}o²¾úD¦?rÅ? þ?wš?rÅ=L–¿õï?}o²>+¨Â½Ô‹:¿Î6"? þ‘?n{¿n{?ÙàR?&S*¿+¨B>Î6"¾6Ró¾ˆc?rÅ?+¨Â½}o2?ÙàR?ˆÌ@}o2¿Ô‹:?rÅ½Î6"?}o²?+¨Â>rÅ>&S*?wš¿Éá	?ˆc>rÅ½+¨Â>Î6¢>ÙàR?+¨Â> þ‘>ÿ™¾?ß5ë?rÅ?Î6"¾õï?ÙàR?+¨Â½ þ‘?rÅ>ˆã>Éá	?ˆc¿rÅ?}o2? þ?ÙàR?rÅ¾rÅ¾Qa®?+¨Â¾+¨Â?Éá	?rÅ=6Ró>‚ÄJ?+¨B¿n{?}o²>+¨Â>rÅ?ˆã¾ þ‘?+¨B¾ˆã>ÙàR?ß5k?³'ç?+¨B¾6Rs?}o²>rÅ¾ þ‘¾rÅ¾rÅ¾}o2¿Éá	¿W¶Æ?žÓ…¿L–¿Éá	?rÅ?Î6"¿¨}¶?n{?&S*?0ýZ?w¿ þ?ÿ™¾? þ‘>+¨B¾£(ž?0ýZ¿0ýZ?Î6"¿ þ‘¾õï¿Î6¢¾+¨B?ÙàR¿ þ?&S*?³'ç?rÅ=}o²¾rÅ>}o²>+¨B?}o2?Î6"¿ˆc>rÅ½Î6¢?Î6"¾6Ró¾&S*¿rÅ>rÅ?a`÷¿‚ÄÊ?Ô‹:¿Éá‰¿}o²>w?ˆã>ˆc¿³'ç?}o2?ß5k¿0ýZ?+¨Â½L–¿rÅ?ˆã¾ˆc?žÓ…?rÅ>ˆã>}o²¾6@ÙàÒ¾6Ró¾ þ‘>Î6¢?žÓ…?}o²¾Î6¢?6Ró¾ÙàR?ˆc?0ýZ?ˆc?rÅ¾ þ‘>ÙàÒ>Éá	?rÅ½Î6¢¿w?ÿ™¾¿ þ‘? þ‘?}o²>ˆc>+¨Â=&S*?ÙàÒ>rÅ½ þ?ß5k¿Î6"?£(ž? þ‘>rÅ>Î6"?}o²>Î6">0ýZ? þ‘?rÅ@6Ró>+¨Â>+¨Â½ˆc>ÙàR?Î6"¿&S*?+¨B>ß5k?}o²>rÅ¾w¿rÅ=}o²¾Î6¢?rÅ>0ýÚ?ˆc¾rÅ?rÅ=ÿ™¾?ˆã>n{?rÅ½a`÷? þ‘¾õï? þ‘¾Î6¢¾ÙàÒ>ÙàÒ>ÙàÒ¾0ýZ? þ‘?&S*¿ þ¿}o²?Î6¢>+¨B>Qa®?ˆc¾ˆc>+¨B¿ þ‘>rÅ>wš¿+¨Â=+¨Â¾³'ç?rÅ¿L–¿}o²¾úD¦?+¨B? þ‘¾}o²¾Éá	?rÅ=ÙàR?ß5ë?ˆã¾Î6¢¾+¨Â=‚ÄJ?6Rs?Î6¢>rÅ?ˆã¾w?Î6¢¾ÙàÒ¿L–?+¨Â= þ?6Ró¾+¨Â>ˆã>Éá‰?ß5k¿ þ‘>rÅ¾Qa®?}o²>+¨Â=}o²>ˆc>+¨B¾Î6"?Éá	¿+¨B¿ÿ™¾?rÅ½ˆc> þ¿ þ‘¾6Ró>ˆã¾+¨Â½6Rs?6Rs?rÅ¾ß5k¿rÅ>&Sª?rÅ?Éá	?nû?rÅ=rÅ?rÅ>6Ró>}o²>+¨B¿rÅ?wš?Î6¢>rÅ½+¨Â=wš?ÙàÒ> þ¿+¨B>+¨B?ˆc¿6Rs? þ?+¨Â>6Rs? þ¿rÅ>rÅ=nû?ˆã¿ þ?Éá‰?+¨Â= þ‘> þ¿ˆã>&Sª?rÅ¿&S*¿}o²>rÅ½+¨Â¾rÅ¾
+Dï?+¨B¾ÙàÒ>ˆã>Î6"¿}o²>+¨Â=‚ÄJ¿Ô‹:¿}o²?Î6"¿Î6"¿Î6"?+¨Â?‚ÄJ?rÅ¿ˆc¾ þ?}o²>+¨Â=Ô‹:?+¨B¾žÓ…?rÅ=Î6"¿n{?rÅ¾³Ú@ þ?+¨Â> þ?    6Ró>}o²>+¨B>žÓ…¿‚ÄJ?rÅ¾nû?Î6"¾ þ‘¾L–?Î6¢>&S*?rÅ¾n{?Î6¢?6Rs?}o²¾ þ¿žÓ…? þ‘>rÅ¾rÅ=rÅ= þ‘?žÓ…¿rÅ>ÙàÒ¾Ô‹:?Î6¢¾‚ÄJ?‚ÄJ?Î6¢¾L–¿úD¦?rÅ¾+¨Â½}o²>Ô‹:?Î6¢?&S*? þ?Î6"¿Î6">&Sª?rÅ=Î6"¾   €6Ró>+¨Â=+¨Â½ˆc?Î6¢>Î6¢?ÙàR¿rÅ>}o²?Éá	?ÙàÒ>rÅ½ þ‘>rÅ>}o²? þ?6Ró¾rÅ=žÓ…?rÅ>L–¿}o2?‚ÄJ?+¨B¿6Rs?ß5k?}o²¾£(ž?ÿ™¾?\ß¿ÙàR?žÓ…?žÓ…?Î6">L–?}o2¿+¨Â>+¨B¾rÅ=Éá	?}o2?ÙàÒ>+¨B?ÙàÒ¾}o²>6Ró¾ˆã>}o²>rÅ?ˆc>+¨Â½+¨B¿Ô‹:¿Ô‹º?wš?}o²>rÅ½rÅ?Î6¢>rÅ=rÅ>rÅ½}o²>rÅ½£(ž? þ‘>®ÒÎ?0ýZ¿žÓ…? þ?rÅ=rÅ?+¨B>n{?}o²> þ‘?}o²>}o²>n{?rÅ=&Sª?ˆc¿ þ‘?ˆc>£(ž¿+¨Â¾0ýZ?úD¦¿w?Î6¢¾+¨Â?rÅ>+¨Â½Éá	?&S*¿&Sª?}o2¿Î6"?w? þ¿ˆc> þ? þ?rÅ¿£(ž?ß5k?õï?Ô‹:¿rÅ=ˆã>w?Î6"?Î6¢?}o2¿ˆc>Ô‹:?ÙàR¿ˆã>Î6"¾rÅ½Î6¢>Ô‹:?}o²>Î6"¾Î6¢¾žÓ…?rÅ½rÅ>ˆc¾ˆc¾W¶Æ? þ‘>rÅ>0ýZ?ˆc?rÅ¾n{?ÙàR?Î6"¾ˆc>+¨Â½}o2?ˆc¾ÙàÒ¾ÙàÒ>}o²>úD¦? þ?}o²>ÙàR?+¨Â¿+¨Â>rÅ=+¨Â?£(ž¿rÅ¾}o²> þ‘?+¨Â=ÙàÒ>6Rs?rÅ½ˆã¾ þ‘¾žÓ…?}o²¾ÙàÒ>+¨B¿ÙàÒ¾6Ró¾®ÒÎ¿6Rs?ÙàÒ>rÅ½+¨B¾rÅ>‚ÄJ¿rÅ=rÅ?+¨Â>+¨B>0ýZ?rÅ½rÅ¿ˆã¾Î6¢?ÙàÒ¾6Ró?rÅ>¨}¶? þ¿6Ró¾ßè@rÅ=rÅ>+¨B?ß5k?rÅ½ˆc¾ þ‘?n{?ÙàÒ>L–¿ˆc¾Éá	?ÙàR¿rÅ¿6Ró?rÅ¿žÓ…?Î6¢¾+¨Â>Î6">ˆã>rÅ?rÅ¿úD¦?rÅ?ˆã¾ þ‘>6Ró>rÅ?ˆc>Î6"¾ˆc>žÓ…?&S*¿Éá	¿ þ‘>+¨B?&Sª?6Ró>ïÖ?+¨Â=¨}¶?ÙàR¿W¶Æ?rÅ½6Ró>wš?Éá	?ˆc?Î6¢¾rÅ¾rÅ½ˆc>ÿ™¾?rÅ>‚ÄJ?+¨Â¾rÅ>}o²>}o2?£(ž?+¨B>¨}¶?rÅ=\ß?Éá	?+¨Â>ß5k? þ‘¾
+Dï?Î6">ÙàR¿n{¿Qa®?rÅ>rÅ½n{?ˆc¿ˆc?rÅ¾®ÒÎ? þ‘>rÅ=6Rs¿+¨B?6Ró>Î6¢?Ô‹º¿ß5k?+¨Â½Éá‰?+¨Â>ˆc¿}o²>+¨Â>ˆã?&Sª?Î6"¾a`÷?ß5k?}o²>+¨Â?+¨B?+¨Â¾rÅ=Î6¢¾úD¦? þ‘¾ÙàÒ¾ þ?Éá	¿6Rs¿ÙàÒ? þ?n{?ß5ë¿Î6">Î6">rÅ¾Éá	¿rÅ=úD¦¿&S*?}o²¾rÅ¿ þ¿rÅ=&S*¿ÙàÒ¾rÅ¿rÅ=}o²¾rÅ½Î6¢>}o2?rÅ?Î6¢>ÙàÒ¾rÅ>rÅ=Éá	¿‚ÄJ?&S*¿}o²>Î6¢¿+¨Â½&S*?*¼€  B,/model_G2_mem_input_act_dequant/Mul_output_0J€€ð-K?5•©>5•©>ÛûŸ>÷“Ù=ü?ð-K?xa>?ÇL=_ùÿ<'É>5•©>b–>ÇÌ<ÇL=b¦=c/“>úÏ>ÒúG?ÇÌ<ˆÈ$?ç,s>ð-K?_ù=.3=qû¯>Eü?Ÿ•™=½Èœ>.³=j•!?÷“Y>»-S>o`f=\É?´ÇD?_ùÿ>¶b?­a6?û¿>ÇÌ>xa>?	–‰>_ùÿ<o`æ>Ô•?zü?.3?éÇ<?ÇÌ>ù.#?_ù=Q-ã>ù.#?ˆÈ$?ÇÌ<û??»-Ó>Q-ã>÷“Ù>úÏ>b&>û??ëb?ç,ó=û¿=Ûû?­a6?ç,ó>û??éÇ¼>#“y>òÈ?ÇÌ>o`æ>ÇÜ>.3?b?½È?Q-ã>Eü>ç,ó=.³>.3=.3>Ÿ•™>.3?    ù.#?Ûû>_ùÿ<ëb>ëb>a”I? •1?ÒúG?Ë”9>Ÿ•™<½Èœ><û7?./?b¦=c/“>»-Ó>a”I?_ùÿ=Ä.+?ù.#?û?>ÇÌ=b&>5•)?ÇL<Ä.+?´ÇD?ÇÌ<SÈ¬>Ä.+?Ÿ•™>Ô•?a”É>3ú_>qû/?«Æì>qû¯>	–	?û?>b¦>b&>SÈ,>SÈ,>û¿>÷“Ù=­a¶>'ÉŒ>ù.£>÷“Y>Ûû>´ÇD?¶b?éÇ<?û¿> •1?úÏ>»-Ó>_ùÿ<	–	?Lb?½Èœ>.3=ç,ó=SÈ,?Eü>Ÿ•?ç,ó>xa>?CaÆ>AÆü>ç,ó=ëb>.3?'É>»-Ó>Ÿ•™<_ù>.³>ˆÈ$?b&?	–	?½Èœ>c/?_ùÿ>zü?“é>û¿>CaF?âa.?û¿>ÇÌ;AÆü>Éùï>b?ÇÌ<ç,ó>éÇ<?o`æ>ÇL>÷“Y>\É?c/?û¿=–”A?CaF>#“ù>¦û'?÷“Ù=âa.?ÇÌ>'ÉŒ>c/><û7?j•!?ÛûŸ>_ùÿ>>–?b¦=–”A?ÇL='É?c/?a”É>CaF>_ù=5•)?û¿>o`f>ëb†>Q-ã>­a6?.3=o`æ>.3='ÉŒ=Ûû> •1?b¦>o`æ>¶b?“é>'É?CaF>>–?­a6?ÇL<Lb?½Èœ>j•!?½Èœ>_ùÿ>û¿=b–>÷“Y>û¿=>–?CaF?ÇÌ=ð-K?Q-ã>Ÿ•™<c/“>5•)?_ù=SÈ¬>CaF?'ÉŒ>ù.#?ù.£>qû¯>.3>.3?ÇL='É>.3=o`æ>Ûû>%.C?Ô•?¦û'?Q-ã>Ë”9?û?>	–‰>éÇ<?Eü?Ÿ•>CaÆ>Ô•?Éùï>ð-K?«Æl>ÇÌ;Ûû?ÇÜ>Ÿ•™=û¿>Ÿ•=ù.#?%.C?_ùÿ>ð-K?b&>5•©>Éùï>%.Ã>Ë”9?­a6?Ÿ•™>_ùÿ<`ö>b&?o`æ>Í/ƒ>Í/?ÇÌ<Z.;?“é>a”I?xa>?j•!?Í/ƒ>CaF>÷“Ù>CaF?qû¯> •1?­a¶>¶b?Ë”9>»-Ó>xa>?Ÿ•™=»-S>5•©>ÇÌ<o`f=úÏ>.³>5•)?­a¶>âa.?Ûû?­a6?ù.£>o`æ>ÇL=j•!?Ô•?`ö>ÛûŸ>%.C?'ÉŒ=½È?û??	–	?Ë”9?Ûû>–”A? •1?«Æl>xa>?3ú_>_ù=CaF?ëb?Ûû?_ùÿ>“é>zü?'É?ëb>5•)?÷“Ù>c/?ÇL=Ÿ•>3ú_>Ÿ•™=­a6?«Æì>÷“Ù=Ÿ•>½Èœ>éÇ<?ç,s>%.C?Lb?o`æ=Ÿ•=Í/?SÈ,?ù.£>ÇL='É?	–‰>÷“Y>ÇÜ>.3?Ÿ•=#“ù>%.Ã>_ùÿ=éÇ<?SÈ¬>ÒúG?o`æ=÷“Ù>b–>`ö>ÇL<\É?û?>Ûû?o`f>a”É>.³=c/>b?–”A?Z.;?'ÉŒ=	–‰>SÈ,?¶b?Ûû?%.C?c/“>	–‰>ÇÜ>Ÿ•=ÛûŸ>ÒúG?éÇ¼>Í/ƒ>#“y>ù.£>ÇÌ>ÇL=È4?ÇL<»-S>Ÿ•™=SÈ,>\É?Ÿ•>#“y>ç,ó=%.Ã>–”A?Ô•?ˆÈ$?b¦=ëb†>òÈ?Ë”¹>­a6?ç,ó=Ÿ•™<.³=ÇL>âa.?ëb†>»-S>CaÆ>Lb?    ½Èœ>_ù>c/>Eü>Ë”¹>.3=­a6?ëb?»-Ó>ÇÌ>«Æì>´ÇD?ç,ó>»-Ó>CaÆ>ëb>ÇÌ;b¦>Ÿ•=Eü?.3>o`æ>Ô•?Ë”9>ÛûŸ>Ÿ•™=ù.£>Ë”9?¶b?SÈ,?Ë”9>.3=3ú_>«Æl>ù.#?CaF>¦û'?û¿=Í/?“é>Ä.+?5•)?û¿=–”A?_ùÿ>a”I?Ô•?o`f=_ùÿ>%.Ã>ü?#“y>a”É>b¦=5•©>û?>\É?b¦=úÏ>o`æ>»-Ó>a”I?o`f=âa.?    «Æl>3ú_>CaF>zü?ç,s>Eü><û7?\É?\É?c/“>Í/?o`f>_ùÿ>o`f=ÇL=½È?Lb?b&?÷“Y>SÈ¬>Ûû>.3>ÇÌ>b¦>ù.#?<û7?<û7?'ÉŒ>úÏ>Í/ƒ>ç,ó>Ÿ•™<b¦>Ë”¹>#“ù>./?Ë”¹>÷“Y>–”A?ÛûŸ>b¦>SÈ,>b?Ûû?Lb?“é>_ùÿ=´ÇD?Ä.+?b&?c/?«Æì>½È?Ÿ•™>ÇÌ;a”É>ÇÌ=<û7?ÇL=#“y>>–?c/?ð-K?Ë”9?Éùï><û7?Ù`Ö>3ú_>úÏ>“é>úÏ>%.Ã>b&>¶b?'É?Ÿ•?_ù>_ùÿ>5•)?÷“Y>Eü>Ûû?.3>Éùï>½Èœ>ëb†>Ÿ•™<	–	?»-Ó>o`f=SÈ¬>ÇÜ>ç,ó>Ÿ•™=Ë”¹>.3?Ÿ•=ç,ó=b&?ç,s>»-S>Ÿ•>>–?3úß>úÏ>ëb?\É?Ûû>Ù`Ö>ÇÌ;b¦=Ÿ•?3úß>c/>Ë”9>âa.?_ù=Ûû>È4?b¦=SÈ,>j•!?û¿=_ùÿ>­a6?o`æ>û?>'É>_ùÿ<½È?CaÆ>a”É>Ûû>û¿=b¦>\É?b&? •1?Ë”¹>ÇÌ;âa.?#“y>3úß>b¦>.3>ëb†>5•©>b¦=Ûû>.³>	–	?ð-K?¦û'?Ä.+?%.Ã>#“ù>ëb†>ëb>È4?b?xa>?Ÿ•?b&>Ÿ•=ð-K?o`æ=c/“>Ë”9>'É?Ä.+?qû¯>«Æì>%.Ã>÷“Y>a”I?b?b–>ëb>»-S>b–>–”A?«Æl>o`æ>ù.#?ÇÌ>b?»-S>úÏ>3úß>ù.#?Z.;?'É>½Èœ>Ûû>%.C?éÇ<?È4?	–	?Eü>zü?'ÉŒ=a”É>SÈ,>.³=    ¶b?âa.?Eü>ÇÌ<#“y>Eü?%.C?½È?_ù>´ÇD?Ûû?÷“Ù>Ä.+?Ÿ•>o`æ>3úß>a”É>SÈ,?Lb?AÆü>\É?ëb>.3?ÇÌ>÷“Y>>–?#“y>3úß>ÇÜ>“é>¦û'?¦û'?<û7?÷“Ù=qû¯>Ÿ•™>ëb†>ÇÌ;Ä.+?a”É>Z.;?CaF?	–	?'ÉŒ>–”A?ù.#?j•!?b¦>#“ù>Ÿ•™=Z.;?xa>?.³>%.Ã>%.Ã>zü?»-Ó>_ù=­a¶>Í/ƒ>ˆÈ$?ëb>.³=<û7?Ÿ•™=b?5•©>ÇÌ<_ùÿ<»-Ó>éÇ¼>¶b?Éùï>ÇL>xa>?û¿>`ö>#“y>½Èœ>.3>b&>÷“Ù=b?j•!?Eü?ÇÌ;÷“Ù>ÇÌ<ç,s>»-Ó>Lb?#“y>j•!?˜/?úÏ>ð-K?Ÿ•™>#“ù>«Æl>»-Ó>ëb?    âa.?b?#“y>c/>3ú_>Eü?ÇÌ;÷“Y>_ùÿ=–”A?Lb?ÇÌ;_ù=»-S>­a6? •1?Lb?Í/?.³=5•©>û??b&>c/“>Ä.+?Ÿ•™>.3>'É>SÈ,>_ùÿ<­a¶>CaÆ>¦û'?ÇL>c/“>ç,ó=ð-K?úÏ>Ÿ•™<òÈ?Lb?Ä.+?ð-K?ù.£>#“ù>È4?ç,ó>.³>“é>	–‰>.3?¶b?b&?	–	?zü?o`æ>÷“Y>CaÆ>¶b?Ûû>ð-K?­a6?Ûû>o`æ=_ùÿ>÷“Ù=Ô•?¦û'?c/?÷“Ù>CaF>.3=\É? •1?CaÆ>%.Ã>ç,s>ÇÜ>_ù>Ÿ•™=ÇÜ>Í/ƒ>û?>_ù=Eü>3úß>b¦=«Æì>'ÉŒ>Ô•?Ô•?ù.£>Ÿ•™<½Èœ>'ÉŒ=3úß>ÇÌ<b¦=j•!?ÇL>_ùÿ>Z.;?.³=Ÿ•=û¿=b?%.C?#“ù>÷“Ù=Ë”9>«Æl>ÇL<¶b?.3?Z.;?Ÿ•='É?b¦>Ÿ•™<b&?Lb?û¿>÷“Ù>c/>ù.#?'ÉŒ>ÇÌ>Z.;?b&>ÒúG?Ÿ•?Ûû>ëb>_ù=ˆÈ$?»-Ó>qû¯>È4?ù.£>¶b?Éùï>éÇ¼>Ë”9>ëb>Ÿ•=­a6?%.C?ð-K?ü?½Èœ>b&>ÇÌ;#“y>_ùÿ=c/“>ç,ó=o`æ=CaÆ>ç,ó=Q-ã>CaÆ>Z.;?Lb?c/?ëb>`ö>.3>ù.#?´ÇD?.³=xa>?Ûû>«Æl>.3>zü?ÇL=Ûû>«Æì>»-S><û7?Ë”¹>¶b?Ô•?c/>Z.;?5•)?˜/?_ùÿ<a”I?'É>Z.;?´ÇD?a”É>c/?ÇÌ=Ä.+?ÇÜ>`ö>qû¯>âa.?b¦=Éùï>Ô•?ˆÈ$?Ë”9>3úß>\É?ÇL>»-S>o`æ>»-S>ð-K?_ùÿ>	–‰>AÆü>«Æl>éÇ¼>>–?¶b?Éùï>ÇÌ>«Æl>.3=.3?½Èœ>ÇL< •1?Ë”9?½Èœ>úÏ>_ùÿ=¦û'?'ÉŒ=.3?	–	?éÇ<?CaF>û¿>ÇÌ>'É?>–?#“ù>ð-K?_ùÿ>b&>»-S>Ûû?CaF?_ùÿ<Ÿ•™=b¦=­a6?Ûû>Ûû?#“y>ù.#?%.Ã>'ÉŒ>âa.?a”I?ç,s>qû/?Ÿ•™=û¿=úÏ>éÇ<?Ù`Ö>.3?ù.#?b&?	–	?ÇL<û¿='ÉŒ=AÆü>«Æì>“é>ÇÌ<>–?b&>ÇL<AÆü>%.Ã>ÇÌ=úÏ>c/?Ÿ•™<CaÆ>Ë”9?xa>?ç,s>_ù>û?>û¿=»-S>5•)?âa.?	–‰>o`æ>b&>SÈ¬>¦û'?b&?5•©>b¦=CaÆ>»-S>AÆü>%.C?»-Ó>b¦>qû¯>CaÆ>AÆü>a”É>Ÿ•=´ÇD?SÈ,>ð-K?û¿>û¿>ü?o`f>úÏ>_ù>ç,ó=b&? •1?òÈ?ð-K?Ÿ•?éÇ<?½Èœ>.3?_ùÿ>ÇÌ>.3?.³=CaÆ>3ú_>ð-K?.³>˜/?âa.?./?#“y>»-Ó>b&?«Æl>ÇÜ>ÇÌ=#“ù>SÈ,?÷“Ù>«Æì>éÇ<?»-Ó>#“y>È4?o`æ=b?5•)?a”É>ÇÌ;òÈ?¦û'?­a¶>Ä.+?¶b?#“ù>´ÇD?»-S>«Æì>ÇÌ=û??ëb?–”A?b¦=û??b&?û??o`f>Ÿ•™=5•©><û7?ð-K?Ë”¹>Q-ã>Ë”¹>éÇ¼>Éùï>b?½Èœ>û¿=CaÆ>Lb?Ÿ•™=CaF?˜/?b?ü?SÈ,?û??o`f>>–?ù.#?ÇÌ;j•!?Ÿ•™<'É>b&>_ùÿ=o`æ=ù.#?o`f=»-S>ÇÌ<#“y>ÇÌ>	–	?CaF>Éùï>ü?Ë”9?b¦>ëb>ˆÈ$?Í/ƒ>Ÿ•™<_ù>SÈ¬>#“ù>È4?¦û'?«Æl>Ë”9?'É?>–?÷“Ù=5•©>˜/?Eü>Ô•?b?ç,ó=Ë”9?Q-ã>û¿>éÇ¼>éÇ¼>­a¶>	–‰>“é>b–>Ë”9?ëb†>_ùÿ<ð-K?ù.#?o`æ=<û7?ÇL=ÇL>CaF>Éùï>>–?ç,s>ëb†>û?>È4?ü?3úß>Ù`Ö>÷“Ù>½Èœ>3ú_>%.C?#“y>Ûû>Ë”¹>ëb?o`f=Í/?%.Ã>÷“Y>o`æ>3úß>ÇL<b?'É?SÈ,>ëb?û?>.3?3ú_>˜/?zü?û¿>Ë”9>b?>–?÷“Y>qû¯>Eü?_ù=“é>#“ù>ÇÌ;“é>.³=.3=û??./?qû/?–”A?û?>«Æl>ÇÌ>Eü?Q-ã>Ë”¹>ð-K?»-S>òÈ?Eü?»-S>Ûû?SÈ,?ù.£>ëb>ˆÈ$?.3?'É?o`æ>ü?ëb?'ÉŒ>÷“Ù=o`f>˜/?ç,s>'É?CaF>ÇÌ=âa.?Ÿ•>ëb?éÇ<?÷“Ù>b&?b–>o`f=»-S>'ÉŒ>SÈ,>b&>c/?´ÇD?¦û'?	–	?b¦=5•©>'É?û??»-S>ù.#?j•!?ÛûŸ>_ùÿ<b?./?b¦=­a6?û¿>ÇÌ=3úß>Ûû?»-Ó>.³=û?>ù.#?Ô•?¦û'?'É?¦û'?ÛûŸ>b?Í/?Éùï>–”A?#“y>È4?#“y><û7?5•©>.3?	–‰>ÇÜ>û??Ë”¹>éÇ¼>«Æl>qû/?½È?ÛûŸ>b–>–”A?ˆÈ$?Ë”9?û?>_ù>'É>÷“Ù=­a¶>%.Ã>ÇL>'ÉŒ>ÇÜ>ù.£>û¿=Z.;?	–‰>Éùï>ü?_ùÿ<.³>û¿=û??3ú_>SÈ,?÷“Ù>«Æl>Eü?b¦=Í/ƒ>.³>a”I?ÇL='É?ð-K?ÛûŸ>û?>'É>ù.£>Ë”9?c/>ÒúG?.³=Z.;?÷“Ù>c/“>Ÿ•™=ÇL>Ÿ•>ÇL=	–‰> •1?.3=­a6?>–?Ûû?­a¶>÷“Y>òÈ? •1?Í/?ü?ð-K?ç,ó>ÇL>½È?Ë”9>éÇ<?«Æì>òÈ?«Æì>éÇ<?½È?SÈ,?÷“Y>Éùï>SÈ,?âa.?	–‰>.3?Ÿ•=È4?ç,s>_ùÿ=éÇ<?a”É>#“y>½È?qû/?o`æ>o`æ=3ú_>Ë”9>˜/?ÇÌ<û?>ÇL<a”É>%.C?zü?Q-ã>b?c/>ÛûŸ>­a6?_ù=ÇÌ;	–‰>.3=ÛûŸ>5•)?a”É>>–?“é>_ùÿ=ÇL>Q-ã>û??÷“Ù=5•)?Ûû>o`f=ç,ó>qû/?«Æì>ˆÈ$?ÇÜ>qû¯>AÆü>_ùÿ>b–>AÆü>÷“Ù>Ÿ•= •1?ÇÌ<zü?.³=b¦>òÈ?˜/?È4?_ù>ëb?òÈ?_ùÿ<SÈ,>./?Éùï>5•©>b–>¶b?âa.? •1?Ûû?Í/?.³=j•!?o`f>j•!?ç,ó=zü?CaÆ>qû/?Q-ã>Ÿ•?ÇÌ<\É?ÇÌ;_ùÿ<    o`æ=«Æl>>–?o`æ>Eü>'É?_ùÿ<%.C?û?>«Æl>»-Ó>#“y>'É?Ë”¹>ü?SÈ¬>#“y>“é>'É?Lb?ÇÌ>b&?û?>b–>    ÇÌ=o`f=_ùÿ=zü?SÈ,>ÇL<ÇÌ<'ÉŒ=Í/?Í/ƒ>»-Ó>Eü?Ë”9?Ûû>qû/?òÈ?ÇÌ>_ù>\É?»-Ó>˜/?'ÉŒ=ç,s>.³>ÇL<o`æ=Í/?_ùÿ<j•!?´ÇD?a”É>b¦>­a¶>	–‰>ÒúG?.3>ÇÌ=«Æl>­a¶>SÈ,>Ÿ•™>'ÉŒ>Z.;?o`f>3úß>%.Ã>­a¶>÷“Ù='É?¦û'?a”É>½Èœ>˜/?»-Ó>.³>Í/?./?b?û?>_ùÿ>«Æl>`ö>Í/ƒ>a”É>>–?CaÆ>_ù=o`æ='ÉŒ>Ûû>ÇÌ<û¿=«Æl>Ÿ•>ü?Ô•?ÇL<û¿>Ë”¹>úÏ>Ÿ•?ç,s>ð-K?Lb?ÇL<Éùï>b?û¿>\É?éÇ¼>./?ç,ó=o`æ>ÒúG?ù.#?Ÿ•™<./?o`æ>Eü>¦û'?b&?½È?'É>o`æ=“é>éÇ<?CaF>SÈ,?úÏ>ÛûŸ>.3>ù.#?˜/?ÇL=âa.?ç,s>.3=ÇÜ>­a6?–”A?Ë”9>>–?'É?./?ç,ó=.3=Ûû>.³>û?>Ä.+?ÇÌ<¦û'?b–>.3?Ÿ•™<Ë”¹>ëb>ÇÌ;Eü?û??Í/ƒ>ëb†>3ú_>.3=qû/?úÏ>éÇ¼>c/?CaÆ>Eü>Ÿ•™=_ù>Lb?Eü?ü?'É>ÇL<5•©>.3=ç,ó>b?òÈ?.³=#“ù>ˆÈ$?Ÿ•™>CaF?Ûû?_ùÿ=AÆü>éÇ<?	–‰>	–	?Q-ã>¶b?.³>û¿=o`æ>./?'ÉŒ>˜/?úÏ>CaF>c/>CaF>5•)?ÇÜ>Ô•?#“ù>CaF>úÏ>a”É>zü?Ÿ•=3ú_>b&?.3=Éùï>Lb?Ô•?Eü?	–	?÷“Y>“é>ü?o`æ=Z.;?ÇL>ÇÌ>qû¯>a”É>ð-K?ÇÌ><û7?÷“Ù=SÈ¬>ÇL<.3><û7?.3>ù.#?ÇL>Z.;?Ë”¹>½Èœ>CaF?SÈ¬>qû/?ç,ó>.3?	–‰>éÇ¼>#“y>.3>ÇL=.³>ð-K?“é>˜/?ÛûŸ>­a¶>âa.?.3=CaÆ>.³=.3> •1?./?SÈ,>Eü?ˆÈ$?SÈ,>òÈ?'ÉŒ=b¦>«Æì>éÇ¼>o`f>_ùÿ=Ÿ•™>Ë”9>ëb>Í/?ëb?b¦=ç,s>SÈ,>o`f>3úß>b&>a”I?\É?¶b?Í/?'É>a”É>o`f=Ë”9>Ô•?.³=û??Ô•?÷“Ù>»-Ó>ëb†>Éùï>Eü?ç,s>»-S>Ÿ•™>«Æl>.³=û¿=ëb†>Ä.+?Ä.+?«Æl>ÒúG?ÇL>Ù`Ö>CaF?#“ù>ÇL>#“ù>_ù=zü?.³=.3?'ÉŒ>%.Ã>b¦>_ùÿ<xa>?Ûû?qû/?%.C?a”I?%.C?Ô•?\É?ÇÌ<Í/?»-Ó>.³>o`æ>Eü>CaF?­a¶>ÇÌ<AÆü>%.C?Ûû>.³>­a¶>ÇÌ<	–	?'É>b–>	–‰>j•!?Ÿ•=#“ù>b&?c/?ÇL>`ö>	–	?xa>?'É?÷“Ù>Ûû>Ô•?«Æì>Z.;?%.C?¦û'?o`æ>Ûû>ÒúG?b¦=éÇ¼>«Æl>¦û'?Z.;?ëb>	–	?<û7?_ùÿ=÷“Y>'ÉŒ=ëb†>3ú_>âa.?Q-ã>÷“Y>÷“Ù=ç,ó>ç,ó>û?>_ùÿ>_ùÿ=ÇL<b&>Ÿ•=¦û'?ÒúG?Z.;?CaF>a”É>.3>Í/ƒ>Í/?éÇ<?	–	?o`æ>ù.£>Ô•?.³>'ÉŒ=ÇÜ>éÇ<?âa.?éÇ¼>c/>#“y>CaÆ>ç,s>3ú_>j•!?Ÿ•=­a¶>­a6?	–	?Ë”¹>.3?SÈ,>3úß>ð-K?»-Ó>_ùÿ<ÇÌ=ÇL=û?>zü?÷“Y>Ù`Ö>ÇÌ;b¦>¶b?Ô•?éÇ<?b?ÇÌ=ˆÈ$?o`æ=5•©>./?Ë”9?“é>Eü?Ûû?ð-K?.3?_ù>ëb?Ÿ•=b–>zü?j•!?b&?Q-ã>SÈ¬>qû/?.3?_ù>“é>5•©>ü?'É>Ûû>b¦>Z.;?`ö>zü?'É?ÒúG?»-S>û¿>Eü?3úß>Z.;?.3=ù.£>'É>AÆü>Ô•?SÈ,>û??Q-ã>_ùÿ<ÇL<zü?_ùÿ>c/>˜/?5•)?.3?qû¯>	–‰>˜/?.3>Ÿ•=½Èœ>o`æ>\É?­a6?qû¯>Ÿ•>úÏ>Í/?CaF?Ä.+?Ÿ•=`ö>Lb?ëb†>b?éÇ¼>ç,s>«Æl>j•!?Z.;?û??«Æì>CaÆ>ˆÈ$?<û7?éÇ¼>c/“>Ÿ•>c/?ÇL=˜/?_ù=CaF?Ÿ•™<b&>qû¯>b–>SÈ¬>Ë”9>SÈ¬>ëb>ÇL<Ÿ•™<<û7?_ùÿ>%.C?o`æ>	–‰>qû¯>Ÿ•™<%.C?5•)?o`f>>–?¦û'?÷“Y>Ûû>'É>ÇÌ;ð-K?úÏ>qû¯>3úß>ÇÌ=È4?ÇL<­a6?Ÿ•>c/?ÇÌ>ÇL<Z.;?ù.#?>–?b?ÇÌ<_ùÿ>¶b?5•)?ÇÌ;a”É>È4?÷“Ù=c/>%.C?#“ù>ù.£>Ë”9>«Æì>“é>Ë”9?ù.£>Ô•?./?zü?'É>˜/?SÈ¬>ëb>Í/ƒ>b–>b¦>éÇ¼><û7?b?zü?ü?xa>?_ùÿ=b¦>ÇÌ=ÇL>Ô•?Z.;?	–	?½Èœ>÷“Y>ëb>AÆü>b¦=<û7?%.Ã>Q-ã>CaF>«Æl>zü?ç,ó>Ÿ•?5•)?ëb>%.C?÷“Ù>'ÉŒ=Ûû?.3>È4?»-S>o`f>Ô•?ÒúG?÷“Ù=Ô•?b¦=Z.;?CaÆ>Ûû?Ûû>\É?Ë”9?Lb?SÈ,?âa.?½Èœ>'ÉŒ=o`æ>û¿=ÇL<Ô•?qû/?#“ù>o`f=ÇÜ> •1?o`æ>b¦=ù.£>_ùÿ=÷“Ù>»-S>Ÿ•™<>–?b–>_ùÿ<–”A?c/“>o`f=	–	?Z.;?»-S>_ù=­a¶>a”I?ð-K?¶b?½Èœ>ˆÈ$?÷“Ù>o`æ>`ö>÷“Y>«Æl>û?>'ÉŒ>ç,ó>Ù`Ö>#“ù>û??ÇÜ>Ûû?SÈ¬>÷“Ù=ü?a”I?ù.#?÷“Ù>b¦>ÇL=È4?qû/?`ö>éÇ¼>òÈ?Ÿ•>¦û'?Ÿ•™=ð-K?ÇL>CaF>Q-ã>Eü>>–?Ûû>'ÉŒ>»-Ó>'ÉŒ>b–>ÇÌ>#“ù>½È?j•!?j•!?÷“Y>'É>Í/ƒ>.3=b¦=Ÿ•?Ûû>CaÆ>Ûû?<û7?ëb?ù.£>c/“>qû/?ç,s>Ûû?./?3ú_>ÇÌ>˜/?.³=½È?Ÿ•?ÇL=–”A?´ÇD?j•!?òÈ?Ä.+?÷“Ù>ÇÜ>ÇÌ>ÇL=5•©>ù.#?CaÆ>ÇÌ;zü?\É?'É?¶b?òÈ?½È?zü?Ë”9>3ú_>qû/?Ô•?­a¶>SÈ,?b–>Í/ƒ>'ÉŒ><û7?ëb>˜/?CaÆ>c/“>_ù=b&?'É?ù.#?<û7?.³=j•!?ç,ó>c/“>_ù=qû/?Q-ã>b&?b–>a”É>È4?ëb†>	–‰>Ÿ•™>ç,ó=5•)?Ù`Ö>“é>ù.#?'ÉŒ=_ù=o`f=\É?c/“>qû/?5•)?Ÿ•>o`æ>ëb>'É?3úß>ç,ó>«Æì>ÇÌ>_ù=éÇ¼>òÈ?Ë”9>a”I?ÇÜ>c/“>%.Ã>÷“Y>÷“Ù>ÛûŸ>qû¯>%.C?b&?CaÆ>b¦=.3='ÉŒ=b¦>ÇL<ˆÈ$?.3=“é>éÇ<?âa.?¶b?o`æ>Eü?éÇ<?ÇÌ<ç,ó>Ûû>û??./?ëb>o`f>`ö>½Èœ>o`f=3ú_>./?éÇ¼>3úß>Ÿ•™<b&>b?	–	?o`æ=CaF>CaF>éÇ<?.3=_ùÿ>o`æ>5•)?¶b?ÇL=Ÿ•=Ÿ•?ÇÌ;_ùÿ=Ûû>.3=òÈ?Z.;?'É>Ë”¹>#“y>CaÆ>“é>Éùï>.3=\É?.³>	–	?b¦=o`f=Ûû>Ù`Ö>ÒúG?a”I?Í/ƒ>b¦>÷“Ù=o`f>_ùÿ>.3>c/>ÒúG?b&>    éÇ<?û??'É?qû¯>SÈ,>“é>»-Ó>»-S>–”A?÷“Y>Ÿ•™<ç,ó>CaÆ>È4?j•!?úÏ>Eü>Q-ã>'ÉŒ>Ë”9?˜/?_ùÿ>û¿=ð-K?3ú_>âa.?%.Ã>ÒúG?ÛûŸ>úÏ>»-S>Í/?'ÉŒ=È4?´ÇD?»-S>éÇ<? •1?–”A?ÇÌ;b¦=ÇÌ;>–?#“y>Éùï>¦û'?˜/?ÇÌ>	–	?Eü>3úß>.³=SÈ,> •1?Ÿ•>Z.;?Ûû?AÆü>Í/?xa>?Ûû>.3>o`æ>ÇÌ=Ûû>CaÆ>ˆÈ$?ëb>Í/ƒ>Ûû>­a6?_ù=a”É>­a6?û??SÈ¬>ç,ó=ÛûŸ>Z.;?qû¯>È4?<û7?c/?.3>Ÿ•>3ú_>ÇL=Ÿ•='É?ç,ó=qû¯>_ùÿ>Lb?Ë”9?ÇL=o`f>Ÿ•>ç,ó>_ùÿ<c/?˜/?û?>Ë”9?'ÉŒ>ÒúG?ÒúG?ç,ó=CaF? •1?_ùÿ=Ÿ•™=Ë”9>–”A?–”A?./?û??û?>>–?CaF>ç,s>\É?c/>ü?ÇÌ>Ÿ•™=	–‰>'ÉŒ>«Æì>òÈ?b&>b&>«Æl>½È?ù.#?ÇÌ;òÈ?ü?c/?%.C?ÛûŸ>Ä.+?5•©>­a6?b&?úÏ>ü?'É>Lb?.3>Ë”9>_ù> •1?ç,ó= •1?½È?û??Eü>Ù`Ö>_ùÿ<´ÇD?÷“Ù>Lb?AÆü>SÈ,>.3>SÈ¬>#“y>«Æì>­a¶>'É?Ë”¹>Ÿ•™>ç,ó>Z.;?o`æ=Ô•?.³= •1?˜/?_ù=éÇ<?ˆÈ$?xa>?3úß>b¦=#“ù>òÈ?¶b?5•)?ëb†>'ÉŒ>SÈ¬>    ´ÇD?a”I?3úß>÷“Ù>.3>_ùÿ=5•)?./?úÏ>\É?qû¯>./?ÇL<_ùÿ<#“y>÷“Ù>ð-K?û?>'É>CaF>úÏ>ÇÌ>ëb>ÛûŸ>qû¯>b¦=_ù>ÇÌ;Ÿ•™<qû/?½È? •1?ÇÜ>    qû/?SÈ,?.3=_ù>'ÉŒ>½Èœ>òÈ?ëb†>b¦>ù.#?òÈ?'ÉŒ>Í/? •1?_ù>éÇ¼>ÇÌ;½È?b?Ë”9?ÒúG?½È?ð-K?qû/?û¿=Ÿ•™>_ùÿ<ü?j•!?ç,s>ÇL>´ÇD?»-Ó>_ùÿ=#“ù>Ÿ•™<ÇÌ<SÈ,>o`f=CaF>Ÿ•?ù.#?ëb†>CaF>	–	?Ÿ•?Lb?o`f=Lb?SÈ,>Ë”9?­a¶>¶b?%.Ã>c/?3ú_>3ú_>.3?b&>'É?Lb?SÈ¬>ç,s>c/“>SÈ,?3ú_>.3>û¿=o`f>Ÿ•=«Æì>½È?½Èœ>\É?#“ù>j•!?´ÇD?ÇÜ>CaF>b–>SÈ¬>Í/ƒ>Ù`Ö>CaF>ü?b¦=Ë”9?SÈ¬>b¦=>–?ÇL<û??ü?˜/?ëb>Ô•?o`f=úÏ>ˆÈ$?3úß>.³=SÈ¬>.3=Ë”¹>o`f=zü?´ÇD?ëb>o`æ=¦û'?j•!?ù.£>b&?½Èœ>qû/?c/>qû¯>c/?Ÿ•™>a”I? •1?_ùÿ=5•)?_ùÿ=#“ù>Ÿ•™<ç,ó>¶b?¦û'?Ÿ•™>'É>ç,s> •1?­a¶><û7?ç,ó>ÇÌ;.3?Ë”9>¦û'?b¦>«Æl>Ä.+?ÇÌ>.3=CaF?a”I?Ÿ•™<zü?SÈ¬>ÇL>.3>Ÿ•™<ÇÌ=qû/?	–‰>CaÆ>«Æì>ˆÈ$?3ú_>5•©>ëb†>>–?»-Ó>ð-K?CaÆ>ÇÌ=½È?Ûû?Ù`Ö>a”É>b&?Ù`Ö>a”É>Ûû?Lb?úÏ>ˆÈ$?»-Ó>«Æl>qû/?5•)?b?éÇ¼>#“ù>û¿=>–?#“ù>ç,s>.³=a”É>ˆÈ$?b&>j•!?	–‰>Í/ƒ>–”A?SÈ,>éÇ<?Ä.+?“é>ç,s>SÈ¬>qû/?o`æ=CaF?˜/?.³=j•!?\É?SÈ¬>÷“Ù=ð-K?ç,ó=Ûû>úÏ>Ë”¹>Ûû>b&?b–>ç,ó>ÛûŸ>c/“>.3=éÇ<?	–	?%.C?ÇÌ=ç,ó>CaF>÷“Ù=û¿>òÈ?'É?_ùÿ=o`æ=ÒúG?òÈ?½Èœ>CaF?Ë”9>%.Ã>Eü?.3=­a6?Ë”9?ç,s>úÏ>%.Ã>\É?	–‰>Ÿ•™=3úß>_ùÿ>Ë”9> •1?qû¯>Ë”9?­a¶>ç,s>CaÆ> •1?AÆü>éÇ<?SÈ,?Ÿ•™=¦û'?3ú_>ëb?_ùÿ=Eü?SÈ¬>CaF?ð-K?Éùï>.³=5•©>Ù`Ö>c/“>Éùï>ÇÌ;Ä.+?c/>b&>\É?b&?ëb?.³=ð-K?b?Ë”9?û¿=SÈ,>ëb><û7?o`æ=éÇ<?ÇÌ>\É?a”É>ÇL=éÇ<?_ùÿ<½Èœ>–”A?»-S>ç,s>_ù>âa.?Í/ƒ>b¦>âa.?o`f=qû¯>Ÿ•?Eü>Z.;?ç,ó>Ô•?éÇ¼>Lb?.³>.³>CaF>#“ù> •1?È4?CaF?AÆü>\É?o`æ>b¦=Ÿ•™>Ä.+?\É?­a6?ëb?AÆü>éÇ¼>'É>Í/?ù.£>.3>_ù> •1?ç,s>Ÿ•™>CaÆ>ÇÌ=Éùï>Eü>_ù>÷“Ù=b&?ÒúG?CaF?xa>?.³>#“y>Ë”¹>˜/?»-S>ÇÌ;½Èœ>CaF?˜/?qû/?éÇ<?úÏ>#“ù>#“y>	–‰>b–>'É>'ÉŒ>c/“>c/“>û¿=½Èœ><û7?a”É>b–>Éùï>Ä.+?–”A?–”A?.3>zü?b–>qû¯>Ë”¹>ç,s>Ë”9>5•©>_ù>CaÆ>	–	?b–>âa.?qû¯>%.C?òÈ?AÆü>%.Ã>qû¯>CaÆ>û?>b&?ÇÌ>ÇL>b–>_ù>ÇL=û?>3ú_>´ÇD?–”A?½È?%.C?    _ùÿ=ü?5•)?a”É>ü?ç,ó=Lb?\É?b&>o`f>c/?ç,s>ÇL=÷“Y>'É?c/?Éùï>ÇÌ;È4?a”I?'É>o`f>CaÆ>ÛûŸ> •1?Ÿ•™=­a¶><û7?CaF?Ä.+?ð-K?Ÿ•>AÆü>CaÆ>o`f>û¿=Ûû>Ÿ•™><û7?ð-K? •1?ëb?%.Ã>SÈ,>ÇL>b&>qû¯>    'ÉŒ=#“y>ÇÌ<½È?#“y>qû/?û?>SÈ,?Lb?SÈ,?“é>_ùÿ=ù.£>>–?b&><û7?½Èœ>.3=ð-K?_ùÿ<CaF?éÇ<?÷“Ù>Í/ƒ>.3?a”I?%.C?ÇL<'É?–”A?SÈ,>û?>b&>b¦=.³=.³=ÛûŸ>#“y>ù.#?#“ù>CaÆ>.3=Eü?c/?Ë”9?_ù=5•)?˜/?ù.£>Í/?ç,s>ù.#?./?Ÿ•™>ÛûŸ>ÇÌ;ù.#?<û7?3úß>ÇL=âa.?_ù=<û7?CaF?_ùÿ<a”I?Ÿ•™<ëb†>b–>˜/?qû/?ÇÌ>û??SÈ,?j•!?«Æì>Eü>b–>SÈ,>éÇ<?½Èœ>ù.£>CaÆ>Lb?¶b?ˆÈ$?'É>.3=Ô•?úÏ>Ûû?­a6?5•©>ÇL<ëb>_ù=o`f>xa>?÷“Ù=3ú_>SÈ,>_ù=ç,ó=AÆü>qû/?Eü>c/?Ÿ•™<qû¯>b¦=.3>Ûû?éÇ¼>Ë”¹>Ë”¹>_ùÿ=–”A?ÇL<Ûû>“é>âa.?úÏ>AÆü>#“y>Ÿ•™<	–	?3úß>#“y>½È?ü?o`æ>b?Í/ƒ>Í/?­a6?'É?ÇÜ>#“ù>­a¶>ÇL=Ë”9>xa>?­a¶>ð-K?ç,s>xa>?òÈ? •1?CaF?b–>Ë”¹>½È?`ö>CaF>SÈ,>«Æl>o`æ=o`f=­a¶>b¦>./?_ùÿ=CaF>qû¯>ˆÈ$?CaF>Ûû>¦û'?c/“>ÇÌ;ÛûŸ>«Æì>'É?û¿=CaF>CaÆ>ÇÌ>ç,s>Q-ã>\É?o`f=    «Æì>Q-ã>Z.;?ëb>Ù`Ö>CaÆ>ç,ó>SÈ,>o`æ>˜/?ÇL<3úß>ÇÌ;ç,ó=b¦>Ë”9?Z.;?Ä.+?Í/?û?>Ûû>û¿=j•!?b¦>ëb†>Lb?Ûû>o`f>AÆü>./?ÇÌ;˜/?Eü>CaÆ>AÆü>'ÉŒ=Q-ã>_ù=Éùï>.³=ÇÌ<Eü?ÇL=âa.?»-Ó>´ÇD?Ë”¹>¶b?3úß>CaF?Ë”9>ÇÜ>ç,ó=b?a”I?Ûû>ÇL=\É?éÇ¼>ç,ó>qû¯>òÈ?b¦>ÇÌ>_ù>'É?Í/?<û7?ˆÈ$?Éùï>Ë”¹>Ë”¹>CaF>­a6?ëb>CaF?o`f>Ë”9>úÏ>Ÿ•™>o`æ=½Èœ>./?»-Ó>a”I?>–?Ÿ•>÷“Ù=»-S>Ÿ•>>–?b–>o`æ=5•)?.3=ç,s>./?¶b?j•!?Éùï>ÇL=>–?.3=    a”I?ÇÜ>c/>ð-K?«Æl>b¦=b?Z.;?÷“Y>SÈ,?3ú_>ÛûŸ>ù.#?¶b?È4?	–‰>Ûû?ˆÈ$?ç,s>_ùÿ<ÇÜ>˜/?_ù=_ù=<û7?»-Ó>ëb>ð-K?xa>?#“y>Ù`Ö>Ë”9>\É?Lb?qû/?%.C?«Æì>÷“Ù=Ÿ•™<`ö>òÈ?b&>÷“Ù>ÇL=zü?zü?ÇÌ;b–>_ù=_ùÿ=Ûû>Ä.+?3ú_>û¿>CaF?.3=Ÿ•?Ë”¹>»-Ó>âa.?ÇÌ<¶b?Ÿ•?5•©>“é>âa.?ëb>éÇ<?_ùÿ=./?Ë”9?zü?o`f=ð-K?#“ù>Eü>¦û'?SÈ,?zü?.³=ç,ó>÷“Y>.3>´ÇD?.3>ç,ó='ÉŒ>ð-K?	–‰>.³=Ë”9>SÈ,>¶b?c/?Ûû?»-Ó>Ÿ•™=ëb>ü?_ùÿ<ç,ó>ëb>­a¶>	–‰>Ûû?o`æ>÷“Ù='É>éÇ¼>Ô•?Ÿ•™>«Æl>_ù=Í/?SÈ,?ÇÌ>Ù`Ö>o`æ=SÈ,>_ù=û¿>b¦=ÇL>_ùÿ>'É>Lb?­a6?¶b?½È?c/>c/?“é>SÈ¬>­a¶>Ë”9>3úß>ÇÌ<c/>\É?#“ù>éÇ¼>ÇL<_ùÿ=ÇL=CaF?÷“Ù=­a6?_ùÿ>Q-ã>\É?o`æ=#“y>½È?c/“>Ÿ•™=b?«Æl>c/>Ô•?j•!?j•!?­a6?¶b?ëb>òÈ?3ú_>Ù`Ö>¦û'?SÈ,>b¦=Ÿ•=«Æì>¶b?qû/?´ÇD?\É?%.C?5•©>ù.#?o`æ=c/>'É?ù.#?«Æì>>–?Ä.+?j•!?Ÿ•?Í/?_ù=Éùï>AÆü>Ä.+?#“ù>3ú_>'É?ç,s>ÇL>´ÇD?ç,ó=ÒúG?b–>	–‰>CaF?Éùï>xa>?ÒúG?Éùï>_ù=û¿=.³>o`f>Q-ã>û??'ÉŒ>o`æ=SÈ,?_ù=ÇL=û?>û??Í/ƒ>ÒúG?%.Ã>%.Ã>»-Ó>Ÿ•™>ëb>­a¶>Í/?˜/?ÇÌ>#“ù>Ë”9?Í/?ç,ó=CaÆ>ù.£>÷“Ù>ëb>ù.£>˜/?Éùï>ð-K?j•!?qû¯>`ö><û7?zü?ÒúG?ð-K?b&>_ùÿ=%.C?_ù=È4?_ùÿ<Ë”¹>˜/?.³=./?˜/?.³=o`f=3úß>û¿=ç,s>ëb†>./?ÇL>b&>zü?o`f=b&?%.Ã>o`æ>zü?_ù>Éùï>Ô•?.3?a”É>b?ÇÌ;ëb?ù.#?û?>Ë”9?a”I?_ùÿ<SÈ,?âa.?ÇL=.³>b&>.3=CaF>»-S>ëb†>b&?Lb?»-S>'É>ÇÜ>÷“Y>Í/ƒ>ç,ó>SÈ,>\É?ëb?'É>b¦> •1?Ä.+?ð-K?ç,ó>»-Ó>a”I?Ÿ•>     •1?Ûû>÷“Ù>Ä.+?3ú_>Éùï>'ÉŒ>\É?b&?Ë”¹>«Æl>5•)?ÛûŸ>5•©>CaF?Ÿ•?ˆÈ$?o`æ>û¿=÷“Y>Éùï>a”I?'ÉŒ='É>û¿>Í/ƒ>ÇÌ;Eü?'É?Ÿ•™>Ë”9>˜/?ç,s>5•)?ð-K?ÇL>ç,s>û¿=«Æl>%.Ã>'ÉŒ=b&?ÇL<3úß>Ûû?#“ù>ëb>ëb?ç,ó=ÇL>ù.#?û¿>SÈ¬>SÈ,?Ûû?b?b&><û7?Z.;?b–>û??Éùï>    Q-ã>Ÿ•™<˜/?xa>?ÇÌ=½È?CaF?'ÉŒ=ëb†>éÇ<?'É?	–	?b–>.3?Éùï>Ë”9>Ë”9>ÇÌ<_ùÿ=“é>ëb?c/“>ÇL<Ÿ•™>b&?»-Ó>_ù>­a6?È4?b?Ûû>Ÿ•™>Lb?–”A?ù.#?.³=ÇL<Í/?ù.£>û¿>a”I?«Æì>ÇL=­a¶>û?>Í/?qû¯>Ô•?o`f=ÇÌ>òÈ?xa>?.3=#“y>ù.£>Ÿ•='ÉŒ=Ÿ•™=ÇÌ>Ë”¹>_ù>Ûû>Ÿ•™<qû¯>û¿=<û7?Ûû>SÈ,>o`æ=_ù=ð-K?zü?òÈ?«Æì>qû¯>b?ÇL=û?>#“y>«Æl>Í/?ëb†>qû/?Ù`Ö>Ÿ•™<Ÿ•™>Í/?AÆü>û?>Í/?ëb?Éùï>SÈ,>ëb>_ù=Ë”9> •1?a”I?ù.£>_ùÿ=#“ù>ÇÌ<«Æì>­a6?SÈ,>o`f=û¿=_ù>j•!?_ù=“é><û7?.3=.³=xa>?»-S>Í/ƒ> •1?ÛûŸ>`ö>c/“>xa>?Ë”9?ç,ó>ð-K?o`æ>o`æ=3ú_>AÆü>÷“Ù>­a6?Ÿ•?ëb?Ÿ•?Ûû>b&>ÇÌ>Ûû>Ë”9?Q-ã>Ûû?÷“Y>ÇL>a”I?÷“Ù=#“ù> •1?Ûû?#“ù>–”A?ÇÌ>­a6?Lb?a”É>SÈ¬>Ù`Ö>a”I?zü?CaF>ÇÌ<ç,ó=Ÿ•™=j•!?c/“>Ûû?o`æ>Ÿ•™=ëb†>Ô•?ÛûŸ> •1?Lb?a”I?Ÿ•™=.3?SÈ,>a”I?a”É>éÇ<?ç,s>û¿>.3>SÈ,>./?.3? •1?Ûû?\É?ÇÜ>ç,s>–”A?'É>%.Ã>b¦>*øB)/model_R2a_ff_weight_dequant/Mul_output_0JÀFt¾û@W>÷n#¾4V¿<›;Á+ï>«RC¾§€¾Ñ`3>”y¾„DÓ¾÷n#¾Y{•>
+v¾÷n#¾Ñ`³¾Ft¾D‹>[d¯¾›½äg+>„DÓ¾‰…>è9_=nk'¾3m¥¾û@×>\MÉ>nk§=rŸ¾„DS>rŸ¾ý)ñ¾`ý>Á+o>1„¾ÓIÍ>›ÿ;äg+>›ÿ;„DÓ>!OÇ>›;ö…‰>r>K/k>4V?½q=[¾q=Û>_µ>é"ù¾Á+ï=1é>¼p¡>÷n£>Ñ`³>IFÑ¾}“¾¬;Ý>Á+o=G]7¾8(ó>D‹¾ö…‰>Ô2ç½!OÇ>[d/>K/ë¾[d/>[d/¾r>º‡>	>l‚¾Y{•>”y—>Ô2ç¾„DÓ>è9_=Á+ï>äg+¾¾Y»¾4V¿<}>®$÷=4V?½¼p¡¾§€½HÏ>¾Y»¾˜KË>›»÷n#¾G]7¾q=Û>Á+ï¾6?Ù¾#8á¾„DÓ¾4V?>Y{•¾º‡‡=D‹ƒ>oTÁ¾ö…‰>®$÷½®$÷¾¾Y;>1é>û@×½›;¼p¡>Ô2g¾[d¯=Á+o=nk§=›<!OÇ¾â~‘¾è9_½ùW½¾«RC¾Á+ï=    è9ß=D‹ƒ¾4V?>K/ë¾l‚>nk§=äg«>l‚>D‹>G]·½[d/½„DS>Ô2ç>›>§€=rŸ¾Ô2g>Y{•>1„‹>›;*½€  B-/model_R2a_mem_input_act_dequant/Mul_output_0J€€rU>?>#3?Ö¾œ>>#3?Àñ?ì‹™>¿?(V6?nZ?d S>«$£>¼TÆ>•W¦>nZ>CÀŒ>¸Y?Š)?j½¬>OSÖ>!K?>#³=ÀñŸ>4éÿ<‰¹>ì‹>âQæ=Î&?‰9>Ö¾?•W&?CÀ?Ì„é>&?(V6?‰¹>•W&>¼TÆ>&>äó?ý»¼>4éÿ<ì‹™<nZ>Ö¾?‰9>Ö¾?•W&?âQæ>KX?uPö>ì‹™>a%?a%?#¹Ü>>#³=CÀ>ï7?çî¿>&“>•W¦=-ó?•W&?Àñ>äó?(V¶>4éÿ<\ˆA?CÀŒ=-ó?&“>¼TF>¼TF>¡êï>ÀñŸ>Ì„é>Š©>çî?>¼TÆ>>#³=ˆ";?#¹Ü>Àñ>¼TF?Tð/?>#³=ºÌ= ¾$?çî¿>•W&>\ˆA?4éÿ>çî??CÀ?ºL>¢Œ?>#³=\ˆA?ì‹?ºÌ< ¾$?Y–>¼TÆ>j½¬>‹ó>øã>`ƒy>4éÿ=KX?ì‹™<¼TF?çî??¼TÆ>ï7?zíÏ>ý»<?•W&>‰¹>CÀŒ=Š)?uPö>ï7?ý»<?Ö¾?#¹Ü>ì‹™>J¶ü>¼TF?!K?É‰1?•W¦>ï7?ì‹=¡êï>Š)?¼TÆ>>#3?j½¬>j½,?ºL<ì‹?4éÿ> ¾$?Y–>Y–>Ñ!C?‰9?¼TF>ì‹™=!K?CÀ?ô#+?ºÌ<¿?ºÌ<•W¦>Ö¾œ>j½,>CÀ>4éÿ=çî¿>çî¿=ì_>âQf>«$£>¶·ì>ºÌ=¼TF?ºÌ;¿?ºÌ<•W¦>‰¹>\ˆA?âQf=•W&>Ñ!Ã>ì‹™<¶·ì>OSÖ>äó?•W¦>ùÀ?-ó?
+ñ'?¿?ï7?Š)?>#³>j½,?J¶ü>&?ºÌ=a%?d Ó>9†Ù=`ƒy>ì‹™>‹s>¦‡É>4éÿ=
+ñ'?ì‹™>ºÌ>-ó?¸Y?ºL<`ƒy>4é=4éÿ<
+ñ'?(V6?‹ó=`ƒy>ì‹?¼TF?rU>?•W&?âQf=>#3>(V6?>#3=¶·l>•W¦=•W¦=4éÿ>CÀŒ>4éÿ<>#³=ý»<?ˆ";?Y?¿?•W&>„'ƒ>Ñ!Ã>CÀ?¦‡É>4éÿ>¼TF>4é>CÀ?4éÿ<OSÖ>\ˆA?&>ÀñŸ>•W¦>4é>«$#?`ƒù>1îG?Y–>Î&?„'?‰9>ºÌ;Àñ?CÀ>Y‰>«$£>ºÌ<
+ñ'?ì‹™>çî?>ì‹=âQæ>¦‡É>j½¬>4é>¸Y?ÀñŸ>ìß>
+ñ'?„'?9†Ù=j½¬>„'ƒ>#¹Ü> ¾$?‰¹>4é>çî?>Àñ?&“>9†Ù>«$£>ºÌ=CÀ?ï7?•W&>âQæ>nZ?Y–>Š©>¦‡É>6‹!?Ñ!Ã>    CÀŒ>âQf>çî¿>çî?>¶·ì>j½¬>d S>(V¶>çî¿=ºL>a%?zíÏ>KX?Ž?Š)?F»D?ï7?Ö¾œ>‹s>ï7?ì‹?çî??F»D?ßV.?âQæ>¼TÆ>çî?>¦‡I?çî?>6‹!?(V¶>>#3>9†Ù=4éÿ>Y‰>6‹!?9†Y>•W¦>ùÀ?¼TF?âQf=j½,>j½,>„'?ˆ";?¡êï>âQæ>ô#+?ºÌ=¦‡I?!K?4éÿ=Ñ!Ã>&?&>9†Y>ßV.?³¼4?ºÌ=&?ºL>>#³>    4é=‰¹>4éÿ=çî?>ì‹?6‹!?9†Ù=ßV.?!K?ÀñŸ>¸Y?>#³>çî¿>ì‹™>4éÿ>F»D?Y‰>Y‰>1îG?>#3?nZ>Ñ!C?•W¦>„'?Ì„é>>#³>Àñ>d Ó>‹ó=«$£>«$#?>#3?CÀ>&?¼TÆ>É‰1?ßV.?-ó>KX?ùÀ?¢Œ?ì‹>¶·ì>CÀŒ=Ö¾?Y–>-ó?É‰1?âQæ>>#³=âQæ=Ì„é>ºL<KX?Y–>>#³=
+ñ'?Ì„é>Ñ!C?d Ó>¸Y?KX?Y?ì_>ì‹™=çî¿>F»D?•W&?Y‰>„'ƒ>ßV.?
+ñ'?¿?âQf=4éÿ<j½,?ý»<?\ˆA?a%?4é>‰¹>Ñ!C?¼TÆ>j½,>&?nZ>„'?ì_>Š©>Y?d S>ºÌ>4é=¶·ì>nZ†>CÀ?(V6?ì‹>1îG?-ó?\ˆA?#¹Ü>•W&>çî¿=‰9?j½,>ì‹>Y‰>    ºÌ>ºÌ>¡êï>¼TÆ>j½,>rU>?ì_>âQf=>#3?ì‹™=9†Ù=ºÌ<Àñ?J¶ü>>#3?•W&?j½,>J¶ü>#¹Ü>6‹!?ì_>ˆ";?ÀñŸ>j½,>(V¶>wò?Ì„é>ï7?nZ?çî??nZ?    çî¿>&“>ý»<?rU>?„'?d S>nZ†>&>ºL=¼TF>(V6?-ó?¡êï>rU>?„'ƒ>Ñ!C?Àñ>¡êï>&“>&?ùÀ?wò?uPö>ì‹™=Àñ?J¶ü>¿?ì‹™=ì‹™<«$#?ô#+?ºL>Y‰>Î&?Š©>9†Ù=CÀŒ=nZ?\ˆA?F»D?çî?>‰9?ºÌ>Ž?CÀŒ=Tð¯>Ñ!Ã>âQæ>`ƒù>zíÏ>¼TÆ>Ì„é>‰9>Tð/?Àñ>`ƒù>ºÌ=4éÿ>çî??ºÌ=6‹!?•W&?
+ñ'?\ˆA?âQæ=!K?âQf>Š©>Î&?Àñ>j½¬>!K?9†Ù>>#3>¶·l>Î&?ì‹™>¼TF>Î&?J¶ü> ¾$?¼TÆ>a%?&“> ¾$?‰¹>\ˆA?ÀñŸ>ºL=9†Ù>Î&?ý»<?>#3=uPö>
+ñ'?CÀŒ>ÀñŸ>J¶ü>ô#+?(V6?ý»<?#¹Ü>Àñ?ì_>>#3>³¼4?>#³=!K?‹ó>uPö>ì‹™>¶·l>j½¬> ¾$?âQæ=çî?>CÀŒ=4éÿ>¿?çî¿>çî??ùÀ?Tð¯>¶·l>(V¶>ì‹?¡êï>ºL<•W¦=(V6?&“>•W¦=‰¹>ì‹?ºL=ºÌ>ºL<¶·ì>¼TF?çî¿>ì‹™=Ž?>#3=âQæ>Ö¾œ>6‹!?Àñ?nZ†>(V6?¡êï>É‰1?Àñ>wò?Y?ì‹™=9†Ù=F»D?¢Œ?ºÌ=«$#?4éÿ=Ì„é>ì‹™<9†Y>uPö>Ö¾œ>-ó?¡êï>Ì„é>ùÀ?4éÿ>ºL<KX?CÀ>«$£>j½¬>nZ>ì‹™=\ˆA?CÀŒ>Î&?Y–>4é=•W&>a%?ý»¼>Àñ>wò?¿?çî¿>Ì„é>`ƒy>âQf>>#³=9†Ù=(V6?J¶ü>rU>?«$£>Ñ!Ã>OSÖ>ì‹™=\ˆA?9†Ù>\ˆA?ÀñŸ>Ö¾?F»D?¼TF?¼TF?Ö¾?Ñ!Ã>ý»¼>nZ>Àñ?-ó>³¼4?>#³=ºL=9†Ù>‹ó=¼TF?É‰1?ì‹™>`ƒù>‰9?>#3=³¼4?Y?Š)?>#³>4éÿ<çî¿=F»D?uPö>a%?Ö¾?âQf>âQæ=d S>çî¿=4éÿ>Î&?ºÌ;ì‹?ì‹>9†Y>«$#?6‹!?!K?ßV.?4éÿ=Ñ!Ã>âQæ=CÀ>Àñ?‰¹>Ž?ºÌ=¼TF>(V¶>«$£>¢Œ?ì‹™<É‰1?øã>çî??‰9?•W¦=>#³=4é=9†Ù= ¾$?ô#+?ºL<Tð/?„'?Àñ>ßV.?³¼4?ì_>-ó?ºL<çî??Y‰>âQf=
+ñ'?d S>wò?ì‹™>ô#+?ˆ";?Š)?Y?wò?Y?(V6?«$£>ˆ";?>#3>¸Y?äó? ¾$?d Ó>nZ>âQæ>wò?Ñ!C?j½,>6‹!?uPö>!K?Š©>•W&?Î&?³¼4?>#3=9†Ù>J¶ü>Î&?äó?-ó>CÀ>ì‹™<(V6?OSÖ>ì‹™=wò?çî?>4é=#¹Ü>j½,?ºL=¢Œ?‹ó=¡êï>-ó>Tð¯>•W&?¦‡É>•W&>Š)?9†Ù=çî¿>rU>?¦‡I?4é=•W¦>É‰1?6‹!?j½,>Y–>Ö¾œ>KX?`ƒù>KX?³¼4?¼TF>ùÀ?Y	?Š)?ì‹=¡êï>CÀ?«$£>çî?>ì‹™>>#3=¦‡É>&“>4éÿ=`ƒù>ì‹™<-ó?¶·ì>ô#+?‹ó=¦‡É>9†Ù>j½¬>Àñ>Š)?`ƒù>Ö¾?Y‰>âQæ=J¶ü>‰¹>ºÌ;>#3=Tð/?KX?¼TF?ÀñŸ>ì‹™<-ó>Y–>çî??    «$£>uPö>j½,?ºL>4éÿ>âQf>¸Y?•W¦=wò?ßV.?É‰1?Ö¾?4éÿ=ô#+?ì‹™>øã>ºÌ;¶·l>F»D?•W¦>‹s>`ƒy>ì_>a%?>#³>Y‰>ˆ";?Ñ!Ã>Àñ>ºL<ì‹™<ì‹™>‰9?‹ó=çî¿=(V¶>(V6?ì_>âQæ>ìß>
+ñ'?CÀŒ>Ö¾œ>9†Ù>uPö>ï7?j½¬>ºÌ>³¼4?«$£>âQæ>j½,>¼TÆ>ô#+?ý»¼>¼TF>‰9?Ž?Ì„é>âQf>Š©>9†Y>ì_>ì‹=ì‹?>#3=>#3=ì‹™<(V6?çî¿>Y‰>!K?j½,>j½,?CÀŒ>&“>4éÿ=Ö¾œ>ì‹™>¼TÆ>‰9>`ƒy>\ˆA?ý»<?    Y?ßV.?Y	?âQæ>âQæ>KX?\ˆA?nZ†>ùÀ?ý»¼>‹s>ì‹?¶·ì>OSÖ>çî¿=&?!K?ì_>çî¿=J¶ü>zíÏ>d S>¶·ì>OSÖ>9†Ù=âQæ=¼TF?•W&>ì‹=-ó>(V6?âQæ=wò?¸Y?øã> ¾$?ºÌ>‰¹>ý»¼>çî¿>CÀŒ>³¼4?•W&?J¶ü>ºL>ßV.?&“>ì‹™=ìß>‰¹>zíÏ>#¹Ü>ì‹>ô#+?4éÿ>¼TF?•W¦>`ƒy>¼TF>ºL>d S>¶·l>‹ó=4éÿ>nZ†>OSÖ>\ˆA?ºÌ<9†Y>>#3?CÀ>Š©>Tð/?ì‹=1îG?uPö>&“>d S>4é=9†Y>¡êï>Y‰>‰¹>Y?4é=¼TF?>#3?¢Œ?É‰1?F»D?ý»<?(V6?ì‹>Ö¾?âQæ=øã>>#3>¼TÆ>Ñ!Ã>ÀñŸ>Ö¾?Ö¾œ>zíÏ>wò?4éÿ=äó?zíÏ>4é>-ó?CÀ?Ö¾?¼TÆ> ¾$?¸Y?ì‹>ºÌ>¸Y?CÀ>Y‰>¢Œ?j½,?¿?Ö¾?J¶ü>ßV.?ý»¼>¸Y?&>ìß>Î&?1îG?4é>¶·ì>ºL=d Ó>«$#?¡êï>9†Y>9†Ù>ˆ";? ¾$?9†Y>-ó>nZ>1îG?9†Ù>¶·l>Àñ>ì‹=Tð¯>ý»¼>¼TF>çî?>9†Ù=Àñ?nZ>‹ó>!K?
+ñ'?çî¿>ý»<?¿?CÀŒ=¢Œ?ÀñŸ>j½,?J¶ü>-ó?`ƒy>ºÌ>ºÌ;ˆ";?a%?Àñ?ô#+?rU>?Y‰>    ¿?ì‹™=É‰1?ºÌ=d S>Y‰>4é=a%?rU>?-ó>Tð¯>Ö¾?Š)?¢Œ?Tð¯>çî?>ý»¼>nZ†>>#³>uPö>ºL<Y	?âQf=¶·l>¼TF?4é>4éÿ=ºL>j½¬>Ö¾?CÀŒ>äó?4éÿ<ºÌ;uPö>ÀñŸ>É‰1?¼TF?d Ó>F»D?Ì„é>çî?>nZ>‹ó>nZ>•W¦>¼TF>ï7?«$£>«$#?>#³>âQf=ºÌ>
+ñ'?çî??Ö¾œ>&“>Y?1îG?‹s>
+ñ'?nZ†>³¼4?ºL<Y‰>ô#+?uPö>âQæ>•W&>ºÌ>CÀ?„'ƒ>ì‹?‰9>#¹Ü>4é=Ñ!Ã>a%?‰9?ï7?âQæ>wò?Tð¯>`ƒù>ºÌ>«$#?rU>?çî??¸Y?J¶ü>‰9>ºL<(V6?(V¶>ºL=Ñ!C?&“>4éÿ<ìß>‰¹>Î&?nZ†>nZ>CÀ?Tð/?ˆ";?ì‹=9†Ù>‹s>J¶ü>Ñ!Ã>¢Œ?-ó?nZ>>#3?¦‡I?OSÖ>çî¿=>#³>zíÏ>ý»¼>ì‹>ì‹?Àñ?ô#+?Ö¾?wò?¼TF?CÀŒ>çî¿>‹s>ì_>É‰1?>#3>Š)?CÀŒ=«$#?ï7?âQf=1îG?‹ó=`ƒy>Àñ?ì‹=¼TÆ>(V6?d Ó>4é=uPö>9†Ù=wò?ßV.?ì‹™<rU>?ì_>¦‡É>F»D?&“>Î&?j½,?ºL>!K?•W¦=(V6?ßV.?>#3=4éÿ>wò?rU>?Ì„é>>#³>(V¶>4éÿ=j½¬>Ö¾œ>ºL<ý»<?«$£>¡êï>âQæ=¿?ºÌ>Tð/?Ö¾?d S>>#3?Ì„é>4éÿ>äó?øã>#¹Ü>KX?d S>>#3=uPö>!K?çî¿>Àñ?¶·l>¿?ùÀ?³¼4?4é=(V¶>ì‹™>rU>?¦‡É>Y‰>
+ñ'?ºÌ<Àñ>¼TÆ>d Ó>1îG?‹ó=Š)?ºL=rU>?‹ó=¸Y?âQf>çî¿>>#3?Àñ>OSÖ>¿?Àñ>9†Y>«$£>¼TF?âQæ=¢Œ?>#3>äó?j½¬>j½¬>9†Ù=\ˆA?\ˆA?F»D?¶·ì>ý»¼>Ñ!C?Ì„é>«$#?¶·ì>Y‰>øã>¦‡I?ßV.?zíÏ>9†Ù=âQæ=Àñ?¼TÆ>rU>?ºÌ=•W&>9†Ù=âQf>ì‹™=Y–>Y‰>•W&>‰¹>„'ƒ>rU>?ï7?>#3=ì‹™<ºL>Î&?>#³=\ˆA?
+ñ'?9†Y>a%?KX?Š)?âQæ>ý»¼>Ö¾?F»D?Ñ!C?nZ>F»D?¼TF>-ó>³¼4?ì‹=ì‹™>\ˆA?4éÿ<>#³>¼TÆ>    &?«$£>9†Y>`ƒy>„'?âQf>&?•W¦>ì‹™=¼TÆ>ºL=ùÀ?-ó?ºÌ;nZ>
+ñ'?!K?-ó?9†Y>j½,>6‹!?•W&?³¼4?Tð/?¿?uPö>‹ó>çî¿>a%?¶·ì>4éÿ>‰9?!K?zíÏ>ý»<?Ì„é>âQæ>`ƒù>6‹!?•W&>ìß>Š)?ì‹™<6‹!? ¾$?³¼4?uPö>CÀ?•W&?Ñ!C?‰9>CÀ>âQf=!K?¼TF?9†Ù=Ñ!C? ¾$?uPö>‹s>ºÌ;çî?>(V6?>#3=Ö¾œ>OSÖ>CÀ>CÀ?Ì„é>#¹Ü>nZ†>•W&>•W&>1îG?OSÖ>4é=d Ó>¦‡I?!K?(V¶>>#3>9†Y>rU>?Y–>çî¿>ìß>âQæ=4é=³¼4?ô#+?4éÿ=Àñ?¼TF?¼TÆ>`ƒy>¼TF?ºÌ>‰¹>rU>?ºÌ=¸Y?çî¿=>#3?j½¬>çî?>‰¹>ì‹>¢Œ?F»D?CÀŒ>çî??OSÖ>9†Ù>ì‹™>(V6?CÀ?`ƒù>Ñ!C?‹ó=&>\ˆA?(V6?CÀ?6‹!?Y–>Y–>É‰1?(V¶>Àñ?ßV.?«$£>Tð/?F»D?OSÖ>4éÿ>âQf=9†Y>ºL>ì‹™>ìß>nZ?!K?(V¶>9†Ù=ý»¼>CÀŒ=âQf>øã>‰¹>ì‹>Ñ!Ã>6‹!?a%?uPö>uPö>ý»<?ºÌ>KX?É‰1?«$#?Ì„é>Àñ?rU>?çî??F»D?¡êï>ìß>‰¹>&>CÀŒ>ºÌ>Š©>`ƒy>ý»<?>#³>‹ó>9†Y>`ƒy>Tð/?J¶ü>âQæ>ºÌ>9†Y>Ñ!Ã>nZ†>-ó?âQf>Àñ>&“>ý»¼>1îG?-ó?„'ƒ>•W&>6‹!?6‹!?CÀ?âQæ>Y‰>>#3>Š©>ì‹™=OSÖ>ìß>`ƒy>Y?É‰1?ºÌ=4éÿ>KX?ˆ";?¢Œ?Ñ!C?¿?ºÌ<&“>Š)?ºL<ºL<-ó?Ö¾?CÀ>`ƒy>4éÿ=âQf=d Ó>•W&?#¹Ü>Àñ?4éÿ=‹s>ì‹™=ºÌ=¼TF?çî¿>ÀñŸ>Y‰>Ñ!C?d S>nZ†>Š)?•W&?•W¦>ÀñŸ>-ó?çî??¸Y?ì‹™=çî??wò?‹s>ï7?¢Œ?zíÏ>ì‹?d S>¶·l>>#3>âQæ=Y–>Ö¾œ>âQf>ºL=«$#?«$#?ì‹=‰9>9†Y>¡êï>a%? ¾$?ßV.?ùÀ?É‰1?‹ó=ý»¼>KX?4éÿ>9†Ù=ì_>Y–>¸Y?ÀñŸ>•W¦=CÀŒ>ºL>-ó>äó?äó?KX?>#³=4éÿ=j½,?nZ>çî¿=Y‰>Ö¾?ˆ";?OSÖ>(V¶>&?ºL>ì‹™>¦‡I?ºL<ÀñŸ>>#3>d Ó>ºÌ>Ì„é>¡êï>KX?ˆ";?çî¿>(V6?ºL>>#3=nZ?j½¬>ý»¼>ÀñŸ>¦‡É>j½¬>&“>¦‡I?Ž?¼TF>j½,?j½¬>CÀŒ=ìß>âQf=Š)?ºL>-ó>Î&?ý»¼>âQæ=9†Ù>äó?j½,?ºÌ>«$#?>#3>CÀ>>#³=nZ†>Š©>j½¬>¢Œ?nZ†>¶·ì>çî?>«$#?(V¶>ºÌ;¡êï>4é=ì‹=nZ†>>#3?•W&?Ñ!Ã>ì_>Tð¯>>#³>(V6?CÀ?6‹!?Àñ>ºL>Y	?ˆ";?„'ƒ>ºL>¼TF?j½,>ºL>-ó>wò?nZ†>ºÌ=‰¹>Ö¾œ>ºÌ=CÀ?Tð¯>F»D?    CÀŒ>1îG?Š)?ºÌ=çî?>«$#?`ƒy>•W¦=\ˆA?rU>?¼TF>>#3?ì‹™<`ƒù>j½,?Y?Î&?¿?ìß>³¼4?rU>?ºL<ºÌ<¦‡É>d S>•W¦>çî¿=„'?zíÏ>ºÌ>!K?¼TF?ˆ";?¡êï>Àñ>nZ?&>ì‹=¼TF?ºL>ì‹™=4éÿ=ô#+?KX?&>ºÌ<Tð/?¼TÆ>ô#+?çî¿=ÀñŸ>øã>-ó?ìß>Ñ!C?&?`ƒù>nZ?Š©>&?«$£>¿?øã>Y	?(V6?ìß>4é>•W&?âQæ=ì_>ì‹>¶·ì>Tð¯>#¹Ü>øã>&“>‹ó=!K?#¹Ü>nZ>\ˆA?-ó>9†Y>¦‡É>Ž?•W&?‹ó=•W&?(V6?âQæ>³¼4?¶·ì>Y?øã>âQf=âQæ>#¹Ü>CÀŒ>ÀñŸ>ì‹=CÀŒ>‹s>CÀ?j½,>‰9?6‹!?ùÀ?CÀ?Ö¾?OSÖ>ºL>¼TF>Ñ!Ã>•W&>Tð/?‹s>ºÌ>\ˆA?6‹!?>#3=rU>?¼TÆ>•W¦>&>Y‰>Y–>Tð¯>ï7?>#³=>#3=ºÌ>âQf=¡êï>¼TF?j½,>ì‹>³¼4?Tð/?Tð¯>ì‹™>ï7?çî?>1îG?Y	?¦‡I?âQæ>Y–>•W¦>4éÿ=4é=Ñ!C?¦‡I?Š©>„'ƒ>Tð/? ¾$?&“>>#3?4é>Ñ!Ã> ¾$?çî¿=-ó?Š)?¡êï>âQf=ùÀ?>#3=¼TÆ>ÀñŸ>‹s>¦‡É>Y	?-ó>¼TF>‹ó=
+ñ'?ºL>Y‰>äó?>#³=>#3=&?¢Œ?a%?>#3=¡êï>ºÌ;ý»<?Y	?ˆ";?ì‹>-ó?¼TÆ>(V¶>6‹!?uPö>>#3?¼TF?1îG?‹s>(V6?OSÖ>¸Y?ì‹™<d S>j½,?CÀŒ>>#³>-ó?ºÌ<øã>ºL<zíÏ>Y	?¿?Àñ?wò?«$#?ºL>CÀŒ=F»D?Ì„é>`ƒù>„'ƒ>ÀñŸ>Y‰>Àñ>•W¦=¢Œ?&?wò?F»D?Tð/?9†Ù=ºÌ>Tð¯>j½,>>#³>âQf=âQf=ºL=¿?¿?>#3=•W&>4éÿ<•W&>ìß>ßV.?wò?Tð¯>âQæ>KX?Ñ!C?!K?zíÏ>¼TÆ>`ƒù>ì‹=Ñ!Ã>Ì„é>çî??¼TF?6‹!?Àñ>ºÌ;d Ó>Y?j½,?¶·l>Y‰>OSÖ>øã>9†Ù>a%?Š©>âQæ>âQæ=¶·l>ý»¼>ˆ";?ßV.?ßV.?wò?çî?>CÀŒ>âQf>>#³>J¶ü>j½,?Ž?CÀŒ>âQæ=çî¿=¿?ÀñŸ>âQf=4éÿ>Tð/?CÀ>¼TÆ>ý»¼>¿?ßV.?Ñ!Ã>âQæ>Y–>Ö¾œ>âQf>¡êï>-ó?>#3>ºÌ<>#3>¢Œ?Àñ?4éÿ<9†Ù>‹ó=•W&>4é>(V¶>ßV.?çî¿>4éÿ=çî??ì‹?‹ó=nZ†>!K?Y?ô#+?4éÿ>ùÀ?Š)?ºL>F»D?ÀñŸ>ì‹=zíÏ>!K?>#3?>#3>9†Y>‹ó>4éÿ=CÀ?‰¹>É‰1?Ö¾?zíÏ>³¼4?¶·l>âQf>&“>ìß>#¹Ü>-ó>çî¿=‰¹>ºÌ=j½,>`ƒù>`ƒy>Ì„é>¡êï>Y–>
+ñ'?KX?¼TF>ºÌ;ºÌ;Tð¯>>#³>¿?Y	?&?OSÖ>ùÀ?CÀŒ>Ñ!C?rU>?#¹Ü>ºÌ<¡êï>(V¶>¸Y?j½,>Š)?
+ñ'?ì‹™=j½,>•W&>j½¬>ºÌ>9†Ù>‹ó>ºÌ<‰¹>¡êï>&“>Ö¾?ì_>>#³>wò?³¼4?ì‹™>‹ó>Y?ßV.?çî?>Ž?Ö¾?rU>?&?>#³=F»D?ô#+?çî¿>j½,?4éÿ>øã>!K?j½,>âQæ=4éÿ>
+ñ'?
+ñ'?Y?¼TÆ>>#3=âQf>4é>ì‹™<âQæ=J¶ü>CÀ?É‰1?Š©>9†Y>ºL=«$£>`ƒy>Ö¾œ>CÀ>«$£>(V6?ìß>CÀ>Ì„é>•W&?¡êï>zíÏ>j½,>CÀ?âQæ=âQæ=(V¶>#¹Ü>4éÿ=>#3?‹s>«$£>ì‹™>#¹Ü>(V6?‹s>ºÌ>ý»¼>¼TÆ>F»D?wò?¶·ì>Ž?1îG?ºL<Ñ!C?>#³=Ì„é>âQf>ï7?4éÿ=ì‹?‹ó=Y–>d Ó>Àñ>ì‹™>¸Y?j½,>j½,>¸Y?ý»<?•W¦>•W¦=4éÿ<j½¬>ì‹™>    ‹ó>çî??6‹!?³¼4?âQf>•W¦=4éÿ=¼TÆ>ìß>¿?ìß>Y‰>ì‹™>nZ?¶·l>CÀŒ>j½,?ˆ";?uPö>1îG?âQæ>ô#+?Ì„é>¢Œ?¸Y?nZ†>
+ñ'?4é=#¹Ü>d Ó>çî¿>ì‹™>nZ> ¾$?ºL=ì‹=âQf=Î&?Ñ!Ã>‹s>çî??ºL<‰¹>ô#+?6‹!?çî¿=Y‰>!K?¶·l>CÀ>(V6?ï7?ùÀ?9†Y>a%?4éÿ=ºÌ=Y‰>4é=`ƒù>j½,?ý»<?ºL>øã>ì_>6‹!?øã>¼TF?d S>Y–>OSÖ>4éÿ<¼TÆ>ý»¼>•W&?¶·ì>ßV.?CÀ>`ƒù>j½,>âQf>a%?ì‹=F»D?>#³=Ö¾?¶·ì>É‰1?nZ?ÀñŸ>`ƒy>CÀ?„'ƒ>&“>Y?Y‰>¦‡É>>#3>&“>Y‰>Ö¾œ>ºÌ>¿?9†Ù=ì_>ì‹™>4é>>#³>6‹!?>#3?Y–>Ö¾?&“>¸Y?nZ†>zíÏ>ºÌ=>#³>`ƒy>6‹!?Š©>•W¦=CÀ?‹ó=ˆ";?âQæ>nZ?âQf>ì‹=Š)?âQf>É‰1?nZ>j½¬>J¶ü>!K?-ó>&?³¼4?ºÌ<\ˆA?Ì„é>d S>d Ó>nZ?¿?ì‹=-ó?Y?4éÿ=Ž?çî??¼TÆ>‹s>CÀŒ>ì‹™<6‹!?«$£>CÀŒ=CÀŒ>4éÿ=¢Œ?Ñ!C?ºL<âQæ>d S>¼TF>ìß>ì‹>¼TF?4éÿ>ºÌ>çî¿>\ˆA?ùÀ?CÀŒ=‰¹>‹s>‹s>>#3> ¾$?j½¬>¦‡I?`ƒy>•W¦=-ó?nZ>(V6?Tð/?-ó>ÀñŸ>CÀ?j½¬>ºÌ=âQæ=³¼4?«$£>„'ƒ>Š©>CÀ?çî¿>çî?>zíÏ>ßV.?ì‹=äó?ì‹™>9†Ù=¼TÆ>nZ?çî¿>ì‹™>¼TF>Àñ?‹s>4éÿ<ºÌ>ï7?ºÌ=³¼4?‹s>Tð/?¦‡É>Tð/?ºL>Tð¯>ßV.?J¶ü>CÀŒ=4é>¼TÆ>ì‹?ì‹=Àñ>CÀ?>#³>ý»¼>Y?¦‡É>ì_>¿?Y	?¼TF>Y‰>\ˆA?¼TÆ>‹ó=•W&?ˆ";?¼TÆ>çî¿= ¾$?4éÿ=ˆ";?çî¿>>#³>•W¦>zíÏ>Y	?Ž?¸Y?(V¶>ý»<?âQæ>çî¿>ˆ";?ˆ";?9†Y>4éÿ>ì‹?‹ó>\ˆA?Š©>Y‰>uPö>>#3>ìß>nZ?6‹!?„'?âQf>„'?&“>ì‹™>É‰1?Y	?øã>ì_>j½,?âQf=&>„'ƒ>1îG?‹ó>¶·ì>Ž?¼TÆ>‰¹>ùÀ?Àñ>ì_>-ó?ý»¼>4é=ì‹>nZ†>ì‹™=âQf>ºÌ;-ó?`ƒy>ìß>âQæ>j½¬>Àñ?9†Ù=‹ó>OSÖ>d S>¼TÆ>¢Œ?1îG?¢Œ?-ó?1îG?Ö¾?CÀŒ=Tð¯>¸Y?9†Y>âQæ=‰9?ˆ";?uPö>4éÿ>4éÿ>&“>ì‹>4é=4é>CÀŒ>«$#?KX?-ó>ì‹?j½,>¼TF?nZ>çî??¦‡I?ˆ";?CÀ>ì‹=Ñ!C?¼TÆ>Ñ!Ã>Y?(V¶>¡êï>âQf=d Ó>çî¿>ô#+?ºÌ<•W&?âQf>ì‹™>9†Ù>‹ó>(V¶>Y?&“>Š)?ºÌ>¼TF>¦‡É>CÀŒ>ºL>&“>¢Œ?çî¿=¦‡É>`ƒy>4é=ì‹™<ºL=âQæ=ì‹™>äó?¼TÆ>¶·ì>çî??‰9?âQæ>CÀ>Ñ!C?Ì„é>ý»<?>#³=&>CÀ?ý»<?äó?‰9?ì‹>(V6?¿?4éÿ=a%?&>¼TF?!K?ý»¼>!K?ì‹™=Ì„é>‹ó>Y	?CÀ?-ó>\ˆA? ¾$?„'ƒ>âQæ=
+ñ'?9†Y>Y	?ºÌ<ºL<&>ºÌ<\ˆA?„'?!K?•W¦>Š)?âQf>¿?¼TÆ>¶·l>`ƒù>¦‡I?-ó>9†Y>6‹!?ì‹™>ºL>¼TF?ì_>4éÿ<‰9?j½,>d S>Y	?wò?#¹Ü>ºÌ<É‰1?ÀñŸ>!K?nZ>ºÌ<¢Œ?4éÿ=4é>ì‹™>ºL<Š)?âQæ>¢Œ?ùÀ?•W¦>¿?•W¦>âQf=-ó>¼TÆ>>#³=¶·l>Y‰>>#3>Š)?>#³>ºÌ;ì‹>•W¦>¦‡É>Àñ?É‰1?uPö>•W&>j½,?ìß>OSÖ>uPö>4éÿ<çî¿>`ƒy>ºL=J¶ü>Ö¾œ>Àñ?ßV.?çî¿>d S>a%?³¼4?4éÿ>ì‹™<É‰1?•W¦=ùÀ?âQf=ý»<?!K?1îG?Ì„é>d Ó>ì‹™<Î&?øã>«$#?ì‹™<9†Ù>Ž?¸Y?F»D?>#3>1îG?nZ>ï7?ßV.?CÀŒ>>#³=!K?uPö>CÀ?³¼4?Ì„é>¡êï>9†Ù=‹ó>ì‹™<çî¿=ì‹™=¸Y?wò?>#³>„'?ì‹™<1îG?Y?¶·ì>Ö¾?Tð¯>ì‹™<ºÌ=«$£>¢Œ?ì‹?KX?9†Y>Î&?Ñ!C?KX?
+ñ'?j½¬>•W¦>âQf>ô#+?`ƒù>¦‡I?!K?9†Ù>Tð¯>4éÿ<Y?9†Y>&?¸Y?ºÌ>Y?•W&>    a%?‰¹>ì_>ºL=ÀñŸ>Y?äó?„'ƒ>¢Œ?¡êï>‹ó>‰9>j½¬>(V¶>Y?Ö¾?ºÌ=¼TÆ>Ž?4é>øã>&?OSÖ>ºÌ<nZ>ºL<J¶ü>³¼4?Ñ!Ã>âQæ=`ƒy>Y?4éÿ=ì_>zíÏ>Ö¾?-ó?‰9>ºÌ=nZ>Y–>¶·ì>ì‹™>„'?uPö>‹s>«$£>J¶ü>çî??ºL<Y	?ÀñŸ>Î&?>#³=F»D?âQæ>j½,>‰9?¼TF>«$£>¡êï>Š)?4éÿ>•W&>Š©>Ì„é>¼TF>CÀ>9†Ù=`ƒy>ÀñŸ>a%?(V¶>„'ƒ>&?„'?>#3?6‹!?¿?Y?‰9?9†Ù>4éÿ>Š©>ì‹?-ó>j½,?ì‹>É‰1?ºL<ì‹™>KX?‰9?\ˆA?‰9>ÀñŸ>çî?>nZ>F»D?•W&?ºL>4é=ý»<?çî¿>ô#+?çî?>ý»¼>-ó>¿?ì‹™>äó?ý»<?ï7?ì‹?¼TF?¼TF>Àñ>>#3>ºL<-ó>„'ƒ>ÀñŸ>«$£>ï7?¿?Tð/?CÀŒ>¢Œ?ºÌ<Y	?ô#+?Š©>Ž?wò?ˆ";?j½¬>ùÀ?ì‹>‹ó=ºL=4é>‰9?âQæ>ºÌ;É‰1?•W¦=‹ó=çî¿=9†Ù>³¼4?ì‹=ì‹™<>#³>ºL>ìß>Tð/?ì‹™<ˆ";?CÀ>nZ>ì‹>#¹Ü>&>çî¿=-ó?¦‡É>Y?ºL<¢Œ?\ˆA?«$£>ý»<?CÀŒ>¼TF>F»D?Š)?ô#+?¼TF?„'ƒ>‰9>¢Œ?j½,?1îG?¶·l>CÀ?ºL>CÀ?çî¿=âQf=Ž?4éÿ=çî??ô#+?«$£>j½,?>#3=ùÀ?Š©>d S>¡êï>Àñ>`ƒy>ì‹>ºÌ=nZ>Y?CÀ>‰¹>‰¹>Ö¾?‰9?9†Ù=Y‰>Y	?4éÿ<Àñ>Ì„é>¶·l>¿?Ì„é>•W¦=¼TF?9†Ù=•W¦>«$#?ºÌ;ì‹>Š©>ì‹™<Y?¸Y?nZ?CÀŒ>`ƒù>•W¦>âQf>ºÌ;‹ó=6‹!?>#3>>#³>‰¹>&>!K?‰9? ¾$?Tð/?Ö¾?•W&?•W¦=¶·l>ˆ";?•W&?¢Œ?9†Ù=•W¦>ì‹™<ºÌ=>#3>CÀŒ>¿?ßV.?¼TÆ>`ƒy>ºÌ;«$#?
+ñ'?-ó>„'?j½¬>F»D?ˆ";?çî¿=âQæ>ì‹?rU>?&>F»D?¦‡É>Tð/? ¾$?J¶ü>¼TF?Y	?ºÌ<çî¿=¢Œ?\ˆA?ì‹™>ºÌ<a%?j½,>Ñ!Ã>4éÿ<¼TF?‹ó>CÀ>>#³>>#³>\ˆA?CÀŒ>ì_>wò?Š©>ùÀ?ì_>«$£>çî¿>Tð/?ô#+?‹ó=OSÖ>„'ƒ>âQæ=ô#+?¸Y?rU>?(V6?j½,>¶·ì>„'ƒ>Î&?`ƒù>‰9?Ö¾œ>>#³>ì‹™>!K?âQæ=âQf=4é>nZ>Tð/?ºL>Tð/?Š©>4é>-ó>âQf=9†Ù=ºL<nZ?„'?‰9?>#³=çî¿=‰9?Y–>CÀ?ì‹™<d S>
+ñ'?j½¬>‹s>•W&>¦‡I?&?ï7?Ö¾œ>äó?ºL=«$£>(V¶>nZ>KX?uPö>&?¼TF>„'ƒ>„'?çî¿>d Ó>¸Y?‰¹>¼TF?çî??ì_>ì‹=âQf>Ñ!C?‰¹>&?4é=ý»<?ï7?OSÖ>ì‹™=Y	?4éÿ<•W&>‹s>`ƒù>rU>?ÀñŸ>-ó?ºÌ>ˆ";?âQf>rU>?>#³>uPö>¡êï>ý»<?CÀŒ>•W¦>¡êï>j½,>ºÌ;j½,>9†Ù>Î&?9†Ù=‹s>ºÌ>¦‡I?9†Ù>6‹!?Y?a%?J¶ü>&“>nZ?ºÌ>&“>âQæ>ºÌ>#¹Ü>ì‹?F»D?¼TF?ì‹=ºÌ=&?Š©>Š)?rU>?ºÌ>ºÌ;Ö¾?Y?ºÌ>ÀñŸ>-ó?nZ?`ƒù>CÀ?&?•W&?j½,>9†Ù>¼TÆ>\ˆA?•W¦>«$#?CÀŒ=¦‡I?CÀŒ=d Ó>çî??Ñ!Ã>ì‹>nZ>j½¬>4é=CÀ>¸Y?&>zíÏ>`ƒy>>#3=¼TÆ>Ž?j½,?³¼4?a%?4éÿ<„'ƒ>`ƒy>nZ†>¼TF?ì‹™>`ƒù>ˆ";?¿?Àñ?-ó?Ñ!Ã>çî??1îG?Ñ!C?`ƒy>-ó?ý»<?ý»<?4éÿ<ý»¼>³¼4?ùÀ?Ž?>#³=4éÿ>„'ƒ>rU>?ý»¼>«$#?&“>CÀ>Î&?9†Ù=øã>Ö¾œ>6‹!?¶·l>4é=6‹!?ºÌ=ô#+?ì‹™=ßV.?Š)?çî??âQf>>#3>ˆ";?9†Ù=Ì„é>J¶ü>«$£>Š)?CÀŒ>j½,?ºÌ>
+ñ'?ÀñŸ>‰9?¿?çî¿=•W¦=Y	?ºL=ý»¼>Tð¯>„'?j½,?Š)?âQæ=•W¦=ì‹=OSÖ>`ƒy>•W&>ºÌ<Tð/?ï7?Ñ!C?!K?Àñ?>#³=ì‹™>ý»¼>nZ†>âQf=Tð¯>(V¶>zíÏ>>#3=ºÌ<Y–>wò?¶·ì>Ö¾?ì‹=4éÿ=`ƒy>¼TÆ>KX?‰¹>„'ƒ>âQf=ßV.?(V¶>ÀñŸ>Àñ>Y?ˆ";?âQæ>øã>Ì„é>4é>>#3=4é>Àñ?çî??çî¿>‹s>>#³>>#³=F»D?Y–>ˆ";?É‰1?Ì„é>(V¶>(V¶>ìß>ì‹™>    Tð¯>Ö¾œ>Š©>ºL>ì‹™<j½,>a%?9†Y>4éÿ>¶·ì>Î&?ºL=É‰1?uPö>Ž?„'?(V¶>Š©>ºL>„'?ì‹™>4é=É‰1?-ó?„'?rU>?âQæ=&“>¶·l>ì‹™<ì‹™<#¹Ü>CÀ>äó?j½,>ºL=&?`ƒù>Ì„é>âQf=¡êï>4éÿ=
+ñ'?âQf>Š©>ì_>9†Ù=ÀñŸ>‹ó=‹ó=Š)?¿?F»D?>#3=çî?>6‹!?>#³=-ó?¼TÆ>„'?¸Y?Tð/?¼TÆ>•W¦>4éÿ<ì_>d Ó>Tð/?Ñ!C?¦‡É>•W&>4éÿ<#¹Ü>•W&>
+ñ'?CÀŒ=#¹Ü>j½¬>¡êï>>#³>øã>6‹!?•W¦=øã>Ö¾?nZ?ÀñŸ>É‰1?Ö¾?¡êï>ì‹?ï7?‰9>¿?Y?OSÖ>Ñ!C?&?ºL<nZ†>‹ó=¡êï>ý»¼>Y?9†Ù=äó?J¶ü>&>ì‹=ºÌ>øã>>#³>¼TÆ>&?a%?Î&?`ƒù>‹ó=•W¦>>#³>«$£>>#³=Y	?`ƒy>Y	?âQf=¶·l>-ó>6‹!?wò?ºÌ;9†Y>4é>9†Y>Ì„é>-ó>OSÖ>Tð/?¦‡I?•W&?j½,>¼TF?ºL<Ñ!C?-ó>«$#?zíÏ>KX?j½¬> ¾$?9†Ù=¼TÆ>ì_>Ž?a%?d Ó>ºÌ;Tð¯>äó?Y?!K?¶·l>Y	?ì‹™=¿?-ó>Ö¾?KX?âQf=•W¦>4éÿ=\ˆA?‰¹>•W¦=`ƒy>Àñ?ºL=‰9?!K?Ö¾œ>¸Y?¿?ì‹™>¿?¢Œ?Àñ?¦‡É>ì_>âQf=&>ºÌ=>#3?4éÿ>‹ó=âQæ>„'?ý»¼>zíÏ>
+ñ'?KX?‰9>CÀ?çî¿=ˆ";?ÀñŸ>ý»<?¸Y?³¼4?çî¿=&>&“>„'ƒ>ºÌ>CÀ>d S>Àñ?„'ƒ>d Ó>ºÌ=ºL<³¼4?Š©>¿?`ƒù>ßV.?ìß>>#3?Y–>âQæ>CÀ?„'ƒ>ßV.?Š©>«$£>¼TÆ>CÀŒ=(V¶>âQf=ºL=zíÏ>„'ƒ>Y–>Tð¯>!K?Ö¾œ>‰9?CÀ?Š)?ï7?•W&?ì‹>4é>ºÌ;Tð¯>CÀŒ>äó?>#3=>#3>4éÿ>Àñ?ô#+?çî¿>Y‰>4é=Y‰>6‹!?j½,?9†Ù>ì‹=F»D?ºÌ=j½,?#¹Ü>!K?CÀ?CÀŒ=ì_>F»D?¦‡É>Š)?1îG?OSÖ>j½,?ºÌ=¼TF>ßV.?ºÌ<!K?\ˆA?4éÿ<Ñ!Ã>9†Ù>âQæ=d S>
+ñ'?¶·ì>nZ>¦‡I?«$#?&>Ì„é>4éÿ=>#3=-ó?•W¦>Àñ?ì‹™<CÀ>uPö>j½,?4é>¿?ÀñŸ>•W¦>uPö>„'ƒ>j½,>ºÌ=ºL<âQæ=¢Œ?ºÌ<!K?zíÏ>øã>«$£>ì‹™=äó?uPö>¶·ì>ˆ";?CÀ>Àñ>çî??ì_>j½,>ì‹=`ƒù>1îG?çî¿=¸Y?F»D?!K?Ž?CÀŒ=ï7?ºÌ>CÀŒ=¼TÆ>¼TÆ>‰¹>Ñ!C?F»D?Ñ!C?¶·l>Š)?ºL>zíÏ>ºÌ=âQf>ìß>¶·l>>#3=âQæ=³¼4?4é>çî??É‰1?ì‹™<Tð/?Š)?¶·ì>Ñ!C?„'ƒ>Š)?ì_>CÀŒ>çî¿=çî??KX?nZ?•W¦>-ó?Y‰>(V6?Y	?OSÖ>‹s>ì‹™>ý»<?Ñ!Ã>çî¿=ì_>ºL>&?rU>?¦‡I?4é=6‹!?çî¿>Àñ>(V6?&“>zíÏ>
+ñ'?&“>ºL<¼TÆ>ý»¼>CÀŒ=âQf=ßV.?F»D?âQf>4éÿ<wò?Ž?zíÏ>•W&>Ž?9†Y>Tð¯>¿?j½,?øã>ºL=\ˆA?Àñ>Y‰>ì_>`ƒù>ï7?>#3>Ž?4éÿ>ì‹™=`ƒù>ï7?rU>?É‰1?9†Y>ÀñŸ>J¶ü>¢Œ?¶·ì>ô#+?\ˆA?&>çî¿=J¶ü>j½,>çî¿>ºL<É‰1?É‰1?nZ?ºÌ;ùÀ?(V¶>Ö¾?«$#?`ƒy>F»D?>#3?âQf=rU>?rU>?rU>?KX?#¹Ü>•W¦>ºÌ>#¹Ü>nZ?(V¶>&>&?>#3>¼TF>‰9>âQæ>(V6?‹ó=\ˆA?‰¹>4éÿ=É‰1?«$£>ˆ";?uPö>«$£>ô#+?uPö>•W¦>CÀ>¿?(V¶>!K?ý»<?4é=&“>`ƒy>Tð¯>CÀŒ=¦‡I?!K?¼TF>j½¬>ì‹™=äó?ºL=rU>?Î&?Àñ?nZ†>Tð/?9†Y>9†Y>wò?Y‰>ºÌ=F»D?j½¬>CÀŒ=ºÌ<-ó>d Ó>çî¿=4é>Tð¯>çî??    >#³=>#3>CÀ>ßV.?¼TF?1îG?&“>ì‹?`ƒù>#¹Ü>Y	?Y	?¼TF>uPö>\ˆA?âQf>¦‡É>¢Œ?4éÿ<9†Y>âQf>‹ó>Î&?>#3>*\B./model_pred_conv2d_weight_dequant/Mul_output_0J ã<Ö›2»ã:Dp¼¥¼p­;E¼"¼Z
+input
+
+
+
+ 
+ b 
+output
+
+
+
+ 
+ jC
+)/model_head_ff_input_quant_1/Div_output_0
+
+
+
+ 
+ jE
++/model_head_ff_input_quant_1/Round_output_0
+
+
+
+ 
+ jD
+*/model_head_ff_input_quant_1/Clip_output_0
+
+
+
+ 
+ jC
+)/model_head_ff_input_dequant/Mul_output_0
+
+
+
+ 
+ j@
+&/wrappedInnerForwardImpl/Conv_output_0
+
+
+
+ 
+ jD
+*/model_head_ff_output_quant_1/Div_output_0
+
+
+
+ 
+ jF
+,/model_head_ff_output_quant_1/Round_output_0
+
+
+
+ 
+ jE
++/model_head_ff_output_quant_1/Clip_output_0
+
+
+
+ 
+ jD
+*/model_head_ff_output_dequant/Mul_output_0
+
+
+
+ 
+ jH
+./model_head_lif_input_act_quant_1/Div_output_0
+
+
+
+ 
+ jJ
+0/model_head_lif_input_act_quant_1/Round_output_0
+
+
+
+ 
+ jI
+//model_head_lif_input_act_quant_1/Clip_output_0
+
+
+
+ 
+ jH
+./model_head_lif_input_act_dequant/Mul_output_0
+
+
+
+ 
+ j'
+/LIF_output_0
+
+
+
+ 
+ j'
+/LIF_output_1
+
+
+
+ 
+ jI
+//model_head_spk_output_act_quant_1/Div_output_0
+
+
+
+ 
+ jK
+1/model_head_spk_output_act_quant_1/Round_output_0
+
+
+
+ 
+ jJ
+0/model_head_spk_output_act_quant_1/Clip_output_0
+
+
+
+ 
+ jI
+//model_head_spk_output_act_dequant/Mul_output_0
+
+
+
+ 
+ jA
+'/model_G1_ff_input_quant_1/Div_output_0
+
+
+
+ 
+ jC
+)/model_G1_ff_input_quant_1/Round_output_0
+
+
+
+ 
+ jB
+(/model_G1_ff_input_quant_1/Clip_output_0
+
+
+
+ 
+ jA
+'/model_G1_ff_input_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/wrappedInnerForwardImpl_1/Conv_output_0
+
+
+
+ 
+ jB
+(/model_G1_ff_output_quant_1/Div_output_0
+
+
+
+ 
+ jD
+*/model_G1_ff_output_quant_1/Round_output_0
+
+
+
+ 
+ jC
+)/model_G1_ff_output_quant_1/Clip_output_0
+
+
+
+ 
+ jB
+(/model_G1_ff_output_dequant/Mul_output_0
+
+
+
+ 
+ jK
+1/model_G1_identity_add_act_quant_1_1/Div_output_0
+
+
+
+ 
+ jM
+3/model_G1_identity_add_act_quant_1_1/Round_output_0
+
+
+
+ 
+ jL
+2/model_G1_identity_add_act_quant_1_1/Clip_output_0
+
+
+
+ 
+ jK
+1/model_G1_identity_add_act_dequant_1/Mul_output_0
+
+
+
+ 
+ j'
+/Add_output_0
+
+
+
+ 
+ jF
+,/model_G1_lif_input_act_quant_1/Div_output_0
+
+
+
+ 
+ jH
+./model_G1_lif_input_act_quant_1/Round_output_0
+
+
+
+ 
+ jG
+-/model_G1_lif_input_act_quant_1/Clip_output_0
+
+
+
+ 
+ jF
+,/model_G1_lif_input_act_dequant/Mul_output_0
+
+
+
+ 
+ j)
+/LIF_1_output_0
+
+
+
+ 
+ j)
+/LIF_1_output_1
+
+
+
+ 
+ jG
+-/model_G1_spk_output_act_quant_1/Div_output_0
+
+
+
+ 
+ jI
+//model_G1_spk_output_act_quant_1/Round_output_0
+
+
+
+ 
+ jH
+./model_G1_spk_output_act_quant_1/Clip_output_0
+
+
+
+ 
+ jG
+-/model_G1_spk_output_act_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/model_R1a_ff_input_quant_1/Div_output_0
+
+
+
+ 
+ jD
+*/model_R1a_ff_input_quant_1/Round_output_0
+
+
+
+ 
+ jC
+)/model_R1a_ff_input_quant_1/Clip_output_0
+
+
+
+ 
+ jB
+(/model_R1a_ff_input_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/wrappedInnerForwardImpl_3/Conv_output_0
+
+
+
+ 
+ jC
+)/model_R1a_ff_output_quant_1/Div_output_0
+
+
+
+ 
+ jE
++/model_R1a_ff_output_quant_1/Round_output_0
+
+
+
+ 
+ jD
+*/model_R1a_ff_output_quant_1/Clip_output_0
+
+
+
+ 
+ jC
+)/model_R1a_ff_output_dequant/Mul_output_0
+
+
+
+ 
+ jG
+-/model_R1a_lif_input_act_quant_1/Div_output_0
+
+
+
+ 
+ jI
+//model_R1a_lif_input_act_quant_1/Round_output_0
+
+
+
+ 
+ jH
+./model_R1a_lif_input_act_quant_1/Clip_output_0
+
+
+
+ 
+ jG
+-/model_R1a_lif_input_act_dequant/Mul_output_0
+
+
+
+ 
+ j)
+/LIF_2_output_0
+
+
+
+ 
+ j)
+/LIF_2_output_1
+
+
+
+ 
+ jH
+./model_R1a_spk_output_act_quant_1/Div_output_0
+
+
+
+ 
+ jJ
+0/model_R1a_spk_output_act_quant_1/Round_output_0
+
+
+
+ 
+ jI
+//model_R1a_spk_output_act_quant_1/Clip_output_0
+
+
+
+ 
+ jH
+./model_R1a_spk_output_act_dequant/Mul_output_0
+
+
+
+ 
+ jA
+'/model_G2_ff_input_quant_1/Div_output_0
+
+
+
+ 
+ jC
+)/model_G2_ff_input_quant_1/Round_output_0
+
+
+
+ 
+ jB
+(/model_G2_ff_input_quant_1/Clip_output_0
+
+
+
+ 
+ jA
+'/model_G2_ff_input_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/wrappedInnerForwardImpl_4/Conv_output_0
+
+
+
+ 
+ jB
+(/model_G2_ff_output_quant_1/Div_output_0
+
+
+
+ 
+ jD
+*/model_G2_ff_output_quant_1/Round_output_0
+
+
+
+ 
+ jC
+)/model_G2_ff_output_quant_1/Clip_output_0
+
+
+
+ 
+ jB
+(/model_G2_ff_output_dequant/Mul_output_0
+
+
+
+ 
+ jK
+1/model_G2_identity_add_act_quant_1_1/Div_output_0
+
+
+
+ 
+ jM
+3/model_G2_identity_add_act_quant_1_1/Round_output_0
+
+
+
+ 
+ jL
+2/model_G2_identity_add_act_quant_1_1/Clip_output_0
+
+
+
+ 
+ jK
+1/model_G2_identity_add_act_dequant_1/Mul_output_0
+
+
+
+ 
+ j)
+/Add_1_output_0
+
+
+
+ 
+ jF
+,/model_G2_lif_input_act_quant_1/Div_output_0
+
+
+
+ 
+ jH
+./model_G2_lif_input_act_quant_1/Round_output_0
+
+
+
+ 
+ jG
+-/model_G2_lif_input_act_quant_1/Clip_output_0
+
+
+
+ 
+ jF
+,/model_G2_lif_input_act_dequant/Mul_output_0
+
+
+
+ 
+ j)
+/LIF_3_output_0
+
+
+
+ 
+ j)
+/LIF_3_output_1
+
+
+
+ 
+ jG
+-/model_G2_spk_output_act_quant_1/Div_output_0
+
+
+
+ 
+ jI
+//model_G2_spk_output_act_quant_1/Round_output_0
+
+
+
+ 
+ jH
+./model_G2_spk_output_act_quant_1/Clip_output_0
+
+
+
+ 
+ jG
+-/model_G2_spk_output_act_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/model_R2a_ff_input_quant_1/Div_output_0
+
+
+
+ 
+ jD
+*/model_R2a_ff_input_quant_1/Round_output_0
+
+
+
+ 
+ jC
+)/model_R2a_ff_input_quant_1/Clip_output_0
+
+
+
+ 
+ jB
+(/model_R2a_ff_input_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/wrappedInnerForwardImpl_6/Conv_output_0
+
+
+
+ 
+ jC
+)/model_R2a_ff_output_quant_1/Div_output_0
+
+
+
+ 
+ jE
++/model_R2a_ff_output_quant_1/Round_output_0
+
+
+
+ 
+ jD
+*/model_R2a_ff_output_quant_1/Clip_output_0
+
+
+
+ 
+ jC
+)/model_R2a_ff_output_dequant/Mul_output_0
+
+
+
+ 
+ jG
+-/model_R2a_lif_input_act_quant_1/Div_output_0
+
+
+
+ 
+ jI
+//model_R2a_lif_input_act_quant_1/Round_output_0
+
+
+
+ 
+ jH
+./model_R2a_lif_input_act_quant_1/Clip_output_0
+
+
+
+ 
+ jG
+-/model_R2a_lif_input_act_dequant/Mul_output_0
+
+
+
+ 
+ j)
+/LIF_4_output_0
+
+
+
+ 
+ j)
+/LIF_4_output_1
+
+
+
+ 
+ jH
+./model_R2a_spk_output_act_quant_1/Div_output_0
+
+
+
+ 
+ jJ
+0/model_R2a_spk_output_act_quant_1/Round_output_0
+
+
+
+ 
+ jI
+//model_R2a_spk_output_act_quant_1/Clip_output_0
+
+
+
+ 
+ jH
+./model_R2a_spk_output_act_dequant/Mul_output_0
+
+
+
+ 
+ jG
+-/model_pred_conv2d_input_quant_1/Div_output_0
+
+
+
+ 
+ jI
+//model_pred_conv2d_input_quant_1/Round_output_0
+
+
+
+ 
+ jH
+./model_pred_conv2d_input_quant_1/Clip_output_0
+
+
+
+ 
+ jG
+-/model_pred_conv2d_input_dequant/Mul_output_0
+
+
+
+ 
+ jB
+(/wrappedInnerForwardImpl_7/Conv_output_0
+
+
+
+ 
+ jH
+./model_pred_conv2d_output_quant_1/Div_output_0
+
+
+
+ 
+ jJ
+0/model_pred_conv2d_output_quant_1/Round_output_0
+
+
+
+ 
+ jI
+//model_pred_conv2d_output_quant_1/Clip_output_0
+
+
+
+ 
+ jH
+./model_pred_conv2d_output_dequant/Mul_output_0
+
+
+
+ 
+ jK
+1/model_pred_activation_input_quant_1/Div_output_0
+
+
+
+ 
+ jM
+3/model_pred_activation_input_quant_1/Round_output_0
+
+
+
+ 
+ jL
+2/model_pred_activation_input_quant_1/Clip_output_0
+
+
+
+ 
+ jK
+1/model_pred_activation_input_dequant/Mul_output_0
+
+
+
+ 
+ jI
+//model_pred_activation_act_quant_1/Div_output_0
+
+
+
+ 
+ jK
+1/model_pred_activation_act_quant_1/Round_output_0
+
+
+
+ 
+ jJ
+0/model_pred_activation_act_quant_1/Clip_output_0
+
+
+
+ 
+ B
+ B
+SNN_implementation

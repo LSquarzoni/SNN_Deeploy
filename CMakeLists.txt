@@ -267,5 +267,4 @@ if(platform STREQUAL Chimera)
 
 endif()
 
-
 print_simulation_config()

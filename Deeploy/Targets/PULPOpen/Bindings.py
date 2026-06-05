@@ -440,6 +440,7 @@ BasicDequantBindings = [
 
 # LIF: inputs (input, mem_in, beta, threshold) -> outputs (spike_out, mem_out)
 PULPLIFBindings = [
+    # fp32 binding
     NodeBinding(
         PULPLIFChecker([
             PointerClass(float32_t),  # input
@@ -451,6 +452,20 @@ PULPLIFBindings = [
             PointerClass(float32_t)   # mem_out
         ]),
         LIFTemplate.referenceTemplate,
+        ForkTransformer
+    ),
+    # int8 binding
+    NodeBinding(
+        PULPLIFChecker([
+            PointerClass(int8_t),     # input
+            PointerClass(int8_t),     # mem_in
+            PointerClass(float32_t),  # beta
+            PointerClass(float32_t)   # threshold
+        ], [
+            PointerClass(int8_t),     # spike_out
+            PointerClass(int8_t)      # mem_out
+        ]),
+        LIFTemplate.int8Template,
         ForkTransformer
     )
 ]

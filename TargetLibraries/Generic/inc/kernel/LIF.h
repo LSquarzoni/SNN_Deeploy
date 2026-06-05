@@ -62,4 +62,22 @@ void LIF_stateful_fp32(const float32_t *input, const float32_t *mem_in,
                        float32_t *spike_out, float32_t *mem_state,
                        uint32_t N, uint32_t C, uint32_t H, uint32_t W);
 
+// LIF neuron update with int8 quantization.
+// Activations (input, mem, spike, mem_out) are int8.
+// Parameters (beta, threshold) remain fp32 as exported from ONNX.
+// input      : [N, C, H, W] input current (int8)
+// mem_in     : [N, C, H, W] previous membrane (int8)
+// beta       : [C]          decay factor per channel (fp32, from ONNX)
+// threshold  : [C]          firing threshold per channel (fp32, from ONNX)
+// spike_out  : [N, C, H, W] output spikes (int8)
+// mem_out    : [N, C, H, W] updated membrane (int8)
+// input_scale, mem_scale    : scale factors for dequantization
+void LIF_s8_s8_s32(const int8_t *input, const int8_t *mem_in,
+                   const float32_t *beta, const float32_t *threshold,
+                   int8_t *spike_out, int8_t *mem_out, int32_t input_offset,
+                   int32_t mem_in_offset, int32_t output_offset,
+                   int32_t mem_out_offset, float32_t input_scale,
+                   float32_t mem_scale, uint32_t N, uint32_t C, uint32_t H,
+                   uint32_t W);
+
 #endif // __DEEPLOY_BASIC_MATH_LIF_KERNEL_HEADER_

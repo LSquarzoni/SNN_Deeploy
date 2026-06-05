@@ -37,7 +37,7 @@ from Deeploy.Targets.Generic.Bindings import BasicAddBindings, BasicConcatBindin
     BasicPad1DBindings, BasicPad2DBindings, BasicQuantBindings, BasicReduceMeanBindings, BasicReduceSumBindings, \
     BasicReluBinding, BasicReshapeBindings, BasicRQIntegerDivBinding, BasicRQSBindings, BasicRQSGELUBinding, \
     BasicSliceBindings, BasicSoftmaxBindings, BasicTransposeBindings, DummyBinding, BasicLIFBindings, \
-    BasicLIFstatefulBindings, BasicTanhBinding
+    BasicLIFstatefulBindings, BasicTanhBindings
 from Deeploy.Targets.Generic.Layers import AddLayer, ConcatLayer, ConvLayer, DebugPrintLayer, DequantLayer, DivLayer, \
     GatherLayer, GELULayer, GEMMLayer, ITAMaxLayer, LayerNormLayer, MatMulLayer, MaxPoolLayer, MulLayer, PadLayer, \
     QuantLayer, ReduceMeanLayer, ReduceSumLayer, ReluLayer, RequantShiftLayer, ReshapeLayer, RQIntegerDivLayer, \
@@ -52,7 +52,11 @@ from Deeploy.Targets.Generic.Parsers import AddParser, ConcatParser, DebugParser
 from Deeploy.Targets.Generic.Templates import AllocateTemplate, FreeTemplate
 from Deeploy.Targets.Generic.TopologyOptimizationPasses.Passes import DequantPatternPass, ExtractPaddingFromConvPass, \
     ExtractPaddingFromPoolPass, MatMulAddMergePass, MergeConstAddAndRequantPass, QuantPatternPass, \
-    iGELURequantMergePass
+    SimpleDequantPatternPass, SimpleQuantPatternPass, iGELURequantMergePass
+from Deeploy.CommonExtensions.OptimizationPasses.TopologyOptimizationPasses.RemoveRedundantQuantDequant import \
+    RemoveRedundantQuantDequantPass
+from Deeploy.CommonExtensions.OptimizationPasses.TopologyOptimizationPasses.InsertRequantShift import \
+    InsertRequantShiftAfterConvPass, InsertRequantShiftAfterAddPass
 
 AddMapper = NodeMapper(AddParser(), BasicAddBindings)
 Conv1DMapper = NodeMapper(GenericConv1DParser(), [BasicConv1DBinding])
@@ -84,7 +88,7 @@ ReshapeMapper = NodeMapper(ReshapeParser(), BasicReshapeBindings)
 RQGELUMapper = NodeMapper(RQSiGELUParser(), [BasicRQSGELUBinding])
 RQIntegerDivMapper = NodeMapper(RQIntegerDivParser(), [BasicRQIntegerDivBinding])
 SoftmaxMapper = NodeMapper(SoftmaxParser(), BasicSoftmaxBindings)
-TanhMapper = NodeMapper(TanhParser(), [BasicTanhBinding])
+TanhMapper = NodeMapper(TanhParser(), BasicTanhBindings)
 iSoftmaxMapper = NodeMapper(iSoftmaxParser(), BasicSoftmaxBindings)
 TransposeMapper = NodeMapper(TransposeParser(), BasicTransposeBindings)
 UnsqueezeMapper = NodeMapper(UnsqueezeParser(), BasicReshapeBindings)
@@ -176,8 +180,13 @@ class GenericStructBuffer(StructBuffer):
 
 GenericOptimizer = TopologyOptimizer(
     [
-        QuantPatternPass(),
-        DequantPatternPass(),
+        QuantPatternPass(),  # Div → Add → Round → Clip (with zero_point)
+        SimpleQuantPatternPass(),  # Div → Round → Clip (symmetric, zero_point=0)
+        DequantPatternPass(),  # Sub → Mul (with zero_point)
+        SimpleDequantPatternPass(),  # Mul only (symmetric, zero_point=0)
+        RemoveRedundantQuantDequantPass(),  # Remove back-to-back QUANT→DEQUANT pairs from fake quantization
+        InsertRequantShiftAfterConvPass(),  # Insert RequantShift after Conv to convert int32→int8
+        InsertRequantShiftAfterAddPass(),  # Insert RequantShift after Add to convert int32→int8
         iGELURequantMergePass(),
         MatMulAddMergePass(),
         MergeConstAddAndRequantPass(),

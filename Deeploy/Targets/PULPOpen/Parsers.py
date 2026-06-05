@@ -49,7 +49,7 @@ class PULPConv2DParser(RQSConv2DParser):
                 self.operatorRepresentation['pads'][0] == self.operatorRepresentation['pads'][2],
                 self.operatorRepresentation['pads'][1] == self.operatorRepresentation['pads'][3],
                 self.operatorRepresentation['pads'][0] == self.operatorRepresentation['pads'][1],
-                len(node.inputs) == 4,
+                len(node.inputs) in [4, 5],  # 4 inputs (no bias) or 5 inputs (with bias)
                 'shift' in node.attrs,
             ])
 
@@ -75,7 +75,14 @@ class PULPConv2DParser(RQSConv2DParser):
         newCtxt, ret = super().parseNodeCtxt(ctxt, node, channels_first)
 
         if ret:
-            inputs = ['data_in', 'weight', 'mul', 'add']
+            # Handle both 4 inputs (no bias) and 5 inputs (with bias)
+            if len(node.inputs) == 4:
+                inputs = ['data_in', 'weight', 'mul', 'add']
+            elif len(node.inputs) == 5:
+                inputs = ['data_in', 'weight', 'bias', 'mul', 'add']
+            else:
+                return ctxt, False
+                
             for idx, inputNode in enumerate(node.inputs):
                 self.operatorRepresentation[inputs[idx]] = ctxt.lookup(inputNode.name).name
 

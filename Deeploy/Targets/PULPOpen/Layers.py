@@ -79,7 +79,8 @@ class PULPLIFLayer(ONNXLayer):
 
     def computeOps(self):
         # Each element: one mul (beta*mem), one add, one compare -> ~3 ops
-        return 3 * self.mapper.parser.operatorRepresentation['size']
+        # 1 MAC + 1 comparison (I will not consider the comparisons because they are much less wrt CONV MACs)
+        return 1 * self.mapper.parser.operatorRepresentation['size']
 
 
 class PULPLIFstatefulLayer(ONNXLayer):
@@ -96,4 +97,4 @@ class PULPLIFstatefulLayer(ONNXLayer):
 
     def computeOps(self):
         # Each element: one mul (beta*mem), one add, one compare -> ~3 ops
-        return 3 * self.mapper.parser.operatorRepresentation['size']
+        return 1 * self.mapper.parser.operatorRepresentation['size']

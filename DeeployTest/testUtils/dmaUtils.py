@@ -303,7 +303,7 @@ def defaultScheduler(graph: gs.Graph) -> List[List[gs.Node]]:
 
 def setup_pulp_deployer(defaultMemory: str, targetMemory: str, graph: gs.Graph, inputTypes: Dict[str, Type[Pointer]],
                         doublebuffer: bool, deeployStateDir: str) -> NetworkDeployer:
-    L3 = MemoryLevel(name = "L3", neighbourNames = ["L2"], size = 64000000)
+    L3 = MemoryLevel(name = "L3", neighbourNames = ["L2"], size = 32000000)  # GVSOC simulator configured with 32MB L3
     L2 = MemoryLevel(name = "L2", neighbourNames = ["L3", "L1"], size = 1024000)
     L1 = MemoryLevel(name = "L1", neighbourNames = ["L2"], size = 64000)
     memoryLevels = [L3, L2, L1]

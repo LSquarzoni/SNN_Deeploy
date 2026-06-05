@@ -46,3 +46,40 @@ PULP_LIF_fp32_fp32(
     ${N}, ${H}, ${W}, ${C}
 );
 """)
+
+int8Template = NodeTemplate("""
+// LIF int8 (PULP NHWC) (Name: ${nodeName}, Op: ${nodeOp})
+// Expects tensors: data_in (int8), mem_in (int8), beta (fp32), threshold (fp32)
+// Produces tensors: spike_out (int8), mem_out (int8)
+${data_in_type.typeName}   ref_${spike_out}_${data_in}      = ${data_in};
+${mem_in_type.typeName}    ref_${spike_out}_${mem_in}       = ${mem_in};
+${beta_type.typeName}      ref_${spike_out}_${beta}         = ${beta};
+${threshold_type.typeName} ref_${spike_out}_${threshold}    = ${threshold};
+${spike_out_type.typeName} ref_${spike_out}_${spike_out}    = ${spike_out};
+${mem_out_type.typeName}   ref_${spike_out}_${mem_out}      = ${mem_out};
+
+// Quantization parameters - currently using placeholder values
+// TODO: Extract these from ONNX quantization metadata
+int32_t input_offset = 0;
+int32_t mem_in_offset = 0;
+int32_t output_offset = 0;
+int32_t mem_out_offset = 0;
+float32_t input_scale = 1.0f;
+float32_t mem_scale = 1.0f;
+
+LIF_s8_s8_NHWC_s32(
+    ref_${spike_out}_${data_in},
+    ref_${spike_out}_${mem_in},
+    ref_${spike_out}_${beta},
+    ref_${spike_out}_${threshold},
+    ref_${spike_out}_${spike_out},
+    ref_${spike_out}_${mem_out},
+    input_offset,
+    mem_in_offset,
+    output_offset,
+    mem_out_offset,
+    input_scale,
+    mem_scale,
+    ${N}, ${C}, ${H}, ${W}
+);
+""")
